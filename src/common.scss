@@ -5,7 +5,12 @@
  * that are used across the project.
 */
 
+// Fonts & basics
+$default-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$default-font-size: 13px;
+
 // Colors.
+$light-gray-100: #f8f9f9;
 $black: rgb(41, 41, 41);
 $white: #f4f4f4;
 $gray: #dedede;

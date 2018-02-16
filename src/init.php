@@ -1,11 +1,8 @@
 <?php
 /**
- * Blocks Initializer
+ * Initialize plugin.
  *
- * Enqueue CSS/JS of all the blocks.
- *
- * @since 	1.0.0
- * @package CGB
+ * @since 1.0.0
  */
 
 namespace WDS_Gutenberg\Src;
@@ -57,3 +54,7 @@ function enqueue_block_editor_assets() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
+
+// Recursively load all PHP files within the /src/ directory.
+require_once plugin_dir_path( __DIR__ ) . 'vendor/autoload/autoload.php';
+\AaronHolbrook\Autoload\autoload( plugin_dir_path( __DIR__ ) . 'src' );

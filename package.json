@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cgb-scripts": "1.9.4",
+    "classnames": "^2.2.5",
     "jsonp": "^0.2.1"
   }
 }
