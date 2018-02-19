@@ -5,7 +5,7 @@ Library of Gutenberg blocks for WebDevStudios to use on client projects. Please 
 # Table of Contents
 1. [Prequisites](#9requisites)
 2. [Project Onboarding](#project-onboarding)
-3. [Plugin Development](#plugin-development)
+3. [Plugin Development](#wds-gutenberg-plugin-development)
 4. [Theme Development](#theme-development)
 5. [Contributing](#contributing)
 
