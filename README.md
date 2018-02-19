@@ -1,6 +1,35 @@
 # WDS Gutenberg
 
-Library of Gutenberg blocks for WDS to use on client projects.
+Library of Gutenberg blocks for WDS to use on client projects. Please follow the instructions below to get spun up.
+
+## Prequisites
+- [Node/NPM](https://nodejs.org/en/)
+- Bash
+
+Until this plugin is made public, you will need to have the following plugins installed:
+
+- [Advanced Custom Fields Pro v5+
+](https://www.advancedcustomfields.com/) (for converting our existing ACF blocks)
+- [Migrate DB Pro](https://deliciousbrains.com/wp-migrate-db-pro/) (to pull the Lab DB)
+
+This will ensure that we're able to re-create our ACF content blocks. When those blocks have been converted, we can drop this requirement. We will also working with [wd_s](https://github.com/WebDevStudios/wd_s/tree/feature/gutenberg) Gutenberg branch to ensure it supports *all* the blocks.
+
+*It's recommended you use a fresh install for your local. There is a [WDS Lab](http://gutenberg.wdslab.com) instance.*
+
+## Project Onboarding
+
+### Import using Local by Flywheel...
+
+1. Download [gutenberg-local](https://drive.google.com/open?id=1JftWqLd9ThBTmr4U3O9mX5bc8Rub8AJc) (361MB .zip) 
+2. Import into Local
+
+### ...Or run the install script (bash)
+
+
+1. Clone this repository into `wp-content/plugins`
+2. Run the following command: `cd wds-gutenberg && sh goots.sh`
+
+Note: This script will clone [WordPress Gutenberg](https://github.com/WordPress/gutenberg) and [wd_s](https://github.com/WebDevStudios/wd_s/tree/feature/gutenberg). It will also "build" all three plugins, so you can get started right away.
 
 ## Development
 
@@ -52,3 +81,5 @@ Please use the following file naming convention for all blocks for consistency:
 --
 
 This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
+<br/><br/>
+[![wds-logo](https://dl.dropboxusercontent.com/s/71hvyg2dsjj2ubh/webdevstudios-goots-logo.png?dl=0)](https://webdevstudios.com)
