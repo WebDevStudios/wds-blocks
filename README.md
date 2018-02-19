@@ -2,6 +2,13 @@
 
 Library of Gutenberg blocks for WDS to use on client projects. Please follow the instructions below to get spun up.
 
+# Table of Contents
+1. [Prequisites](#9requisites)
+2. [Project Onboarding](#project-onboarding)
+3. [Plugin Development](#plugin-development)
+4. [Theme Development](#theme-development)
+5. [Contributing](#contributing)
+
 ## Prequisites
 - [Node/NPM](https://nodejs.org/en/)
 - Bash
@@ -20,7 +27,7 @@ This will ensure that we're able to re-create our ACF content blocks. When those
 
 ### Import using Local by Flywheel...
 
-1. Download [gutenberg-local](https://drive.google.com/open?id=1JftWqLd9ThBTmr4U3O9mX5bc8Rub8AJc) (361MB .zip) 
+1. Download [gutenberg-local](https://drive.google.com/open?id=1JftWqLd9ThBTmr4U3O9mX5bc8Rub8AJc) (379MB .zip) 
 2. Import into Local
 
 ### ...Or run the install script (bash)
@@ -80,7 +87,13 @@ Please use the following file naming convention for all blocks for consistency:
 
 ## Theme Development
 
-- wd_s must be 100% compatible with all blocks. If you imported from Local or ran the install script, then wd_s has been cloned using the `feature/gutenberg` branch. Please work in that branch, and push up PRs for review.
+wd_s must be 100% compatible with all blocks. If you imported from Local or ran the install script, then wd_s has been cloned using the `feature/gutenberg` branch. 
+
+- Be sure that all blocks look and work as expected in the Dashboard
+- Check to see that blocks display correctly on the front-end
+- If a block is broken, create an issue at [WDS Gutenberg](https://github.com/WebDevStudios/wds-gutenberg/issues) and assign the label: [wd_s](https://github.com/WebDevStudios/wds-gutenberg/labels/wd_s)
+- Please branch off the `feature/gutenberg`, and push up PRs for review
+- Code reviews will have to happen in the [wd_s repo](https://github.com/WebDevStudios/wd_s/pulls)
 
 ## Gulp Commands
 
@@ -89,6 +102,13 @@ Please use the following file naming convention for all blocks for consistency:
 
 ### 👉  `gulp`
 - Use to compile everything.
+
+## Contributing
+
+We welcome all contrubtions. 
+
+- Create a new issue here: [https://github.com/WebDevStudios/wds-gutenberg/issues](https://github.com/WebDevStudios/wds-gutenberg/issues)
+- Assign the label: [bug](https://github.com/WebDevStudios/wds-gutenberg/labels/bug)
 
 --
 
