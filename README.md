@@ -31,7 +31,7 @@ This will ensure that we're able to re-create our ACF content blocks. When those
 
 Note: This script will clone [WordPress Gutenberg](https://github.com/WordPress/gutenberg) and [wd_s](https://github.com/WebDevStudios/wd_s/tree/feature/gutenberg). It will also "build" all three plugins, so you can get started right away.
 
-## Development
+## Plugin Development
 
 ### File structure
 - Gutenberg blocks are stored in the `/src/blocks/` directory. These are the blocks that users can insert into posts in the wp-admin.
@@ -77,6 +77,18 @@ Please use the following file naming convention for all blocks for consistency:
 - Provides all the configurations so you can customize the project as you want.
 - It's a one-way street, `eject` and you have to maintain everything yourself.
 - You don't normally have to `eject` a project because by ejecting you lose the connection with `create-guten-block` and from there onwards you have to update and maintain all the dependencies on your own.
+
+## Theme Development
+
+- wd_s must be 100% compatible with all blocks. If you imported from Local or ran the install script, then wd_s has been cloned using the `feature/gutenberg` branch. Please work in that branch, and push up PRs for review.
+
+## Gulp Commands
+
+### 👉  `gulp watch`
+- Will monitor the directory and automatically compile as neeed.
+
+### 👉  `gulp`
+- Use to compile everything.
 
 --
 
