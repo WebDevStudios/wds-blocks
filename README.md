@@ -3,7 +3,7 @@
 Library of Gutenberg blocks for WebDevStudios to use on client projects. Please follow the instructions below to get spun up.
 
 # Table of Contents
-1. [Prequisites](#9requisites)
+1. [Prequisites](#prerequisites)
 2. [Project Onboarding](#project-onboarding)
 3. [Plugin Development](#wds-gutenberg-plugin-development)
 4. [Theme Development](#theme-development)
@@ -25,13 +25,13 @@ When all the ACF blocks have been converted, we can drop the ACF Pro requirement
 
 The Project is actually made up of 4 libraries, 3 of which have their own git repo:
 
-    /wp-content/  
-      |-- /plugins/
-        |-- /advanced-custom-fields/  ACF Pro. For converting ACF Blocks to Gutenberg (not version controlled)
-        |-- /gutenberg/               The WordPress Gutenberg plugin. (master)
-        |-- /wds-gutenberg/           The WDS Gutenberg Plugin. (master)
-      |-- /themes/     			 
-        |-- /wd_s/                    WebDevStudios' starter theme. (feature/gutenberg)
+    wp-content
+        ├── plugins
+        │   ├── advanced-custom-fields-pro For converting ACF Blocks to Gutenberg (not version controlled)
+        │   ├── gutenberg                  The core Gutenberg plugin (master)
+        │   └── wds-gutenberg              The WDS Gutenberg Plugin (master)
+        └── themes
+            └── wd_s                       WebDevStudios' starter theme. (feature/gutenberg)
 
 ### Import using Local by Flywheel...
 
@@ -50,7 +50,7 @@ The other option, is set up a fresh local install of WordPress at [https://guten
 3. Run the following command: `git clone git@github.com:WebDevStudios/wds-gutenberg.git && cd wds-gutenberg && sh goots.sh`
 4. Download and install and activate Advanced Custom Fields Pro
 5. Download and install and activate MigrateDB Pro
-6. Import the database using MigrateDB Pro (info in 1Password)
+6. Import the database using MigrateDB Pro (credentials in 1Password)
 
 *Note: This script will clone [WordPress Gutenberg](https://github.com/WordPress/gutenberg) and [wd_s](https://github.com/WebDevStudios/wd_s/tree/feature/gutenberg). It will also "build" all three libraries, so you can get started right away.*
 
@@ -62,14 +62,13 @@ The other option, is set up a fresh local install of WordPress at [https://guten
 
 Please use the following file naming convention for all blocks for consistency:
 
-    /example-block/  
-      |-- editor.scss   (styles for the backend only)
-      |-- endpoints.php (any REST API endpoints)
-      |-- icon.js       (the block's SVG icon)
-      |-- index.js      (required to register the block)
-      |-- render.php    (the PHP render callback function for dynamic blocks)
-      |-- style.scss    (styles for both frontend & backend)
-
+    example-block
+        ├── editor.scss   (styles for the backend only)
+        ├── endpoints.php (any REST API endpoints)
+        ├── icon.js       (the block's SVG icon)
+        ├── index.js      (required to register the block)
+        ├── render.php    (the PHP render callback function for dynamic blocks)
+        └── style.scss    (styles for both frontend & backend)
 
 `index.js` is the only file that is required, since that's where the block is registered. Beyond any listed above, your block can also include additional files, as needed - just give them names that make sense.
 
@@ -101,7 +100,7 @@ Please use the following file naming convention for all blocks for consistency:
 - It's a one-way street, `eject` and you have to maintain everything yourself.
 - You don't normally have to `eject` a project because by ejecting you lose the connection with `create-guten-block` and from there onwards you have to update and maintain all the dependencies on your own.
 
-## Theme Development
+## wd_s Theme Development
 
 wd_s must be 100% compatible with all blocks. If you imported from Local or ran the install script, then wd_s has been cloned using the `feature/gutenberg` branch. 
 
@@ -121,7 +120,7 @@ wd_s must be 100% compatible with all blocks. If you imported from Local or ran 
 
 ## Contributing
 
-We welcome all contrubtions. 
+We welcome all contributions. 
 
 - Create a new issue here: [https://github.com/WebDevStudios/wds-gutenberg/issues](https://github.com/WebDevStudios/wds-gutenberg/issues)
 - Assign the label: [bug](https://github.com/WebDevStudios/wds-gutenberg/labels/bug)
