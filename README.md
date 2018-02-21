@@ -110,7 +110,7 @@ wd_s must be 100% compatible with all blocks. If you imported from Local or ran 
 - Please branch off the `feature/gutenberg`, and push up PRs for review
 - Code reviews will have to happen in the [wd_s repo](https://github.com/WebDevStudios/wd_s/pulls)
 
-## Gulp Commands
+### Gulp Commands
 
 ### 👉  `gulp watch`
 - Will monitor the directory and automatically compile as neeed.
@@ -118,7 +118,7 @@ wd_s must be 100% compatible with all blocks. If you imported from Local or ran 
 ### 👉  `gulp`
 - Use to compile everything.
 
-## Contributing
+### Contributing
 
 We welcome all contributions. 
 
