@@ -11,3 +11,4 @@
 
 import './blocks/example-block/index.js';
 import './blocks/github-gist/index.js';
+import './blocks/fifty-fifty-block/index.js';
