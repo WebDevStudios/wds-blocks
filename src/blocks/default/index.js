@@ -1,8 +1,8 @@
 /**
  * BLOCK: Default Block
  *
- * This block was meant to be duplicated. It should
- * serve as the starting point for your new block. 😀
+ * This block was meant to be duplicated.
+ * It serves as the starting point for new blocks. 😀
  */
 
 //  Import CSS.
@@ -10,7 +10,10 @@ import './style.scss';
 import './editor.scss';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
-const { registerBlockType, Editable } = wp.blocks; // Import registerBlockType() from wp.blocks
+const {
+	registerBlockType,
+	Editable,
+} = wp.blocks; // Import registerBlockType() from wp.blocks
 
 /**
  * Register a new block with WordPress.
@@ -52,16 +55,18 @@ registerBlockType(
 				props.setAttributes( { content: value } );
 			};
 			// Return the markup displayed in the editor, including a core Editable field.
-			return <div className={ props.className }>
-				<Editable
-					tagname="div"
-					multiline="p"
-					className="default-block"
-					placeholder={ __( 'Lorem to my Ipsum...' ) }
-					value={ props.attributes.content }
-					onChange={ onChangeContent }
-				/>
-			</div>;
+			return (
+				<div className={ props.className }>
+					<Editable
+						tagname="div"
+						multiline="p"
+						className="default-block"
+						placeholder={ __( 'Lorem to my Ipsum...' ) }
+						value={ props.attributes.content }
+						onChange={ onChangeContent }
+					/>
+				</div>
+			);
 		},
 		// Determines what is displayed on the front-end.
 		// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#save
