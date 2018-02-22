@@ -17,6 +17,16 @@ const {
  * Create an Inspector Controls wrapper Component
  */
 export default class BackgroundOptions extends Component {
+	imageBackgroundSelect() {
+		let isImageBackground = __( 'You have selected an image background.' );
+
+		if ( 'image' !== this.props.attributes.backgroundType ) {
+			isImageBackground = '';
+		}
+
+		return isImageBackground;
+	}
+
 	render() {
 		return (
 			<InspectorControls key="inspector">
@@ -41,6 +51,8 @@ export default class BackgroundOptions extends Component {
 					] }
 					onChange={ this.props.onChangeBackgroundType }
 				/>
+
+				{ this.imageBackgroundSelect() }
 			</InspectorControls>
 		);
 	}
