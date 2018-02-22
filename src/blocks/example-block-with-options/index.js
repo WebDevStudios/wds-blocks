@@ -56,7 +56,6 @@ export default registerBlockType(
 						tagName="div"
 						multiline="p"
 						className="content-block"
-						style={ { textAlign: props.attributes.alignmentLeft } }
 						placeholder={ __( 'Enter your content here for the left Example Block with Options' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
@@ -70,7 +69,7 @@ export default registerBlockType(
 			return (
 				<section
 					className={ classnames(
-						'content-block grid-container two-column',
+						props.className,
 						{ 'image-as-background': 'image' === props.attributes.backgroundType },
 						{ 'color-as-background': 'color' === props.attributes.backgroundType },
 					) }
@@ -80,10 +79,7 @@ export default registerBlockType(
 						<h2>{ __( 'Example Block with Options' ) }</h2>
 					</header>
 
-					<div
-						className="content-block-content content-block"
-						style={ { backgroundType: props.attributes.backgroundType } }
-					>
+					<div className="content-block-content content-block">
 						{ props.attributes.message }
 					</div>
 				</section>
