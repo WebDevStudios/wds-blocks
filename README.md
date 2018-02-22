@@ -37,7 +37,7 @@ The Project is actually made up of 4 libraries, 3 of which have their own git re
 
 The fastest way to get onboarded is to import a copy into Local by Flywheel
 
-1. Download [gutenberg-local](https://drive.google.com/open?id=1JftWqLd9ThBTmr4U3O9mX5bc8Rub8AJc) (379MB .zip) 
+1. Download [gutenberg-local](https://drive.google.com/open?id=1JftWqLd9ThBTmr4U3O9mX5bc8Rub8AJc) (379MB .zip)
 2. Import into Local
 3. Visit [https://gutenberg.test](https://gutenberg.test)
 
@@ -46,7 +46,7 @@ The fastest way to get onboarded is to import a copy into Local by Flywheel
 The other option, is set up a fresh local install of WordPress at [https://gutenberg.test](https://gutenberg.test). Then...
 
 1. Open your terminal
-2. CD into `wp-content/plugins` 
+2. CD into `wp-content/plugins`
 3. Run the following command: `git clone git@github.com:WebDevStudios/wds-gutenberg.git && cd wds-gutenberg && sh goots.sh`
 4. Download and install and activate Advanced Custom Fields Pro
 5. Download and install and activate MigrateDB Pro
@@ -62,7 +62,7 @@ The other option, is set up a fresh local install of WordPress at [https://guten
 
 Please use the following file naming convention for all blocks for consistency:
 
-    example-block
+    default
         ├── editor.scss   (styles for the backend only)
         ├── endpoints.php (any REST API endpoints)
         ├── icon.js       (the block's SVG icon)
@@ -74,8 +74,8 @@ Please use the following file naming convention for all blocks for consistency:
 
 ### How to add a new block
 
-1. Create a new directory inside of `/src/blocks/` with a name like `my-block`.
-1. Inside of that new directory, create an `index.js` file. This is where the call to `registerBlockType()` to register the block needs to be.
+1. Inside of `/src/blocks/`, duplicate the `default` block and rename it.
+1. Inside of that new directory, open the `index.js` file. This is where the call to `registerBlockType()` to register the block needs to be.
 1. Inside of `/src/blocks.js`, add a line like the following to import your new block: `import './blocks/my-block/index.js';`. This will ensure that you're new block is included in the webpack build process.
 1. For any other JS or SCSS files your block uses, be sure to `import` them from within `index.js`. Any PHP files included in your block's directory will be loaded up automatically – you don't need to worry about adding `require`/`include` statements anywhere.
 1. Namespace any PHP files using the name of your block, such as: `namespace WDS_Gutenberg\Src\My_block;`.
@@ -102,7 +102,7 @@ Please use the following file naming convention for all blocks for consistency:
 
 ## wd_s Theme Development
 
-wd_s must be 100% compatible with all blocks. If you imported from Local or ran the install script, then wd_s has been cloned using the `feature/gutenberg` branch. 
+wd_s must be 100% compatible with all blocks. If you imported from Local or ran the install script, then wd_s has been cloned using the `feature/gutenberg` branch.
 
 - Be sure that all blocks look and work as expected in the Dashboard
 - Check to see that blocks display correctly on the front-end
@@ -120,7 +120,7 @@ wd_s must be 100% compatible with all blocks. If you imported from Local or ran 
 
 ### Contributing
 
-We welcome all contributions. 
+We welcome all contributions.
 
 - Create a new issue here: [https://github.com/WebDevStudios/wds-gutenberg/issues](https://github.com/WebDevStudios/wds-gutenberg/issues)
 - Assign the label: [bug](https://github.com/WebDevStudios/wds-gutenberg/labels/bug)
