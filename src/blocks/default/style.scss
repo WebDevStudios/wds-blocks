@@ -1,0 +1,19 @@
+//--------------------------------------------------------------
+// Block Styles
+//
+// Default styles for this block.
+// Appears on both front and back-end.
+//--------------------------------------------------------------
+.wp-block-wds-default {
+	border: 2px solid #000000;
+	color: #111111;
+	margin: 0 auto;
+	max-width: 740px;
+	padding: 32px;
+
+	// Reset <p>
+	p {
+		margin: 0;
+		padding: 0;
+	}
+}
