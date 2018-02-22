@@ -5,6 +5,16 @@
  * which makes it higher in priority.
  */
 
-.wp-block-cmcgutenberg-editable-content-fifty-fifty {
+.wp-block-wds-editable-content-two-column {
 	max-width: 740px;
-} // .wp-block-cmcgutenberg-editable-content-fifty-fifty
+
+} // .wp-block-wds-editable-content-two-column
+
+div[data-type='wds/editable-content-two-column'] {
+
+	.components-toolbar:nth-child(2) {
+		border: 1px solid #e2e4e7;
+		position: absolute;
+		right: 0;
+	} // .components-toolbar:nth-child(2)
+} // div[data-type='wds/editable-content-two-column']
