@@ -7,9 +7,12 @@ const { Component } = wp.element;
 
 const {
 	InspectorControls,
+	MediaUpload,
 } = wp.blocks;
 
 const {
+	Button,
+	Dashicon,
 	SelectControl,
 } = wp.components;
 
@@ -18,10 +21,46 @@ const {
  */
 export default class BackgroundOptions extends Component {
 	imageBackgroundSelect() {
-		let isImageBackground = __( 'You have selected an image background.' );
-
 		if ( 'image' !== this.props.attributes.backgroundType ) {
-			isImageBackground = '';
+			return '';
+		}
+
+		let isImageBackground = '';
+
+		if ( ! this.props.attributes.backgroundImage ) {
+			const imageID = '',
+				imageURL = '';
+
+			isImageBackground =
+				<MediaUpload
+					buttonProps={ {
+						className: 'components-button button button-large',
+					} }
+					onSelect={ this.props.onChangeBackgroundImage }
+					type="image"
+					value={ imageID }
+					render={ ( { open } ) => (
+						<Button className="button button-large" onClick={ open }>
+							<Dashicon icon="format-image" /> { ! imageID ? __( 'Upload Image' ) : <img src={ imageURL } alt="" /> }
+						</Button>
+					) }
+				/>;
+		} else {
+			isImageBackground =
+				<p className="image-wrapper">
+					<img
+						src={ this.props.attributes.backgroundImage.url }
+						alt={ this.props.attributes.backgroundImage.alt }
+					/>
+					{ this.props.focus ? (
+						<Button
+							className="remove-image button button-large"
+							onClick={ this.props.onRemoveBackgroundImage }
+						>
+							<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
+						</Button>
+					) : null }
+				</p>;
 		}
 
 		return isImageBackground;
