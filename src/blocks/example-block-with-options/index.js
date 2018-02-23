@@ -29,9 +29,12 @@ export default registerBlockType(
 			backgroundType: {
 				type: 'string',
 			},
+			backgroundImage: {
+				type: 'object',
+			},
+
 		},
 		edit: props => {
-			// Change the Left message value as we type.
 			const onChangeMessage = value => {
 				props.setAttributes( { message: value } );
 			};
@@ -40,10 +43,18 @@ export default registerBlockType(
 				props.setAttributes( { backgroundType: value } );
 			};
 
+			const onChangeBackgroundImage = value => {
+				props.setAttributes( { backgroundImage: value } );
+			};
+
+			const onRemoveBackgroundImage = () => {
+				props.setAttributes( { backgroundImage: null } );
+			};
+
 			return [
 				!! props.focus && (
 					<BackgroundOptions
-						{ ...{ onChangeBackgroundType, ...props } }
+						{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, ...props } }
 					/>
 				),
 				<section className={ props.className }>
