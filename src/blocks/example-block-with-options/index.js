@@ -62,6 +62,10 @@ export default registerBlockType(
 				props.setAttributes( { backgroundVideo: value } );
 			};
 
+			const onRemoveBackgroundVideo = value => {
+				props.setAttributes( { backgroundVideo: null } );
+			};
+
 			const onChangeBackgroundColor = value => {
 				props.setAttributes( { backgroundColor: value } );
 			};
@@ -70,11 +74,27 @@ export default registerBlockType(
 				!! props.focus && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
-							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, onChangeBackgroundVideo, onChangeBackgroundColor, ...props } }
+							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, onChangeBackgroundVideo, onRemoveBackgroundVideo, onChangeBackgroundColor, ...props } }
 						/>
 					</InspectorControls>
 				),
 				<section className={ props.className }>
+
+					{ 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ? (
+						<video
+							className="video-container video-container-overlay"
+							autoPlay="false"
+							loop=""
+							muted="true"
+						>
+							<source
+								type="video/mp4"
+								src={ props.attributes.backgroundVideo.url }
+							/>
+						</video>
+					) : (
+						null
+					) }
 
 					<header className="content-block-header">
 						<h2>{ __( 'Example Block with Options' ) }</h2>
@@ -111,6 +131,22 @@ export default registerBlockType(
 						backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
 					} }
 				>
+
+					{ 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ? (
+						<video
+							className="video-container video-container-overlay"
+							autoPlay="false"
+							loop=""
+							muted="true"
+						>
+							<source
+								type="video/mp4"
+								src={ props.attributes.backgroundVideo.url }
+							/>
+						</video>
+					) : (
+						null
+					) }
 
 					<header className="content-block-header">
 						<h2>{ __( 'Example Block with Options' ) }</h2>
