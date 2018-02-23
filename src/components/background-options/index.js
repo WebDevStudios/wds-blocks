@@ -1,5 +1,4 @@
 import './editor.scss';
-
 /**
  * Internal block libraries
  */
@@ -8,6 +7,7 @@ const { __ } = wp.i18n;
 const { Component } = wp.element;
 
 const {
+	ColorPalette,
 	MediaUpload,
 } = wp.blocks;
 
@@ -15,6 +15,7 @@ const {
 	Button,
 	Dashicon,
 	PanelBody,
+	PanelColor,
 	PanelRow,
 	SelectControl,
 } = wp.components;
@@ -69,6 +70,25 @@ export default class BackgroundOptions extends Component {
 		return isImageBackground;
 	}
 
+	colorPanelSelect() {
+		if ( 'color' !== this.props.attributes.backgroundType ) {
+			return '';
+		}
+
+		const isColorBackground =
+			<PanelColor
+				title={ __( 'Background Color' ) }
+				colorValue={ this.props.attributes.backgroundColor }
+			>
+				<ColorPalette
+					value={ this.props.attributes.backgroundColor }
+					onChange={ this.props.onChangeBackgroundColor }
+				/>
+			</PanelColor>;
+
+		return isColorBackground;
+	}
+
 	render() {
 		return (
 			<PanelBody
@@ -103,6 +123,7 @@ export default class BackgroundOptions extends Component {
 				</PanelRow>
 				<PanelRow>
 					{ this.imageBackgroundSelect() }
+					{ this.colorPanelSelect() }
 				</PanelRow>
 			</PanelBody>
 		);

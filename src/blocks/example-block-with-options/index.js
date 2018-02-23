@@ -33,6 +33,9 @@ export default registerBlockType(
 			backgroundImage: {
 				type: 'object',
 			},
+			backgroundColor: {
+				type: 'string',
+			},
 
 		},
 		edit: props => {
@@ -52,11 +55,15 @@ export default registerBlockType(
 				props.setAttributes( { backgroundImage: null } );
 			};
 
+			const onChangeBackgroundColor = value => {
+				props.setAttributes( { backgroundColor: value } );
+			};
+
 			return [
 				!! props.focus && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
-							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, ...props } }
+							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, onChangeBackgroundColor, ...props } }
 						/>
 					</InspectorControls>
 				),
@@ -74,7 +81,8 @@ export default registerBlockType(
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
 						style={ {
-							backgroundImage: props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
+							backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
+							backgroundImage: 'image' === props.attributes.backgroundType ? `url(${ props.attributes.backgroundImage.url })` : null,
 						} }
 						focus={ props.focus }
 						onFocus={ props.setFocus }
@@ -91,7 +99,8 @@ export default registerBlockType(
 						{ 'color-as-background': 'color' === props.attributes.backgroundType },
 					) }
 					style={ {
-						backgroundImage: props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
+						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
+						backgroundImage: 'image' === props.attributes.backgroundType ? `url(${ props.attributes.backgroundImage.url })` : null,
 					} }
 				>
 
