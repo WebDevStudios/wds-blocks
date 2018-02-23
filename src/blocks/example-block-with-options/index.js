@@ -107,6 +107,7 @@ export default registerBlockType(
 						{ 'has-image-background has-custom-background': 'image' === props.attributes.backgroundType },
 						{ 'has-color-background has-custom-background': 'color' === props.attributes.backgroundType },
 						{ 'has-video-background has-custom-background': 'video' === props.attributes.backgroundType },
+						props.attributes.animationType ? `animated ${ props.attributes.animationType }` : null,
 					) }
 					style={ {
 						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
@@ -162,6 +163,7 @@ export default registerBlockType(
 						{ 'has-image-background has-custom-background': 'image' === props.attributes.backgroundType },
 						{ 'has-color-background has-custom-background': 'color' === props.attributes.backgroundType },
 						{ 'has-video-background has-custom-background': 'video' === props.attributes.backgroundType },
+						props.attributes.animationType ? `animated ${ props.attributes.animationType }` : null,
 					) }
 					style={ {
 						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
