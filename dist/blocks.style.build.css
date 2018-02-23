@@ -72,3 +72,21 @@
 
 .wds-components-placeholder__instructions {
   margin-bottom: 1em; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.has-video-background {
+  overflow: hidden;
+  position: relative; }
+  .has-video-background .video-container {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1; }
+
+.has-custom-background {
+  padding: 20px; }
