@@ -8,6 +8,7 @@ const { Component } = wp.element;
 
 const {
 	ColorPalette,
+	description,
 	MediaUpload,
 } = wp.blocks;
 
@@ -36,38 +37,128 @@ export default class BackgroundOptions extends Component {
 				imageURL = '';
 
 			isImageBackground =
-				<MediaUpload
-					buttonProps={ {
-						className: 'components-button button button-large',
-					} }
-					onSelect={ this.props.onChangeBackgroundImage }
-					type="image"
-					value={ imageID }
-					render={ ( { open } ) => (
-						<Button className="button button-large" onClick={ open }>
-							<Dashicon icon="format-image" /> { ! imageID ? __( 'Upload Image' ) : <img src={ imageURL } alt="" /> }
-						</Button>
-					) }
-				/>;
+				<div className="media-upload-wrapper">
+					<p>
+						<MediaUpload
+							buttonProps={ {
+								className: 'components-button button button-large',
+							} }
+							onSelect={ this.props.onChangeBackgroundImage }
+							type="image"
+							value={ imageID }
+							render={ ( { open } ) => (
+								<Button className="button button-large" onClick={ open }>
+									<Dashicon icon="format-image" /> { ! imageID ? __( 'Upload Image' ) : <img src={ imageURL } alt="" /> }
+								</Button>
+							) }
+						/>
+					</p>
+
+					<p>
+						<description>
+							{ __( 'Add/Upload an image file. (1920x1080px .jpg, .png)' ) }
+						</description>
+					</p>
+				</div>;
 		} else {
 			isImageBackground =
-				<p className="image-wrapper">
-					<img
-						src={ this.props.attributes.backgroundImage.url }
-						alt={ this.props.attributes.backgroundImage.alt }
-					/>
+				<div className="image-wrapper">
+					<p>
+						<img
+							src={ this.props.attributes.backgroundImage.url }
+							alt={ this.props.attributes.backgroundImage.alt }
+						/>
+					</p>
 					{ this.props.focus ? (
-						<Button
-							className="remove-image button button-large"
-							onClick={ this.props.onRemoveBackgroundImage }
-						>
-							<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
-						</Button>
+						<div className="media-button-wrapper">
+							<p>
+								<Button
+									className="remove-image button button-large"
+									onClick={ this.props.onRemoveBackgroundImage }
+								>
+									<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
+								</Button>
+							</p>
+
+							<p>
+								<description>
+									{ __( 'Add/Upload an image file. (1920x1080px .jpg, .png)' ) }
+								</description>
+							</p>
+						</div>
 					) : null }
-				</p>;
+				</div>;
 		}
 
 		return isImageBackground;
+	}
+
+	videoBackgroundSelect() {
+		if ( 'video' !== this.props.attributes.backgroundType ) {
+			return '';
+		}
+
+		let isVideoBackground = '';
+
+		if ( ! this.props.attributes.backgroundVideo ) {
+			const videoID = '',
+				videoURL = '';
+
+			isVideoBackground =
+				<div className="media-upload-wrapper">
+					<p>
+						<MediaUpload
+							buttonProps={ {
+								className: 'components-button button button-large',
+							} }
+							onSelect={ this.props.onChangeBackgroundVideo }
+							type="video"
+							value={ videoID }
+							render={ ( { open } ) => (
+								<Button className="button button-large" onClick={ open }>
+									<Dashicon icon="format-video" /> { ! videoID ? __( 'Upload Video' ) : <img src={ videoURL } alt="" /> }
+								</Button>
+							) }
+						/>
+					</p>
+
+					<p>
+						<description>
+							{ __( 'Add/Upload a 1920x1080 .mp4 video file. Note: background videos are only supported on heroes.' ) }
+						</description>
+					</p>
+				</div>;
+		} else {
+			isVideoBackground =
+				<div className="video-wrapper">
+					<p>
+						<img
+							src={ this.props.attributes.backgroundVideo.url }
+							alt={ this.props.attributes.backgroundVideo.alt }
+						/>
+					</p>
+					{ this.props.focus ? (
+						<div className="media-button-wrapper">
+							<p>
+								<Button
+									className="remove-video button button-large"
+									onClick={ this.props.onRemoveBackgroundVideo }
+								>
+									<Dashicon icon="no-alt" /> { __( 'Remove Video' ) }
+								</Button>
+							</p>
+
+							<p>
+								<description>
+									{ __( 'Add/Upload a 1920x1080 .mp4 video file. Note: background videos are only supported on heroes.' ) }
+								</description>
+							</p>
+						</div>
+					) : null }
+				</div>;
+		}
+
+		return isVideoBackground;
 	}
 
 	colorPanelSelect() {
@@ -120,6 +211,7 @@ export default class BackgroundOptions extends Component {
 				</PanelRow>
 				<PanelRow>
 					{ this.imageBackgroundSelect() }
+					{ this.videoBackgroundSelect() }
 					{ this.colorPanelSelect() }
 				</PanelRow>
 			</PanelBody>

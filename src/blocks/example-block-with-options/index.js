@@ -33,6 +33,9 @@ export default registerBlockType(
 			backgroundImage: {
 				type: 'object',
 			},
+			backgroundVideo: {
+				type: 'object',
+			},
 			backgroundColor: {
 				type: 'string',
 			},
@@ -55,6 +58,10 @@ export default registerBlockType(
 				props.setAttributes( { backgroundImage: null } );
 			};
 
+			const onChangeBackgroundVideo = value => {
+				props.setAttributes( { backgroundVideo: value } );
+			};
+
 			const onChangeBackgroundColor = value => {
 				props.setAttributes( { backgroundColor: value } );
 			};
@@ -63,7 +70,7 @@ export default registerBlockType(
 				!! props.focus && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
-							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, onChangeBackgroundColor, ...props } }
+							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, onChangeBackgroundVideo, onChangeBackgroundColor, ...props } }
 						/>
 					</InspectorControls>
 				),
