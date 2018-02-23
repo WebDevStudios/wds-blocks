@@ -89,7 +89,7 @@ export default registerBlockType(
 						value={ props.attributes.message }
 						style={ {
 							backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
-							backgroundImage: 'image' === props.attributes.backgroundType ? `url(${ props.attributes.backgroundImage.url })` : null,
+							backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
 						} }
 						focus={ props.focus }
 						onFocus={ props.setFocus }
@@ -104,10 +104,11 @@ export default registerBlockType(
 						props.className,
 						{ 'image-as-background': 'image' === props.attributes.backgroundType },
 						{ 'color-as-background': 'color' === props.attributes.backgroundType },
+						{ 'video-as-background': 'video' === props.attributes.backgroundType },
 					) }
 					style={ {
 						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
-						backgroundImage: 'image' === props.attributes.backgroundType ? `url(${ props.attributes.backgroundImage.url })` : null,
+						backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
 					} }
 				>
 
