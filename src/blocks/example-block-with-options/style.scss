@@ -1,0 +1,15 @@
+.has-video-background {
+	position: relative;
+
+	.video-container {
+	    left: 0;
+	    position: absolute;
+	    top: 0;
+	    width: 100%;
+	    z-index: -1;
+	} // .video-container
+} // .has-video-background
+
+.has-custom-background {
+	padding: 20px;
+} // .has-custom-background

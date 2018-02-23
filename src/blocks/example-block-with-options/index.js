@@ -1,3 +1,4 @@
+import './style.scss';
 import classnames from 'classnames';
 import BackgroundOptions from '../../components/background-options';
 
@@ -62,7 +63,7 @@ export default registerBlockType(
 				props.setAttributes( { backgroundVideo: value } );
 			};
 
-			const onRemoveBackgroundVideo = value => {
+			const onRemoveBackgroundVideo = () => {
 				props.setAttributes( { backgroundVideo: null } );
 			};
 
@@ -78,7 +79,18 @@ export default registerBlockType(
 						/>
 					</InspectorControls>
 				),
-				<section className={ props.className }>
+				<section
+					className={ classnames(
+						props.className,
+						{ 'has-image-background has-custom-background': 'image' === props.attributes.backgroundType },
+						{ 'has-color-background has-custom-background': 'color' === props.attributes.backgroundType },
+						{ 'has-video-background has-custom-background': 'video' === props.attributes.backgroundType },
+					) }
+					style={ {
+						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
+						backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
+					} }
+				>
 
 					{ 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ? (
 						<video
@@ -107,10 +119,6 @@ export default registerBlockType(
 						placeholder={ __( 'Enter your content here for the left Example Block with Options' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
-						style={ {
-							backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
-							backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
-						} }
 						focus={ props.focus }
 						onFocus={ props.setFocus }
 					/>
@@ -122,9 +130,9 @@ export default registerBlockType(
 				<section
 					className={ classnames(
 						props.className,
-						{ 'image-as-background': 'image' === props.attributes.backgroundType },
-						{ 'color-as-background': 'color' === props.attributes.backgroundType },
-						{ 'video-as-background': 'video' === props.attributes.backgroundType },
+						{ 'has-image-background has-custom-background': 'image' === props.attributes.backgroundType },
+						{ 'has-color-background has-custom-background': 'color' === props.attributes.backgroundType },
+						{ 'has-video-background has-custom-background': 'video' === props.attributes.backgroundType },
 					) }
 					style={ {
 						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
