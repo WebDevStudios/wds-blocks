@@ -70,6 +70,9 @@ export default registerBlockType(
 						placeholder={ __( 'Enter your content here for the left Example Block with Options' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
+						style={ {
+							backgroundImage: props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
+						} }
 						focus={ props.focus }
 						onFocus={ props.setFocus }
 					/>
@@ -84,6 +87,9 @@ export default registerBlockType(
 						{ 'image-as-background': 'image' === props.attributes.backgroundType },
 						{ 'color-as-background': 'color' === props.attributes.backgroundType },
 					) }
+					style={ {
+						backgroundImage: props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
+					} }
 				>
 
 					<header className="content-block-header">
