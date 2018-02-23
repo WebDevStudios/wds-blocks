@@ -1,7 +1,9 @@
 import './style.scss';
 import classnames from 'classnames';
 import BackgroundOptions from '../../components/background-options';
+import { BackgroundOptionsAttributes } from '../../components/background-options/attributes';
 import OtherOptions from '../../components/other-options';
+import { OtherOptionsAttributes } from '../../components/other-options/attributes';
 
 // Internal block libraries.
 const { __ } = wp.i18n;
@@ -29,79 +31,27 @@ export default registerBlockType(
 				source: 'children',
 				selector: '.content-block',
 			},
-			backgroundType: {
-				type: 'string',
-			},
-			backgroundImage: {
-				type: 'object',
-			},
-			backgroundVideo: {
-				type: 'object',
-			},
-			backgroundColor: {
-				type: 'string',
-			},
-			animationType: {
-				type: 'string',
-			},
-			textColor: {
-				type: 'string',
-			},
-
+			...BackgroundOptionsAttributes,
+			...OtherOptionsAttributes,
 		},
 		edit: props => {
 			const onChangeMessage = value => {
 				props.setAttributes( { message: value } );
 			};
 
-			// Start Background Options.
-			const onChangeBackgroundType = value => {
-				props.setAttributes( { backgroundType: value } );
-			};
-
-			const onChangeBackgroundImage = value => {
-				props.setAttributes( { backgroundImage: value } );
-			};
-
-			const onRemoveBackgroundImage = () => {
-				props.setAttributes( { backgroundImage: null } );
-			};
-
-			const onChangeBackgroundVideo = value => {
-				props.setAttributes( { backgroundVideo: value } );
-			};
-
-			const onRemoveBackgroundVideo = () => {
-				props.setAttributes( { backgroundVideo: null } );
-			};
-
-			const onChangeBackgroundColor = value => {
-				props.setAttributes( { backgroundColor: value } );
-			};
-			// End Background Options.
-
-			// Start Other Options.
-			const onChangeAnimationType = value => {
-				props.setAttributes( { animationType: value } );
-			};
-
-			const onChangeTextColor = value => {
-				props.setAttributes( { textColor: value } );
-			};
-			// End Other Options.
-
 			return [
 				!! props.focus && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
-							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, onChangeBackgroundVideo, onRemoveBackgroundVideo, onChangeBackgroundColor, ...props } }
+							{ ...props }
 						/>
 						<OtherOptions
-							{ ...{ onChangeAnimationType, onChangeTextColor, ...props } }
+							{ ...props }
 						/>
 					</InspectorControls>
 				),
 				<section
+					key="editable-content-example-block-with-options"
 					className={ classnames(
 						props.className,
 						{ 'has-image-background has-custom-background': 'image' === props.attributes.backgroundType },

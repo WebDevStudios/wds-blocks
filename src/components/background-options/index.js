@@ -23,8 +23,40 @@ const {
 
 /**
  * Create an Inspector Controls wrapper Component
+ *
+ * @param {string} value The string value of the saved attribute.
  */
 export default class BackgroundOptions extends Component {
+	onChangeBackgroundType = value => {
+		const { setAttributes } = this.props;
+		setAttributes( { backgroundType: value } );
+	};
+
+	onChangeBackgroundImage = value => {
+		const { setAttributes } = this.props;
+		setAttributes( { backgroundImage: value } );
+	};
+
+	onRemoveBackgroundImage = () => {
+		const { setAttributes } = this.props;
+		setAttributes( { backgroundImage: null } );
+	};
+
+	onChangeBackgroundVideo = value => {
+		const { setAttributes } = this.props;
+		setAttributes( { backgroundVideo: value } );
+	};
+
+	onRemoveBackgroundVideo = () => {
+		const { setAttributes } = this.props;
+		setAttributes( { backgroundVideo: null } );
+	};
+
+	onChangeBackgroundColor = value => {
+		const { setAttributes } = this.props;
+		setAttributes( { backgroundColor: value } );
+	};
+
 	imageBackgroundSelect() {
 		if ( 'image' !== this.props.attributes.backgroundType ) {
 			return '';
@@ -43,7 +75,7 @@ export default class BackgroundOptions extends Component {
 							buttonProps={ {
 								className: 'components-button button button-large',
 							} }
-							onSelect={ this.props.onChangeBackgroundImage }
+							onSelect={ this.onChangeBackgroundImage }
 							type="image"
 							value={ imageID }
 							render={ ( { open } ) => (
@@ -74,7 +106,7 @@ export default class BackgroundOptions extends Component {
 							<p>
 								<Button
 									className="remove-image button button-large"
-									onClick={ this.props.onRemoveBackgroundImage }
+									onClick={ this.onRemoveBackgroundImage }
 								>
 									<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
 								</Button>
@@ -110,7 +142,7 @@ export default class BackgroundOptions extends Component {
 							buttonProps={ {
 								className: 'components-button button button-large',
 							} }
-							onSelect={ this.props.onChangeBackgroundVideo }
+							onSelect={ this.onChangeBackgroundVideo }
 							type="video"
 							value={ videoID }
 							render={ ( { open } ) => (
@@ -148,7 +180,7 @@ export default class BackgroundOptions extends Component {
 							<p>
 								<Button
 									className="remove-video button button-large"
-									onClick={ this.props.onRemoveBackgroundVideo }
+									onClick={ this.onRemoveBackgroundVideo }
 								>
 									<Dashicon icon="no-alt" /> { __( 'Remove Video' ) }
 								</Button>
@@ -178,7 +210,7 @@ export default class BackgroundOptions extends Component {
 		>
 			<ColorPalette
 				value={ this.props.attributes.backgroundColor }
-				onChange={ this.props.onChangeBackgroundColor }
+				onChange={ this.onChangeBackgroundColor }
 			/>
 		</PanelColor>;
 	}
@@ -212,7 +244,7 @@ export default class BackgroundOptions extends Component {
 								value: 'color',
 							},
 						] }
-						onChange={ this.props.onChangeBackgroundType }
+						onChange={ this.onChangeBackgroundType }
 					/>
 				</PanelRow>
 				<PanelRow>

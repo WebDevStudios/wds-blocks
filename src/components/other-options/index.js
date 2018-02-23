@@ -20,8 +20,20 @@ const {
 
 /**
  * Create an Inspector Controls wrapper Component
+ *
+ * @param {string} value The string value of the saved attribute.
  */
-export default class BackgroundOptions extends Component {
+export default class OtherOptions extends Component {
+	onChangeAnimationType = value => {
+		const { setAttributes } = this.props;
+		setAttributes( { animationType: value } );
+	};
+
+	onChangeTextColor = value => {
+		const { setAttributes } = this.props;
+		setAttributes( { textColor: value } );
+	};
+
 	render() {
 		return (
 			<PanelBody
@@ -192,161 +204,161 @@ export default class BackgroundOptions extends Component {
 										label: __( 'fadeOutUpBig' ),
 										value: 'fadeOutUpBig',
 									},
-										{
+									{
 										label: __( 'flipInX' ),
 										value: 'flipInX',
 									},
-										{
+									{
 										label: __( 'flipInY' ),
 										value: 'flipInY',
 									},
-										{
+									{
 										label: __( 'flipOutX' ),
 										value: 'flipOutX',
 									},
-										{
+									{
 										label: __( 'flipOutY' ),
 										value: 'flipOutY',
 									},
-										{
+									{
 										label: __( 'lightSpeedIn' ),
 										value: 'lightSpeedIn',
 									},
-										{
+									{
 										label: __( 'lightSpeedOut' ),
 										value: 'lightSpeedOut',
 									},
-										{
+									{
 										label: __( 'rotateIn' ),
 										value: 'rotateIn',
 									},
-										{
+									{
 										label: __( 'rotateInDownLeft' ),
 										value: 'rotateInDownLeft',
 									},
-										{
+									{
 										label: __( 'rotateInDownRight' ),
 										value: 'rotateInDownRight',
 									},
-										{
+									{
 										label: __( 'rotateInUpLeft' ),
 										value: 'rotateInUpLeft',
 									},
-										{
+									{
 										label: __( 'rotateInUpRight' ),
 										value: 'rotateInUpRight',
 									},
-										{
+									{
 										label: __( 'rotateOut' ),
 										value: 'rotateOut',
 									},
-										{
+									{
 										label: __( 'rotateOutDownLeft' ),
 										value: 'rotateOutDownLeft',
 									},
-										{
+									{
 										label: __( 'rotateOutDownRight' ),
 										value: 'rotateOutDownRight',
 									},
-										{
+									{
 										label: __( 'rotateOutUpLeft' ),
 										value: 'rotateOutUpLeft',
 									},
-										{
+									{
 										label: __( 'rotateOutUpRight' ),
 										value: 'rotateOutUpRight',
 									},
-										{
+									{
 										label: __( 'hinge' ),
 										value: 'hinge',
 									},
-										{
+									{
 										label: __( 'jackInTheBox' ),
 										value: 'jackInTheBox',
 									},
-										{
+									{
 										label: __( 'rollIn' ),
 										value: 'rollIn',
 									},
-										{
+									{
 										label: __( 'rollOut' ),
 										value: 'rollOut',
 									},
-										{
+									{
 										label: __( 'zoomIn' ),
 										value: 'zoomIn',
 									},
-										{
+									{
 										label: __( 'zoomInDown' ),
 										value: 'zoomInDown',
 									},
-										{
+									{
 										label: __( 'zoomInLeft' ),
 										value: 'zoomInLeft',
 									},
-										{
+									{
 										label: __( 'zoomInRight' ),
 										value: 'zoomInRight',
 									},
-										{
+									{
 										label: __( 'zoomInUp' ),
 										value: 'zoomInUp',
 									},
-										{
+									{
 										label: __( 'zoomOut' ),
 										value: 'zoomOut',
 									},
-										{
+									{
 										label: __( 'zoomOutDown' ),
 										value: 'zoomOutDown',
 									},
-										{
+									{
 										label: __( 'zoomOutLeft' ),
 										value: 'zoomOutLeft',
 									},
-										{
+									{
 										label: __( 'zoomOutRight' ),
 										value: 'zoomOutRight',
 									},
-										{
+									{
 										label: __( 'zoomOutUp' ),
 										value: 'zoomOutUp',
 									},
-										{
+									{
 										label: __( 'slideInDown' ),
 										value: 'slideInDown',
 									},
-										{
+									{
 										label: __( 'slideInLeft' ),
 										value: 'slideInLeft',
 									},
-										{
+									{
 										label: __( 'slideInRight' ),
 										value: 'slideInRight',
 									},
-										{
+									{
 										label: __( 'slideInUp' ),
 										value: 'slideInUp',
 									},
-										{
+									{
 										label: __( 'slideOutDown' ),
 										value: 'slideOutDown',
 									},
-										{
+									{
 										label: __( 'slideOutLeft' ),
 										value: 'slideOutLeft',
 									},
-										{
+									{
 										label: __( 'slideOutRight' ),
 										value: 'slideOutRight',
 									},
-										{
+									{
 										label: __( 'slideOutUp' ),
-										value: 'slideOutUp'
+										value: 'slideOutUp',
 									},
 
 								] }
-								onChange={ this.props.onChangeAnimationType }
+								onChange={ this.onChangeAnimationType }
 							/>
 						</p>
 						<p>
@@ -366,7 +378,7 @@ export default class BackgroundOptions extends Component {
 							>
 								<ColorPalette
 									value={ this.props.attributes.textColor }
-									onChange={ this.props.onChangeTextColor }
+									onChange={ this.onChangeTextColor }
 								/>
 							</PanelColor>
 						</p>
