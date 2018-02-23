@@ -1,3 +1,5 @@
+import './editor.scss';
+
 /**
  * Internal block libraries
  */
@@ -6,13 +8,14 @@ const { __ } = wp.i18n;
 const { Component } = wp.element;
 
 const {
-	InspectorControls,
 	MediaUpload,
 } = wp.blocks;
 
 const {
 	Button,
 	Dashicon,
+	PanelBody,
+	PanelRow,
 	SelectControl,
 } = wp.components;
 
@@ -68,35 +71,40 @@ export default class BackgroundOptions extends Component {
 
 	render() {
 		return (
-			<InspectorControls key="inspector">
-
-				<SelectControl
-					key="background-type"
-					label={ __( 'Background' ) }
-					value={ this.props.attributes.backgroundType ? this.props.attributes.backgroundType : '' }
-					options={ [
-						{
-							label: __( 'None' ),
-							value: '',
-						},
-						{
-							label: __( 'Image' ),
-							value: 'image',
-						},
-						{
-							label: __( 'Video' ),
-							value: 'video',
-						},
-						{
-							label: __( 'Color' ),
-							value: 'color',
-						},
-					] }
-					onChange={ this.props.onChangeBackgroundType }
-				/>
-
-				{ this.imageBackgroundSelect() }
-			</InspectorControls>
+			<PanelBody
+				title={ __( 'Background Options' ) }
+				className="wds-background-options"
+			>
+				<PanelRow>
+					<SelectControl
+						key="background-type"
+						label={ __( 'Background Type' ) }
+						value={ this.props.attributes.backgroundType ? this.props.attributes.backgroundType : '' }
+						options={ [
+							{
+								label: __( 'None' ),
+								value: '',
+							},
+							{
+								label: __( 'Image' ),
+								value: 'image',
+							},
+							{
+								label: __( 'Video' ),
+								value: 'video',
+							},
+							{
+								label: __( 'Color' ),
+								value: 'color',
+							},
+						] }
+						onChange={ this.props.onChangeBackgroundType }
+					/>
+				</PanelRow>
+				<PanelRow>
+					{ this.imageBackgroundSelect() }
+				</PanelRow>
+			</PanelBody>
 		);
 	}
 }

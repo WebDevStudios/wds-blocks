@@ -4,6 +4,7 @@ import BackgroundOptions from '../../components/background-options';
 // Internal block libraries.
 const { __ } = wp.i18n;
 const {
+	InspectorControls,
 	registerBlockType,
 	RichText,
 } = wp.blocks;
@@ -53,9 +54,11 @@ export default registerBlockType(
 
 			return [
 				!! props.focus && (
-					<BackgroundOptions
-						{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, ...props } }
-					/>
+					<InspectorControls key="inspector">
+						<BackgroundOptions
+							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, ...props } }
+						/>
+					</InspectorControls>
 				),
 				<section className={ props.className }>
 
