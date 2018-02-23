@@ -1,6 +1,7 @@
 import './style.scss';
 import classnames from 'classnames';
 import BackgroundOptions from '../../components/background-options';
+import OtherOptions from '../../components/other-options';
 
 // Internal block libraries.
 const { __ } = wp.i18n;
@@ -40,6 +41,12 @@ export default registerBlockType(
 			backgroundColor: {
 				type: 'string',
 			},
+			animationType: {
+				type: 'string',
+			},
+			textColor: {
+				type: 'string',
+			},
 
 		},
 		edit: props => {
@@ -71,13 +78,26 @@ export default registerBlockType(
 			const onChangeBackgroundColor = value => {
 				props.setAttributes( { backgroundColor: value } );
 			};
-			// End background options.
+			// End Background Options.
+
+			// Start Other Options.
+			const onChangeAnimationType = value => {
+				props.setAttributes( { animationType: value } );
+			};
+
+			const onChangeTextColor = value => {
+				props.setAttributes( { textColor: value } );
+			};
+			// End Other Options.
 
 			return [
 				!! props.focus && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
 							{ ...{ onChangeBackgroundType, onChangeBackgroundImage, onRemoveBackgroundImage, onChangeBackgroundVideo, onRemoveBackgroundVideo, onChangeBackgroundColor, ...props } }
+						/>
+						<OtherOptions
+							{ ...{ onChangeAnimationType, onChangeTextColor, ...props } }
 						/>
 					</InspectorControls>
 				),
@@ -91,6 +111,7 @@ export default registerBlockType(
 					style={ {
 						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
 						backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
+						color: props.attributes.textColor ? props.attributes.textColor : null,
 					} }
 				>
 
@@ -111,7 +132,13 @@ export default registerBlockType(
 					) }
 
 					<header className="content-block-header">
-						<h2>{ __( 'Example Block with Options' ) }</h2>
+						<h2
+							style={ {
+								color: props.attributes.textColor ? props.attributes.textColor : null,
+							} }
+						>
+							{ __( 'Example Block with Options' ) }
+						</h2>
 					</header>
 
 					<RichText
@@ -139,6 +166,7 @@ export default registerBlockType(
 					style={ {
 						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
 						backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
+						color: props.attributes.textColor ? props.attributes.textColor : null,
 					} }
 				>
 
