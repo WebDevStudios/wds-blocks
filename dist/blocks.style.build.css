@@ -82,9 +82,19 @@
   overflow: hidden;
   position: relative; }
   .has-video-background .video-container {
-    left: 0;
+    height: 100%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    -o-object-fit: none;
+       object-fit: none;
+    -o-object-position: center center;
+       object-position: center center;
     position: absolute;
-    top: 0;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
     width: 100%;
     z-index: -1; }
 
