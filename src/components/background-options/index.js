@@ -75,18 +75,15 @@ export default class BackgroundOptions extends Component {
 			return '';
 		}
 
-		const isColorBackground =
-			<PanelColor
-				title={ __( 'Background Color' ) }
-				colorValue={ this.props.attributes.backgroundColor }
-			>
-				<ColorPalette
-					value={ this.props.attributes.backgroundColor }
-					onChange={ this.props.onChangeBackgroundColor }
-				/>
-			</PanelColor>;
-
-		return isColorBackground;
+		return <PanelColor
+			title={ __( 'Background Color' ) }
+			colorValue={ this.props.attributes.backgroundColor }
+		>
+			<ColorPalette
+				value={ this.props.attributes.backgroundColor }
+				onChange={ this.props.onChangeBackgroundColor }
+			/>
+		</PanelColor>;
 	}
 
 	render() {
