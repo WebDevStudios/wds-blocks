@@ -101,8 +101,7 @@ export default class BackgroundOptions extends Component {
 		let isVideoBackground = '';
 
 		if ( ! this.props.attributes.backgroundVideo ) {
-			const videoID = '',
-				videoURL = '';
+			const videoID = '';
 
 			isVideoBackground =
 				<div className="media-upload-wrapper">
@@ -116,7 +115,7 @@ export default class BackgroundOptions extends Component {
 							value={ videoID }
 							render={ ( { open } ) => (
 								<Button className="button button-large" onClick={ open }>
-									<Dashicon icon="format-video" /> { ! videoID ? __( 'Upload Video' ) : <img src={ videoURL } alt="" /> }
+									<Dashicon icon="format-video" /> { ! videoID ? __( 'Upload Video' ) : null }
 								</Button>
 							) }
 						/>
@@ -132,10 +131,17 @@ export default class BackgroundOptions extends Component {
 			isVideoBackground =
 				<div className="video-wrapper">
 					<p>
-						<img
-							src={ this.props.attributes.backgroundVideo.url }
-							alt={ this.props.attributes.backgroundVideo.alt }
-						/>
+						<video
+							className="video-container video-container-overlay"
+							autoPlay="false"
+							loop=""
+							muted="true"
+						>
+							<source
+								type="video/mp4"
+								src={ this.props.attributes.backgroundVideo.url }
+							/>
+						</video>
 					</p>
 					{ this.props.focus ? (
 						<div className="media-button-wrapper">
