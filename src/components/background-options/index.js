@@ -165,9 +165,6 @@ export default class BackgroundOptions extends Component {
 					<p>
 						<video
 							className="video-container video-container-overlay"
-							autoPlay="false"
-							loop=""
-							muted="true"
 						>
 							<source
 								type="video/mp4"
