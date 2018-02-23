@@ -45,6 +45,10 @@ export default class BackgroundOptions extends Component {
 							value: 'image',
 						},
 						{
+							label: __( 'Video' ),
+							value: 'video',
+						},
+						{
 							label: __( 'Color' ),
 							value: 'color',
 						},
