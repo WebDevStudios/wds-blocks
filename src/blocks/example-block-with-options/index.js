@@ -47,6 +47,7 @@ export default registerBlockType(
 				props.setAttributes( { message: value } );
 			};
 
+			// Start Background Options.
 			const onChangeBackgroundType = value => {
 				props.setAttributes( { backgroundType: value } );
 			};
@@ -70,6 +71,7 @@ export default registerBlockType(
 			const onChangeBackgroundColor = value => {
 				props.setAttributes( { backgroundColor: value } );
 			};
+			// End background options.
 
 			return [
 				!! props.focus && (
