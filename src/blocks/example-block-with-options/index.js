@@ -119,8 +119,8 @@ export default registerBlockType(
 					{ 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ? (
 						<video
 							className="video-container video-container-overlay"
-							autoPlay="false"
-							loop=""
+							autoPlay="true"
+							loop="true"
 							muted="true"
 						>
 							<source
@@ -175,8 +175,8 @@ export default registerBlockType(
 					{ 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ? (
 						<video
 							className="video-container video-container-overlay"
-							autoPlay="false"
-							loop=""
+							autoPlay="true"
+							loop="true"
 							muted="true"
 						>
 							<source
