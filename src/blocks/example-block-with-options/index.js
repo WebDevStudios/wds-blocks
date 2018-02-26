@@ -6,6 +6,7 @@ import BackgroundOptions from '../../components/background-options';
 import { BackgroundOptionsAttributes } from '../../components/background-options/attributes';
 import { BackgroundOptionsClasses } from '../../components/background-options/classes';
 import { BackgroundOptionsInlineStyles } from '../../components/background-options/inline-styles';
+import { BackgroundOptionsVideoOutput } from '../../components/background-options/video';
 
 // Import all of our Other Options requirements.
 import OtherOptions from '../../components/other-options';
@@ -71,21 +72,7 @@ export default registerBlockType(
 					} }
 				>
 
-					{ 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ? (
-						<video
-							className="video-container video-container-overlay"
-							autoPlay="true"
-							loop="true"
-							muted="true"
-						>
-							<source
-								type="video/mp4"
-								src={ props.attributes.backgroundVideo.url }
-							/>
-						</video>
-					) : (
-						null
-					) }
+					{ BackgroundOptionsVideoOutput( props ) }
 
 					<header className="content-block-header">
 						<h2
@@ -124,21 +111,7 @@ export default registerBlockType(
 					} }
 				>
 
-					{ 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ? (
-						<video
-							className="video-container video-container-overlay"
-							autoPlay="true"
-							loop="true"
-							muted="true"
-						>
-							<source
-								type="video/mp4"
-								src={ props.attributes.backgroundVideo.url }
-							/>
-						</video>
-					) : (
-						null
-					) }
+					{ BackgroundOptionsVideoOutput( props ) }
 
 					<header className="content-block-header">
 						<h2>{ __( 'WDS Example Block with Options' ) }</h2>
