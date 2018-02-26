@@ -1,4 +1,17 @@
 import './editor.scss';
+
+// Import other functionality.
+import { OtherOptionsAttributes } from './attributes';
+import { OtherOptionsClasses } from './classes';
+import { OtherOptionsInlineStyles } from './inline-styles';
+
+// Export for ease of importing in individual blocks.
+export {
+	OtherOptionsAttributes,
+	OtherOptionsClasses,
+	OtherOptionsInlineStyles,
+};
+
 /**
  * Internal block libraries
  */

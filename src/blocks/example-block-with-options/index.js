@@ -2,17 +2,10 @@ import './style.scss';
 import classnames from 'classnames';
 
 // Import all of our Background Options requirements.
-import BackgroundOptions from '../../components/background-options';
-import { BackgroundOptionsAttributes } from '../../components/background-options/attributes';
-import { BackgroundOptionsClasses } from '../../components/background-options/classes';
-import { BackgroundOptionsInlineStyles } from '../../components/background-options/inline-styles';
-import { BackgroundOptionsVideoOutput } from '../../components/background-options/video';
+import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Other Options requirements.
-import OtherOptions from '../../components/other-options';
-import { OtherOptionsAttributes } from '../../components/other-options/attributes';
-import { OtherOptionsClasses } from '../../components/other-options/classes';
-import { OtherOptionsInlineStyles } from '../../components/other-options/inline-styles';
+import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses, OtherOptionsInlineStyles } from '../../components/other-options';
 
 // Internal block libraries.
 const { __ } = wp.i18n;
