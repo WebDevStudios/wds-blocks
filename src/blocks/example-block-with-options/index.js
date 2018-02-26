@@ -1,9 +1,17 @@
 import './style.scss';
 import classnames from 'classnames';
+
+// Import all of our Background Options requirements.
 import BackgroundOptions from '../../components/background-options';
 import { BackgroundOptionsAttributes } from '../../components/background-options/attributes';
+import { BackgroundOptionsClasses } from '../../components/background-options/classes';
+import { BackgroundOptionsInlineStyles } from '../../components/background-options/inline-styles';
+
+// Import all of our Other Options requirements.
 import OtherOptions from '../../components/other-options';
 import { OtherOptionsAttributes } from '../../components/other-options/attributes';
+import { OtherOptionsClasses } from '../../components/other-options/classes';
+import { OtherOptionsInlineStyles } from '../../components/other-options/inline-styles';
 
 // Internal block libraries.
 const { __ } = wp.i18n;
@@ -17,7 +25,7 @@ const {
 export default registerBlockType(
 	'wds/editable-content-example-block-with-options',
 	{
-		title: __( 'Example Block with Options' ),
+		title: __( 'WDS Example Block with Options' ),
 		category: 'common',
 		icon: 'edit',
 		keywords: [
@@ -54,15 +62,12 @@ export default registerBlockType(
 					key="editable-content-example-block-with-options"
 					className={ classnames(
 						props.className,
-						{ 'has-image-background has-custom-background': 'image' === props.attributes.backgroundType },
-						{ 'has-color-background has-custom-background': 'color' === props.attributes.backgroundType },
-						{ 'has-video-background has-custom-background': 'video' === props.attributes.backgroundType },
-						props.attributes.animationType ? `animated ${ props.attributes.animationType }` : null,
+						...BackgroundOptionsClasses( props ),
+						...OtherOptionsClasses( props ),
 					) }
 					style={ {
-						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
-						backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
-						color: props.attributes.textColor ? props.attributes.textColor : null,
+						...BackgroundOptionsInlineStyles( props ),
+						...OtherOptionsInlineStyles( props ),
 					} }
 				>
 
@@ -88,7 +93,7 @@ export default registerBlockType(
 								color: props.attributes.textColor ? props.attributes.textColor : null,
 							} }
 						>
-							{ __( 'Example Block with Options' ) }
+							{ __( 'WDS Example Block with Options' ) }
 						</h2>
 					</header>
 
@@ -96,7 +101,7 @@ export default registerBlockType(
 						tagName="div"
 						multiline="p"
 						className="content-block"
-						placeholder={ __( 'Enter your content here for the left Example Block with Options' ) }
+						placeholder={ __( 'Enter your content here for the WDS Example Block with Options' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
 						focus={ props.focus }
@@ -110,15 +115,12 @@ export default registerBlockType(
 				<section
 					className={ classnames(
 						props.className,
-						{ 'has-image-background has-custom-background': 'image' === props.attributes.backgroundType },
-						{ 'has-color-background has-custom-background': 'color' === props.attributes.backgroundType },
-						{ 'has-video-background has-custom-background': 'video' === props.attributes.backgroundType },
-						props.attributes.animationType ? `animated ${ props.attributes.animationType }` : null,
+						...BackgroundOptionsClasses( props ),
+						...OtherOptionsClasses( props ),
 					) }
 					style={ {
-						backgroundColor: 'color' === props.attributes.backgroundType ? props.attributes.backgroundColor : null,
-						backgroundImage: 'image' === props.attributes.backgroundType && props.attributes.backgroundImage ? `url(${ props.attributes.backgroundImage.url })` : null,
-						color: props.attributes.textColor ? props.attributes.textColor : null,
+						...BackgroundOptionsInlineStyles( props ),
+						...OtherOptionsInlineStyles( props ),
 					} }
 				>
 
@@ -139,7 +141,7 @@ export default registerBlockType(
 					) }
 
 					<header className="content-block-header">
-						<h2>{ __( 'Example Block with Options' ) }</h2>
+						<h2>{ __( 'WDS Example Block with Options' ) }</h2>
 					</header>
 
 					<div className="content-block-content content-block">
