@@ -25,6 +25,10 @@
 */
 .wds-background-options .blocks-base-control {
   width: 100%; }
+
+.wds-background-options .components-button svg {
+  position: relative;
+  top: 5px; }
 /**
  * #.# Common SCSS
  *
