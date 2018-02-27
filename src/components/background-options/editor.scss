@@ -1,6 +1,17 @@
+//--------------------------------------------------------------
+// Background Options Panel
+//--------------------------------------------------------------
 .wds-background-options {
 
 	.blocks-base-control {
 		width: 100%;
 	} // .blocks-base-control
+
+	.components-button {
+
+		svg {
+			position: relative;
+			top: 5px;
+		} // svg
+	} // .components-button
 } // .wds-background-options
