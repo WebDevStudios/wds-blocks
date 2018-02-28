@@ -4,6 +4,6 @@
  */
 export const TextOptionsAttributes = {
 	textColor: {
-		type: 'string'
-	}
+		type: 'string',
+	},
 };

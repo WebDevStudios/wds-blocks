@@ -11,7 +11,7 @@ export {
 	BackgroundOptionsAttributes,
 	BackgroundOptionsClasses,
 	BackgroundOptionsInlineStyles,
-	BackgroundOptionsVideoOutput
+	BackgroundOptionsVideoOutput,
 };
 
 /**
@@ -24,7 +24,7 @@ const { Component } = wp.element;
 const {
 	ColorPalette,
 	description,
-	MediaUpload
+	MediaUpload,
 } = wp.blocks;
 
 const {
@@ -33,7 +33,7 @@ const {
 	PanelBody,
 	PanelColor,
 	PanelRow,
-	SelectControl
+	SelectControl,
 } = wp.components;
 
 /**
@@ -88,7 +88,7 @@ export default class BackgroundOptions extends Component {
 					<p>
 						<MediaUpload
 							buttonProps={ {
-								className: 'components-button button button-large'
+								className: 'components-button button button-large',
 							} }
 							onSelect={ this.onChangeBackgroundImage }
 							type="image"
@@ -155,7 +155,7 @@ export default class BackgroundOptions extends Component {
 					<p>
 						<MediaUpload
 							buttonProps={ {
-								className: 'components-button button button-large'
+								className: 'components-button button button-large',
 							} }
 							onSelect={ this.onChangeBackgroundVideo }
 							type="video"
@@ -241,20 +241,20 @@ export default class BackgroundOptions extends Component {
 						options={ [
 							{
 								label: __( 'None' ),
-								value: ''
+								value: '',
 							},
 							{
 								label: __( 'Image' ),
-								value: 'image'
+								value: 'image',
 							},
 							{
 								label: __( 'Video' ),
-								value: 'video'
+								value: 'video',
 							},
 							{
 								label: __( 'Color' ),
-								value: 'color'
-							}
+								value: 'color',
+							},
 						] }
 						onChange={ this.onChangeBackgroundType }
 					/>

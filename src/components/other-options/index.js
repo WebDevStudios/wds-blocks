@@ -7,7 +7,7 @@ import { OtherOptionsClasses } from './classes';
 // Export for ease of importing in individual blocks.
 export {
 	OtherOptionsAttributes,
-	OtherOptionsClasses
+	OtherOptionsClasses,
 };
 
 /**
@@ -18,13 +18,13 @@ const { __ } = wp.i18n;
 const { Component } = wp.element;
 
 const {
-	description
+	description,
 } = wp.blocks;
 
 const {
 	PanelBody,
 	PanelRow,
-	SelectControl
+	SelectControl,
 } = wp.components;
 
 /**
@@ -54,312 +54,312 @@ export default class OtherOptions extends Component {
 								options={ [
 									{
 										label: __( 'None' ),
-										value: ''
+										value: '',
 									},
 									{
 										label: __( 'bounce' ),
-										value: 'bounce'
+										value: 'bounce',
 									},
 									{
 										label: __( 'flash' ),
-										value: 'flash'
+										value: 'flash',
 									},
 									{
 										label: __( 'pulse' ),
-										value: 'pulse'
+										value: 'pulse',
 									},
 									{
 										label: __( 'rubberBand' ),
-										value: 'rubberBand'
+										value: 'rubberBand',
 									},
 									{
 										label: __( 'shake' ),
-										value: 'shake'
+										value: 'shake',
 									},
 									{
 										label: __( 'headShake' ),
-										value: 'headShake'
+										value: 'headShake',
 									},
 									{
 										label: __( 'swing' ),
-										value: 'swing'
+										value: 'swing',
 									},
 									{
 										label: __( 'tada' ),
-										value: 'tada'
+										value: 'tada',
 									},
 									{
 										label: __( 'wobble' ),
-										value: 'wobble'
+										value: 'wobble',
 									},
 									{
 										label: __( 'jello' ),
-										value: 'jello'
+										value: 'jello',
 									},
 									{
 										label: __( 'bounceIn' ),
-										value: 'bounceIn'
+										value: 'bounceIn',
 									},
 									{
 										label: __( 'bounceInDown' ),
-										value: 'bounceInDown'
+										value: 'bounceInDown',
 									},
 									{
 										label: __( 'bounceInLeft' ),
-										value: 'bounceInLeft'
+										value: 'bounceInLeft',
 									},
 									{
 										label: __( 'bounceInRight' ),
-										value: 'bounceInRight'
+										value: 'bounceInRight',
 									},
 									{
 										label: __( 'bounceInUp' ),
-										value: 'bounceInUp'
+										value: 'bounceInUp',
 									},
 									{
 										label: __( 'bounceOut' ),
-										value: 'bounceOut'
+										value: 'bounceOut',
 									},
 									{
 										label: __( 'bounceOutDown' ),
-										value: 'bounceOutDown'
+										value: 'bounceOutDown',
 									},
 									{
 										label: __( 'bounceOutLeft' ),
-										value: 'bounceOutLeft'
+										value: 'bounceOutLeft',
 									},
 									{
 										label: __( 'bounceOutRight' ),
-										value: 'bounceOutRight'
+										value: 'bounceOutRight',
 									},
 									{
 										label: __( 'bounceOutUp' ),
-										value: 'bounceOutUp'
+										value: 'bounceOutUp',
 									},
 									{
 										label: __( 'fadeIn' ),
-										value: 'fadeIn'
+										value: 'fadeIn',
 									},
 									{
 										label: __( 'fadeInDown' ),
-										value: 'fadeInDown'
+										value: 'fadeInDown',
 									},
 									{
 										label: __( 'fadeInDownBig' ),
-										value: 'fadeInDownBig'
+										value: 'fadeInDownBig',
 									},
 									{
 										label: __( 'fadeInLeft' ),
-										value: 'fadeInLeft'
+										value: 'fadeInLeft',
 									},
 									{
 										label: __( 'fadeInLeftBig' ),
-										value: 'fadeInLeftBig'
+										value: 'fadeInLeftBig',
 									},
 									{
 										label: __( 'fadeInRight' ),
-										value: 'fadeInRight'
+										value: 'fadeInRight',
 									},
 									{
 										label: __( 'fadeInRightBig' ),
-										value: 'fadeInRightBig'
+										value: 'fadeInRightBig',
 									},
 									{
 										label: __( 'fadeInUp' ),
-										value: 'fadeInUp'
+										value: 'fadeInUp',
 									},
 									{
 										label: __( 'fadeInUpBig' ),
-										value: 'fadeInUpBig'
+										value: 'fadeInUpBig',
 									},
 									{
 										label: __( 'fadeOut' ),
-										value: 'fadeOut'
+										value: 'fadeOut',
 									},
 									{
 										label: __( 'fadeOutDown' ),
-										value: 'fadeOutDown'
+										value: 'fadeOutDown',
 									},
 									{
 										label: __( 'fadeOutDownBig' ),
-										value: 'fadeOutDownBig'
+										value: 'fadeOutDownBig',
 									},
 									{
 										label: __( 'fadeOutLeft' ),
-										value: 'fadeOutLeft'
+										value: 'fadeOutLeft',
 									},
 									{
 										label: __( 'fadeOutLeftBig' ),
-										value: 'fadeOutLeftBig'
+										value: 'fadeOutLeftBig',
 									},
 									{
 										label: __( 'fadeOutRight' ),
-										value: 'fadeOutRight'
+										value: 'fadeOutRight',
 									},
 									{
 										label: __( 'fadeOutRightBig' ),
-										value: 'fadeOutRightBig'
+										value: 'fadeOutRightBig',
 									},
 									{
 										label: __( 'fadeOutUp' ),
-										value: 'fadeOutUp'
+										value: 'fadeOutUp',
 									},
 									{
 										label: __( 'fadeOutUpBig' ),
-										value: 'fadeOutUpBig'
+										value: 'fadeOutUpBig',
 									},
 									{
 										label: __( 'flipInX' ),
-										value: 'flipInX'
+										value: 'flipInX',
 									},
 									{
 										label: __( 'flipInY' ),
-										value: 'flipInY'
+										value: 'flipInY',
 									},
 									{
 										label: __( 'flipOutX' ),
-										value: 'flipOutX'
+										value: 'flipOutX',
 									},
 									{
 										label: __( 'flipOutY' ),
-										value: 'flipOutY'
+										value: 'flipOutY',
 									},
 									{
 										label: __( 'lightSpeedIn' ),
-										value: 'lightSpeedIn'
+										value: 'lightSpeedIn',
 									},
 									{
 										label: __( 'lightSpeedOut' ),
-										value: 'lightSpeedOut'
+										value: 'lightSpeedOut',
 									},
 									{
 										label: __( 'rotateIn' ),
-										value: 'rotateIn'
+										value: 'rotateIn',
 									},
 									{
 										label: __( 'rotateInDownLeft' ),
-										value: 'rotateInDownLeft'
+										value: 'rotateInDownLeft',
 									},
 									{
 										label: __( 'rotateInDownRight' ),
-										value: 'rotateInDownRight'
+										value: 'rotateInDownRight',
 									},
 									{
 										label: __( 'rotateInUpLeft' ),
-										value: 'rotateInUpLeft'
+										value: 'rotateInUpLeft',
 									},
 									{
 										label: __( 'rotateInUpRight' ),
-										value: 'rotateInUpRight'
+										value: 'rotateInUpRight',
 									},
 									{
 										label: __( 'rotateOut' ),
-										value: 'rotateOut'
+										value: 'rotateOut',
 									},
 									{
 										label: __( 'rotateOutDownLeft' ),
-										value: 'rotateOutDownLeft'
+										value: 'rotateOutDownLeft',
 									},
 									{
 										label: __( 'rotateOutDownRight' ),
-										value: 'rotateOutDownRight'
+										value: 'rotateOutDownRight',
 									},
 									{
 										label: __( 'rotateOutUpLeft' ),
-										value: 'rotateOutUpLeft'
+										value: 'rotateOutUpLeft',
 									},
 									{
 										label: __( 'rotateOutUpRight' ),
-										value: 'rotateOutUpRight'
+										value: 'rotateOutUpRight',
 									},
 									{
 										label: __( 'hinge' ),
-										value: 'hinge'
+										value: 'hinge',
 									},
 									{
 										label: __( 'jackInTheBox' ),
-										value: 'jackInTheBox'
+										value: 'jackInTheBox',
 									},
 									{
 										label: __( 'rollIn' ),
-										value: 'rollIn'
+										value: 'rollIn',
 									},
 									{
 										label: __( 'rollOut' ),
-										value: 'rollOut'
+										value: 'rollOut',
 									},
 									{
 										label: __( 'zoomIn' ),
-										value: 'zoomIn'
+										value: 'zoomIn',
 									},
 									{
 										label: __( 'zoomInDown' ),
-										value: 'zoomInDown'
+										value: 'zoomInDown',
 									},
 									{
 										label: __( 'zoomInLeft' ),
-										value: 'zoomInLeft'
+										value: 'zoomInLeft',
 									},
 									{
 										label: __( 'zoomInRight' ),
-										value: 'zoomInRight'
+										value: 'zoomInRight',
 									},
 									{
 										label: __( 'zoomInUp' ),
-										value: 'zoomInUp'
+										value: 'zoomInUp',
 									},
 									{
 										label: __( 'zoomOut' ),
-										value: 'zoomOut'
+										value: 'zoomOut',
 									},
 									{
 										label: __( 'zoomOutDown' ),
-										value: 'zoomOutDown'
+										value: 'zoomOutDown',
 									},
 									{
 										label: __( 'zoomOutLeft' ),
-										value: 'zoomOutLeft'
+										value: 'zoomOutLeft',
 									},
 									{
 										label: __( 'zoomOutRight' ),
-										value: 'zoomOutRight'
+										value: 'zoomOutRight',
 									},
 									{
 										label: __( 'zoomOutUp' ),
-										value: 'zoomOutUp'
+										value: 'zoomOutUp',
 									},
 									{
 										label: __( 'slideInDown' ),
-										value: 'slideInDown'
+										value: 'slideInDown',
 									},
 									{
 										label: __( 'slideInLeft' ),
-										value: 'slideInLeft'
+										value: 'slideInLeft',
 									},
 									{
 										label: __( 'slideInRight' ),
-										value: 'slideInRight'
+										value: 'slideInRight',
 									},
 									{
 										label: __( 'slideInUp' ),
-										value: 'slideInUp'
+										value: 'slideInUp',
 									},
 									{
 										label: __( 'slideOutDown' ),
-										value: 'slideOutDown'
+										value: 'slideOutDown',
 									},
 									{
 										label: __( 'slideOutLeft' ),
-										value: 'slideOutLeft'
+										value: 'slideOutLeft',
 									},
 									{
 										label: __( 'slideOutRight' ),
-										value: 'slideOutRight'
+										value: 'slideOutRight',
 									},
 									{
 										label: __( 'slideOutUp' ),
-										value: 'slideOutUp'
-									}
+										value: 'slideOutUp',
+									},
 
 								] }
 								onChange={ this.onChangeAnimationType }

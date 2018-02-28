@@ -4,6 +4,6 @@
  */
 export const OtherOptionsAttributes = {
 	animationType: {
-		type: 'string'
-	}
+		type: 'string',
+	},
 };

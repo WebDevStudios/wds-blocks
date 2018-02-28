@@ -4,15 +4,15 @@
  */
 export const BackgroundOptionsAttributes = {
 	backgroundType: {
-		type: 'string'
+		type: 'string',
 	},
 	backgroundImage: {
-		type: 'object'
+		type: 'object',
 	},
 	backgroundVideo: {
-		type: 'object'
+		type: 'object',
 	},
 	backgroundColor: {
-		type: 'string'
-	}
+		type: 'string',
+	},
 };

@@ -7,7 +7,7 @@ import { TextOptionsInlineStyles } from './inline-styles';
 // Export for ease of importing in individual blocks.
 export {
 	TextOptionsAttributes,
-	TextOptionsInlineStyles
+	TextOptionsInlineStyles,
 };
 
 /**
@@ -19,7 +19,6 @@ const { Component } = wp.element;
 
 const {
 	ColorPalette,
-	description,
 } = wp.blocks;
 
 const {
