@@ -1,3 +1,8 @@
+/**
+ * Set inline CSS class.
+ * @param {object} props - The block object.
+ * @return {array} The inline CSS class.
+ */
 export const BackgroundOptionsClasses = ( props ) => {
 	return [
 		{ 'has-image-background has-custom-background': 'image' === props.attributes.backgroundType },

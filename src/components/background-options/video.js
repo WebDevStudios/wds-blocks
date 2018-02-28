@@ -1,3 +1,8 @@
+/**
+ * Set video output.
+ * @param {object} props - The block object.
+ * @return {string} The video output container.
+ */
 export const BackgroundOptionsVideoOutput = ( props ) => {
 	if ( 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ) {
 		return (
