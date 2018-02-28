@@ -8,14 +8,14 @@ import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasse
 import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
-import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses, OtherOptionsInlineStyles } from '../../components/other-options';
+import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
 
 // Internal block libraries.
 const { __ } = wp.i18n;
 const {
 	InspectorControls,
 	registerBlockType,
-	RichText,
+	RichText
 } = wp.blocks;
 
 // Register block.
@@ -28,17 +28,17 @@ export default registerBlockType(
 		keywords: [
 			__( 'Options' ),
 			__( 'Editable' ),
-			__( 'Multiline' ),
+			__( 'Multiline' )
 		],
 		attributes: {
 			message: {
 				type: 'array',
 				source: 'children',
-				selector: '.content-block',
+				selector: '.content-block'
 			},
 			...BackgroundOptionsAttributes,
 			...TextOptionsAttributes,
-			...OtherOptionsAttributes,
+			...OtherOptionsAttributes
 		},
 		edit: props => {
 			const onChangeMessage = value => {
@@ -68,7 +68,7 @@ export default registerBlockType(
 					) }
 					style={ {
 						...BackgroundOptionsInlineStyles( props ),
-						...TextOptionsInlineStyles( props ),
+						...TextOptionsInlineStyles( props )
 					} }
 				>
 
@@ -77,7 +77,7 @@ export default registerBlockType(
 					<header className="content-block-header">
 						<h2
 							style={ {
-								color: props.attributes.textColor ? props.attributes.textColor : null,
+								color: props.attributes.textColor ? props.attributes.textColor : null
 							} }
 						>
 							{ __( 'WDS Example Block with Options' ) }
@@ -94,7 +94,7 @@ export default registerBlockType(
 						focus={ props.focus }
 						onFocus={ props.setFocus }
 					/>
-				</section>,
+				</section>
 			];
 		},
 		save: props => {
@@ -107,7 +107,7 @@ export default registerBlockType(
 					) }
 					style={ {
 						...BackgroundOptionsInlineStyles( props ),
-						...TextOptionsInlineStyles( props ),
+						...TextOptionsInlineStyles( props )
 					} }
 				>
 
@@ -122,6 +122,6 @@ export default registerBlockType(
 					</div>
 				</section>
 			);
-		},
+		}
 	},
 );
