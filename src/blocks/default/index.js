@@ -50,7 +50,7 @@ export default registerBlockType(
 	'wds/default',
 	{
 		// Localize title using wp.i18n.__()
-		title: __( 'Default: Duplicate Me' ),
+		title: __( 'WDS Default Block: Duplicate Me' ),
 		// Description: Write a quick description.
 		description: __( 'Optional description.' ),
 		// Category options: common, formatting, layout, widgets, embed.
@@ -118,7 +118,7 @@ export default registerBlockType(
 								color: props.attributes.textColor ? props.attributes.textColor : null,
 							} }
 						>
-							{ __( 'WDS Example Block with Options' ) }
+							{ __( 'WDS Default Block' ) }
 						</h2>
 					</header>
 
@@ -126,7 +126,7 @@ export default registerBlockType(
 						tagName="div"
 						multiline="p"
 						className="content-block"
-						placeholder={ __( 'Enter your content here for the WDS Example Block with Options' ) }
+						placeholder={ __( 'To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
 						focus={ props.focus }
