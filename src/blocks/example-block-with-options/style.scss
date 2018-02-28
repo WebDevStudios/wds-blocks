@@ -1,19 +1,22 @@
+//--------------------------------------------------------------
+// Additional Styles
+//--------------------------------------------------------------
 .has-video-background {
 	overflow: hidden;
 	position: relative;
 
 	.video-container {
 		height: 100%;
-	    left: 50%;
-	    min-height: 100%;
-	    min-width: 100%;
+		left: 50%;
+		min-height: 100%;
+		min-width: 100%;
 		object-fit: none;
 		object-position: center center;
-	    position: absolute;
+		position: absolute;
 		transform: translate(-50%, -50%);
-	    top: 50%;
-	    width: 100%;
-	    z-index: -1;
+		top: 50%;
+		width: 100%;
+		z-index: -1;
 	} // .video-container
 } // .has-video-background
 
