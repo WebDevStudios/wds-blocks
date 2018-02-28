@@ -11,3 +11,4 @@
 
 import './blocks/default/index.js';
 import './blocks/github-gist/index.js';
+import './blocks/call-to-action';
