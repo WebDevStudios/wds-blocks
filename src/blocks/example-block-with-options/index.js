@@ -4,6 +4,9 @@ import classnames from 'classnames';
 // Import all of our Background Options requirements.
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
+// Import all of our Text Options requirements.
+import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses, OtherOptionsInlineStyles } from '../../components/other-options';
 
@@ -34,6 +37,7 @@ export default registerBlockType(
 				selector: '.content-block',
 			},
 			...BackgroundOptionsAttributes,
+			...TextOptionsAttributes,
 			...OtherOptionsAttributes,
 		},
 		edit: props => {
@@ -45,6 +49,9 @@ export default registerBlockType(
 				!! props.focus && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
+							{ ...props }
+						/>
+						<TextOptions
 							{ ...props }
 						/>
 						<OtherOptions
@@ -61,7 +68,7 @@ export default registerBlockType(
 					) }
 					style={ {
 						...BackgroundOptionsInlineStyles( props ),
-						...OtherOptionsInlineStyles( props ),
+						...TextOptionsInlineStyles( props ),
 					} }
 				>
 
@@ -100,7 +107,7 @@ export default registerBlockType(
 					) }
 					style={ {
 						...BackgroundOptionsInlineStyles( props ),
-						...OtherOptionsInlineStyles( props ),
+						...TextOptionsInlineStyles( props ),
 					} }
 				>
 
