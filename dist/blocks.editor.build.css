@@ -28,6 +28,8 @@
   .wp-block-wds-editable-content-two-column .content-block-container .components-button svg {
     position: relative;
     top: 5px; }
+  .wp-block-wds-editable-content-two-column .no-title-set {
+    opacity: 0.5; }
 
 div[data-type='wds/editable-content-two-column'] .components-toolbar:nth-child(2) {
   border: 1px solid #e2e4e7;
