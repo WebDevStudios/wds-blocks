@@ -3,13 +3,11 @@ import './editor.scss';
 // Import other functionality.
 import { OtherOptionsAttributes } from './attributes';
 import { OtherOptionsClasses } from './classes';
-import { OtherOptionsInlineStyles } from './inline-styles';
 
 // Export for ease of importing in individual blocks.
 export {
 	OtherOptionsAttributes,
 	OtherOptionsClasses,
-	OtherOptionsInlineStyles,
 };
 
 /**
@@ -20,7 +18,6 @@ const { __ } = wp.i18n;
 const { Component } = wp.element;
 
 const {
-	ColorPalette,
 	description,
 } = wp.blocks;
 
@@ -40,11 +37,6 @@ export default class OtherOptions extends Component {
 	onChangeAnimationType = value => {
 		const { setAttributes } = this.props;
 		setAttributes( { animationType: value } );
-	};
-
-	onChangeTextColor = value => {
-		const { setAttributes } = this.props;
-		setAttributes( { textColor: value } );
 	};
 
 	render() {
@@ -382,25 +374,6 @@ export default class OtherOptions extends Component {
 					</div>
 				</PanelRow>
 
-				<PanelRow>
-					<div className="wds-animation-type">
-						<p>
-							<PanelColor
-								title={ __( 'Text Color' ) }
-								colorValue={ this.props.attributes.textColor }
-							>
-								<ColorPalette
-									value={ this.props.attributes.textColor }
-									onChange={ this.onChangeTextColor }
-								/>
-							</PanelColor>
-						</p>
-
-						<p>
-							{ __( 'Change the text color of this block.' ) }
-						</p>
-					</div>
-				</PanelRow>
 			</PanelBody>
 		);
 	}
