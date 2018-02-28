@@ -17,6 +17,10 @@
 			} // svg
 		} // .components-button
 	} // .content-block-container
+
+	.no-title-set {
+		opacity: 0.5
+	} // .no-title-set
 } // .wp-block-wds-editable-content-two-column
 
 div[data-type='wds/editable-content-two-column'] {

@@ -2,6 +2,8 @@
 import './style.scss';
 import './editor.scss';
 
+import classnames from 'classnames';
+
 // Internal block libraries.
 const { __ } = wp.i18n;
 const {
@@ -330,7 +332,10 @@ export default registerBlockType(
 					<header className="content-block-header">
 						<h2>
 							<PlainText
-								className="section-title"
+								className={ classnames(
+									'section-title',
+									{ 'no-title-set': ! props.attributes.sectionTitle },
+								) }
 								value={ ! props.attributes.sectionTitle ? __( 'Two-Column Content Block Section Title (optional)' ) : props.attributes.sectionTitle }
 								onChange={ onChangeSectionTitle }
 							/>
