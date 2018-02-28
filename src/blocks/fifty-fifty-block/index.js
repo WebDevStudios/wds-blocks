@@ -2,7 +2,7 @@
 import './style.scss';
 import './editor.scss';
 
-import classnames from 'classnames';
+import BlockTitle, { BlockTitleAttributes } from '../../components/block-title';
 
 // Internal block libraries.
 const { __ } = wp.i18n;
@@ -12,7 +12,6 @@ const {
 	description,
 	InspectorControls,
 	MediaUpload,
-	PlainText,
 	registerBlockType,
 	RichText,
 } = wp.blocks;
@@ -39,9 +38,7 @@ export default registerBlockType(
 			__( 'Multiline' ),
 		],
 		attributes: {
-			sectionTitle: {
-				type: 'string',
-			},
+			...BlockTitleAttributes,
 			messageLeft: {
 				type: 'array',
 				source: 'children',
@@ -82,10 +79,6 @@ export default registerBlockType(
 			},
 		},
 		edit: props => {
-			const onChangeSectionTitle = value => {
-				props.setAttributes( { sectionTitle: value } );
-			};
-
 			// Change the Left message value as we type.
 			const onChangeMessageLeft = value => {
 				props.setAttributes( { messageLeft: value } );
@@ -328,18 +321,9 @@ export default registerBlockType(
 				),
 				<section key={ props.className } className={ props.className }>
 
-					<header className="content-block-header">
-						<h2>
-							<PlainText
-								className={ classnames(
-									'section-title',
-									{ 'no-title-set': ! props.attributes.sectionTitle },
-								) }
-								value={ ! props.attributes.sectionTitle ? __( 'Two-Column Content Block Section Title (optional)' ) : props.attributes.sectionTitle }
-								onChange={ onChangeSectionTitle }
-							/>
-						</h2>
-					</header>
+					<BlockTitle
+						{ ...props }
+					/>
 
 					<div className="content-block-container">
 						{ displayLayoutFields() }
@@ -422,9 +406,9 @@ export default registerBlockType(
 			return (
 				<section className="content-block grid-container two-column">
 
-					{ props.attributes.sectionTitle ? (
+					{ props.attributes.blockTitle ? (
 						<header className="content-block-header">
-							<h2>{ props.attributes.sectionTitle }</h2>
+							<h2>{ props.attributes.blockTitle }</h2>
 						</header>
 					) : (
 						null
