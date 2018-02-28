@@ -11,4 +11,3 @@
 
 import './blocks/default/index.js';
 import './blocks/github-gist/index.js';
-import './blocks/example-block-with-options/index.js';
