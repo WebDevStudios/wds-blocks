@@ -41,7 +41,6 @@ export default registerBlockType(
 		attributes: {
 			sectionTitle: {
 				type: 'string',
-				// selector: '.section-title',
 			},
 			messageLeft: {
 				type: 'array',
