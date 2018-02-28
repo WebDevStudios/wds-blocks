@@ -1,1 +1,38 @@
-.wp-block-cgb-block-wds-gutenberg{background:#bada55;border:0.2rem solid #292929;color:#292929;margin:0 auto;max-width:740px;padding:2rem}
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-cgb-block-wds-gutenberg {
+  background: #bada55;
+  border: 0.2rem solid #292929;
+  color: #292929;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 2rem; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-editable-content-two-column {
+  max-width: 740px; }
+  .wp-block-wds-editable-content-two-column .content-block-container .components-button svg {
+    position: relative;
+    top: 5px; }
+
+div[data-type='wds/editable-content-two-column'] .components-toolbar:nth-child(2) {
+  border: 1px solid #e2e4e7;
+  position: absolute;
+  right: 0; }
+
+.wds-two-column-options .blocks-base-control {
+  width: 100%; }
