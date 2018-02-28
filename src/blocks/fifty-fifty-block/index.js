@@ -189,36 +189,39 @@ export default registerBlockType(
 			// Displays the Media Upload block.
 			function displayMediaUpload() {
 				return (
-					! props.attributes.imgID ? (
-						<MediaUpload
-							buttonProps={ {
-								className: 'components-button button button-large',
-							} }
-							onSelect={ onSelectImage }
-							type="image"
-							value={ props.attributes.imgID }
-							render={ ( { open } ) => (
-								<Button className="button button-large" onClick={ open }>
-									<Dashicon icon="format-image" /> { ! props.attributes.imgID ? __( 'Upload Image' ) : <img src={ props.attributes.imgURL } alt={ props.attributes.imgAlt } /> }
-								</Button>
-							) }
-						/>
-					) : (
-						<p className="image-wrapper">
-							<img
-								src={ props.attributes.imgURL }
-								alt={ props.attributes.imgAlt }
+					<div className="content-block-content content-block">
+						<h2>{ __( 'Column Image' ) }</h2>
+						{ ! props.attributes.imgID ? (
+							<MediaUpload
+								buttonProps={ {
+									className: 'components-button button button-large',
+								} }
+								onSelect={ onSelectImage }
+								type="image"
+								value={ props.attributes.imgID }
+								render={ ( { open } ) => (
+									<Button className="button button-large" onClick={ open }>
+										<Dashicon icon="format-image" /> { ! props.attributes.imgID ? __( 'Upload Image' ) : <img src={ props.attributes.imgURL } alt={ props.attributes.imgAlt } /> }
+									</Button>
+								) }
 							/>
-							{ props.focus ? (
-								<Button
-									className="remove-image button button-large"
-									onClick={ onRemoveImage }
-								>
-									<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
-								</Button>
-							) : null }
-						</p>
-					)
+						) : (
+							<p className="image-wrapper">
+								<img
+									src={ props.attributes.imgURL }
+									alt={ props.attributes.imgAlt }
+								/>
+								{ props.focus ? (
+									<Button
+										className="remove-image button button-large"
+										onClick={ onRemoveImage }
+									>
+										<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
+									</Button>
+								) : null }
+							</p>
+						) }
+					</div>
 				);
 			}
 
