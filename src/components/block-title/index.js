@@ -2,10 +2,12 @@ import classnames from 'classnames';
 
 // Import our attributes.
 import { BlockTitleAttributes } from './attributes';
+import { BlockTitleOutput } from './title';
 
 // Export for ease of importing in individual blocks.
 export {
 	BlockTitleAttributes,
+	BlockTitleOutput,
 };
 
 /**

@@ -2,7 +2,7 @@
 import './style.scss';
 import './editor.scss';
 
-import BlockTitle, { BlockTitleAttributes } from '../../components/block-title';
+import BlockTitle, { BlockTitleAttributes, BlockTitleOutput } from '../../components/block-title';
 
 // Internal block libraries.
 const { __ } = wp.i18n;
@@ -406,13 +406,9 @@ export default registerBlockType(
 			return (
 				<section className="content-block grid-container two-column">
 
-					{ props.attributes.blockTitle ? (
-						<header className="content-block-header">
-							<h2>{ props.attributes.blockTitle }</h2>
-						</header>
-					) : (
-						null
-					) }
+					<BlockTitleOutput
+						{ ...props }
+					/>
 
 					<div className="content-block-container">
 						{ displayLayoutOutput() }
