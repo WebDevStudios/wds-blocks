@@ -7,7 +7,7 @@ const { __ } = wp.i18n;
 const {
 	AlignmentToolbar,
 	BlockControls,
-	BlockDescription,
+	description,
 	InspectorControls,
 	MediaUpload,
 	registerBlockType,
@@ -258,13 +258,13 @@ export default registerBlockType(
 				!! props.focus && (
 					<InspectorControls key="inspector">
 
-						<BlockDescription>
-							<p>{ __( 'Some options for your nifty Fifty Fifty!' ) }</p>
-						</BlockDescription>
+						<description>
+							<p>{ __( 'Layout options for the Two-Column Block' ) }</p>
+						</description>
 
 						<PanelBody
-							className="wds-fifty-fifty-options"
-							title={ __( 'Fifty Fifty Options Panel' ) }
+							className="wds-two-column-options"
+							title={ __( 'Two-Column Options Panel' ) }
 						>
 
 							<PanelRow>
