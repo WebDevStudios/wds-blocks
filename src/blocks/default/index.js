@@ -36,8 +36,6 @@ import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
 
-console.log( TextOptionsInlineStyles );
-
 /**
  * Register block
  *
