@@ -14,19 +14,29 @@
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n; // Import __() from wp.i18n
+const { __ } = wp.i18n;
 const {
+	InspectorControls,
 	registerBlockType,
-	Editable,
-} = wp.blocks; // Import registerBlockType() and Editable() from wp.blocks
+	RichText,
+} = wp.blocks;
 
 /**
  * Internal dependencies
  */
 import './style.scss';
-import './editor.scss';
-// Import all JS and SCSS files for this block, and any
-// components from the '../../components/' directory.
+import classnames from 'classnames';
+
+// Import all of our Background Options requirements.
+import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
+
+// Import all of our Text Options requirements.
+import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+
+// Import all of our Other Options requirements.
+import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
+
+console.log( TextOptionsInlineStyles );
 
 /**
  * Register block
@@ -37,7 +47,7 @@ import './editor.scss';
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType(
+export default registerBlockType(
 	// Namespaced with 'wds', lowercase, hyphenated. Example: 'wds/example-block-name'
 	'wds/default',
 	{
@@ -51,39 +61,81 @@ registerBlockType(
 		icon: 'sos',
 		// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 		keywords: [
-			__( 'keyword 1' ),
-			__( 'keyword 2' ),
-			__( 'keyword 3' ),
+			__( 'Options' ),
+			__( 'Editable' ),
+			__( 'Multiline' ),
 		],
 		// Set for each piece of dynamic data used in your block.
 		// https://wordpress.org/gutenberg/handbook/block-api/attributes/
 		attributes: {
-			content: {
+			message: {
 				type: 'array',
 				source: 'children',
-				selector: 'div.default-block',
+				selector: '.content-block',
 			},
+			...BackgroundOptionsAttributes,
+			...TextOptionsAttributes,
+			...OtherOptionsAttributes,
 		},
 		// Determines what is displayed in the editor.
 		// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#edit
 		edit: props => {
 			// Event handler to update the value of the content when changed in editor.
-			const setContentAttribute = value => {
-				props.setAttributes( { content: value } );
+			const onChangeMessage = value => {
+				props.setAttributes( { message: value } );
 			};
 			// Return the markup displayed in the editor, including a core Editable field.
-			return (
-				<div className={ props.className }>
-					<Editable
-						tagname="div"
+			return [
+				!! props.focus && (
+					<InspectorControls key="inspector">
+						<BackgroundOptions
+							{ ...props }
+						/>
+						<TextOptions
+							{ ...props }
+						/>
+						<OtherOptions
+							{ ...props }
+						/>
+					</InspectorControls>
+				),
+				<section
+					key="editable-content-example-block-with-options"
+					className={ classnames(
+						props.className,
+						...BackgroundOptionsClasses( props ),
+						...OtherOptionsClasses( props ),
+					) }
+					style={ {
+						...BackgroundOptionsInlineStyles( props ),
+						...TextOptionsInlineStyles( props ),
+					} }
+				>
+
+					{ BackgroundOptionsVideoOutput( props ) }
+
+					<header className="content-block-header">
+						<h2
+							style={ {
+								color: props.attributes.textColor ? props.attributes.textColor : null,
+							} }
+						>
+							{ __( 'WDS Example Block with Options' ) }
+						</h2>
+					</header>
+
+					<RichText
+						tagName="div"
 						multiline="p"
-						className="default-block"
-						placeholder={ __( 'Lorem to my Ipsum...' ) }
-						value={ props.attributes.content }
-						onChange={ setContentAttribute }
+						className="content-block"
+						placeholder={ __( 'Enter your content here for the WDS Example Block with Options' ) }
+						onChange={ onChangeMessage }
+						value={ props.attributes.message }
+						focus={ props.focus }
+						onFocus={ props.setFocus }
 					/>
-				</div>
-			);
+				</section>,
+			];
 		},
 		// Determines what is displayed on the front-end.
 		// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#save
@@ -92,12 +144,29 @@ registerBlockType(
 		// https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
 		save: props => {
 			return (
-				<div className={ props.className }>
-					<div className="default-block">
-						{ props.attributes.content }
+				<section
+					className={ classnames(
+						props.className,
+						...BackgroundOptionsClasses( props ),
+						...OtherOptionsClasses( props ),
+					) }
+					style={ {
+						...BackgroundOptionsInlineStyles( props ),
+						...TextOptionsInlineStyles( props ),
+					} }
+				>
+
+					{ BackgroundOptionsVideoOutput( props ) }
+
+					<header className="content-block-header">
+						<h2>{ __( 'WDS Example Block with Options' ) }</h2>
+					</header>
+
+					<div className="content-block-content content-block">
+						{ props.attributes.message }
 					</div>
-				</div>
+				</section>
 			);
 		},
-	}
+	},
 );
