@@ -1,13 +1,22 @@
-/**
- * #.# Editor Styles
- *
- * CSS for just Backend enqueued after style.scss
- * which makes it higher in priority.
- */
-
+//--------------------------------------------------------------
+// Editor Styles
+//
+// Additional styles necessary to assist the editor.
+// Enqueued after style.scss.
+//--------------------------------------------------------------
 .wp-block-wds-editable-content-two-column {
 	max-width: 740px;
 
+	.content-block-container {
+
+		.components-button {
+
+			svg {
+				position: relative;
+				top: 5px;
+			} // svg
+		} // .components-button
+	} // .content-block-container
 } // .wp-block-wds-editable-content-two-column
 
 div[data-type='wds/editable-content-two-column'] {
@@ -18,3 +27,14 @@ div[data-type='wds/editable-content-two-column'] {
 		right: 0;
 	} // .components-toolbar:nth-child(2)
 } // div[data-type='wds/editable-content-two-column']
+
+
+//-----------------------------------------
+// Background Options
+//-----------------------------------------
+.wds-fifty-fifty-options {
+
+	.blocks-base-control {
+		width: 100%;
+	} // .blocks-base-control
+} // .wds-fifty-fifty-options

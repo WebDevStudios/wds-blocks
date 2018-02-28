@@ -124,6 +124,7 @@ export default registerBlockType(
 				props.setAttributes( { columnOrder: ! props.attributes.columnOrder } );
 			};
 
+			// Displays the Left message block.
 			function displayLeftMessage() {
 				return (
 					<div className="content-block-content content-block">
@@ -154,6 +155,7 @@ export default registerBlockType(
 				);
 			}
 
+			// Displays the Right message block.
 			function displayRightMessage() {
 				return (
 					<div className="content-block-content content-block">
@@ -184,6 +186,7 @@ export default registerBlockType(
 				);
 			}
 
+			// Displays the Media Upload block.
 			function displayMediaUpload() {
 				return (
 					! props.attributes.imgID ? (
@@ -219,6 +222,7 @@ export default registerBlockType(
 				);
 			}
 
+			// Check to see which option is set and display blocks as needed.
 			function displayLayoutFields() {
 				if ( 'text-image' === props.attributes.layout ) {
 					return [
@@ -255,7 +259,10 @@ export default registerBlockType(
 							<p>{ __( 'Some options for your nifty Fifty Fifty!' ) }</p>
 						</BlockDescription>
 
-						<PanelBody title={ __( 'Fifty Fifty Options Panel' ) }>
+						<PanelBody
+							className="wds-fifty-fifty-options"
+							title={ __( 'Fifty Fifty Options Panel' ) }
+						>
 
 							<PanelRow>
 								<SelectControl
@@ -319,6 +326,7 @@ export default registerBlockType(
 			];
 		},
 		save: props => {
+			// Display the output of the Left message block.
 			function displayLeftMessageOutput() {
 				return (
 					<div
@@ -331,6 +339,7 @@ export default registerBlockType(
 				);
 			}
 
+			// Display the output of the Right message block.
 			function displayRightMessageOutput() {
 				return (
 					<div
@@ -343,6 +352,7 @@ export default registerBlockType(
 				);
 			}
 
+			// Display the output of the Image block.
 			function displayImageOutput() {
 				return (
 					<div
@@ -358,6 +368,7 @@ export default registerBlockType(
 				);
 			}
 
+			// Check our layout type and display blocks as needed.
 			function displayLayoutOutput() {
 				if ( 'text-image' === props.attributes.layout ) {
 					return [
