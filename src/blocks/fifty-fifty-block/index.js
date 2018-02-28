@@ -10,6 +10,7 @@ const {
 	description,
 	InspectorControls,
 	MediaUpload,
+	PlainText,
 	registerBlockType,
 	RichText,
 } = wp.blocks;
@@ -36,6 +37,10 @@ export default registerBlockType(
 			__( 'Multiline' ),
 		],
 		attributes: {
+			sectionTitle: {
+				type: 'string',
+				// selector: '.section-title',
+			},
 			messageLeft: {
 				type: 'array',
 				source: 'children',
@@ -76,6 +81,10 @@ export default registerBlockType(
 			},
 		},
 		edit: props => {
+			const onChangeSectionTitle = value => {
+				props.setAttributes( { sectionTitle: value } );
+			};
+
 			// Change the Left message value as we type.
 			const onChangeMessageLeft = value => {
 				props.setAttributes( { messageLeft: value } );
@@ -319,7 +328,13 @@ export default registerBlockType(
 				<section key={ props.className } className={ props.className }>
 
 					<header className="content-block-header">
-						<h2>{ __( 'Two-Column Block' ) }</h2>
+						<h2>
+							<PlainText
+								className="section-title"
+								value={ ! props.attributes.sectionTitle ? __( 'Two-Column Content Block Section Title (optional)' ) : props.attributes.sectionTitle }
+								onChange={ onChangeSectionTitle }
+							/>
+						</h2>
 					</header>
 
 					<div className="content-block-container">
@@ -403,9 +418,13 @@ export default registerBlockType(
 			return (
 				<section className="content-block grid-container two-column">
 
-					<header className="content-block-header">
-						<h2>{ __( 'Two-Column Block' ) }</h2>
-					</header>
+					{ props.attributes.sectionTitle ? (
+						<header className="content-block-header">
+							<h2>{ props.attributes.sectionTitle }</h2>
+						</header>
+					) : (
+						null
+					) }
 
 					<div className="content-block-container">
 						{ displayLayoutOutput() }
