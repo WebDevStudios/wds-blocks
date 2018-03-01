@@ -21,15 +21,32 @@
 	.no-title-set {
 		opacity: 0.5
 	} // .no-title-set
+
 } // .wp-block-wds-editable-content-two-column
 
+
+//-----------------------------------------
+// Editing Toolbar (alignment, bold, italic, etc.)
+//-----------------------------------------
 div[data-type='wds/editable-content-two-column'] {
 
-	.components-toolbar:nth-child(2) {
-		border: 1px solid #e2e4e7;
-		position: absolute;
-		right: 0;
-	} // .components-toolbar:nth-child(2)
+	.editor-block-contextual-toolbar {
+		height: auto;
+	} // .editor-block-contextual-toolbar
+
+	.editor-block-toolbar {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		> div {
+			justify-content: space-between;
+
+			&:first-child {
+				border-bottom: 1px solid #e2e4e7;
+			} // &:first-child
+		} // > div
+	} // .editor-block-toolbar
 } // div[data-type='wds/editable-content-two-column']
 
 
