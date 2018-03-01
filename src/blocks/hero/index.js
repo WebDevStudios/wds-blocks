@@ -27,6 +27,7 @@ const {
  * Internal dependencies
  */
 import './style.scss';
+import './editor.scss';
 import classnames from 'classnames';
 
 // Import all of our Background Options requirements.
@@ -185,6 +186,10 @@ export default registerBlockType(
 					<div className="content-block-content content-block">
 						{ props.attributes.message }
 					</div>
+
+					<footer className="contenet-block-footer">
+						<a href="https://www.webdevstudios.com/" className="button">{ __( 'Click Me' ) }</a>
+					</footer>
 				</section>
 			);
 		},
