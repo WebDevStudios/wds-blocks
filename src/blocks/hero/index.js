@@ -16,6 +16,8 @@
  */
 const { __ } = wp.i18n;
 const {
+	AlignmentToolbar,
+	BlockControls,
 	InspectorControls,
 	registerBlockType,
 	RichText,
@@ -70,6 +72,9 @@ export default registerBlockType(
 				source: 'children',
 				selector: '.content-block',
 			},
+			alignment: {
+				type: 'string',
+			},
 			...BackgroundOptionsAttributes,
 			...TextOptionsAttributes,
 			...OtherOptionsAttributes,
@@ -81,9 +86,14 @@ export default registerBlockType(
 			const onChangeMessage = value => {
 				props.setAttributes( { message: value } );
 			};
+
+			// Listen for an alignment change.
+			const onChangeAlignment = value => {
+				props.setAttributes( { alignment: value } );
+			};
 			// Return the markup displayed in the editor, including a core Editable field.
 			return [
-				!! props.focus && (
+				!! props.isSelected && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
 							{ ...props }
@@ -95,6 +105,14 @@ export default registerBlockType(
 							{ ...props }
 						/>
 					</InspectorControls>
+				),
+				!! props.isSelected && (
+					<BlockControls key="controls">
+						<AlignmentToolbar
+							value={ props.attributes.alignment }
+							onChange={ onChangeAlignment }
+						/>
+					</BlockControls>
 				),
 				<section
 					key="editable-content-example-block-with-options"
@@ -115,6 +133,7 @@ export default registerBlockType(
 						<h2
 							style={ {
 								color: props.attributes.textColor ? props.attributes.textColor : null,
+								textAlign: props.attributes.alignment,
 							} }
 						>
 							{ __( 'WDS Hero Block' ) }
@@ -128,8 +147,11 @@ export default registerBlockType(
 						placeholder={ __( 'To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
-						focus={ props.focus }
+						focus={ props.isSelected }
 						onFocus={ props.setFocus }
+						style={ {
+							textAlign: props.attributes.alignment,
+						} }
 					/>
 				</section>,
 			];
@@ -150,6 +172,7 @@ export default registerBlockType(
 					style={ {
 						...BackgroundOptionsInlineStyles( props ),
 						...TextOptionsInlineStyles( props ),
+						textAlign: props.attributes.alignment,
 					} }
 				>
 
