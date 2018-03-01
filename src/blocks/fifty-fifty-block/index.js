@@ -128,6 +128,7 @@ export default registerBlockType(
 			};
 
 			// Displays the Left message block.
+			// Details on RichText Editor: https://wordpress.org/gutenberg/handbook/block-api/rich-text-api/
 			function displayLeftMessage() {
 				return (
 					<div className="content-block-content content-block">
@@ -151,8 +152,8 @@ export default registerBlockType(
 							placeholder={ __( 'Enter your content here for one column of the Two-Column block' ) }
 							onChange={ onChangeMessageLeft }
 							value={ props.attributes.messageLeft }
-							focus={ props.focus }
-							onFocus={ props.setFocus }
+							formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
+							isSelected={ props.focus }
 						/>
 					</div>
 				);
@@ -182,8 +183,8 @@ export default registerBlockType(
 							placeholder={ __( 'Enter your content here for one column of the Two-Column block' ) }
 							onChange={ onChangeMessageRight }
 							value={ props.attributes.messageRight }
-							focus={ props.focus }
-							onFocus={ props.setFocus }
+							formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
+							isSelected={ props.focus }
 						/>
 					</div>
 				);
