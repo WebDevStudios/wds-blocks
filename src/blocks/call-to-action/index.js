@@ -36,6 +36,8 @@ import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
 
+import Button from '../../components/button';
+
 /**
  * Register block
  *
@@ -132,6 +134,9 @@ export default registerBlockType(
 						focus={ props.focus }
 						onFocus={ props.setFocus }
 					/>
+					<Button
+						className="fffucck"
+					/>
 				</section>,
 			];
 		},
@@ -163,6 +168,9 @@ export default registerBlockType(
 					<div className="content-block-content content-block">
 						{ props.attributes.message }
 					</div>
+
+					<Button />
+
 				</section>
 			);
 		},
