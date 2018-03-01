@@ -19,15 +19,7 @@ const {
 	InspectorControls,
 	registerBlockType,
 	RichText,
-	PlainText,
-	UrlInput,
 } = wp.blocks;
-
-const {
-	Button,
-	IconButton,
-	Dashicon,
-} = wp.components;
 
 /**
  * Internal dependencies
@@ -43,6 +35,9 @@ import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
+
+// Import all the Button shit.
+import ButtonLink, { ButtonLinkAttributes } from '../../components/button-link';
 
 /**
  * Register block
@@ -82,12 +77,7 @@ export default registerBlockType(
 			...BackgroundOptionsAttributes,
 			...TextOptionsAttributes,
 			...OtherOptionsAttributes,
-			buttontext: {
-				type: 'string',
-			},
-			url: {
-				type: 'string',
-			},
+			...ButtonLinkAttributes,
 		},
 		// Determines what is displayed in the editor.
 		// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#edit
@@ -95,14 +85,6 @@ export default registerBlockType(
 			// Event handler to update the value of the content when changed in editor.
 			const onChangeMessage = value => {
 				props.setAttributes( { message: value } );
-			};
-
-			const onChangeButtonText = value => {
-				props.setAttributes( { buttontext: value } );
-			};
-
-			const onChangeButtonURL = value => {
-				props.setAttributes( { url: value } );
 			};
 
 			// Return the markup displayed in the editor, including a core Editable field.
@@ -156,25 +138,10 @@ export default registerBlockType(
 						onFocus={ props.setFocus }
 					/>
 
-					<Button className={ 'button button-large' }>
-						<PlainText
-							value={ props.attributes.buttontext }
-							placeholder={ __( 'Write Button Text Here' ) }
-							onChange={ onChangeButtonText }
-						/>
-					</Button>
-
-					<form
-						key="form-link"
-						className="blocks-button__inline-link"
-						onSubmit={ ( event ) => event.preventDefault() }>
-						<Dashicon icon="admin-links" />
-						<UrlInput
-							value={ props.attributes.url }
-							onChange={ onChangeButtonURL }
-						/>
-						<IconButton icon="editor-break" label={ __( 'Apply' ) } type="submit" />
-					</form>
+					<ButtonLink
+						placeholder={ __( 'Click Here' ) }
+						{ ...props }
+					/>
 				</section>,
 			];
 		},
@@ -207,8 +174,8 @@ export default registerBlockType(
 						{ props.attributes.message }
 					</div>
 
-					<a className="button" href={ props.attributes.url }>
-						{ props.attributes.buttontext }
+					<a className="button" href={ props.attributes.buttonUrl }>
+						{ props.attributes.buttonText }
 					</a>
 
 				</section>
