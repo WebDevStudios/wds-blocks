@@ -26,6 +26,7 @@ const {
 } = wp.components;
 
 // Register block.
+// https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#registering-the-block
 export default registerBlockType(
 	'wds/editable-content-two-column',
 	{
@@ -35,8 +36,9 @@ export default registerBlockType(
 		keywords: [
 			__( 'Two-Column' ),
 			__( 'Editable' ),
-			__( 'Multiline' ),
+			__( 'Fifty/Fifty' ),
 		],
+		// https://wordpress.org/gutenberg/handbook/blocks/introducing-attributes-and-editable-fields/#attributes
 		attributes: {
 			...BlockTitleAttributes,
 			messageLeft: {
@@ -78,6 +80,8 @@ export default registerBlockType(
 				default: false,
 			},
 		},
+		// https://wordpress.org/gutenberg/handbook/blocks/introducing-attributes-and-editable-fields/#attributes
+		// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 		edit: props => {
 			// Change the Left message value as we type.
 			const onChangeMessageLeft = value => {
@@ -135,7 +139,7 @@ export default registerBlockType(
 						<h2>{ __( 'Column Text' ) }</h2>
 
 						{
-							!! props.focus && (
+							!! props.isSelected && (
 								<BlockControls key="controlsLeft">
 									<AlignmentToolbar
 										value={ props.attributes.alignmentLeft }
@@ -153,7 +157,7 @@ export default registerBlockType(
 							onChange={ onChangeMessageLeft }
 							value={ props.attributes.messageLeft }
 							formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
-							isSelected={ props.focus }
+							isSelected={ props.isSelected }
 						/>
 					</div>
 				);
@@ -166,7 +170,7 @@ export default registerBlockType(
 						<h2>{ __( 'Column Text' ) }</h2>
 
 						{
-							!! props.focus && (
+							!! props.isSelected && (
 								<BlockControls key="controlsRight">
 									<AlignmentToolbar
 										value={ props.attributes.alignmentRight }
@@ -184,7 +188,7 @@ export default registerBlockType(
 							onChange={ onChangeMessageRight }
 							value={ props.attributes.messageRight }
 							formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
-							isSelected={ props.focus }
+							isSelected={ props.isSelected }
 						/>
 					</div>
 				);
@@ -215,7 +219,7 @@ export default registerBlockType(
 									src={ props.attributes.imgURL }
 									alt={ props.attributes.imgAlt }
 								/>
-								{ props.focus ? (
+								{ props.isSelected ? (
 									<Button
 										className="remove-image button button-large"
 										onClick={ onRemoveImage }
@@ -259,7 +263,7 @@ export default registerBlockType(
 			}
 
 			return [
-				!! props.focus && (
+				!! props.isSelected && (
 					<InspectorControls key="inspector">
 
 						<description>
@@ -332,6 +336,8 @@ export default registerBlockType(
 				</section>,
 			];
 		},
+		// https://wordpress.org/gutenberg/handbook/blocks/introducing-attributes-and-editable-fields/#attributes
+		// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 		save: props => {
 			// Display the output of the Left message block.
 			function displayLeftMessageOutput() {
