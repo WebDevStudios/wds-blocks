@@ -59,7 +59,7 @@ export default registerBlockType(
 		// Category options: common, formatting, layout, widgets, embed.
 		category: 'common',
 		// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
-		icon: 'sos',
+		icon: 'format-image',
 		// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 		keywords: [
 			__( 'Hero' ),
