@@ -31,10 +31,20 @@
   .wp-block-wds-editable-content-two-column .no-title-set {
     opacity: 0.5; }
 
-div[data-type='wds/editable-content-two-column'] .components-toolbar:nth-child(2) {
-  border: 1px solid #e2e4e7;
-  position: absolute;
-  right: 0; }
+div[data-type='wds/editable-content-two-column'] .editor-block-contextual-toolbar {
+  height: auto; }
+
+div[data-type='wds/editable-content-two-column'] .editor-block-toolbar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 100%; }
+  div[data-type='wds/editable-content-two-column'] .editor-block-toolbar > div {
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    div[data-type='wds/editable-content-two-column'] .editor-block-toolbar > div:first-child {
+      border-bottom: 1px solid #e2e4e7; }
 
 .wds-two-column-options .blocks-base-control {
   width: 100%; }
