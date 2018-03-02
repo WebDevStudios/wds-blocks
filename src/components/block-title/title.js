@@ -4,13 +4,13 @@
  * @return {string} The Block Title container.
  */
 export const BlockTitleOutput = ( props ) => {
-	if ( props.attributes.blockTitle ) {
-		return (
-			<header className="content-block-header">
-				<h2>{ props.attributes.blockTitle }</h2>
-			</header>
-		);
+	if ( ! props.attributes.blockTitle ) {
+		return null;
 	}
 
-	return null;
+	return (
+		<header className="content-block-header">
+			<h2>{ props.attributes.blockTitle }</h2>
+		</header>
+	);
 };
