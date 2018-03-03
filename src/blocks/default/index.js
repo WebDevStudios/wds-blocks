@@ -88,9 +88,7 @@ export default registerBlockType(
 					<InspectorControls key="inspector">
 						{ BackgroundOptions( props ) }
 						{ TextOptions( props ) }
-						<OtherOptions
-							{ ...props }
-						/>
+						{ OtherOptions( props ) }
 					</InspectorControls>
 				),
 				<section
