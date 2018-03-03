@@ -1,5 +1,6 @@
 {
 	"eslint.options": {
-        "configFile": ".eslintrc.json"
-    }
+		"configFile": ".eslintrc.json",
+	},
+	"eslint.autoFixOnSave": true
 }

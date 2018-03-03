@@ -9,5 +9,5 @@
  * Webpack is compiling as the input file.
  */
 
-import './blocks/default/index.js';
-import './blocks/github-gist/index.js';
+import './blocks/default';
+import './blocks/github-gist';
