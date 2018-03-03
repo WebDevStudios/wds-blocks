@@ -3,7 +3,7 @@
  * @param {object} props - The block object.
  * @return {string} The video output container.
  */
-export const BackgroundOptionsVideoOutput = ( props ) => {
+function BackgroundOptionsVideoOutput( props ) {
 	if ( 'video' === props.attributes.backgroundType && props.attributes.backgroundVideo ) {
 		return (
 			<video
@@ -19,4 +19,6 @@ export const BackgroundOptionsVideoOutput = ( props ) => {
 			</video>
 		);
 	}
-};
+}
+
+export default BackgroundOptionsVideoOutput;
