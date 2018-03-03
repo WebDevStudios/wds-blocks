@@ -87,9 +87,7 @@ export default registerBlockType(
 				!! props.focus && (
 					<InspectorControls key="inspector">
 						{ BackgroundOptions( props ) }
-						<TextOptions
-							{ ...props }
-						/>
+						{ TextOptions( props ) }
 						<OtherOptions
 							{ ...props }
 						/>
