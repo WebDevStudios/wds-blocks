@@ -3,7 +3,7 @@
  */
 const { __ } = wp.i18n;
 
-const { Component } = wp.element;
+//const { Component } = wp.element;
 
 const {
 	ColorPalette,
@@ -37,25 +37,20 @@ export {
 	BackgroundOptionsVideoOutput,
 };
 
-/**
- * Create an Inspector Controls wrapper Component
- *
- * @param {string} value The string value of the saved attribute.
- */
-export default class BackgroundOptions extends Component {
-	setBackgroundType = value => this.props.setAttributes( { backgroundType: value } );
-	setBackgroundImage = value => this.props.setAttributes( { backgroundImage: value } );
-	removeBackgroundImage = () => this.props.setAttributes( { backgroundImage: null } );
-	setBackgroundVideo = value => this.props.setAttributes( { backgroundVideo: value } );
-	removeBackgroundVideo = () => this.props.setAttributes( { backgroundVideo: null } );
-	setBackgroundColor = value => this.props.setAttributes( { backgroundColor: value } );
+function BackgroundOptions( props ) {
+	const setBackgroundType = value => props.setAttributes( { backgroundType: value } );
+	const setBackgroundImage = value => props.setAttributes( { backgroundImage: value } );
+	const removeBackgroundImage = () => props.setAttributes( { backgroundImage: null } );
+	const setBackgroundVideo = value => props.setAttributes( { backgroundVideo: value } );
+	const removeBackgroundVideo = () => props.setAttributes( { backgroundVideo: null } );
+	const setBackgroundColor = value => props.setAttributes( { backgroundColor: value } );
 
-	imageBackgroundSelect() {
-		if ( 'image' !== this.props.attributes.backgroundType ) {
+	const imageBackgroundSelect = () => {
+		if ( 'image' !== props.attributes.backgroundType ) {
 			return '';
 		}
 
-		if ( ! this.props.attributes.backgroundImage ) {
+		if ( ! props.attributes.backgroundImage ) {
 			return (
 				<div className="media-upload-wrapper">
 					<p>
@@ -63,7 +58,7 @@ export default class BackgroundOptions extends Component {
 							buttonProps={ {
 								className: 'components-button button button-large',
 							} }
-							onSelect={ this.setBackgroundImage }
+							onSelect={ setBackgroundImage }
 							type="image"
 							value=""
 							render={ ( { open } ) => (
@@ -86,16 +81,16 @@ export default class BackgroundOptions extends Component {
 			<div className="image-wrapper">
 				<p>
 					<img
-						src={ this.props.attributes.backgroundImage.url }
-						alt={ this.props.attributes.backgroundImage.alt }
+						src={ props.attributes.backgroundImage.url }
+						alt={ props.attributes.backgroundImage.alt }
 					/>
 				</p>
-				{ this.props.focus ? (
+				{ props.focus ? (
 					<div className="media-button-wrapper">
 						<p>
 							<Button
 								className="remove-image button button-large"
-								onClick={ this.removeBackgroundImage }
+								onClick={ removeBackgroundImage }
 							>
 								<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
 							</Button>
@@ -109,14 +104,14 @@ export default class BackgroundOptions extends Component {
 				) : null }
 			</div>
 		);
-	}
+	};
 
-	videoBackgroundSelect() {
-		if ( 'video' !== this.props.attributes.backgroundType ) {
+	const videoBackgroundSelect = () => {
+		if ( 'video' !== props.attributes.backgroundType ) {
 			return '';
 		}
 
-		if ( ! this.props.attributes.backgroundVideo ) {
+		if ( ! props.attributes.backgroundVideo ) {
 			return (
 				<div className="media-upload-wrapper">
 					<p>
@@ -124,7 +119,7 @@ export default class BackgroundOptions extends Component {
 							buttonProps={ {
 								className: 'components-button button button-large',
 							} }
-							onSelect={ this.setBackgroundVideo }
+							onSelect={ setBackgroundVideo }
 							type="video"
 							value=""
 							render={ ( { open } ) => (
@@ -149,16 +144,16 @@ export default class BackgroundOptions extends Component {
 					<video className="video-container video-container-overlay">
 						<source
 							type="video/mp4"
-							src={ this.props.attributes.backgroundVideo.url }
+							src={ props.attributes.backgroundVideo.url }
 						/>
 					</video>
 				</p>
-				{ this.props.focus ? (
+				{ props.focus ? (
 					<div className="media-button-wrapper">
 						<p>
 							<Button
 								className="remove-video button button-large"
-								onClick={ this.removeBackgroundVideo }
+								onClick={ removeBackgroundVideo }
 							>
 								<Dashicon icon="no-alt" /> { __( 'Remove Video' ) }
 							</Button>
@@ -173,64 +168,64 @@ export default class BackgroundOptions extends Component {
 				) : null }
 			</div>
 		);
-	}
+	};
 
-	colorPanelSelect() {
-		if ( 'color' !== this.props.attributes.backgroundType ) {
+	const colorPanelSelect = () => {
+		if ( 'color' !== props.attributes.backgroundType ) {
 			return '';
 		}
 
 		return (
 			<PanelColor
 				title={ __( 'Background Color' ) }
-				colorValue={ this.props.attributes.backgroundColor }
+				colorValue={ props.attributes.backgroundColor }
 			>
 				<ColorPalette
-					value={ this.props.attributes.backgroundColor }
-					onChange={ this.setBackgroundColor }
+					value={ props.attributes.backgroundColor }
+					onChange={ setBackgroundColor }
 				/>
 			</PanelColor>
 		);
-	}
+	};
 
-	render() {
-		return (
-			<PanelBody
-				title={ __( 'Background Options' ) }
-				className="wds-background-options"
-			>
-				<PanelRow>
-					<SelectControl
-						key="background-type"
-						label={ __( 'Background Type' ) }
-						value={ this.props.attributes.backgroundType ? this.props.attributes.backgroundType : '' }
-						options={ [
-							{
-								label: __( 'None' ),
-								value: '',
-							},
-							{
-								label: __( 'Image' ),
-								value: 'image',
-							},
-							{
-								label: __( 'Video' ),
-								value: 'video',
-							},
-							{
-								label: __( 'Color' ),
-								value: 'color',
-							},
-						] }
-						onChange={ this.setBackgroundType }
-					/>
-				</PanelRow>
-				<PanelRow>
-					{ this.imageBackgroundSelect() }
-					{ this.videoBackgroundSelect() }
-					{ this.colorPanelSelect() }
-				</PanelRow>
-			</PanelBody>
-		);
-	}
+	return (
+		<PanelBody
+			title={ __( 'Background Options' ) }
+			className="wds-background-options"
+		>
+			<PanelRow>
+				<SelectControl
+					key="background-type"
+					label={ __( 'Background Type' ) }
+					value={ props.attributes.backgroundType ? props.attributes.backgroundType : '' }
+					options={ [
+						{
+							label: __( 'None' ),
+							value: '',
+						},
+						{
+							label: __( 'Image' ),
+							value: 'image',
+						},
+						{
+							label: __( 'Video' ),
+							value: 'video',
+						},
+						{
+							label: __( 'Color' ),
+							value: 'color',
+						},
+					] }
+					onChange={ setBackgroundType }
+				/>
+			</PanelRow>
+			<PanelRow>
+				{ imageBackgroundSelect() }
+				{ videoBackgroundSelect() }
+				{ colorPanelSelect() }
+			</PanelRow>
+		</PanelBody>
+	);
 }
+
+export default BackgroundOptions;
