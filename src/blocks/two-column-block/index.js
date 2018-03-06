@@ -77,12 +77,12 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 	// Set for each piece of dynamic data used in your block.
 	// https://wordpress.org/gutenberg/handbook/block-api/attributes/
 	attributes: {
-		messageLeft: {
+		contentLeft: {
 			type: 'array',
 			source: 'children',
 			selector: '.content-block-left',
 		},
-		messageRight: {
+		contentRight: {
 			type: 'array',
 			source: 'children',
 			selector: '.content-block-right',
@@ -123,14 +123,14 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 	// Determines what is displayed in the editor.
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#edit
 	edit: props => {
-		// Change the Left message value as we type.
-		const onChangeMessageLeft = value => {
-			props.setAttributes( { messageLeft: value } );
+		// Change the Left content value as we type.
+		const onChangeContentLeft = value => {
+			props.setAttributes( { contentLeft: value } );
 		};
 
-		// Change the Right message value as we type.
-		const onChangeMessageRight = value => {
-			props.setAttributes( { messageRight: value } );
+		// Change the Right content value as we type.
+		const onChangeContentRight = value => {
+			props.setAttributes( { contentRight: value } );
 		};
 
 		// Listen for an alignment change.
@@ -171,9 +171,9 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 			props.setAttributes( { columnOrder: ! props.attributes.columnOrder } );
 		};
 
-		// Displays the Left message block.
+		// Displays the Left content block.
 		// Details on RichText Editor: https://wordpress.org/gutenberg/handbook/block-api/rich-text-api/
-		function displayLeftMessage() {
+		function displayLeftContent() {
 			return (
 				<div className="content-block-content content-block">
 					<h2>{ __( 'Column Text' ) }</h2>
@@ -194,8 +194,8 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 						className="content-block-left"
 						style={ { textAlign: props.attributes.alignmentLeft } }
 						placeholder={ __( 'Enter your content here for one column of the Two-Column block' ) }
-						onChange={ onChangeMessageLeft }
-						value={ props.attributes.messageLeft }
+						onChange={ onChangeContentLeft }
+						value={ props.attributes.contentLeft }
 						formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
 						isSelected={ props.isSelected }
 					/>
@@ -203,8 +203,8 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 			);
 		}
 
-		// Displays the Right message block.
-		function displayRightMessage() {
+		// Displays the Right contenet block.
+		function displayRightContent() {
 			return (
 				<div className="content-block-content content-block">
 					<h2>{ __( 'Column Text' ) }</h2>
@@ -225,8 +225,8 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 						className="content-block-right"
 						style={ { textAlign: props.attributes.alignmentRight } }
 						placeholder={ __( 'Enter your content here for one column of the Two-Column block' ) }
-						onChange={ onChangeMessageRight }
-						value={ props.attributes.messageRight }
+						onChange={ onChangeContentRight }
+						value={ props.attributes.contentRight }
 						formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
 						isSelected={ props.isSelected }
 					/>
@@ -277,27 +277,27 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		function displayLayoutFields() {
 			if ( 'text-image' === props.attributes.layout ) {
 				return [
-					displayLeftMessage(),
+					displayLeftContent(),
 					displayMediaUpload(),
 				];
 			} else if ( 'image-text' === props.attributes.layout ) {
 				return [
 					displayMediaUpload(),
-					displayLeftMessage(),
+					displayLeftContent(),
 				];
 			} else if ( 'text-text' === props.attributes.layout || ! props.attributes.layout ) {
 				// If the toggle is clicked, display the Right column first.
 				if ( props.attributes.columnOrder ) {
 					return [
-						displayRightMessage(),
-						displayLeftMessage(),
+						displayRightContent(),
+						displayLeftContent(),
 					];
 				}
 
 				// Otherwise, display the columns as usual.
 				return [
-					displayLeftMessage(),
-					displayRightMessage(),
+					displayLeftContent(),
+					displayRightContent(),
 				];
 			}
 		}
@@ -396,28 +396,28 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 	// https://wordpress.org/gutenberg/handbook/blocks/introducing-attributes-and-editable-fields/#attributes
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	save: props => {
-		// Display the output of the Left message block.
-		function displayLeftMessageOutput() {
+		// Display the output of the Left content block.
+		function displayLeftContentOutput() {
 			return (
 				<div
 					key="content-block"
 					className="content-block-content content-block-left"
 					style={ { textAlign: props.attributes.alignmentLeft } }
 				>
-					{ props.attributes.messageLeft }
+					{ props.attributes.contentLeft }
 				</div>
 			);
 		}
 
-		// Display the output of the Right message block.
-		function displayRightMessageOutput() {
+		// Display the output of the Right content block.
+		function displayRightContentOutput() {
 			return (
 				<div
 					key="content-block"
 					className="content-block-content content-block-right"
 					style={ { textAlign: props.attributes.alignmentRight } }
 				>
-					{ props.attributes.messageRight }
+					{ props.attributes.contentRight }
 				</div>
 			);
 		}
@@ -442,27 +442,27 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		function displayLayoutOutput() {
 			if ( 'text-image' === props.attributes.layout ) {
 				return [
-					displayLeftMessageOutput(),
+					displayLeftContentOutput(),
 					displayImageOutput(),
 				];
 			} else if ( 'image-text' === props.attributes.layout ) {
 				return [
 					displayImageOutput(),
-					displayLeftMessageOutput(),
+					displayLeftContentOutput(),
 				];
 			} else if ( 'text-text' === props.attributes.layout || ! props.attributes.layout ) {
 				// If the toggle is clicked, display the Right column first.
 				if ( props.attributes.columnOrder ) {
 					return [
-						displayRightMessageOutput(),
-						displayLeftMessageOutput(),
+						displayRightContentOutput(),
+						displayLeftContentOutput(),
 					];
 				}
 
 				// Otherwise, display the columns as usual.
 				return [
-					displayLeftMessageOutput(),
-					displayRightMessageOutput(),
+					displayLeftContentOutput(),
+					displayRightContentOutput(),
 				];
 			}
 		}
