@@ -35,8 +35,11 @@ div[data-type='wds/editable-content-two-column'] {
 	} // .editor-block-contextual-toolbar
 
 	.editor-block-toolbar {
+		background-color: #fff;
 		display: flex;
 		flex-direction: column;
+		margin-top: 20px;
+		position: relative;
 		width: 100%;
 
 		> div {
