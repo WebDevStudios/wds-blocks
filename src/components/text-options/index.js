@@ -29,6 +29,7 @@ function TextOptions( props ) {
 		<PanelBody
 			title={ __( 'Text Options' ) }
 			className="wds-text-options"
+			initialOpen={ false }
 		>
 			<PanelRow>
 				<div className="wds-text-option">
