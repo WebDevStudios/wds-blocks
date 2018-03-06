@@ -42,7 +42,7 @@ export default class BlockTitle extends Component {
 						) }
 						value={ ! this.props.attributes.blockTitle ? null : this.props.attributes.blockTitle }
 						onChange={ this.onChangeBlockTitle }
-						placeholder={ this.props.placeholder ? this.props.placeholder : __( 'Two-Column Content Block Section Title (optional)' ) }
+						placeholder={ this.props.placeholder ? this.props.placeholder : __( 'Block Title (optional)' ) }
 					/>
 				</h2>
 			</header>
