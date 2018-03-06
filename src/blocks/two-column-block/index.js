@@ -71,7 +71,6 @@ export default registerBlockType(
 		],
 		// https://wordpress.org/gutenberg/handbook/blocks/introducing-attributes-and-editable-fields/#attributes
 		attributes: {
-			...BlockTitleAttributes,
 			messageLeft: {
 				type: 'array',
 				source: 'children',
@@ -110,6 +109,7 @@ export default registerBlockType(
 				type: 'boolean',
 				default: false,
 			},
+			...BlockTitleAttributes,
 			...BackgroundOptionsAttributes,
 			...TextOptionsAttributes,
 			...OtherOptionsAttributes,
