@@ -11,4 +11,4 @@
 
 import './blocks/default';
 import './blocks/github-gist';
-import './blocks/fifty-fifty-block/index.js';
+import './blocks/two-column-block/index.js';
