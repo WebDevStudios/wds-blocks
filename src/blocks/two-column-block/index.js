@@ -59,7 +59,7 @@ import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../..
 // Register block.
 // https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#registering-the-block
 export default registerBlockType(
-	'wds/editable-content-two-column',
+	'wds/two-column',
 	{
 		title: __( 'Two-Column Block' ),
 		category: 'common',
