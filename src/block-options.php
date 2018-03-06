@@ -66,8 +66,4 @@ function display_block_options( $attributes ) {
 	if ( $background_video_markup ) {
 		echo $background_video_markup; // WPCS XSS OK.
 	}
-
-	echo '<xmp>: '. print_r( $attributes, true ) .'</xmp>';
-
-	echo $inline_style;
 }

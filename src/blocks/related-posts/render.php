@@ -22,7 +22,7 @@ function render_block( $attributes ) {
 
 	<!-- wp:wds/related-posts -->
 	<?php \WDS_Gutenberg\Src\Block_Options\display_block_options( $attributes ); ?>
-		oh yeah okay
+		this is the block content
 	</section>
 	<!-- /wp:wds/related-posts -->
 	<?php
