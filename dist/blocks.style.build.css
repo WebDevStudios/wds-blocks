@@ -93,13 +93,13 @@
  *
  * CSS for both Frontend+Backend.
  */
-.wp-block-wds-editable-content-two-column .content-block-container {
+.wp-block-wds-two-column .content-block-container {
   display: -ms-flexbox;
   display: flex; }
 
-.wp-block-wds-editable-content-two-column .content-block-content {
+.wp-block-wds-two-column .content-block-content {
   -ms-flex: 0 1 50%;
       flex: 0 1 50%;
   max-width: 50%; }
-  .wp-block-wds-editable-content-two-column .content-block-content:last-child {
+  .wp-block-wds-two-column .content-block-content:last-child {
     margin-left: 20px; }
