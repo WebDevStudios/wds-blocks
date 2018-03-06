@@ -1,8 +1,13 @@
-//  Import CSS.
-import './style.scss';
-import './editor.scss';
+/**
+ * BLOCK: Two-Column Block
+ *
+ * This is the two-column, or fifty-fifty, block.
+ */
 
-import BlockTitle, { BlockTitleAttributes, BlockTitleOutput } from '../../components/block-title';
+/**
+ * External dependencies
+ */
+import classnames from 'classnames'; // Import NPM libraries here.
 
 // Internal block libraries.
 const { __ } = wp.i18n;
@@ -24,6 +29,32 @@ const {
 	PanelRow,
 	SelectControl,
 } = wp.components;
+
+/**
+ * Internal dependencies
+ */
+import './style.scss';
+import './editor.scss';
+
+/**
+ * Import our Block Title component.
+ */
+import BlockTitle, { BlockTitleAttributes, BlockTitleOutput } from '../../components/block-title';
+
+/**
+ * Import all of our Background Options requirements.
+ */
+import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
+
+/**
+ * Import all of our Text Options requirements.
+ */
+import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+
+/**
+ * Import all of our Other Options requirements.
+ */
+import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
 
 // Register block.
 // https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#registering-the-block
@@ -79,6 +110,9 @@ export default registerBlockType(
 				type: 'boolean',
 				default: false,
 			},
+			...BackgroundOptionsAttributes,
+			...TextOptionsAttributes,
+			...OtherOptionsAttributes,
 		},
 		// https://wordpress.org/gutenberg/handbook/blocks/introducing-attributes-and-editable-fields/#attributes
 		// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
@@ -320,11 +354,29 @@ export default registerBlockType(
 								)
 							}
 
+							{ BackgroundOptions( props ) }
+							{ TextOptions( props ) }
+							{ OtherOptions( props ) }
+
 						</PanelBody>
 
 					</InspectorControls>
 				),
-				<section key={ props.className } className={ props.className }>
+				<section
+					key={ props.className }
+					className={ props.className }
+					className={ classnames(
+						props.className,
+						...BackgroundOptionsClasses( props ),
+						...OtherOptionsClasses( props ),
+					) }
+					style={ {
+						...BackgroundOptionsInlineStyles( props ),
+						...TextOptionsInlineStyles( props ),
+					} }
+				>
+
+					{ BackgroundOptionsVideoOutput( props ) }
 
 					<BlockTitle
 						{ ...props }
@@ -411,7 +463,20 @@ export default registerBlockType(
 			}
 
 			return (
-				<section className="content-block grid-container two-column">
+				<section
+					className={ classnames(
+						props.className,
+						'content-block grid-container two-column',
+						...BackgroundOptionsClasses( props ),
+						...OtherOptionsClasses( props ),
+					) }
+					style={ {
+						...BackgroundOptionsInlineStyles( props ),
+						...TextOptionsInlineStyles( props ),
+					} }
+				>
+
+					{ BackgroundOptionsVideoOutput( props ) }
 
 					<BlockTitleOutput
 						{ ...props }
