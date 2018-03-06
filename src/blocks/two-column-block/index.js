@@ -364,7 +364,6 @@ export default registerBlockType(
 				),
 				<section
 					key={ props.className }
-					className={ props.className }
 					className={ classnames(
 						props.className,
 						...BackgroundOptionsClasses( props ),
