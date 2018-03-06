@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * #.# Common SCSS
  *
@@ -48,3 +49,7 @@ div[data-type='wds/editable-content-two-column'] .editor-block-toolbar {
 
 .wds-two-column-options .blocks-base-control {
   width: 100%; }
+=======
+.wds-background-options .blocks-base-control{width:100%}.wds-background-options .components-button svg{position:relative;top:5px}
+.wds-other-options .blocks-base-control{width:100%}
+>>>>>>> master
