@@ -30,7 +30,11 @@ export default class BlockTitle extends Component {
 	render() {
 		return (
 			<header className="content-block-header">
-				<h2>
+				<h2
+					style={ {
+						color: this.props.attributes.textColor ? this.props.attributes.textColor : null,
+					} }
+				>
 					<PlainText
 						className={ classnames(
 							'block-title',
