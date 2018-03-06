@@ -4,7 +4,7 @@
 // Additional styles necessary to assist the editor.
 // Enqueued after style.scss.
 //--------------------------------------------------------------
-.wp-block-wds-editable-content-two-column {
+.wp-block-wds-two-column {
 	max-width: 740px;
 
 	.content-block-container {
@@ -21,13 +21,13 @@
 	.block-title {
 		background-color: transparent;
 	} // .block-title
-} // .wp-block-wds-editable-content-two-column
+} // .wp-block-wds-two-column
 
 
 //-----------------------------------------
 // Editing Toolbar (alignment, bold, italic, etc.)
 //-----------------------------------------
-div[data-type='wds/editable-content-two-column'] {
+div[data-type='wds/two-column'] {
 
 	.editor-block-contextual-toolbar {
 		height: auto;
@@ -49,7 +49,7 @@ div[data-type='wds/editable-content-two-column'] {
 			} // &:first-child
 		} // > div
 	} // .editor-block-toolbar
-} // div[data-type='wds/editable-content-two-column']
+} // div[data-type='wds/two-column']
 
 
 //-----------------------------------------
