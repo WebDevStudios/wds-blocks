@@ -1,3 +1,66 @@
-.wds-background-options .blocks-base-control{width:100%}.wds-background-options .components-button svg{position:relative;top:5px}
-.wds-other-options .blocks-base-control{width:100%}
-.wp-block-wds-two-column{max-width:740px}.wp-block-wds-two-column .content-block-container .components-button svg{position:relative;top:5px}.wp-block-wds-two-column .block-title{background-color:transparent}div[data-type='wds/two-column'] .editor-block-contextual-toolbar{height:auto}div[data-type='wds/two-column'] .editor-block-toolbar{background-color:#fff;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;margin-top:20px;position:relative;width:100%}div[data-type='wds/two-column'] .editor-block-toolbar>div{-ms-flex-pack:justify;justify-content:space-between}div[data-type='wds/two-column'] .editor-block-toolbar>div:first-child{border-bottom:1px solid #e2e4e7}.wds-two-column-options .blocks-base-control{width:100%}
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wds-background-options .blocks-base-control {
+  width: 100%; }
+
+.wds-background-options .components-button svg {
+  position: relative;
+  top: 5px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wds-other-options .blocks-base-control {
+  width: 100%; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-two-column {
+  max-width: 740px; }
+  .wp-block-wds-two-column .content-block-container .components-button svg {
+    position: relative;
+    top: 5px; }
+  .wp-block-wds-two-column .block-title {
+    background-color: transparent; }
+
+div[data-type='wds/two-column'] .editor-block-contextual-toolbar {
+  height: auto; }
+
+div[data-type='wds/two-column'] .editor-block-toolbar {
+  background-color: #fff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin-top: 20px;
+  position: relative;
+  width: 100%; }
+  div[data-type='wds/two-column'] .editor-block-toolbar > div {
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    div[data-type='wds/two-column'] .editor-block-toolbar > div:first-child {
+      border-bottom: 1px solid #e2e4e7; }
+
+.wds-two-column-options .blocks-base-control {
+  width: 100%; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
