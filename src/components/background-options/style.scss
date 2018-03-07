@@ -4,6 +4,18 @@
 // Default styles for this block.
 // Appears on both front and back-end.
 //--------------------------------------------------------------
+
+//-----------------------------------------
+// Global Background Styles
+//-----------------------------------------
+.has-custom-background {
+	padding: 20px;
+} // .has-custom-background
+
+
+//-----------------------------------------
+// Video Background
+//-----------------------------------------
 .has-video-background {
 	overflow: hidden;
 	position: relative;
@@ -23,6 +35,12 @@
 	} // .video-container
 } // .has-video-background
 
-.has-custom-background {
-	padding: 20px;
-} // .has-custom-background
+
+//-----------------------------------------
+// Image Background
+//-----------------------------------------
+.has-image-background {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+} // .has-image-background
