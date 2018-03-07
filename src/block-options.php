@@ -35,7 +35,7 @@ function display_block_options( $attributes ) {
 
 		if ( 'image' === $attributes['backgroundType'] ) {
 			$background_image = $attributes['backgroundImage'];
-			$inline_style .= 'background-image: url(' . esc_url( $background_image['sizes']['full-width'] ) . ');';
+			$inline_style .= 'background-image: url(' . esc_url( $background_image['sizes']['full']['url'] ) . ');';
 			$attributes['class'] .= ' image-as-background';
 		}
 
