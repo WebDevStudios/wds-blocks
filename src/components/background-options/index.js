@@ -1,3 +1,4 @@
+import './style.scss';
 import './editor.scss';
 
 // Import other functionality.
