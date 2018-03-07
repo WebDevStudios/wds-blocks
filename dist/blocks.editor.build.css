@@ -64,5 +64,13 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.wds-block-title {
+  background-color: transparent; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wp-block-wds-hero {
   min-height: unset; }
