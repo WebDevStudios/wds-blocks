@@ -61,6 +61,11 @@ function display_block_options( $attributes ) {
 		$attributes['class'] .= ' ' . $attributes['className'];
 	}
 
+	// Set the animation css class.
+	if ( $attributes['animationType'] ) {
+		$attributes['class'] .= ' animated ' . $attributes['animationType'];
+	}
+
 	// Print our block container with options.
 	printf( '<%s class="%s" style="%s">', esc_html( $attributes['container'] ), esc_attr( $attributes['class'] ), esc_attr( $inline_style ) );
 
