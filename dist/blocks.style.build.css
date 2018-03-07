@@ -88,6 +88,7 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+<<<<<<< HEAD
 .wp-block-wds-hero {
   background-repeat: no-repeat;
   background-size: cover;
@@ -98,3 +99,20 @@
   -ms-flex-pack: center;
       justify-content: center;
   min-height: 640px; }
+=======
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+.wp-block-wds-two-column .content-block-container {
+  display: -ms-flexbox;
+  display: flex; }
+
+.wp-block-wds-two-column .content-block-content {
+  -ms-flex: 0 1 50%;
+      flex: 0 1 50%;
+  max-width: 50%; }
+  .wp-block-wds-two-column .content-block-content:last-child {
+    margin-left: 20px; }
+>>>>>>> master
