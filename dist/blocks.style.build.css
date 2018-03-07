@@ -88,18 +88,6 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-<<<<<<< HEAD
-.wp-block-wds-hero {
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
-  min-height: 640px; }
-=======
 /**
  * #.# Styles
  *
@@ -115,4 +103,19 @@
   max-width: 50%; }
   .wp-block-wds-two-column .content-block-content:last-child {
     margin-left: 20px; }
->>>>>>> master
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  min-height: 640px; }
