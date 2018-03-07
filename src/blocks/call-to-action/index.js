@@ -40,7 +40,7 @@ import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
 
 // Import all of our ButtonLink requirements.
-import ButtonLink, { ButtonLinkAttributes } from '../../components/button-link';
+import ButtonLink, { ButtonLinkAttributes, ButtonLinkOutput } from '../../components/button-link';
 
 /**
  * Register block
@@ -171,9 +171,9 @@ export default registerBlockType(
 						{ props.attributes.message }
 					</div>
 
-					<a className="button" href={ props.attributes.buttonUrl }>
-						{ props.attributes.buttonText }
-					</a>
+					<ButtonLinkOutput
+						{ ...props }
+					/>
 
 				</section>
 			);

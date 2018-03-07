@@ -2,9 +2,10 @@ import './editor.scss';
 
 // Import other functionality.
 import { ButtonLinkAttributes } from './attributes';
+import { ButtonLinkOutput } from './button';
 
 // Export for ease of importing in individual blocks.
-export { ButtonLinkAttributes };
+export { ButtonLinkAttributes, ButtonLinkOutput };
 
 /**
  * Internal block libraries
@@ -13,16 +14,9 @@ const { __ } = wp.i18n;
 
 const { Component } = wp.element;
 
-const {
-	PlainText,
-	UrlInput,
-} = wp.blocks;
+const { PlainText, UrlInput } = wp.blocks;
 
-const {
-	Button,
-	IconButton,
-	Dashicon,
-} = wp.components;
+const { Button, IconButton, Dashicon } = wp.components;
 
 /**
  * Create a button component
@@ -43,17 +37,19 @@ export default class ButtonLink extends Component {
 	render() {
 		return (
 			<Button className={ 'button button-large' }>
-
 				<PlainText
 					value={ this.props.attributes.buttonText }
-					placeholder={ this.props.placeholder ? this.props.placeholder : __( 'Click Here' ) }
+					placeholder={
+						this.props.placeholder ? this.props.placeholder : __( 'Click Here' )
+					}
 					onChange={ this.onChangeButtonText }
 				/>
 
 				<form
 					key="form-link"
 					className="blocks-button__inline-link"
-					onSubmit={ ( event ) => event.preventDefault() }>
+					onSubmit={ event => event.preventDefault() }
+				>
 					<Dashicon icon="admin-links" />
 					<UrlInput
 						value={ this.props.attributes.buttonUrl }
@@ -65,4 +61,3 @@ export default class ButtonLink extends Component {
 		);
 	}
 }
-
