@@ -1,26 +1,8 @@
-import './editor.scss';
-
-// Import other functionality.
-import { TextOptionsAttributes } from './attributes';
-import { TextOptionsInlineStyles } from './inline-styles';
-
-// Export for ease of importing in individual blocks.
-export {
-	TextOptionsAttributes,
-	TextOptionsInlineStyles,
-};
-
 /**
- * Internal block libraries
+ * WordPress dependencies
  */
 const { __ } = wp.i18n;
-
-const { Component } = wp.element;
-
-const {
-	ColorPalette,
-} = wp.blocks;
-
+const { ColorPalette } = wp.blocks;
 const {
 	PanelBody,
 	PanelColor,
@@ -28,43 +10,47 @@ const {
 } = wp.components;
 
 /**
- * Create an Inspector Controls wrapper Component
- *
- * @param {string} value The string value of the saved attribute.
+ * Internal dependencies
  */
-export default class TextOptions extends Component {
-	onChangeTextColor = value => {
-		const { setAttributes } = this.props;
-		setAttributes( { textColor: value } );
-	};
+import TextOptionsAttributes from './attributes';
+import TextOptionsInlineStyles from './inline-styles';
+import './editor.scss';
 
-	render() {
-		return (
-			<PanelBody
-				title={ __( 'Text Options' ) }
-				className="wds-text-options"
-			>
-				<PanelRow>
-					<div className="wds-text-option">
-						<p>
-							<PanelColor
-								title={ __( 'Text Color' ) }
-								colorValue={ this.props.attributes.textColor }
-							>
-								<ColorPalette
-									value={ this.props.attributes.textColor }
-									onChange={ this.onChangeTextColor }
-								/>
-							</PanelColor>
-						</p>
+// Export for ease of importing in individual blocks.
+export {
+	TextOptionsAttributes,
+	TextOptionsInlineStyles,
+};
 
-						<p>
-							{ __( 'Change the text color of this block.' ) }
-						</p>
-					</div>
-				</PanelRow>
+function TextOptions( props ) {
+	const setTextColor = value => props.setAttributes( { textColor: value } );
 
-			</PanelBody>
-		);
-	}
+	return (
+		<PanelBody
+			title={ __( 'Text Options' ) }
+			className="wds-text-options"
+			initialOpen={ false }
+		>
+			<PanelRow>
+				<div className="wds-text-option">
+					<p>
+						<PanelColor
+							title={ __( 'Text Color' ) }
+							colorValue={ props.attributes.textColor }
+						>
+							<ColorPalette
+								value={ props.attributes.textColor }
+								onChange={ setTextColor }
+							/>
+						</PanelColor>
+					</p>
+					<p>
+						{ __( 'Change the text color of this block.' ) }
+					</p>
+				</div>
+			</PanelRow>
+		</PanelBody>
+	);
 }
+
+export default TextOptions;

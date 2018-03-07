@@ -2,7 +2,7 @@
  * Set the attributes to be displayed in the Background Options panel.
  * @type {Object}
  */
-export const BackgroundOptionsAttributes = {
+const BackgroundOptionsAttributes = {
 	backgroundType: {
 		type: 'string',
 	},
@@ -16,3 +16,5 @@ export const BackgroundOptionsAttributes = {
 		type: 'string',
 	},
 };
+
+export default BackgroundOptionsAttributes;
