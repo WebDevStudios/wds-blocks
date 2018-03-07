@@ -1,10 +1,18 @@
+/**
+ * Internal dependencies
+ */
 import classnames from 'classnames';
+import './editor.scss';
 
-// Import our attributes.
+/**
+ * Import our attributes.
+ */
 import { BlockTitleAttributes } from './attributes';
 import { BlockTitleOutput } from './title';
 
-// Export for ease of importing in individual blocks.
+/**
+ * Export for ease of importing in individual blocks.
+ */
 export {
 	BlockTitleAttributes,
 	BlockTitleOutput,
@@ -37,12 +45,15 @@ export default class BlockTitle extends Component {
 				>
 					<PlainText
 						className={ classnames(
-							'block-title',
+							'wds-block-title',
 							{ 'no-title-set': ! this.props.attributes.blockTitle },
 						) }
 						value={ ! this.props.attributes.blockTitle ? null : this.props.attributes.blockTitle }
 						onChange={ this.onChangeBlockTitle }
 						placeholder={ this.props.placeholder ? this.props.placeholder : __( 'Block Title (optional)' ) }
+						style={ {
+							textAlign: this.props.attributes.alignment,
+						} }
 					/>
 				</h2>
 			</header>
