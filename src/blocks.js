@@ -12,3 +12,4 @@
 import './blocks/default';
 import './blocks/github-gist';
 import './blocks/two-column-block/index.js';
+import './blocks/call-to-action';
