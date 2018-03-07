@@ -190,6 +190,7 @@ function BackgroundOptions( props ) {
 		<PanelBody
 			title={ __( 'Background Options' ) }
 			className="wds-background-options"
+			initialOpen={ false }
 		>
 			<PanelRow>
 				<SelectControl

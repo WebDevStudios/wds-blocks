@@ -29,6 +29,7 @@ function OtherOptions( props ) {
 		<PanelBody
 			title={ __( 'Other Options' ) }
 			className="wds-other-options"
+			initialOpen={ false }
 		>
 			<PanelRow>
 				<div className="wds-animation-type">

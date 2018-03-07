@@ -1,0 +1,63 @@
+//--------------------------------------------------------------
+// Editor Styles
+//
+// Additional styles necessary to assist the editor.
+// Enqueued after style.scss.
+//--------------------------------------------------------------
+.wp-block-wds-two-column {
+	max-width: 740px;
+
+	.content-block-container {
+
+		.components-button {
+
+			svg {
+				position: relative;
+				top: 5px;
+			} // svg
+		} // .components-button
+	} // .content-block-container
+
+	.block-title {
+		background-color: transparent;
+	} // .block-title
+} // .wp-block-wds-two-column
+
+
+//-----------------------------------------
+// Editing Toolbar (alignment, bold, italic, etc.)
+//-----------------------------------------
+div[data-type='wds/two-column'] {
+
+	.editor-block-contextual-toolbar {
+		height: auto;
+	} // .editor-block-contextual-toolbar
+
+	.editor-block-toolbar {
+		background-color: #fff;
+		display: flex;
+		flex-direction: column;
+		margin-top: 20px;
+		position: relative;
+		width: 100%;
+
+		> div {
+			justify-content: space-between;
+
+			&:first-child {
+				border-bottom: 1px solid #e2e4e7;
+			} // &:first-child
+		} // > div
+	} // .editor-block-toolbar
+} // div[data-type='wds/two-column']
+
+
+//-----------------------------------------
+// Background Options
+//-----------------------------------------
+.wds-two-column-options {
+
+	.blocks-base-control {
+		width: 100%;
+	} // .blocks-base-control
+} // .wds-two-column-options
