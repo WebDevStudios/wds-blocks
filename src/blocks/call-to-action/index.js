@@ -65,9 +65,8 @@ export default registerBlockType(
 		icon: 'admin-comments',
 		// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 		keywords: [
-			__( 'Options' ),
-			__( 'Editable' ),
-			__( 'Multiline' ),
+			__( 'CTA' ),
+			__( 'Button' ),
 		],
 		// Set for each piece of dynamic data used in your block.
 		// https://wordpress.org/gutenberg/handbook/block-api/attributes/
