@@ -30,6 +30,9 @@ import './style.scss';
 import './editor.scss';
 import classnames from 'classnames';
 
+// Import our Block Title component.
+import BlockTitle, { BlockTitleAttributes, BlockTitleOutput } from '../../components/block-title';
+
 // Import all of our Background Options requirements.
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
@@ -76,6 +79,7 @@ export default registerBlockType(
 			alignment: {
 				type: 'string',
 			},
+			...BlockTitleAttributes,
 			...BackgroundOptionsAttributes,
 			...TextOptionsAttributes,
 			...OtherOptionsAttributes,
@@ -130,16 +134,9 @@ export default registerBlockType(
 
 					{ BackgroundOptionsVideoOutput( props ) }
 
-					<header className="content-block-header">
-						<h2
-							style={ {
-								color: props.attributes.textColor ? props.attributes.textColor : null,
-								textAlign: props.attributes.alignment,
-							} }
-						>
-							{ __( 'WDS Hero Block' ) }
-						</h2>
-					</header>
+					<BlockTitle
+						{ ...props }
+					/>
 
 					<RichText
 						tagName="div"
@@ -179,9 +176,9 @@ export default registerBlockType(
 
 					{ BackgroundOptionsVideoOutput( props ) }
 
-					<header className="content-block-header">
-						<h2>{ __( 'WDS Hero Block' ) }</h2>
-					</header>
+					<BlockTitleOutput
+						{ ...props }
+					/>
 
 					<div className="content-block-content content-block">
 						{ props.attributes.message }
