@@ -39,7 +39,7 @@ import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
 
-// Import all the Button shit.
+// Import all of our ButtonLink requirements.
 import ButtonLink, { ButtonLinkAttributes } from '../../components/button-link';
 
 /**
