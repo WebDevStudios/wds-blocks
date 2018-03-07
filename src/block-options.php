@@ -31,17 +31,19 @@ function display_block_options( $attributes ) {
 		if ( 'color' === $attributes['backgroundType'] ) {
 			$background_color = $attributes['backgroundColor'];
 			$inline_style .= 'background-color: ' . $background_color . '; ';
+			$attributes['class'] .= ' has-color-background';
 		}
 
 		if ( 'image' === $attributes['backgroundType'] ) {
 			$background_image = $attributes['backgroundImage'];
 			$inline_style .= 'background-image: url(' . esc_url( $background_image['sizes']['full']['url'] ) . ');';
-			$attributes['class'] .= ' image-as-background';
+			$attributes['class'] .= ' has-image-background';
 		}
 
 		if ( 'video' === $attributes['backgroundType'] ) {
 			$background_video = $attributes['backgroundVideo'];
-			$background_video_markup = '<video class="video-as-background" autoplay muted loop preload="auto"><source src="' . esc_url( $background_video['url'] ) . '" type="video/mp4"></video>';
+			$background_video_markup = '<video class="video-container video-container-overlay" autoplay muted loop preload="auto"><source src="' . esc_url( $background_video['url'] ) . '" type="video/mp4"></video>';
+			$attributes['class'] .= ' has-video-background';
 		}
 	}
 
