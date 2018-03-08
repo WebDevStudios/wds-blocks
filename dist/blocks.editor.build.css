@@ -1,3 +1,41 @@
-.wds-background-options .blocks-base-control{width:100%}.wds-background-options .components-button svg{position:relative;top:5px}
-.wds-other-options .blocks-base-control{width:100%}
-div[data-type="wds/related-posts"] .all-posts{background-color:#c0c0c0}div[data-type="wds/related-posts"] .selected-posts{background-color:#ffff00}div[data-type="wds/related-posts"] ul{list-style-position:inside;padding-left:20px}
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wds-background-options .blocks-base-control {
+  width: 100%; }
+
+.wds-background-options .components-button svg {
+  position: relative;
+  top: 5px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wds-other-options .blocks-base-control {
+  width: 100%; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+div[data-type="wds/related-posts"] .all-posts {
+  background-color: #c0c0c0; }
+
+div[data-type="wds/related-posts"] .selected-posts {
+  background-color: #ffff00; }
+
+div[data-type="wds/related-posts"] ul {
+  list-style-position: inside;
+  padding-left: 20px; }
