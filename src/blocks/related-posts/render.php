@@ -22,6 +22,12 @@ function render_block( $attributes ) {
 
 	<!-- wp:wds/related-posts -->
 	<?php \WDS_Gutenberg\Src\Block_Options\display_block_options( $attributes ); ?>
+
+		<?php if ( $attributes['blockTitle'] ) : ?>
+			<header className="content-block-header">
+				<h2><?php echo esc_html( $attributes['blockTitle'] ); ?></h2>
+			</header>
+		<?php endif; ?>
 		<p>This is the block content. I'm adding a lot so we can see how the block lays out with background elements.</p>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Oratio me istius philosophi non offendit; Cupit enim dícere nihil posse ad beatam vitam deesse sapienti. Quis enim potest ea, quae probabilia videantur ei, non probare? Primum cur ista res digna odio est, nisi quod est turpis? Te enim iudicem aequum puto, modo quae dicat ille bene noris. Duo Reges: constructio interrete. </p>

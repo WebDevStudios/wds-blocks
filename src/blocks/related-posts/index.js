@@ -31,6 +31,9 @@ import './style.scss';
 import './editor.scss';
 import classnames from 'classnames';
 
+// Import our Block Title component.
+import BlockTitle, { BlockTitleAttributes } from '../../components/block-title';
+
 // Import all of our Background Options requirements.
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
@@ -66,6 +69,7 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 		// Set for each piece of dynamic data used in your block.
 		// https://wordpress.org/gutenberg/handbook/block-api/attributes/
 		attributes: {
+			...BlockTitleAttributes,
 			...BackgroundOptionsAttributes,
 			...TextOptionsAttributes,
 			...OtherOptionsAttributes,
@@ -101,9 +105,9 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 
 					{ BackgroundOptionsVideoOutput( props ) }
 
-					<header className="content-block-header">
-						<h2>{ __( 'WDS Related Posts' ) }</h2>
-					</header>
+					<BlockTitle
+						{ ...props }
+					/>
 				</section>,
 			];
 		},
