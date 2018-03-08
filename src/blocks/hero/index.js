@@ -5,12 +5,6 @@
  */
 
 /**
- * External dependencies
- */
-// Import NPM libraries here. Example:
-// import npmPackage from 'npmpackage';
-
-/**
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
