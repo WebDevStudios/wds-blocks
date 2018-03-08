@@ -1,8 +1,7 @@
 /**
  * BLOCK: Hero Block
  *
- * This block was meant to be duplicated.
- * It serves as the starting point for new blocks. 😀
+ * Display a Hero block with an optional background image, video, or color and stylized button-link.
  */
 
 /**
