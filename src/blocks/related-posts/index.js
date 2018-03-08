@@ -112,27 +112,6 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 		//
 		// For dynamic blocks, you can return null here and define a render callback function in PHP.
 		// https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
-		save: props => {
-			return (
-				<section
-					className={ classnames(
-						props.className,
-						...BackgroundOptionsClasses( props ),
-						...OtherOptionsClasses( props ),
-					) }
-					style={ {
-						...BackgroundOptionsInlineStyles( props ),
-						...TextOptionsInlineStyles( props ),
-					} }
-				>
-
-					{ BackgroundOptionsVideoOutput( props ) }
-
-					<header className="content-block-header">
-						<h2>{ __( 'WDS Related Posts' ) }</h2>
-					</header>
-				</section>
-			);
-		},
+		save: () => null,
 	},
 );
