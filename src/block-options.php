@@ -8,6 +8,15 @@
 
 namespace WDS_Gutenberg\Src\Block_Options;
 
+/**
+ * Displays the opening tag for a custom block.
+ *
+ * @param  object $attributes Object containing our $attribute values.
+ *
+ * @author Corey Collins
+ *
+ * @since NEXT
+ */
 function display_block_options( $attributes ) {
 
 	// Setup defaults.
@@ -73,4 +82,26 @@ function display_block_options( $attributes ) {
 	if ( $background_video_markup ) {
 		echo $background_video_markup; // WPCS XSS OK.
 	}
+}
+
+/**
+ * Displays the Block Title for the section.
+ *
+ * @param  object $attributes Object containing our $attribute values.
+ * @return empty              Return nothing if there is no title.
+ *
+ * @author Corey Collins
+ *
+ * @since NEXT
+ */
+function display_block_title( $attributes ) {
+	if ( ! $attributes['blockTitle'] ) {
+		return;
+	}
+
+	?>
+	<header className="content-block-header">
+		<h2><?php echo esc_html( $attributes['blockTitle'] ); ?></h2>
+	</header>
+	<?php
 }
