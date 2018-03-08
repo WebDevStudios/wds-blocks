@@ -1,0 +1,21 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.wp-block-wds-two-column {
+
+	.content-block-container {
+		display: flex;
+	} // .content-block-container
+
+	.content-block-content {
+		flex: 0 1 50%;
+		max-width: 50%;
+
+		&:last-child {
+			margin-left: 20px
+		} // &:last-child
+	} // .content-block-content
+} // .wp-block-wds-two-column

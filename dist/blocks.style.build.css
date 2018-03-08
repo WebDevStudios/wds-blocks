@@ -32,6 +32,7 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+<<<<<<< HEAD
 .has-custom-background {
   padding: 20px; }
 
@@ -65,6 +66,8 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+=======
+>>>>>>> master
 .wds-components-placeholder {
   display: -ms-flexbox;
   display: flex;
@@ -121,3 +124,65 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+<<<<<<< HEAD
+=======
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+.wp-block-wds-two-column .content-block-container {
+  display: -ms-flexbox;
+  display: flex; }
+
+.wp-block-wds-two-column .content-block-content {
+  -ms-flex: 0 1 50%;
+      flex: 0 1 50%;
+  max-width: 50%; }
+  .wp-block-wds-two-column .content-block-content:last-child {
+    margin-left: 20px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  min-height: 640px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.has-video-background {
+  overflow: hidden;
+  position: relative; }
+  .has-video-background .video-container {
+    height: 100%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    -o-object-fit: none;
+       object-fit: none;
+    -o-object-position: center center;
+       object-position: center center;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+    z-index: -1; }
+
+.has-custom-background {
+  padding: 20px; }
+>>>>>>> master
