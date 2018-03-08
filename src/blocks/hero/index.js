@@ -42,6 +42,9 @@ import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
 
+// Import all of our ButtonLink requirements.
+import ButtonLink, { ButtonLinkAttributes, ButtonLinkOutput } from '../../components/button-link';
+
 /**
  * Register block
  *
@@ -83,6 +86,7 @@ export default registerBlockType(
 			...BackgroundOptionsAttributes,
 			...TextOptionsAttributes,
 			...OtherOptionsAttributes,
+			...ButtonLinkAttributes,
 		},
 		// Determines what is displayed in the editor.
 		// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#edit
@@ -151,6 +155,11 @@ export default registerBlockType(
 							textAlign: props.attributes.alignment,
 						} }
 					/>
+
+					<ButtonLink
+						placeholder={ __( 'Click Here' ) }
+						{ ...props }
+					/>
 				</section>,
 			];
 		},
@@ -184,9 +193,16 @@ export default registerBlockType(
 						{ props.attributes.message }
 					</div>
 
-					<footer className="contenet-block-footer">
-						<a href="https://www.webdevstudios.com/" className="button">{ __( 'Click Me' ) }</a>
-					</footer>
+					{ props.attributes.buttonUrl ? (
+						<footer className="contenet-block-footer">
+							<ButtonLinkOutput
+								{ ...props }
+							/>
+						</footer>
+					) : (
+						null
+					) }
+
 				</section>
 			);
 		},
