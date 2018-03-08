@@ -13,3 +13,4 @@ import './blocks/default';
 import './blocks/github-gist';
 import './blocks/two-column-block';
 import './blocks/hero';
+import './blocks/call-to-action';
