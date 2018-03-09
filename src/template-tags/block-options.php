@@ -21,11 +21,11 @@ function display_block_options( $attributes ) {
 
 	// Setup defaults.
 	$defaults = array(
-		'backgroundType'  => $attributes['backgroundType'],
-		'textColor'       => $attributes['textColor'],
-		'container'       => 'section',
-		'class'           => 'content-block',
-		'className'       => $attributes['className'],
+		'backgroundType' => $attributes['backgroundType'],
+		'class'          => 'content-block',
+		'className'      => $attributes['className'],
+		'container'      => 'section',
+		'textColor'      => $attributes['textColor'],
 	);
 
 	// Parse args.
