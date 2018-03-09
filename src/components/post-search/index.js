@@ -1,32 +1,40 @@
-/**
- * WordPress dependencies
- */
-const { __ } = wp.i18n;
-const {
-  UrlInput,
-} = wp.blocks;
-const {
-	DashIcon,
-	PanelBody,
-	PanelRow,
-} = wp.components;
+// Import other functionality.
+import { PostSearchAttributes } from './attributes';
 
+// Export for ease of importing in individual blocks.
+export { PostSearchAttributes };
+
+/**
+ * Internal block libraries
+ */
+const { UrlInput } = wp.blocks;
+
+const { Dashicon } = wp.components;
+
+/**
+ * Creates a Post Search component.
+ * @param  {object} props The object of attributes saved to a block.
+ * @returns {mixed} The post search form.
+ *
+ * @author Corey Collins
+ */
 function PostSearch( props ) {
-	//const setTextColor = value => props.setAttributes( { textColor: value } );
-  //const { value } = this.props;
+	const onChangeButtonURL = value => { props.setAttributes( { buttonUrl: value } ) };
 
 	return (
-		<PanelBody
-			title={ __( 'Search for Post' ) }
-			className="wds-post-search-container"
-		>
-			<PanelRow>
-				<div className="wds-post-search">
-					<Dashicon icon="admin-links" />
-					<UrlInput className="url" value="http://kellenmace.com" onChange={ () => console.log( 'changed' ) } />
-				</div>
-			</PanelRow>
-		</PanelBody>
+		<div>
+			<form
+				key="form-link"
+				className="blocks-button__inline-link"
+				onSubmit={ event => event.preventDefault() }
+			>
+				<Dashicon icon="admin-links" />
+				<UrlInput
+					value={ props.attributes.buttonUrl }
+					onChange={ onChangeButtonURL }
+				/>
+			</form>
+		</div>
 	);
 }
 

@@ -18,7 +18,6 @@ const { __ } = wp.i18n;
 const {
 	InspectorControls,
 	registerBlockType,
-	RichText,
 } = wp.blocks;
 const {
 	withAPIData,
@@ -30,8 +29,6 @@ const {
 import './style.scss';
 import './editor.scss';
 import classnames from 'classnames';
-import PostSearch from '../../components/post-search';
-import PostSearchAttributes from '../../components/post-search/attributes';
 
 // Import our Block Title component.
 import BlockTitle, { BlockTitleAttributes } from '../../components/block-title';
@@ -44,6 +41,9 @@ import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
+
+// Import our Post Search component.
+import PostSearch, { PostSearchAttributes } from '../../components/post-search';
 
 /**
  * Register block
@@ -98,6 +98,7 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 				</InspectorControls>
 			),
 			<section
+				key={ props.className }
 				className={ classnames(
 					props.className,
 					...BackgroundOptionsClasses( props ),
