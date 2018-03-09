@@ -6,11 +6,12 @@ const {
   UrlInput,
 } = wp.blocks;
 const {
+	DashIcon,
 	PanelBody,
 	PanelRow,
 } = wp.components;
 
-function PostSearch() {
+function PostSearch( props ) {
 	//const setTextColor = value => props.setAttributes( { textColor: value } );
   //const { value } = this.props;
 
@@ -21,7 +22,8 @@ function PostSearch() {
 		>
 			<PanelRow>
 				<div className="wds-post-search">
-					<UrlInput value="http://kellenmace.com" onChange={ () => console.log( 'changed' ) } />
+					<Dashicon icon="admin-links" />
+					<UrlInput className="url" value="http://kellenmace.com" onChange={ () => console.log( 'changed' ) } />
 				</div>
 			</PanelRow>
 		</PanelBody>
