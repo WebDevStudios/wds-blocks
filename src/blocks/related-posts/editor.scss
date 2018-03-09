@@ -1,0 +1,21 @@
+//--------------------------------------------------------------
+// Editor Styles
+//
+// Additional styles necessary to assist the editor.
+// Enqueued after style.scss.
+//--------------------------------------------------------------
+div[data-type="wds/related-posts"] {
+
+	.all-posts {
+		background-color: #c0c0c0;
+	}
+
+	.selected-posts {
+		background-color: #ffff00;
+	}
+
+	ul {
+		list-style-position: inside;
+		padding-left: 20px;
+	}
+}

@@ -4,6 +4,14 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.wds-block-title {
+  background-color: transparent; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wds-background-options .blocks-base-control {
   width: 100%; }
 
@@ -24,6 +32,35 @@
 */
 .wds-other-options .blocks-base-control {
   width: 100%; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-hero {
+  min-height: unset; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+div[data-type="wds/related-posts"] .all-posts {
+  background-color: #c0c0c0; }
+
+div[data-type="wds/related-posts"] .selected-posts {
+  background-color: #ffff00; }
+
+div[data-type="wds/related-posts"] ul {
+  list-style-position: inside;
+  padding-left: 20px; }
 /**
  * #.# Common SCSS
  *
@@ -58,25 +95,3 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
 
 .wds-two-column-options .blocks-base-control {
   width: 100%; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-.wds-block-title {
-  background-color: transparent; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-.wp-block-wds-hero {
-  min-height: unset; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
