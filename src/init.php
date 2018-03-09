@@ -60,4 +60,4 @@ require_once plugin_dir_path( __DIR__ ) . 'vendor/autoload/autoload.php';
 \AaronHolbrook\Autoload\autoload( plugin_dir_path( __DIR__ ) . 'src' );
 
 // Include our template tags functions.
-include( 'src/template-tags/block-options.php' );
+include( 'src/template-tags/block-container-options.php' );
