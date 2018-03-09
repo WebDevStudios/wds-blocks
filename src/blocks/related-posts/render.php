@@ -23,7 +23,7 @@ function render_block( $attributes ) {
 	<!-- wp:wds/related-posts -->
 	<?php \WDS_Gutenberg\Src\Block_Options\display_block_options( $attributes ); ?>
 
-		<?php \WDS_Gutenberg\Src\WDS_Component\display_block_title( $attributes ); ?>
+		<?php \WDS_Gutenberg\Src\Component\display_block_title( $attributes ); ?>
 
 		<p>This is the block content. I'm adding a lot so we can see how the block lays out with background elements.</p>
 

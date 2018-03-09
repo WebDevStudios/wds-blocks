@@ -6,7 +6,7 @@
  * @since NEXT
  */
 
-namespace WDS_Gutenberg\Src\WDS_Component;
+namespace WDS_Gutenberg\Src\Component;
 
 /**
  * Displays the Block Title for the section.
