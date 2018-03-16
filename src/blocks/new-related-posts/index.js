@@ -1,5 +1,5 @@
 /**
- * BLOCK: Default Block
+ * BLOCK: New Related Posts Block
  *
  * This block was meant to be duplicated.
  * It serves as the starting point for new blocks. 😀
