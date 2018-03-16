@@ -1,4 +1,4 @@
-const { Component } = wp.element;
+const { Component, Fragment } = wp.element;
 
 import Output from './output';
 import Loader from '../../components/loader';
@@ -18,8 +18,6 @@ class EditComponent extends Component {
 
 		this.handleEvent = this.handleEvent.bind( this );
 		this.returnLayout = this.returnLayout.bind( this );
-
-		console.log( this.props );
 	}
 
 	handleEvent = clickedPost => {
@@ -53,28 +51,30 @@ class EditComponent extends Component {
 	}
 
 	returnLayout = () => {
-		return [
-			<Output
-				title="Posts"
-				className="related-left-column"
-				key=""
-				posts={ this.state.allPosts }
-				handleEvent={ this.handleEvent }
-			/>,
-			<Output
-				title="Selected Posts"
-				className="related-right-column"
-				key=""
-				posts={ this.state.selectedPosts }
-				handleEvent={ this.handleEvent }
-				onChange={ this.props.setAttributes( { selectedPosts: this.state.selectedPosts } ) }
-			/>,
-		];
+		return (
+			<Fragment>
+				<Output
+					title="Posts"
+					className="related-left-column"
+					key=""
+					posts={ this.state.allPosts }
+					handleEvent={ this.handleEvent }
+				/>
+				<Output
+					title="Selected Posts"
+					className="related-right-column"
+					key=""
+					posts={ this.state.selectedPosts }
+					handleEvent={ this.handleEvent }
+					onChange={ this.props.setAttributes( { selectedPosts: this.state.selectedPosts } ) }
+				/>
+			</Fragment>
+		);
 	}
 
 	render() {
 		return [
-			<BlockTitle
+			<BlockTitle key=""
 				{ ...this.props }
 			/>,
 			<div key="" className={ this.props.className }>
