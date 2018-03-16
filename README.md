@@ -33,26 +33,24 @@ The Project is actually made up of 4 libraries, 3 of which have their own git re
         └── themes
             └── wd_s                       WebDevStudios' starter theme. (feature/gutenberg)
 
-### Import using Local by Flywheel...
+### Install script (bash)
 
-The fastest way to get onboarded is to import a copy into Local by Flywheel
-
-1. Download [gutenberg-local](https://drive.google.com/open?id=1JftWqLd9ThBTmr4U3O9mX5bc8Rub8AJc) (379MB .zip)
-2. Import into Local
-3. Visit [https://gutenberg.test](https://gutenberg.test)
-
-### ...Or run the install script (bash)
-
-The other option, is set up a fresh local install of WordPress at [https://gutenberg.test](https://gutenberg.test). Then...
+Set up a fresh local install of WordPress at [https://gutenberg.test](https://gutenberg.test). Then...
 
 1. Open your terminal
 2. CD into `wp-content/plugins`
-3. Run the following command: `git clone git@github.com:WebDevStudios/wds-gutenberg.git && cd wds-gutenberg && sh goots.sh`
-4. Download and install and activate Advanced Custom Fields Pro
-5. Download and install and activate MigrateDB Pro
-6. Import the database using MigrateDB Pro (credentials in 1Password)
+3. Run the following command: `git clone git@github.com:WebDevStudios/wds-gutenberg.git && cd wds-gutenberg && sh install.sh`
+4. Download, install, and activate both Advanced Custom Fields Pro and MigrateDB Pro
+5. Import the database using MigrateDB Pro (credentials in the 1pass vault: WDS Gutenberg)
 
 *Note: This script will clone [WordPress Gutenberg](https://github.com/WordPress/gutenberg) and [wd_s](https://github.com/WebDevStudios/wd_s/tree/feature/gutenberg). It will also "build" all three libraries, so you can get started right away.*
+
+### Updating (bash)
+
+1. CD into `wp-content/plugins/wds-gutenberg`
+2. type `sh update.sh`
+
+This will do a quick `git pull` on all three repositories in this project.
 
 ## WDS Gutenberg Plugin Development
 
