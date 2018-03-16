@@ -14,4 +14,5 @@ import './blocks/default';
 import './blocks/github-gist';
 import './blocks/hero';
 import './blocks/related-posts';
+import './blocks/new-related-posts';
 import './blocks/two-column-block';
