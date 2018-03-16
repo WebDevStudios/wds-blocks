@@ -1,0 +1,66 @@
+//--------------------------------------------------------------
+// Editor Styles for New Related Posts
+//
+// Additional styles necessary to assist the editor.
+// Enqueued after style.scss.
+//--------------------------------------------------------------
+.wp-block-wds-new-related-posts {
+	border: 1px solid $gray;
+	display: flex;
+	font-family: $default-font;
+	height: 19rem;
+	position: relative;
+
+	.related-left-column,
+	.related-right-column {
+		margin: 0;
+		width: 50%;
+
+		h3 {
+			background-color: $light-gray-100;
+			border-bottom: 1px solid $gray;
+			flex: 0 0 50%;
+			margin: 0;
+			padding: 0.4375rem;
+		} // h3
+
+		> ul {
+			height: calc(100% - 52px); // compensate for heading.
+			margin: 0;
+			overflow-y: auto;
+
+			li {
+				border-bottom: 1px solid $gray;
+				font-size: 1rem;
+				line-height: 1.125rem;
+				list-style: none;
+				padding: 0.4375rem;
+
+				&:last-child {
+					border-bottom: 0;
+				} // &:last-child
+			} // li
+		} // > ul
+	} // .related-left-column, .related-right-column
+
+	.related-left-colum {
+		border-right: 1px solid $gray;
+	} // .related-left-colum
+
+	//-----------------------------------------
+	// Loader Position
+	//-----------------------------------------
+	.wp-block-loader {
+		background-color: rgba($light-gray-100, 0.8);
+		height: 100%;
+		position: absolute;
+		width: 100%;
+
+		> img {
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translateX( -50% );
+		} // img
+	} // .wp-block-loader
+} // .wp-block-wds-related-posts-test
