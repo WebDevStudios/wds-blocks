@@ -199,5 +199,62 @@ export default registerBlockType(
 				</section>
 			);
 		},
+		deprecated: [
+			{
+				attributes: {
+					message: {
+						type: 'array',
+						source: 'children',
+						selector: '.content-block',
+					},
+					alignment: {
+						type: 'string',
+					},
+					...BlockTitleAttributes,
+					...BackgroundOptionsAttributes,
+					...TextOptionsAttributes,
+					...OtherOptionsAttributes,
+					...ButtonLinkAttributes,
+				},
+				save( props ) {
+					return (
+						<section
+							className={ classnames(
+								props.className,
+								...BackgroundOptionsClasses( props ),
+								...OtherOptionsClasses( props ),
+							) }
+							style={ {
+								...BackgroundOptionsInlineStyles( props ),
+								...TextOptionsInlineStyles( props ),
+								textAlign: props.attributes.alignment,
+							} }
+						>
+
+							{ BackgroundOptionsVideoOutput( props ) }
+
+							<BlockTitleOutput
+								{ ...props }
+							/>
+
+							<div className="content-block-content content-block">
+								{ props.attributes.message }
+							</div>
+
+							{ props.attributes.buttonUrl ? (
+								<footer className="contenet-block-footer">
+									<ButtonLinkOutput
+										{ ...props }
+									/>
+								</footer>
+							) : (
+								null
+							) }
+
+						</section>
+					);
+				},
+			},
+		],
 	},
 );

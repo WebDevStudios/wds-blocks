@@ -155,4 +155,44 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 			</section>
 		);
 	},
+	deprecated: [
+		{
+			attributes: {
+				message: {
+					type: 'array',
+					source: 'children',
+					selector: '.content-block',
+				},
+				...BackgroundOptionsAttributes,
+				...TextOptionsAttributes,
+				...OtherOptionsAttributes,
+			},
+			save( props ) {
+				return (
+					<section
+						className={ classnames(
+							props.className,
+							...BackgroundOptionsClasses( props ),
+							...OtherOptionsClasses( props ),
+						) }
+						style={ {
+							...BackgroundOptionsInlineStyles( props ),
+							...TextOptionsInlineStyles( props ),
+						} }
+					>
+
+						{ BackgroundOptionsVideoOutput( props ) }
+
+						<header className="content-block-header">
+							<h2>{ __( 'WDS Example Block with Options' ) }</h2>
+						</header>
+
+						<div className="content-block-content content-block">
+							{ props.attributes.message }
+						</div>
+					</section>
+				);
+			},
+		},
+	],
 } );
