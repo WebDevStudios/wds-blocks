@@ -4,5 +4,18 @@
 // Additional styles necessary to assist the editor.
 // Enqueued after style.scss.
 //--------------------------------------------------------------
-.wds-button-options {
-} // .wds-button-options
+.editor-block-list__layout {
+
+	.button.wds-button-component {
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		height: unset;
+		padding: 0;
+
+		textarea,
+		form {
+			padding: 0 10px;
+		} // textarea, form
+	} // .button.wds-button-component
+} // .editor-block-list__layout
