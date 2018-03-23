@@ -61,7 +61,7 @@ import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../..
  */
 export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'Two-Column Block' ),
+	title: __( 'WDS Two-Column Block' ),
 	// Description: Write a quick description.
 	description: __( 'Two equal-width columns displaying a combination of text and/or an image.' ),
 	// Category options: common, formatting, layout, widgets, embed.
@@ -493,4 +493,150 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 			</section>
 		);
 	},
+	deprecated: [
+		{
+			attributes: {
+				contentLeft: {
+					type: 'array',
+					source: 'children',
+					selector: '.content-block-left',
+				},
+				contentRight: {
+					type: 'array',
+					source: 'children',
+					selector: '.content-block-right',
+				},
+				alignmentLeft: {
+					type: 'string',
+				},
+				alignmentRight: {
+					type: 'string',
+				},
+				imgURL: {
+					type: 'string',
+					source: 'attribute',
+					attribute: 'src',
+					selector: 'img',
+				},
+				imgID: {
+					type: 'number',
+				},
+				imgAlt: {
+					type: 'string',
+					source: 'attribute',
+					attribute: 'alt',
+					selector: 'img',
+				},
+				layout: {
+					type: 'string',
+				},
+				columnOrder: {
+					type: 'boolean',
+					default: false,
+				},
+				...BlockTitleAttributes,
+				...BackgroundOptionsAttributes,
+				...TextOptionsAttributes,
+				...OtherOptionsAttributes,
+			},
+			save(props) {
+				// Display the output of the Left content block.
+				function displayLeftContentOutput() {
+					return (
+						<div
+							key="content-block"
+							className="content-block-content content-block-left"
+							style={ { textAlign: props.attributes.alignmentLeft } }
+						>
+							{ props.attributes.contentLeft }
+						</div>
+					);
+				}
+
+				// Display the output of the Right content block.
+				function displayRightContentOutput() {
+					return (
+						<div
+							key="content-block"
+							className="content-block-content content-block-right"
+							style={ { textAlign: props.attributes.alignmentRight } }
+						>
+							{ props.attributes.contentRight }
+						</div>
+					);
+				}
+
+				// Display the output of the Image block.
+				function displayImageOutput() {
+					return (
+						<div
+							key="content-block-image"
+							className="content-block-content content-block"
+							style={ { textAlign: props.attributes.alignmentRight } }
+						>
+							<img
+								src={ props.attributes.imgURL }
+								alt={ props.attributes.imgAlt }
+							/>
+						</div>
+					);
+				}
+
+				// Check our layout type and display blocks as needed.
+				function displayLayoutOutput() {
+					if ( 'text-image' === props.attributes.layout ) {
+						return [
+							displayLeftContentOutput(),
+							displayImageOutput(),
+						];
+					} else if ( 'image-text' === props.attributes.layout ) {
+						return [
+							displayImageOutput(),
+							displayLeftContentOutput(),
+						];
+					} else if ( 'text-text' === props.attributes.layout || ! props.attributes.layout ) {
+						// If the toggle is clicked, display the Right column first.
+						if ( props.attributes.columnOrder ) {
+							return [
+								displayRightContentOutput(),
+								displayLeftContentOutput(),
+							];
+						}
+
+						// Otherwise, display the columns as usual.
+						return [
+							displayLeftContentOutput(),
+							displayRightContentOutput(),
+						];
+					}
+				}
+
+				return (
+					<section
+						className={ classnames(
+							props.className,
+							'content-block grid-container two-column',
+							...BackgroundOptionsClasses( props ),
+							...OtherOptionsClasses( props ),
+						) }
+						style={ {
+							...BackgroundOptionsInlineStyles( props ),
+							...TextOptionsInlineStyles( props ),
+						} }
+					>
+
+						{ BackgroundOptionsVideoOutput( props ) }
+
+						<BlockTitleOutput
+							{ ...props }
+						/>
+
+						<div className="content-block-container">
+							{ displayLayoutOutput() }
+						</div>
+					</section>
+				);
+			}
+		}
+	]
 } );
