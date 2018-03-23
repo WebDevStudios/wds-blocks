@@ -111,7 +111,7 @@ class EditComponent extends Component {
 			<BlockTitle key=""
 				{ ...this.props }
 			/>,
-			<Search key="" onQueryChange={ this.returnQueryData } />,
+			<Search key="" className="wds-related-posts-search-form" onQueryChange={ this.returnQueryData } />,
 			<div key="" className={ this.props.className }>
 				{ ! this.state.isLoaded ? <Loader key="" /> : null }
 				{ this.returnLayout() }

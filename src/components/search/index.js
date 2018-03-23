@@ -63,9 +63,12 @@ class Search extends Component {
 	}
 
 	render() {
+
+		const classList = this.props.className || 'search-form'
+
 		return (
 			<form>
-				<input className="search-form" type="text" onChange={ this.setQuery } onKeyPress={ this.handleKeyPress } />
+				<input className={ classList } type="text" onChange={ this.setQuery } onKeyPress={ this.handleKeyPress } />
 			</form>
 		);
 	}
