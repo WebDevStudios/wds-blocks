@@ -178,5 +178,52 @@ export default registerBlockType(
 				</section>
 			);
 		},
+		deprecated: [
+			{
+				attributes: {
+					message: {
+						type: 'array',
+						source: 'children',
+						selector: '.content-block',
+					},
+					...BlockTitleAttributes,
+					...BackgroundOptionsAttributes,
+					...TextOptionsAttributes,
+					...OtherOptionsAttributes,
+					...ButtonLinkAttributes,
+				},
+				save( props ) {
+					return (
+						<section
+							className={ classnames(
+								props.className,
+								...BackgroundOptionsClasses( props ),
+								...OtherOptionsClasses( props ),
+							) }
+							style={ {
+								...BackgroundOptionsInlineStyles( props ),
+								...TextOptionsInlineStyles( props ),
+							} }
+						>
+
+							{ BackgroundOptionsVideoOutput( props ) }
+
+							<BlockTitleOutput
+								{ ...props }
+							/>
+
+							<div className="content-block-content content-block">
+								{ props.attributes.message }
+							</div>
+
+							<ButtonLinkOutput
+								{ ...props }
+							/>
+
+						</section>
+					);
+				}
+			}
+		]
 	},
 );
