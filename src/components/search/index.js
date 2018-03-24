@@ -31,20 +31,20 @@ class Search extends Component {
 
 	// https://davidwalsh.name/javascript-debounce-function
 	debounce( func, wait, immediate ) {
-		var timeout;
+		let timeout;
 
 		return function() {
-			let context = this;
-			let args = arguments;
+			const context = this;
+			const args = arguments;
 
-			let later = function() {
+			const later = function() {
 				timeout = null;
 				if ( ! immediate ) {
 					func.apply( context, args );
 				}
 			};
 
-			let callNow = immediate && ! timeout;
+			const callNow = immediate && ! timeout;
 
 			clearTimeout( timeout );
 			timeout = setTimeout( later, wait );
@@ -63,8 +63,7 @@ class Search extends Component {
 	}
 
 	render() {
-
-		const classList = this.props.className || 'search-form'
+		const classList = this.props.className || 'search-form';
 
 		return (
 			<form>
