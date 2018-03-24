@@ -30,8 +30,10 @@ class EditComponent extends Component {
 	}
 
 	handleEvent = clickedPost => {
-		const { allPosts, selectedPosts } = this.state;
+		const { allPosts, queriedPosts, selectedPosts } = this.state;
 		const inPosts = allPosts.some( result => result.id === clickedPost.id );
+		// const alreadySelected = selectedPosts.some( result => result.id === clickedPost.id );
+		// const inQuery = queriedPosts.some( result => result.id === clickedPost.id );
 
 		this.setState( {
 			allPosts: inPosts ?
