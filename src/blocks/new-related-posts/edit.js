@@ -95,14 +95,14 @@ class EditComponent extends Component {
 				<Output
 					activeClass={ this.state.selectedPosts }
 					textRef={ ( element ) => this.container = element }
-					title="Posts"
+					title={ this.state.query !== '' ? 'Quieried Posts' : 'Posts' }
 					className="related-left-column"
 					key=""
 					posts={ this.state.query !== '' ? this.state.queriedPosts : this.state.allPosts }
 					handleEvent={ this.handleEvent }
 				/>
 				<Output
-					activeClass={ this.state.selectedPosts }
+					activeClass={ this.state }
 					title="Selected Posts"
 					className="related-right-column"
 					key=""
@@ -115,7 +115,6 @@ class EditComponent extends Component {
 	}
 
 	render() {
-		console.log( this.state );
 		return [
 			<BlockTitle key=""
 				{ ...this.props }
