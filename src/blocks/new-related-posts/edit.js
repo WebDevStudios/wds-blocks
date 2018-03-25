@@ -19,6 +19,7 @@ class EditComponent extends Component {
 			isLoaded: false,
 			atEnd: false,
 			totalPosts: '',
+			query: '',
 		};
 
 		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/posts?page=${ page }&per_page=5`;
@@ -26,27 +27,40 @@ class EditComponent extends Component {
 		this.handleEvent = this.handleEvent.bind( this );
 		this.fetchData = this.fetchData.bind( this );
 		this.returnLayout = this.returnLayout.bind( this );
-		this.returnQueryData = this.returnQueryData.bind( this );
+		this.returnQuery = this.returnQuery.bind( this );
 	}
 
 	handleEvent = clickedPost => {
-		const { allPosts, queriedPosts, selectedPosts } = this.state;
-		const inPosts = allPosts.some( result => result.id === clickedPost.id );
-		// const alreadySelected = selectedPosts.some( result => result.id === clickedPost.id );
-		// const inQuery = queriedPosts.some( result => result.id === clickedPost.id );
+		const { allPosts, queriedPosts, selectedPosts, query } = this.state;
 
-		this.setState( {
-			allPosts: inPosts ?
-				allPosts.filter( i => i.id !== clickedPost.id ) :
-				[ ...allPosts, clickedPost ],
-			selectedPosts: inPosts ?
-				[ ...selectedPosts, clickedPost ] :
-				selectedPosts.filter( i => i.id !== clickedPost.id ),
-		} );
+		const postContainer = clickedPost.e.target;
+		const postData = clickedPost.post;
+
+		console.log( postContainer );
+
+		if ( postContainer.classList.contains( 'is-selected' ) ) {
+
+			const i = selectedPosts.indexOf( postData );
+
+			if ( i !== -1 ) {
+				selectedPosts.splice( i, 1 );
+			}
+		} else {
+			this.setState( {
+				selectedPosts: selectedPosts.concat( postData ),
+			} );
+		}
+
+		// If we have a query string.
+		if ( query !== '' ) {
+
+		} else {
+			// We have normal paginagion.
+		}
 	};
 
-	returnQueryData( responseQuery ) {
-		this.setState( { queriedPosts: responseQuery } );
+	returnQuery( response ) {
+		this.setState( { query: response.string, queriedPosts: response.data } );
 	}
 
 	fetchData( page ) {
@@ -89,14 +103,16 @@ class EditComponent extends Component {
 		return (
 			<Fragment>
 				<Output
+					activeClass={ this.state.selectedPosts }
 					textRef={ ( element ) => this.container = element }
 					title="Posts"
 					className="related-left-column"
 					key=""
-					posts={ this.state.queriedPosts.length > 0 ? this.state.queriedPosts : this.state.allPosts }
+					posts={ this.state.query !== '' ? this.state.queriedPosts : this.state.allPosts }
 					handleEvent={ this.handleEvent }
 				/>
 				<Output
+					activeClass={ this.state.selectedPosts }
 					title="Selected Posts"
 					className="related-right-column"
 					key=""
@@ -109,11 +125,16 @@ class EditComponent extends Component {
 	}
 
 	render() {
+		console.log( this.state );
 		return [
 			<BlockTitle key=""
 				{ ...this.props }
 			/>,
-			<Search key="" className="wds-related-posts-search-form" onQueryChange={ this.returnQueryData } />,
+			<Search
+				key=""
+				className="wds-related-posts-search-form"
+				onQueryChange={ this.returnQuery }
+			/>,
 			<div key="" className={ this.props.className }>
 				{ ! this.state.isLoaded ? <Loader key="" /> : null }
 				{ this.returnLayout() }
