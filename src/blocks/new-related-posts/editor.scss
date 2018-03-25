@@ -4,6 +4,9 @@
 // Additional styles necessary to assist the editor.
 // Enqueued after style.scss.
 //--------------------------------------------------------------
+
+// sass-lint:disable class-name-format, no-qualifying-elements
+
 .wp-block-wds-new-related-posts {
 	border: 1px solid $gray;
 	display: flex;
@@ -82,6 +85,9 @@
 .editor-block-list__block input.wds-related-posts-search-form {
 	border-radius: 0;
 	font-size: 1rem;
-	margin: 0 0 0.3125rem;
+	margin: 0 0 -0.0625rem;
+	padding: 0.625rem;
+	position: relative;
 	width: 100%;
+	z-index: 100;
 }
