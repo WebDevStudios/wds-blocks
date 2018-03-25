@@ -9,6 +9,7 @@ class Output extends Component {
 
 	render() {
 		const {
+			activeClass,
 			className,
 			handleEvent,
 			posts,
@@ -22,6 +23,7 @@ class Output extends Component {
 				<ul ref={ textRef }>
 					{ posts.map( ( result, index ) => (
 						<Item
+							isActive={ activeClass }
 							key={ `${ result.id }-${ index }` }
 							postName={ result.title.rendered }
 							post={ result }
