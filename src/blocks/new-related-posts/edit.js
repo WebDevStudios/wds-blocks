@@ -31,15 +31,12 @@ class EditComponent extends Component {
 	}
 
 	handleEvent = clickedPost => {
-		const { allPosts, queriedPosts, selectedPosts, query } = this.state;
+		const { selectedPosts } = this.state;
 
 		const postContainer = clickedPost.e.target;
 		const postData = clickedPost.post;
 
-		console.log( postContainer );
-
 		if ( postContainer.classList.contains( 'is-selected' ) ) {
-
 			const i = selectedPosts.indexOf( postData );
 
 			if ( i !== -1 ) {
@@ -49,13 +46,6 @@ class EditComponent extends Component {
 			this.setState( {
 				selectedPosts: selectedPosts.concat( postData ),
 			} );
-		}
-
-		// If we have a query string.
-		if ( query !== '' ) {
-
-		} else {
-			// We have normal paginagion.
 		}
 	};
 
