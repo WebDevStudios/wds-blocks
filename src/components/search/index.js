@@ -20,13 +20,23 @@ class Search extends Component {
 	}
 
 	fetchQueryData( queryString ) {
-		window.fetch( this.apiQueryURL( queryString ) )
-			.then( response => {
-				return response.json();
-			} )
-			.then( response => {
-				return this.props.onQueryChange( response );
+		if ( queryString !== '' ) {
+			window.fetch( this.apiQueryURL( queryString ) )
+				.then( response => {
+					return response.json();
+				} )
+				.then( response => {
+					return this.props.onQueryChange( {
+						string: queryString,
+						data: response,
+					} );
+				} );
+		} else {
+			return this.props.onQueryChange( {
+				string: '',
+				data: [],
 			} );
+		}
 	}
 
 	// https://davidwalsh.name/javascript-debounce-function
@@ -67,7 +77,13 @@ class Search extends Component {
 
 		return (
 			<form>
-				<input className={ classList } type="text" onChange={ this.setQuery } onKeyPress={ this.handleKeyPress } />
+				<input
+					className={ classList }
+					type="text"
+					onChange={ this.setQuery }
+					onKeyPress={ this.handleKeyPress }
+					placeholder="Search..."
+				/>
 			</form>
 		);
 	}
