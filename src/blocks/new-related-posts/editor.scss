@@ -43,8 +43,19 @@
 		} // > ul
 	} // .related-left-column, .related-right-column
 
-	.related-left-colum {
+	.related-left-column {
 		border-right: 1px solid $gray;
+
+		> ul {
+
+			li {
+
+				&.is-selected {
+					opacity: 0.5;
+					pointer-events: none;
+				} // .is-selected
+			} // li
+		} // > ul
 	} // .related-left-colum
 
 	//-----------------------------------------
@@ -69,9 +80,8 @@
 // Form
 //-----------------------------------------
 .editor-block-list__block input.wds-related-posts-search-form {
-	border-bottom: 0;
 	border-radius: 0;
 	font-size: 1rem;
-	margin: 0;
+	margin: 0 0 0.3125rem;
 	width: 100%;
 }
