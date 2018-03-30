@@ -6,7 +6,7 @@
  * @since NEXT
  */
 
-namespace WDS_Gutenberg\Src\Block_Options;
+namespace WDS\Gutenberg\template_tags\block_container_options;
 
 /**
  * Displays the opening tag for a custom block.
