@@ -36,7 +36,7 @@ export default class ButtonLink extends Component {
 
 	render() {
 		return (
-			<Button className={ 'button button-large' }>
+			<Button className={ 'button wds-button-component button-large' }>
 				<PlainText
 					value={ this.props.attributes.buttonText }
 					placeholder={
