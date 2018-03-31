@@ -9,13 +9,14 @@ import jsonp from 'jsonp';
 const { __ } = wp.i18n;
 const { Component } = wp.element;
 const { Button, Spinner } = wp.components;
-const { registerBlockType } = wp.blocks;
+const { registerBlockType, BlockControls } = wp.blocks;
 
 /**
  * Internal dependencies
  */
 import icon from './icon';
 import Placeholder from '../../components/placeholder';
+import './editor.scss';
 
 /**
  * Register block: GitHub Gist
@@ -60,17 +61,17 @@ registerBlockType( 'wds/gihub-gist', {
 				event.preventDefault();
 			}
 
-			const url = this.removeTrailingSlash( this.props.attributes.url );
+			this.resetState();
 
-			if ( ! this.isGistUrl( url ) ) {
+			if ( ! this.isGistUrl() ) {
 				this.setState( { error: true } );
 				return;
 			}
 
 			// Begin fetching data.
-			this.setState( { error: false, fetching: true } );
+			this.setState( { fetching: true } );
 
-			const [ gistError, gist ] = await this.catchErrors( this.fetchGist( url ) );
+			const [ gistError, gist ] = await this.catchErrors( this.fetchGist() );
 
 			if ( gistError ) {
 				this.setState( { error: true, fetching: false } );
@@ -92,18 +93,29 @@ registerBlockType( 'wds/gihub-gist', {
 			this.setState( { fetching: false } );
 		}
 
-		isGistUrl( url ) {
+		resetState() {
+			this.setState( {
+				html: '',
+				styles: '',
+				error: false,
+				fetching: false,
+			} );
+		}
+
+		isGistUrl() {
+			const { url } = this.props.attributes;
 			return 0 === url.indexOf( 'https://gist.github.com/' );
+		}
+
+		fetchGist() {
+			const url = this.removeTrailingSlash( this.props.attributes.url );
+			return new Promise( ( resolve, reject ) =>
+				jsonp( `${ url }.json`, { timeout: 5000 }, ( err, data ) =>
+					err ? reject( err ) : resolve( data ) ) );
 		}
 
 		removeTrailingSlash( url ) {
 			return url.replace( /\/+$/, '' );
-		}
-
-		fetchGist( url ) {
-			return new Promise( ( resolve, reject ) =>
-				jsonp( `${ url }.json`, {}, ( err, data ) =>
-					err ? reject( err ) : resolve( data ) ) );
 		}
 
 		async fetchStyles( stylesheetUrl ) {
@@ -117,9 +129,8 @@ registerBlockType( 'wds/gihub-gist', {
 		}
 
 		render() {
-			const { html, styles, error, fetching } = this.state;
-			const { url } = this.props.attributes;
-			const { setAttributes, className } = this.props;
+			const { html, styles, fetching } = this.state;
+			const { className, isSelected } = this.props;
 
 			if ( fetching ) {
 				return (
@@ -134,21 +145,7 @@ registerBlockType( 'wds/gihub-gist', {
 				return (
 					<div className={ className }>
 						<Placeholder key="placeholder" icon={ icon } label={ __( 'Embed GitHub Gist' ) } className="wp-block-embed">
-							<form onSubmit={ this.fetchGistAndSetState }>
-								<input
-									type="url"
-									value={ url || '' }
-									className="components-placeholder__input"
-									aria-label={ __( 'Embed GitHub Gist' ) }
-									placeholder={ __( 'Enter gist URL…' ) }
-									onChange={ event => setAttributes( { url: event.target.value.trim() } ) } />
-								<Button
-									isLarge
-									type="submit">
-									{ __( 'Embed' ) }
-								</Button>
-								{ error && <p className="components-placeholder__error">{ __( 'Sorry, that gist could not be embedded. Please check the URL and try again.' ) }</p> }
-							</form>
+							{ this.getForm( true ) }
 						</Placeholder>
 					</div>
 				);
@@ -156,9 +153,41 @@ registerBlockType( 'wds/gihub-gist', {
 
 			return (
 				<div className={ className }>
+					{ isSelected &&
+						<BlockControls key="controls">
+							<div className="gist-block-controls">
+								{ this.getForm() }
+							</div>
+						</BlockControls>
+					}
 					<style>{ styles }</style>
 					<div dangerouslySetInnerHTML={ { __html: html } } />
 				</div>
+			);
+		}
+
+		getForm( showErrors ) {
+			const { error } = this.state;
+			const { url } = this.props.attributes;
+			const { setAttributes } = this.props;
+
+			return (
+				<form onSubmit={ this.fetchGistAndSetState }>
+					<input
+						type="url"
+						value={ url || '' }
+						className="components-placeholder__input"
+						aria-label={ __( 'Embed GitHub Gist' ) }
+						placeholder={ __( 'Enter gist URL…' ) }
+						onChange={ event => setAttributes( { url: event.target.value.trim() } ) }
+					/>
+					<Button
+						isLarge
+						type="submit">
+						{ __( 'Embed' ) }
+					</Button>
+					{ error && showErrors && <p className="components-placeholder__error">{ __( 'Sorry, that gist could not be embedded. Please check the URL and try again.' ) }</p> }
+				</form>
 			);
 		}
 	},
