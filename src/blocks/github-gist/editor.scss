@@ -1,11 +1,23 @@
+//--------------------------------------------------------------
+// Editor Styles
+//
+// Additional styles necessary to assist the editor.
+//--------------------------------------------------------------
+
+.wp-block-wds-gihub-gist {
+	display: block;
+	margin: 0 0 30px 0;
+	overflow: hidden;
+} // .wp-block-wds-gihub-gist
+
 .gist-block-controls {
-  padding: 2px;
+	padding: 2px;
 
-  input[type="url"] {
-    min-width: 350px;
-  }
+	input[type="url"] {
+		min-width: 350px;
+	} // input[type="url"]
 
-  .button {
-    font-family: $default-font;
-  }
-}
+	.button {
+		font-family: $default-font;
+	} // .button
+} // .gist-block-controls
