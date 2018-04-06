@@ -16,6 +16,7 @@ const { registerBlockType, BlockControls } = wp.blocks;
  */
 import icon from './icon';
 import Placeholder from '../../components/placeholder';
+import './style.scss';
 import './editor.scss';
 
 /**

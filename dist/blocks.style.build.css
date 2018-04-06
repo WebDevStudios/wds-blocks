@@ -116,6 +116,14 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.wp-block-wds-gihub-gist {
+  margin-top: 16px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wp-block-wds-hero {
   background-repeat: no-repeat;
   background-size: cover;
