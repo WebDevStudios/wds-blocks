@@ -4,5 +4,10 @@
 // Additional styles necessary to assist the editor.
 // Enqueued after style.scss.
 //--------------------------------------------------------------
-.wp-block-wds-default {
-}
+.edit-post-visual-editor .editor-block-list__block {
+
+	// Taget the hero only here.
+	&[data-type="wds/call-to-action"] {
+		max-width: none;
+	} // &[data-type="wds/hero"]
+} // .edit-post-visual-editor .editor-block-list__block

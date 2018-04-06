@@ -4,6 +4,14 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.edit-post-visual-editor .editor-block-list__block[data-type="wds/call-to-action"] {
+  max-width: none; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wds-block-title {
   background-color: transparent; }
 /**
@@ -38,14 +46,28 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.editor-block-list__layout .button.wds-button-component {
+  background-color: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  height: unset;
+  max-width: 280px;
+  padding: 0; }
+  .editor-block-list__layout .button.wds-button-component textarea,
+  .editor-block-list__layout .button.wds-button-component form {
+    padding: 0 10px; }
 /**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.wp-block-wds-hero {
-  min-height: unset; }
+.edit-post-visual-editor .editor-block-list__block[data-type="wds/hero"] {
+  max-width: none; }
+
+.edit-post-visual-editor .editor-block-list__block .wp-block-wds-hero {
+  min-height: 640px; }
 /**
  * #.# Common SCSS
  *

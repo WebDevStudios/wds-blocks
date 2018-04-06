@@ -4,6 +4,16 @@
 // Default styles for this block.
 // Appears on the back-end.
 //--------------------------------------------------------------
-.wp-block-wds-hero {
-	min-height: unset;
-} // .wp-block-wds-hero
+
+.edit-post-visual-editor .editor-block-list__block {
+
+	// Taget the hero only here.
+	&[data-type="wds/hero"] {
+		max-width: none;
+	} // &[data-type="wds/hero"]
+
+	// Push the Hero as far as it can go while remaining editable.
+	.wp-block-wds-hero {
+		min-height: 640px;
+	} // .wp-block-wds-hero
+} // .edit-post-visual-editor .editor-block-list__block

@@ -25,6 +25,7 @@ const {
  * Internal dependencies
  */
 import './style.scss';
+import './editor.scss';
 import classnames from 'classnames';
 
 // Import our Block Title component.
