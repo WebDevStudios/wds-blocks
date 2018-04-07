@@ -40,7 +40,9 @@ class EditComponent extends Component {
 			const i = selectedPosts.indexOf( postData );
 
 			if ( i !== -1 ) {
-				selectedPosts.splice( i, 1 );
+				this.setState( {
+					selectedPosts: selectedPosts.filter( item => item !== postData ),
+				} );
 			}
 		} else {
 			this.setState( {
@@ -93,7 +95,7 @@ class EditComponent extends Component {
 		return (
 			<Fragment>
 				<Output
-					activeClass={ this.state.selectedPosts }
+					activeClass={ this.state }
 					textRef={ ( element ) => this.container = element }
 					title={ this.state.query !== '' ? 'Quieried Posts' : 'Posts' }
 					className="related-left-column"
