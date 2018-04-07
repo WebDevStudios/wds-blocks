@@ -5,7 +5,7 @@ const Item = ( props ) => {
 	function className() {
 		// If current post is in selectedPosts.
 		if ( post && undefined !== isActive ) {
-			if ( isActive.filter( e => e.id === post.id ).length > 0 ) {
+			if ( isActive.selectedPosts.filter( e => e.id === post.id ).length > 0 ) {
 				return post.slug + ' is-selected';
 			}
 
