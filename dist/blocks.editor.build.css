@@ -97,6 +97,7 @@ div[data-type="wds/related-posts"] ul {
       .wp-block-wds-new-related-posts .related-left-column > ul li,
       .wp-block-wds-new-related-posts .related-right-column > ul li {
         border-bottom: 1px solid #dedede;
+        cursor: pointer;
         font-size: 1rem;
         line-height: 1.125rem;
         list-style: none;
@@ -104,8 +105,12 @@ div[data-type="wds/related-posts"] ul {
         .wp-block-wds-new-related-posts .related-left-column > ul li:last-child,
         .wp-block-wds-new-related-posts .related-right-column > ul li:last-child {
           border-bottom: 0; }
-  .wp-block-wds-new-related-posts .related-left-colum {
+  .wp-block-wds-new-related-posts .related-left-column {
     border-right: 1px solid #dedede; }
+    .wp-block-wds-new-related-posts .related-left-column > ul li.is-selected {
+      cursor: default;
+      opacity: 0.5;
+      pointer-events: none; }
   .wp-block-wds-new-related-posts .wp-block-loader {
     background-color: rgba(248, 249, 249, 0.8);
     height: 100%;
@@ -118,6 +123,15 @@ div[data-type="wds/related-posts"] ul {
       -webkit-transform: translateX(-50%);
           -ms-transform: translateX(-50%);
               transform: translateX(-50%); }
+
+.editor-block-list__block input.wds-related-posts-search-form {
+  border-radius: 0;
+  font-size: 1rem;
+  margin: 0 0 -0.0625rem;
+  padding: 0.625rem;
+  position: relative;
+  width: 100%;
+  z-index: 100; }
 /**
  * #.# Common SCSS
  *
