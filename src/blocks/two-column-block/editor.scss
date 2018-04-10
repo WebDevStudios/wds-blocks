@@ -5,8 +5,7 @@
 // Enqueued after style.scss.
 //--------------------------------------------------------------
 .wp-block-wds-two-column {
-	max-width: 740px;
-
+	
 	.content-block-container {
 
 		.components-button {
@@ -23,11 +22,23 @@
 	} // .block-title
 } // .wp-block-wds-two-column
 
-
 //-----------------------------------------
 // Editing Toolbar (alignment, bold, italic, etc.)
 //-----------------------------------------
 div[data-type='wds/two-column'] {
+
+	// Target visual editor for override below.
+	.edit-post-visual-editor & {
+
+		// Override Default max width.
+		&.editor-block-list__block {
+			width: 100%;
+
+			@include media($tablet-portrait) {
+				max-width: 740px;
+			}
+		} // &.editor-block-list__block
+	} // .edit-post-visual-editor &
 
 	.editor-block-contextual-toolbar {
 		height: auto;
