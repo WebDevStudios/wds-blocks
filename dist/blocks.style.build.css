@@ -19,6 +19,8 @@
     z-index: -1; }
 
 .has-custom-background {
+  background-position: center center;
+  background-repeat: no-repeat;
   padding: 20px; }
 .has-video-background {
   overflow: hidden;
