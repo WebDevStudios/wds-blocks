@@ -1,9 +1,3 @@
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
 .has-video-background {
   overflow: hidden;
   position: relative; }
@@ -26,12 +20,6 @@
 
 .has-custom-background {
   padding: 20px; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
 .has-video-background {
   overflow: hidden;
   position: relative; }
@@ -54,12 +42,6 @@
 
 .has-custom-background {
   padding: 20px; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
 .wds-components-placeholder {
   display: -ms-flexbox;
   display: flex;
@@ -110,12 +92,6 @@
 
 .wds-components-placeholder__instructions {
   margin-bottom: 1em; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
 .wp-block-wds-hero {
   background-repeat: no-repeat;
   background-size: cover;
@@ -127,29 +103,28 @@
       justify-content: center;
   min-height: 640px; }
 /**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
  * #.# Styles
  *
  * CSS for both Frontend+Backend.
  */
 .wp-block-wds-two-column .content-block-container {
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  @media (min-width: 600px) {
+    .wp-block-wds-two-column .content-block-container {
+      -ms-flex-direction: row;
+          flex-direction: row; } }
 
 .wp-block-wds-two-column .content-block-content {
-  -ms-flex: 0 1 50%;
-      flex: 0 1 50%;
-  max-width: 50%; }
-  .wp-block-wds-two-column .content-block-content:last-child {
-    margin-left: 20px; }
+  -ms-flex: 1 1 100%;
+      flex: 1 1 100%; }
+  @media (min-width: 600px) {
+    .wp-block-wds-two-column .content-block-content {
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+      max-width: 50%; } }
+  @media (min-width: 600px) {
+    .wp-block-wds-two-column .content-block-content:last-child {
+      margin-left: 20px; } }
