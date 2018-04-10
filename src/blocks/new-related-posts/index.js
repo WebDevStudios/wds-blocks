@@ -87,4 +87,16 @@ export default registerBlockType( 'wds/new-related-posts', { // Namespaced with 
 			</section>
 		);
 	},
+	// deprecated: [
+	// 	{
+	// 		attributes: {
+
+	// 		},
+	// 		save( props ) {
+	// 			return (
+
+	// 			);
+	// 		}
+	// 	}
+	// ]
 } );
