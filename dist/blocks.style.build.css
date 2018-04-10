@@ -102,6 +102,13 @@
   -ms-flex-pack: center;
       justify-content: center;
   min-height: 640px; }
+  .site-content .wp-block-wds-hero {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    right: 50%;
+    width: 100vw; }
 /**
  * #.# Styles
  *
