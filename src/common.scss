@@ -20,6 +20,7 @@ $white: #f4f4f4;
 $gray: #dedede;
 $green: #bada55;
 $red: orangered;
+
 //--------------------------------------------------------------
 // Breakpoints
 //--------------------------------------------------------------
@@ -50,3 +51,15 @@ $phone: 300px;
 		@content;
 	}
 } //  @mixin media($breakpoint)
+
+//--------------------------------------------------------------
+// Full Width
+//--------------------------------------------------------------
+@mixin full-width {
+	left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	position: relative;
+	right: 50%;
+	width: 100vw;
+}
