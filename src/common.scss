@@ -68,6 +68,6 @@ $phone: 300px;
 // If block is not selected or hovered
 // lets put some opacity on it
 //--------------------------------------------------------------
-.editor-block-list__block:not(.is-selected):not(.is-hovered) {
+.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
 	opacity: 0.25;
 }
