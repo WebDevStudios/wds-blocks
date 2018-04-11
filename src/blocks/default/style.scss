@@ -4,25 +4,34 @@
 // Default styles for this block.
 // Appears on both front and back-end.
 //--------------------------------------------------------------
-.has-video-background {
-	overflow: hidden;
-	position: relative;
 
-	.video-container {
-		height: 100%;
-		left: 50%;
-		min-height: 100%;
-		min-width: 100%;
-		object-fit: none;
-		object-position: center center;
-		position: absolute;
-		transform: translate(-50%, -50%);
-		top: 50%;
-		width: 100%;
-		z-index: -1;
-	} // .video-container
-} // .has-video-background
+.wp-block-wds-default {
 
-.has-custom-background {
-	padding: 20px;
-} // .has-custom-background
+	.has-video-background {
+		overflow: hidden;
+		position: relative;
+
+		.video-container {
+			height: 100%;
+			left: 50%;
+			min-height: 100%;
+			min-width: 100%;
+			object-fit: none;
+			object-position: center center;
+			position: absolute;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			width: 100%;
+			z-index: -1;
+		} // .video-container
+	} // .has-video-background
+
+	.has-custom-background {
+		padding: 20px;
+
+		// The should help the front end only to work out of the box.
+		.site-content & {
+			@include full-width;
+		} // .site-content &
+	} // .has-custom-background
+}

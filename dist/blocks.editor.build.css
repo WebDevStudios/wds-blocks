@@ -69,6 +69,15 @@
   margin-bottom: 30px;
   margin-top: 30px; }
 
+.edit-post-visual-editor .editor-block-list__block[data-type="wds/default"] {
+  max-width: none; }
+.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
+  opacity: 0.25; }
+
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
+
 .edit-post-visual-editor .editor-block-list__block[data-type="wds/hero"] {
   max-width: none; }
 
