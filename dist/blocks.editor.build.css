@@ -1,15 +1,27 @@
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
 
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
+
 .edit-post-visual-editor .editor-block-list__block[data-type="wds/call-to-action"] {
   max-width: none; }
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
 
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
+
 .wds-block-title {
   background-color: transparent; }
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
+
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
 
 .wds-background-options .blocks-base-control {
   width: 100%; }
@@ -19,13 +31,25 @@
   top: 5px; }
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
+
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
+
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
 
 .wds-other-options .blocks-base-control {
   width: 100%; }
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
+
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
 
 .editor-block-list__layout .button.wds-button-component {
   background-color: transparent;
@@ -41,6 +65,10 @@
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
 
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
+
 .edit-post-visual-editor .editor-block-list__block[data-type="wds/hero"] {
   max-width: none; }
 
@@ -48,6 +76,10 @@
   min-height: 640px; }
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
+
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
 
 div[data-type="wds/related-posts"] .all-posts {
   background-color: #c0c0c0; }
@@ -60,6 +92,10 @@ div[data-type="wds/related-posts"] ul {
   padding-left: 20px; }
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
   opacity: 0.25; }
+
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px; }
 
 .wp-block-wds-two-column .content-block-container .components-button svg {
   position: relative;

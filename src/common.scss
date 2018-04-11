@@ -53,7 +53,7 @@ $phone: 300px;
 } //  @mixin media($breakpoint)
 
 //--------------------------------------------------------------
-// Full Width
+// Full Width Mixin
 //--------------------------------------------------------------
 @mixin full-width {
 	left: 50%;
@@ -62,12 +62,19 @@ $phone: 300px;
 	position: relative;
 	right: 50%;
 	width: 100vw;
-}
+} // @mixin full-width
 
 //--------------------------------------------------------------
-// If block is not selected or hovered
-// lets put some opacity on it
+// Global Block Styles (Editor/Backend)
 //--------------------------------------------------------------
+
+//If block is not selected or hovered lets put some opacity on it.
 .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
 	opacity: 0.25;
-}
+} // .editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing)
+
+// Give our blocks some breathing room in the editor for a better experience.
+.wp-admin [data-type^="wds"] {
+	margin-bottom: 30px;
+	margin-top: 30px;
+} // .wp-admin [data-type^="wds"]
