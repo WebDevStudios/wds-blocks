@@ -1,6 +1,6 @@
 <?php
 
-namespace WDS_Gutenberg\Src\Github_gist;
+namespace WDS\Gutenberg\blocks\github_gist;
 
 /**
  * Render block: GitHub Gist.

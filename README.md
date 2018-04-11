@@ -76,7 +76,7 @@ Please use the following file naming convention for all blocks for consistency:
 1. Inside of that new directory, open the `index.js` file. This is where the call to `registerBlockType()` to register the block needs to be.
 1. Inside of `/src/blocks.js`, add a line like the following to import your new block: `import './blocks/my-block';`. This will ensure that you're new block is included in the webpack build process.
 1. For any other JS or SCSS files your block uses, be sure to `import` them from within `index.js`. Any PHP files included in your block's directory will be loaded up automatically – you don't need to worry about adding `require`/`include` statements anywhere.
-1. Namespace any PHP files using the name of your block, such as: `namespace WDS_Gutenberg\Src\My_block;`.
+1. Namespace any PHP files using the name of your block, such as: `namespace WDS\Gutenberg\blocks\my_block;`.
 
 ### Code syntax and formatting
 - Please write all JavaScript using modern ES6+/ESNext syntax. Webpack is configured to transpile all JS down into ES5 syntax that will work on all browsers, so don't hesitate to use modern JS language features in your code that aren't fully supported by all major browsers yet.

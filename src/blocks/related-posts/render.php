@@ -6,7 +6,7 @@
  * @since NEXT
  */
 
-namespace WDS_Gutenberg\Src\Related_Posts;
+namespace WDS\Gutenberg\blocks\related_posts;
 
 /**
  * Render block: Related Posts.
@@ -21,9 +21,9 @@ function render_block( $attributes ) {
 	ob_start(); ?>
 
 	<!-- wp:wds/related-posts -->
-	<?php \WDS_Gutenberg\Src\Block_Options\display_block_options( $attributes ); ?>
+	<?php \WDS\Gutenberg\template_tags\display_block_options( $attributes ); ?>
 
-		<?php \WDS_Gutenberg\Src\Component\display_block_title( $attributes ); ?>
+		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes ); ?>
 
 		<p>This is the block content. I'm adding a lot so we can see how the block lays out with background elements.</p>
 
