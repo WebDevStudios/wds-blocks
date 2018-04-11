@@ -63,3 +63,11 @@ $phone: 300px;
 	right: 50%;
 	width: 100vw;
 }
+
+//--------------------------------------------------------------
+// If block is not selected or hovered
+// lets put some opacity on it
+//--------------------------------------------------------------
+.editor-block-list__block:not(.is-selected):not(.is-hovered) {
+	opacity: 0.25;
+}
