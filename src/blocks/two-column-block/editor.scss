@@ -32,11 +32,7 @@ div[data-type='wds/two-column'] {
 
 		// Override Default max width.
 		&.editor-block-list__block {
-			width: 100%;
-
-			@include media($tablet-portrait) {
-				max-width: 740px;
-			}
+			max-width: none;
 		} // &.editor-block-list__block
 	} // .edit-post-visual-editor &
 
