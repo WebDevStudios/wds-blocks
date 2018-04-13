@@ -137,7 +137,7 @@ export default registerBlockType(
 					/>
 
 					<ButtonLink
-						placeholder={ __( 'Click Here' ) }
+						placeholder={ __( 'Add Button Text Here' ) }
 						{ ...props }
 					/>
 				</section>,
