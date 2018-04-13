@@ -4,17 +4,22 @@
 // Additional styles necessary to assist the editor.
 //--------------------------------------------------------------
 
-.wp-block-wds-gihub-gist {
-	display: block;
-	margin: 0 0 30px 0;
-	overflow: hidden;
-} // .wp-block-wds-gihub-gist
+.edit-post-visual-editor .editor-block-list__block {
+	// Taget the hero only here.
+	&[data-type="wds/gihub-gist"] {
+		max-width: none;
+	} // &[data-type="wds/hero"]
+} // .edit-post-visual-editor .editor-block-list__block
 
 .gist-block-controls {
 	padding: 2px;
 
 	input[type="url"] {
-		min-width: 350px;
+		min-width: 300px;
+
+		@include media($tablet-portrait) {
+			min-width: 350px;
+		}
 	} // input[type="url"]
 
 	.button {
