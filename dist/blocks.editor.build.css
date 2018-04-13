@@ -1,56 +1,43 @@
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
-.edit-post-visual-editor .editor-block-list__block[data-type="wds/call-to-action"] {
-  max-width: none; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wds-block-title {
   background-color: transparent; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wds-background-options .blocks-base-control {
   width: 100%; }
 
 .wds-background-options .components-button svg {
   position: relative;
   top: 5px; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wds-other-options .blocks-base-control {
   width: 100%; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .editor-block-list__layout .button.wds-button-component {
   background-color: transparent;
   border: none;
@@ -62,34 +49,37 @@
   .editor-block-list__layout .button.wds-button-component textarea,
   .editor-block-list__layout .button.wds-button-component form {
     padding: 0 10px; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-gihub-gist {
+  display: block;
+  margin: 0 0 30px 0;
+  overflow: hidden; }
 
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
-.edit-post-visual-editor .editor-block-list__block[data-type="wds/default"] {
-  max-width: none; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
-.edit-post-visual-editor .editor-block-list__block[data-type="wds/hero"] {
-  max-width: none; }
-
-.edit-post-visual-editor .editor-block-list__block .wp-block-wds-hero {
-  min-height: 640px; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+.gist-block-controls {
+  padding: 2px; }
+  .gist-block-controls input[type="url"] {
+    min-width: 350px; }
+  .gist-block-controls .button {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-hero {
+  min-height: unset; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 div[data-type="wds/related-posts"] .all-posts {
   background-color: #c0c0c0; }
 
@@ -99,22 +89,19 @@ div[data-type="wds/related-posts"] .selected-posts {
 div[data-type="wds/related-posts"] ul {
   list-style-position: inside;
   padding-left: 20px; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
-.wp-block-wds-two-column .content-block-container .components-button svg {
-  position: relative;
-  top: 5px; }
-
-.wp-block-wds-two-column .block-title {
-  background-color: transparent; }
-
-.edit-post-visual-editor div[data-type='wds/two-column'].editor-block-list__block {
-  max-width: none; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-two-column {
+  max-width: 740px; }
+  .wp-block-wds-two-column .content-block-container .components-button svg {
+    position: relative;
+    top: 5px; }
+  .wp-block-wds-two-column .block-title {
+    background-color: transparent; }
 
 div[data-type='wds/two-column'] .editor-block-contextual-toolbar {
   height: auto; }

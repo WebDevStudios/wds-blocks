@@ -1,10 +1,9 @@
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .has-video-background {
   overflow: hidden;
   position: relative; }
@@ -26,27 +25,17 @@
     z-index: -1; }
 
 .has-custom-background {
-  background-position: center center;
-  background-repeat: no-repeat;
   padding: 20px; }
-  .site-content .has-custom-background {
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    position: relative;
-    right: 50%;
-    width: 100vw; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
-.wp-block-wds-default .has-video-background {
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.has-video-background {
   overflow: hidden;
   position: relative; }
-  .wp-block-wds-default .has-video-background .video-container {
+  .has-video-background .video-container {
     height: 100%;
     left: 50%;
     min-height: 100%;
@@ -63,22 +52,14 @@
     width: 100%;
     z-index: -1; }
 
-.wp-block-wds-default .has-custom-background {
+.has-custom-background {
   padding: 20px; }
-  .site-content .wp-block-wds-default .has-custom-background {
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    position: relative;
-    right: 50%;
-    width: 100vw; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wds-components-placeholder {
   display: -ms-flexbox;
   display: flex;
@@ -129,13 +110,20 @@
 
 .wds-components-placeholder__instructions {
   margin-bottom: 1em; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-wds-gihub-gist {
+  margin-top: 16px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .wp-block-wds-hero {
   background-repeat: no-repeat;
   background-size: cover;
@@ -146,26 +134,18 @@
   -ms-flex-pack: center;
       justify-content: center;
   min-height: 640px; }
-  .site-content .wp-block-wds-hero {
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    position: relative;
-    right: 50%;
-    width: 100vw; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-.editor-block-list__block:not(.is-selected):not(.is-hovered):not(.is-typing) {
-  opacity: 0.25; }
-
-.wp-admin [data-type^="wds"] {
-  margin-bottom: 30px;
-  margin-top: 30px; }
-
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 /**
  * #.# Styles
  *
@@ -173,22 +153,11 @@
  */
 .wp-block-wds-two-column .content-block-container {
   display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column; }
-  @media (min-width: 600px) {
-    .wp-block-wds-two-column .content-block-container {
-      -ms-flex-direction: row;
-          flex-direction: row; } }
+  display: flex; }
 
 .wp-block-wds-two-column .content-block-content {
-  -ms-flex: 1 1 100%;
-      flex: 1 1 100%; }
-  @media (min-width: 600px) {
-    .wp-block-wds-two-column .content-block-content {
-      -ms-flex: 0 1 50%;
-          flex: 0 1 50%;
-      max-width: 50%; } }
-  @media (min-width: 600px) {
-    .wp-block-wds-two-column .content-block-content:last-child {
-      margin-left: 20px; } }
+  -ms-flex: 0 1 50%;
+      flex: 0 1 50%;
+  max-width: 50%; }
+  .wp-block-wds-two-column .content-block-content:last-child {
+    margin-left: 20px; }

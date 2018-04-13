@@ -60,7 +60,7 @@ This will do a quick `git pull` on all three repositories in this project.
 
 Please use the following file naming convention for all blocks for consistency:
 
-    default
+    my-block
         ├── editor.scss   (styles for the backend only)
         ├── endpoints.php (any REST API endpoints)
         ├── icon.js       (the block's SVG icon)
