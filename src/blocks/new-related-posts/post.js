@@ -1,7 +1,9 @@
 const PostOutput = ( props ) => {
+	const { selectedPostsJSON } = props.attributes;
+
 	return (
-		JSON.parse( props.attributes.selectedPostsJSON ).length > 0 ? (
-			JSON.parse( props.attributes.selectedPostsJSON ).map( ( post ) =>
+		JSON.parse( selectedPostsJSON ).length > 0 ? (
+			JSON.parse( selectedPostsJSON ).map( post =>
 				<li
 					className="column"
 					id={ `post-${ post.id }` }
