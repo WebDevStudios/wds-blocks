@@ -3,6 +3,7 @@ const { Component, Fragment } = wp.element;
 import Output from './output';
 import Loader from '../../components/loader';
 import Search from '../../components/search';
+import PostOutput from './post';
 
 // Import our Block Title component.
 import BlockTitle from '../../components/block-title';
