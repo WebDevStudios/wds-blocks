@@ -128,20 +128,41 @@ class EditComponent extends Component {
 	}
 
 	render() {
-		return [
-			<BlockTitle key=""
-				{ ...this.props }
-			/>,
-			<Search
-				key=""
-				className="wds-related-posts-search-form"
-				onQueryChange={ this.returnQuery }
-			/>,
-			<div key="" className={ this.props.className }>
-				{ ! this.state.isLoaded ? <Loader key="" /> : null }
-				{ this.returnLayout() }
-			</div>,
-		];
+		return (
+			<section key={ this.props.className }>
+				<BlockTitle
+					key="related-block-title"
+					{ ...this.props }
+				/>
+				{ !! this.props.focus ? (
+					[
+						<Search
+							key="related-block-search"
+							className="wds-related-posts-search-form"
+							onQueryChange={ this.returnQuery }
+						/>,
+						<div
+							key="related-block-container-search"
+							className={ this.props.className }
+						>
+							{ ! this.state.isLoaded ? <Loader key="related-block-loader" /> : null }
+							{ this.returnLayout() }
+						</div>,
+					]
+				) : (
+					<div
+						key="related-block-container-list"
+						className={ this.props.className }
+					>
+						<ul className="selected-posts-container">
+							<PostOutput
+								{ ...this.props }
+							/>
+						</ul>
+					</div>
+				) }
+			</section>
+		);
 	}
 }
 
