@@ -77,7 +77,6 @@ export default registerBlockType( 'wds/new-related-posts', { // Namespaced with 
 	// https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
 	save: ( props ) => {
 		return (
-			<section className={ classnames( props.className ) }>
 				<BlockTitleOutput
 					{ ...props }
 				/>
