@@ -113,7 +113,10 @@ class EditComponent extends Component {
 					key=""
 					posts={ this.state.selectedPosts }
 					handleEvent={ this.handleEvent }
-					onChange={ this.props.setAttributes( { selectedPosts: this.state.selectedPosts } ) }
+					onChange={ this.props.setAttributes( {
+						selectedPostsJSON: JSON.stringify( this.state.selectedPosts ),
+						selectedPosts: this.state.selectedPosts,
+					} ) }
 				/>
 			</Fragment>
 		);
