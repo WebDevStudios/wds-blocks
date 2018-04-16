@@ -88,13 +88,15 @@ class EditComponent extends Component {
 			this.fetchData( this.state.page );
 		}
 
-		this.container.addEventListener( 'scroll', () => {
-			if ( this.state.allPosts.length !== this.state.totalPosts && ( this.container.scrollTop === ( this.container.scrollHeight - this.container.offsetHeight ) ) ) {
-				this.fetchData( this.state.page + 1 );
-			} else {
-				this.setState( { atEnd: true } );
-			}
-		} );
+		if ( !! this.props.focus ) {
+			this.container.addEventListener( 'scroll', () => {
+				if ( this.state.allPosts.length !== this.state.totalPosts && ( this.container.scrollTop === ( this.container.scrollHeight - this.container.offsetHeight ) ) ) {
+					this.fetchData( this.state.page + 1 );
+				} else {
+					this.setState( { atEnd: true } );
+				}
+			} );
+		}
 	}
 
 	returnLayout = () => {
