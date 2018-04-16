@@ -35,19 +35,16 @@ class EditComponent extends Component {
 		const { selectedPosts } = this.state;
 
 		const postContainer = clickedPost.e.target;
-		const postData = clickedPost.post;
+		const postDataObject = clickedPost.post;
+		const postDataId = clickedPost.post.id;
 
 		if ( postContainer.classList.contains( 'is-selected' ) ) {
-			const i = selectedPosts.indexOf( postData );
-
-			if ( i !== -1 ) {
-				this.setState( {
-					selectedPosts: selectedPosts.filter( item => item !== postData ),
-				} );
-			}
+			this.setState( {
+				selectedPosts: selectedPosts.filter( post => post.id !== postDataId ),
+			} );
 		} else {
 			this.setState( {
-				selectedPosts: selectedPosts.concat( postData ),
+				selectedPosts: selectedPosts.concat( postDataObject ),
 			} );
 		}
 	};
