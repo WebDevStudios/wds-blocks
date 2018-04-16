@@ -102,13 +102,17 @@
 	.selected-posts-container {
 		display: flex;
 		flex-flow: row wrap;
-		justify-content: space-between;
 		padding: 0.625rem 0.625rem 0;
 
 		li {
 			flex: 0 0 30%;
 			list-style: none;
 			margin-bottom: 0.625rem;
+			margin-right: 5%;
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
 
 			h3 {
 				margin-top: 0;
