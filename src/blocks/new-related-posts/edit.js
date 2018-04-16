@@ -76,10 +76,12 @@ class EditComponent extends Component {
 			} );
 	}
 	componentDidMount() {
+		const { selectedPostsJSON } = this.props.attributes;
+
 		// Set state from existing attributes.
 		this.setState( {
-			selectedPostsJSON: this.props.attributes.selectedPostsJSON,
-			selectedPosts: JSON.parse( this.props.attributes.selectedPostsJSON ),
+			selectedPostsJSON: selectedPostsJSON ? selectedPostsJSON : '[]',
+			selectedPosts: selectedPostsJSON ? JSON.parse( selectedPostsJSON ) : [],
 		} );
 
 		if ( this.state.page === 1 && this.state.allPosts.length === 0 && this.state.queriedPosts.length === 0 ) {
