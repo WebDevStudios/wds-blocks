@@ -26,8 +26,9 @@ import classnames from 'classnames';
  */
 import EditComponent from './edit.js';
 
-// Import our Block Title component.
+// Import our components.
 import { BlockTitleAttributes, BlockTitleOutput } from '../../components/block-title';
+import PostOutput from './post';
 
 /**
  * Register block
