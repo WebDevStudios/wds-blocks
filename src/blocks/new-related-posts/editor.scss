@@ -11,11 +11,11 @@
 	border: 1px solid $gray;
 	display: flex;
 	font-family: $default-font;
-	height: 19rem;
 	position: relative;
 
 	.related-left-column,
 	.related-right-column {
+		height: 19rem;
 		margin: 0;
 		width: 50%;
 
@@ -93,3 +93,31 @@
 	width: 100%;
 	z-index: 100;
 }
+
+//-----------------------------------------
+// Output
+//-----------------------------------------
+.wp-block-wds-new-related-posts {
+
+	.selected-posts-container {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		padding: 0.625rem 0.625rem 0;
+
+		li {
+			flex: 0 0 30%;
+			list-style: none;
+			margin-bottom: 0.625rem;
+
+			h3 {
+				margin-top: 0;
+			} // h3
+
+			p {
+				font-size: 0.875rem;
+				margin-bottom: 0;
+			} // p
+		} // li
+	} // .selected-posts-container
+} // .wp-block-wds-new-related-posts
