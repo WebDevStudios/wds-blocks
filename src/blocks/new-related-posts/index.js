@@ -56,7 +56,10 @@ export default registerBlockType( 'wds/new-related-posts', { // Namespaced with 
 	// Set for each piece of dynamic data used in your block.
 	// https://wordpress.org/gutenberg/handbook/block-api/attributes/
 	attributes: {
-		selectedPosts: {
+		selectedPostsJSON: { // json array of objects
+			type: 'string',
+		},
+		selectedPosts: { // markup
 			type: 'array',
 			source: 'children',
 			selector: '.related-right-column',
