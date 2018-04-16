@@ -81,7 +81,7 @@ export default registerBlockType( 'wds/new-related-posts', { // Namespaced with 
 					{ ...props }
 				/>
 				<ul>
-					{ props.attributes.selectedPosts.map( ( post ) =>
+					{ JSON.parse( props.attributes.selectedPostsJSON ).map( ( post ) =>
 						<li key={ post.id }>
 							<a href={ post.link } target="_blank">{ post.title.rendered }</a>
 						</li>
