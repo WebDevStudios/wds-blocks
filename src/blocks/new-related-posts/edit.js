@@ -14,6 +14,7 @@ class EditComponent extends Component {
 		this.state = {
 			page: 1,
 			allPosts: [],
+			selectedPostsJSON: '[]',
 			selectedPosts: [],
 			queriedPosts: [],
 			isLoaded: false,
