@@ -24,7 +24,7 @@ class EditComponent extends Component {
 			query: '',
 		};
 
-		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/posts?page=${ page }&per_page=5`;
+		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/posts?_embed&page=${ page }&per_page=5`;
 
 		this.handleEvent = this.handleEvent.bind( this );
 		this.fetchData = this.fetchData.bind( this );
