@@ -41,6 +41,17 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.editor-block-list__layout .button.wds-button-component {
+  background-color: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  height: unset;
+  max-width: 280px;
+  padding: 0; }
+  .editor-block-list__layout .button.wds-button-component textarea,
+  .editor-block-list__layout .button.wds-button-component form {
+    padding: 0 10px; }
 /**
  * #.# Common SCSS
  *
