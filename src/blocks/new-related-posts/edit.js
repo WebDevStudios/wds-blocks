@@ -134,7 +134,7 @@ class EditComponent extends Component {
 					key="related-block-title"
 					{ ...this.props }
 				/>
-				{ !! this.props.focus || this.state.selectedPosts.length === 0 ? (
+				{ !! this.props.focus || JSON.parse( this.props.attributes.selectedPostsJSON ).length === 0 ? (
 					[
 						<Search
 							key="related-block-search"
