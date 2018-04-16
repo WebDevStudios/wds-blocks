@@ -77,16 +77,18 @@ export default registerBlockType( 'wds/new-related-posts', { // Namespaced with 
 	// https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
 	save: ( props ) => {
 		return (
+			<section>
 				<BlockTitleOutput
+					key="related-block-title-output"
 					{ ...props }
 				/>
-				<ul>
-					{ JSON.parse( props.attributes.selectedPostsJSON ).map( ( post ) =>
-						<li key={ post.id }>
-							<a href={ post.link } target="_blank">{ post.title.rendered }</a>
-						</li>
-					) }
-				</ul>
+				<div key="related-block-container-output" className={ classnames( props.className ) }>
+					<ul>
+						<PostOutput
+							{ ...props }
+						/>
+					</ul>
+				</div>
 			</section>
 		);
 	},
