@@ -132,12 +132,30 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
+.wp-block-wds-related-posts .related-block-container-list > .selected-posts-container {
+  padding: 0.625rem 0.625rem 0; }
+
+.wp-block-wds-related-posts .selected-posts-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .wp-block-wds-related-posts .selected-posts-container li {
+    -ms-flex: 0 0 31.333%;
+        flex: 0 0 31.333%;
+    list-style: none;
+    margin-bottom: 0.625rem;
+    margin-right: 3%; }
+    .wp-block-wds-related-posts .selected-posts-container li:nth-child(3n) {
+      margin-right: 0; }
+    .wp-block-wds-related-posts .selected-posts-container li h3 {
+      margin-top: 0; }
+    .wp-block-wds-related-posts .selected-posts-container li p {
+      font-size: 0.875rem;
+      margin-bottom: 0; }
 /**
  * #.# Common SCSS
  *

@@ -66,68 +66,53 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-div[data-type="wds/related-posts"] .all-posts {
-  background-color: #c0c0c0; }
-
-div[data-type="wds/related-posts"] .selected-posts {
-  background-color: #ffff00; }
-
-div[data-type="wds/related-posts"] ul {
-  list-style-position: inside;
-  padding-left: 20px; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-.wp-block-wds-new-related-posts {
+.related-block-container-list {
   border: 1px solid #dedede;
   display: -ms-flexbox;
   display: flex;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   position: relative; }
-  .wp-block-wds-new-related-posts .related-left-column,
-  .wp-block-wds-new-related-posts .related-right-column {
+  .related-block-container-list .related-left-column,
+  .related-block-container-list .related-right-column {
     height: 19rem;
     margin: 0;
     width: 50%; }
-    .wp-block-wds-new-related-posts .related-left-column h3,
-    .wp-block-wds-new-related-posts .related-right-column h3 {
+    .related-block-container-list .related-left-column h3,
+    .related-block-container-list .related-right-column h3 {
       background-color: #f8f9f9;
       border-bottom: 1px solid #dedede;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%;
       margin: 0;
       padding: 0.4375rem; }
-    .wp-block-wds-new-related-posts .related-left-column > ul,
-    .wp-block-wds-new-related-posts .related-right-column > ul {
+    .related-block-container-list .related-left-column > ul,
+    .related-block-container-list .related-right-column > ul {
       height: calc(100% - 52px);
       margin: 0;
       overflow-y: auto; }
-      .wp-block-wds-new-related-posts .related-left-column > ul li,
-      .wp-block-wds-new-related-posts .related-right-column > ul li {
+      .related-block-container-list .related-left-column > ul li,
+      .related-block-container-list .related-right-column > ul li {
         border-bottom: 1px solid #dedede;
         cursor: pointer;
         font-size: 1rem;
         line-height: 1.125rem;
         list-style: none;
         padding: 0.4375rem; }
-        .wp-block-wds-new-related-posts .related-left-column > ul li:last-child,
-        .wp-block-wds-new-related-posts .related-right-column > ul li:last-child {
+        .related-block-container-list .related-left-column > ul li:last-child,
+        .related-block-container-list .related-right-column > ul li:last-child {
           border-bottom: 0; }
-  .wp-block-wds-new-related-posts .related-left-column {
+  .related-block-container-list .related-left-column {
     border-right: 1px solid #dedede; }
-    .wp-block-wds-new-related-posts .related-left-column > ul li.is-selected {
+    .related-block-container-list .related-left-column > ul li.is-selected {
       cursor: default;
       opacity: 0.5;
       pointer-events: none; }
-  .wp-block-wds-new-related-posts .wp-block-loader {
+  .related-block-container-list .wp-block-loader {
     background-color: rgba(248, 249, 249, 0.8);
     height: 100%;
     position: absolute;
     width: 100%; }
-    .wp-block-wds-new-related-posts .wp-block-loader > img {
+    .related-block-container-list .wp-block-loader > img {
       left: 50%;
       position: absolute;
       top: 50%;
@@ -143,26 +128,6 @@ div[data-type="wds/related-posts"] ul {
   position: relative;
   width: 100%;
   z-index: 100; }
-
-.wp-block-wds-new-related-posts .selected-posts-container {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  padding: 0.625rem 0.625rem 0; }
-  .wp-block-wds-new-related-posts .selected-posts-container li {
-    -ms-flex: 0 0 30%;
-        flex: 0 0 30%;
-    list-style: none;
-    margin-bottom: 0.625rem;
-    margin-right: 5%; }
-    .wp-block-wds-new-related-posts .selected-posts-container li:nth-child(3n) {
-      margin-right: 0; }
-    .wp-block-wds-new-related-posts .selected-posts-container li h3 {
-      margin-top: 0; }
-    .wp-block-wds-new-related-posts .selected-posts-container li p {
-      font-size: 0.875rem;
-      margin-bottom: 0; }
 /**
  * #.# Common SCSS
  *
