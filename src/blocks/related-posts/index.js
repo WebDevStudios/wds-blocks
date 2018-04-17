@@ -30,6 +30,15 @@ import EditComponent from './edit.js';
 import { BlockTitleAttributes, BlockTitleOutput } from '../../components/block-title';
 import PostOutput from './post';
 
+// Import all of our Background Options requirements.
+import { BackgroundOptionsAttributes } from '../../components/background-options';
+
+// Import all of our Text Options requirements.
+import { TextOptionsAttributes } from '../../components/text-options';
+
+// Import all of our Other Options requirements.
+import { OtherOptionsAttributes } from '../../components/other-options';
+
 /**
  * Register block
  *
@@ -66,6 +75,9 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 			selector: '.related-right-column',
 		},
 		...BlockTitleAttributes,
+		...BackgroundOptionsAttributes,
+		...TextOptionsAttributes,
+		...OtherOptionsAttributes,
 	},
 	// Determines what is displayed in the editor.
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#edit
