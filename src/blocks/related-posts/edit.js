@@ -171,7 +171,10 @@ class EditComponent extends Component {
 				} : {} }
 			>
 
-				{ BackgroundOptionsVideoOutput( this.props ) }
+				{ ! this.props.focus && JSON.parse( this.props.attributes.selectedPostsJSON ).length > 0 ?
+					BackgroundOptionsVideoOutput( this.props ) :
+					null
+				}
 
 				<BlockTitle
 					key="related-block-title"
