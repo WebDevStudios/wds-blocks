@@ -22,13 +22,13 @@ import PostOutput from './post';
 import BlockTitle from '../../components/block-title';
 
 // Import all of our Background Options requirements.
-import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
+import BackgroundOptions, { BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+import TextOptions, { TextOptionsInlineStyles } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
-import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
+import OtherOptions, { OtherOptionsClasses } from '../../components/other-options';
 
 class EditComponent extends Component {
 	constructor( props ) {
