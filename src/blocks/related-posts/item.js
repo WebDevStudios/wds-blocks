@@ -14,7 +14,7 @@ const Item = ( props ) => {
 	}
 
 	/* eslint-disable */
-	return <li className={ className() } onClick={ ( ( e ) => handleClick( { e, post } ) ) }> { postName } </li>;
+	return <li className={ className() } tabIndex="0" onClick={ ( ( e ) => handleClick( { e, post } ) ) }> { postName } </li>;
 }
 
 export default Item;

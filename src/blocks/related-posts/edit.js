@@ -198,9 +198,10 @@ class EditComponent extends Component {
 				) : (
 					<div
 						key="related-block-container-list"
+						tabIndex="0"
 						className="related-block-container-list"
 					>
-						<ul className="selected-posts-container">
+						<ul className="selected-posts-container" tabIndex="0">
 							<PostOutput
 								{ ...this.props }
 							/>

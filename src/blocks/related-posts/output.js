@@ -18,7 +18,7 @@ class Output extends Component {
 		} = this.props;
 
 		return (
-			<div className={ className }>
+			<div className={ className } tabIndex="0">
 				<h3 key="">{ title }</h3>
 				<ul ref={ textRef }>
 					{ posts.map( ( result, index ) => (
