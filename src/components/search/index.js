@@ -29,14 +29,22 @@ class Search extends Component {
 					return this.props.onQueryChange( {
 						string: queryString,
 						data: response,
+						isLoaded: true,
 					} );
 				} );
 		} else {
 			return this.props.onQueryChange( {
 				string: '',
 				data: [],
+				isLoaded: true,
 			} );
 		}
+
+		return this.props.onQueryChange( {
+			string: '',
+			data: [],
+			isLoaded: false,
+		} );
 	}
 
 	// https://davidwalsh.name/javascript-debounce-function
