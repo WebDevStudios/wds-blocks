@@ -31,13 +31,13 @@ import { BlockTitleAttributes, BlockTitleOutput } from '../../components/block-t
 import PostOutput from './post';
 
 // Import all of our Background Options requirements.
-import { BackgroundOptionsAttributes } from '../../components/background-options';
+import { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import { TextOptionsAttributes } from '../../components/text-options';
+import { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
-import { OtherOptionsAttributes } from '../../components/other-options';
+import { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
 
 /**
  * Register block
@@ -89,13 +89,25 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 	// https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
 	save: ( props ) => {
 		return (
-			<section>
+			<section
+				className={ classnames(
+					props.className,
+					...BackgroundOptionsClasses( props ),
+					...OtherOptionsClasses( props ),
+				) }
+				style={ {
+					...BackgroundOptionsInlineStyles( props ),
+					...TextOptionsInlineStyles( props ),
+				} }
+			>
+
+				{ BackgroundOptionsVideoOutput( props ) }
 				<BlockTitleOutput
 					key="related-block-title-output"
 					{ ...props }
 				/>
 				<div key="related-block-container-output" className={ classnames( props.className ) }>
-					<ul>
+					<ul className="selected-posts-container">
 						<PostOutput
 							{ ...props }
 						/>
