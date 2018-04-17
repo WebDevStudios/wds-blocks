@@ -13,7 +13,7 @@ const PostOutput = ( props ) => {
 					key={ `post-${ post.id }` }
 				>
 					{
-						post._embedded[ 'wp:featuredmedia' ] ? (
+						post._embedded !== undefined && post._embedded[ 'wp:featuredmedia' ].length > 0 ? (
 							<img
 								src={ post._embedded[ 'wp:featuredmedia' ][ 0 ][ 'source_url' ] }
 								alt=""
