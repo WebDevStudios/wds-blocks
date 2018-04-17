@@ -158,7 +158,21 @@ class EditComponent extends Component {
 					{ OtherOptions( this.props ) }
 				</InspectorControls>
 			),
-			<section key={ this.props.className }>
+			<section
+				key={ this.props.className }
+				className={ classnames(
+					this.props.className,
+					...BackgroundOptionsClasses( this.props ),
+					...OtherOptionsClasses( this.props ),
+				) }
+				style={ ! this.props.focus && JSON.parse( this.props.attributes.selectedPostsJSON ).length > 0 ? {
+					...BackgroundOptionsInlineStyles( this.props ),
+					...TextOptionsInlineStyles( this.props ),
+				} : {} }
+			>
+
+				{ BackgroundOptionsVideoOutput( this.props ) }
+
 				<BlockTitle
 					key="related-block-title"
 					{ ...this.props }
@@ -172,7 +186,7 @@ class EditComponent extends Component {
 						/>,
 						<div
 							key="related-block-container-search"
-							className={ this.props.className }
+							className="related-block-container-list"
 						>
 							{ ! this.state.isLoaded ? <Loader key="related-block-loader" /> : null }
 							{ this.returnLayout() }
@@ -181,7 +195,7 @@ class EditComponent extends Component {
 				) : (
 					<div
 						key="related-block-container-list"
-						className={ this.props.className }
+						className="related-block-container-list"
 					>
 						<ul className="selected-posts-container">
 							<PostOutput
@@ -190,7 +204,7 @@ class EditComponent extends Component {
 						</ul>
 					</div>
 				) }
-			</section>
+			</section>,
 		];
 	}
 }

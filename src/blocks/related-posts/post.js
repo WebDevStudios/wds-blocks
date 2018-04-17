@@ -1,3 +1,6 @@
+// Import all of our Text Options requirements.
+import { TextOptionsInlineStyles } from '../../components/text-options';
+
 const PostOutput = ( props ) => {
 	const { selectedPostsJSON } = props.attributes;
 
@@ -19,7 +22,12 @@ const PostOutput = ( props ) => {
 							null
 						)
 					}
-					<h3 className="h1">{ post.title.rendered }</h3>
+					<h3
+						className="h1"
+						style={ {
+							...TextOptionsInlineStyles( props ),
+						} }
+					>{ post.title.rendered }</h3>
 					<div dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } } />
 				</li>
 			)
