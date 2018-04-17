@@ -1,3 +1,16 @@
+/**
+ * External dependencies
+ */
+import classnames from 'classnames'; // Import NPM libraries here.
+
+/**
+ * WordPress dependencies
+ */
+const { __ } = wp.i18n;
+const {
+	InspectorControls,
+} = wp.blocks;
+
 const { Component, Fragment } = wp.element;
 
 import Output from './output';
@@ -137,7 +150,14 @@ class EditComponent extends Component {
 	}
 
 	render() {
-		return (
+		return [
+			!! this.props.focus && (
+				<InspectorControls key="inspector">
+					{ BackgroundOptions( this.props ) }
+					{ TextOptions( this.props ) }
+					{ OtherOptions( this.props ) }
+				</InspectorControls>
+			),
 			<section key={ this.props.className }>
 				<BlockTitle
 					key="related-block-title"
@@ -171,7 +191,7 @@ class EditComponent extends Component {
 					</div>
 				) }
 			</section>
-		);
+		];
 	}
 }
 
