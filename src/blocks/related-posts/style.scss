@@ -4,3 +4,41 @@
 // Default styles for this block.
 // Appears on both front and back-end.
 //--------------------------------------------------------------
+
+//-----------------------------------------
+// Output
+//-----------------------------------------
+.wp-block-wds-related-posts {
+
+	.related-block-container-list > .selected-posts-container {
+		padding: 0.625rem 0.625rem 0;
+	} // .related-block-container-list > .selected-posts-container
+
+	.selected-posts-container {
+		display: flex;
+		flex-flow: row wrap;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			flex: 0 0 31.333%;
+			list-style: none;
+			margin-bottom: 0.625rem;
+			margin-right: 3%;
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+
+			h3 {
+				margin-top: 0;
+			} // h3
+
+			p {
+				font-size: 0.875rem;
+				margin-bottom: 0;
+			} // p
+		} // li
+	} // .selected-posts-container
+} // .wp-block-wds-new-related-posts

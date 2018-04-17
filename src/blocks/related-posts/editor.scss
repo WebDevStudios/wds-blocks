@@ -93,35 +93,3 @@
 	width: 100%;
 	z-index: 100;
 }
-
-//-----------------------------------------
-// Output
-//-----------------------------------------
-.related-block-container-list {
-
-	.selected-posts-container {
-		display: flex;
-		flex-flow: row wrap;
-		padding: 0.625rem 0.625rem 0;
-
-		li {
-			flex: 0 0 30%;
-			list-style: none;
-			margin-bottom: 0.625rem;
-			margin-right: 5%;
-
-			&:nth-child(3n) {
-				margin-right: 0;
-			}
-
-			h3 {
-				margin-top: 0;
-			} // h3
-
-			p {
-				font-size: 0.875rem;
-				margin-bottom: 0;
-			} // p
-		} // li
-	} // .selected-posts-container
-} // .wp-block-wds-new-related-posts
