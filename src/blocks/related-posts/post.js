@@ -28,7 +28,11 @@ const PostOutput = ( props ) => {
 							...TextOptionsInlineStyles( props ),
 						} }
 					>{ post.title.rendered }</h3>
-					<div dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } } />
+					<div
+						dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } }
+						style={ {
+							...TextOptionsInlineStyles( props ),
+						} } />
 				</li>
 			)
 		) : (
