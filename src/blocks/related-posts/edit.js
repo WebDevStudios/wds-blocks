@@ -73,7 +73,11 @@ class EditComponent extends Component {
 	};
 
 	returnQuery( response ) {
-		this.setState( { query: response.string, queriedPosts: response.data } );
+		this.setState( {
+			query: response.string,
+			queriedPosts: response.data,
+			isLoaded: response.isLoaded,
+		} );
 	}
 
 	fetchData( page ) {

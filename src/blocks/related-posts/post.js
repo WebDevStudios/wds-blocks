@@ -13,7 +13,6 @@ const PostOutput = ( props ) => {
 					key={ `post-${ post.id }` }
 					tabIndex="0"
 				>
-					{ console.log( post ) }
 					{
 						post._embedded !== undefined && post._embedded[ 'wp:featuredmedia' ] ? (
 							<img
