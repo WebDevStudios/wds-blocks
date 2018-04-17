@@ -12,9 +12,18 @@ const Item = ( props ) => {
 			return post.slug;
 		}
 	}
-
 	/* eslint-disable */
-	return <li className={ className() } tabIndex="0" onClick={ ( ( e ) => handleClick( { e, post } ) ) }> { postName } </li>;
-}
+	return (
+		<li
+			className={ className() }
+			tabIndex="0"
+			onClick={ ( ( e ) => handleClick( { e, post } ) ) }
+			onKeyPress={ ( ( e ) => e.key === 'Enter' ? handleClick( { e, post } ) : null ) }
+		>
+			{ postName }
+		</li>
+	);
+	/* eslint-enable */
+};
 
 export default Item;
