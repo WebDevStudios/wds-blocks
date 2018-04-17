@@ -11,9 +11,11 @@ const PostOutput = ( props ) => {
 					className="column"
 					id={ `post-${ post.id }` }
 					key={ `post-${ post.id }` }
+					tabIndex="0"
 				>
+					{ console.log( post ) }
 					{
-						post._embedded !== undefined && post._embedded[ 'wp:featuredmedia' ].length > 0 ? (
+						post._embedded !== undefined && post._embedded[ 'wp:featuredmedia' ] ? (
 							<img
 								src={ post._embedded[ 'wp:featuredmedia' ][ 0 ][ 'source_url' ] }
 								alt=""
