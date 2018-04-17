@@ -116,16 +116,51 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 			</section>
 		);
 	},
-	// deprecated: [
-	// 	{
-	// 		attributes: {
+	deprecated: [
+		{
+			attributes: {
+				selectedPostsJSON: { // json array of objects
+					type: 'string',
+				},
+				selectedPosts: { // markup
+					type: 'array',
+					source: 'children',
+					selector: '.related-right-column',
+				},
+				...BlockTitleAttributes,
+				...BackgroundOptionsAttributes,
+				...TextOptionsAttributes,
+				...OtherOptionsAttributes,
+			},
+			save( props ) {
+				return (
+					<section
+						className={ classnames(
+							props.className,
+							...BackgroundOptionsClasses( props ),
+							...OtherOptionsClasses( props ),
+						) }
+						style={ {
+							...BackgroundOptionsInlineStyles( props ),
+							...TextOptionsInlineStyles( props ),
+						} }
+					>
 
-	// 		},
-	// 		save( props ) {
-	// 			return (
-
-	// 			);
-	// 		}
-	// 	}
-	// ]
+						{ BackgroundOptionsVideoOutput( props ) }
+						<BlockTitleOutput
+							key="related-block-title-output"
+							{ ...props }
+						/>
+						<div key="related-block-container-output" className={ classnames( props.className ) }>
+							<ul className="selected-posts-container">
+								<PostOutput
+									{ ...props }
+								/>
+							</ul>
+						</div>
+					</section>
+				);
+			},
+		},
+	],
 } );
