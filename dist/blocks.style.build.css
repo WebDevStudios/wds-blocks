@@ -147,14 +147,16 @@
     -ms-flex: 0 0 31.333%;
         flex: 0 0 31.333%;
     list-style: none;
-    margin-bottom: 0.625rem;
+    margin-bottom: 1.5625rem;
     margin-right: 3%; }
     .wp-block-wds-related-posts .selected-posts-container li:nth-child(3n) {
       margin-right: 0; }
     .wp-block-wds-related-posts .selected-posts-container li h3 {
+      line-height: 1.125;
       margin-top: 0; }
     .wp-block-wds-related-posts .selected-posts-container li p {
       font-size: 0.875rem;
+      line-height: 1.5;
       margin-bottom: 0; }
 /**
  * #.# Common SCSS
