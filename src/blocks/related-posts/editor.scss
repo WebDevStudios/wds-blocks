@@ -7,7 +7,7 @@
 
 // sass-lint:disable class-name-format, no-qualifying-elements
 
-.wp-block-wds-related-posts {
+.related-block-container-list {
 	border: 1px solid $gray;
 	display: flex;
 	font-family: $default-font;
@@ -97,7 +97,7 @@
 //-----------------------------------------
 // Output
 //-----------------------------------------
-.wp-block-wds-related-posts {
+.related-block-container-list {
 
 	.selected-posts-container {
 		display: flex;
