@@ -16,13 +16,6 @@ class MultiSelect extends Component {
 			expanded: true,
 			inputValue: props.value,
 		};
-
-		this.handleChange = this.handleChange.bind( this );
-		this.handleClick = this.handleClick.bind( this );
-		this.renderDropdown = this.renderDropdown.bind( this );
-		this.toggleDropdown = this.toggleDropdown.bind( this );
-		this.hydrateInput = this.hydrateInput.bind( this );
-		this.checkStatus = this.checkStatus.bind( this );
 	}
 
 	handleChange = ( event ) => {
