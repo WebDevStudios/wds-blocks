@@ -6,11 +6,6 @@
  */
 
 /**
- * External dependencies
- */
-import classnames from 'classnames'; // Import NPM libraries here.
-
-/**
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
