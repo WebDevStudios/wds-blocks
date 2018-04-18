@@ -27,19 +27,23 @@ class MultiSelect extends Component {
 		};
 	}
 
+	composeURL = suffix => {
+		return this.APIRootURL + `${suffix}`;
+	}
+
 	componentDidMount() {
 		if ( this.props.tags ) {
-			const url = this.APIRootURL + `tags`;
+			const tagURL = this.composeURL( 'tags' );
 
-			window.fetch( url )
+			window.fetch( tagURL )
 				.then( res => res.json() )
 				.then( tags => this.setState({ tags }) );
 		}
 
 		if ( this.props.categories ) {
-			const url = this.APIRootURL + `categories`;
+			const catURL = this.composeURL( 'categories' );
 
-			window.fetch( url )
+			window.fetch( catURL )
 				.then( res => res.json() )
 				.then( categories => this.setState({ categories }) );
 		}
