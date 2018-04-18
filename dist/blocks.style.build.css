@@ -159,34 +159,34 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.wp-block-wds-recent-posts.alignleft {
+.wp-block-wds-recent-posts ul.alignleft {
   margin-right: 2em; }
 
-.wp-block-wds-recent-posts.alignright {
+.wp-block-wds-recent-posts ul.alignright {
   margin-left: 2em; }
 
-.wp-block-wds-recent-posts.is-grid {
+.wp-block-wds-recent-posts ul.is-grid {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   list-style: none;
   padding: 0; }
-  .wp-block-wds-recent-posts.is-grid li {
+  .wp-block-wds-recent-posts ul.is-grid li {
     margin: 0 16px 16px 0;
     width: 100%; }
 
-.wp-block-wds-recent-posts.columns-2 li {
+.wp-block-wds-recent-posts ul.columns-2 li {
   width: calc( ( 100% / 2 ) - 16px); }
 
-.wp-block-wds-recent-posts.columns-3 li {
+.wp-block-wds-recent-posts ul.columns-3 li {
   width: calc( ( 100% / 3 ) - 16px); }
 
-.wp-block-wds-recent-posts.columns-4 li {
+.wp-block-wds-recent-posts ul.columns-4 li {
   width: calc( ( 100% / 4 ) - 16px); }
 
-.wp-block-wds-recent-posts.columns-5 li {
+.wp-block-wds-recent-posts ul.columns-5 li {
   width: calc( ( 100% / 5 ) - 16px); }
 
-.wp-block-wds-recent-posts.columns-6 li {
+.wp-block-wds-recent-posts ul.columns-6 li {
   width: calc( ( 100% / 6 ) - 16px); }
