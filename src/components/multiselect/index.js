@@ -8,6 +8,11 @@ const { __ } = wp.i18n;
 const { Component, Fragment } = wp.element;
 
 class MultiSelect extends Component {
+	static defaultProps = {
+		tags: true,
+		categories: true
+	}
+
 	constructor( props ) {
 		super( props );
 
@@ -41,7 +46,6 @@ class MultiSelect extends Component {
 	}
 
 	checkStatus = ( item ) => {
-		// this[ `checkbox${ value }` ]
 
 		const status = this.state.selectedItems.some( element => {
 			return element === item;
