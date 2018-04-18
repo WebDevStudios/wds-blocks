@@ -38,6 +38,17 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.editor-block-list__layout .button.wds-button-component {
+  background-color: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  height: unset;
+  max-width: 280px;
+  padding: 0; }
+  .editor-block-list__layout .button.wds-button-component textarea,
+  .editor-block-list__layout .button.wds-button-component form {
+    padding: 0 10px; }
 /**
  * #.# Common SCSS
  *
@@ -95,3 +106,13 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
 
 .wds-two-column-options .blocks-base-control {
   width: 100%; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.gutenberg .wp-block-recent-posts {
+  padding-left: 2.5em; }
+  .gutenberg .wp-block-recent-posts.is-grid {
+    padding-left: 0; }
