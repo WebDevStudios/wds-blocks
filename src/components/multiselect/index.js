@@ -96,8 +96,8 @@ class MultiSelect extends Component {
 		} );
 	}
 
-	hydrateInput() {
-		const items = this.state.selectedItems;
+	hydrateInput( items ) {
+
 		return (
 			items.length > 0 ?
 				items.map( ( item ) => (
@@ -111,20 +111,36 @@ class MultiSelect extends Component {
 		);
 	}
 
-	render() {
+	renderMultiSelect( items, selectedItems ) {
 		return (
 			<form>
 				<div className="multiselect-wrapper">
 					<div className={ 'select-input' }>
-						{ this.hydrateInput() }
+						{ this.hydrateInput( selectedItems ) }
 					</div>
 					<div className={ `select-dropdown ${ this.state.expanded ? 'shown' : 'hidden' }` }>
-						{ this.renderDropdown() }
+						{ this.renderDropdown( items ) }
 					</div>
 
 				</div>
 			</form>
-		);
+		)
+	}
+
+	render() {
+		const { tags, categories } = this.state;
+		console.log(categories);
+		const { selectedItems } = this.state;
+
+		return(
+			<Fragment>
+				{ this.renderMultiSelect( tags, selectedItems ) }
+				{ this.renderMultiSelect( categories, selectedItems ) }
+			</Fragment>
+		)
+
+		
+
 	}
 }
 
