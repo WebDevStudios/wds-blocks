@@ -51,7 +51,7 @@ function render_block( $attributes ) {
 		$list_items_markup .= "</li>\n";
 	}
 
-	$class = "wp-block-wds-recent-posts align{$attributes['align']}";
+	$class = "align{$attributes['align']}";
 	if (isset($attributes['postLayout']) && 'grid' === $attributes['postLayout']) {
 		$class .= ' is-grid';
 	}
@@ -66,7 +66,23 @@ function render_block( $attributes ) {
 		$list_items_markup
 	);
 
-	return $block_content;
+	ob_start();
+	?>
+
+	<!-- wp:wds/recent-posts -->
+	<section class="wp-block-wds-recent-posts">
+	<?php // \WDS\Gutenberg\template_tags\display_block_options( $attributes ); ?>
+
+		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes );
+
+		echo $block_content;
+		?>
+
+	</section>
+	<!-- /wp:wds/recent-posts -->
+
+	<?php
+	return ob_get_clean();
 }
 
 /**
@@ -106,6 +122,9 @@ function register_block() {
 			'orderBy' => array(
 				'type' => 'string',
 				'default' => 'date',
+			),
+			'blockTitle' => array(
+				'type' => 'string'
 			),
 		),
 		'render_callback' => __NAMESPACE__ . '\\render_block',
