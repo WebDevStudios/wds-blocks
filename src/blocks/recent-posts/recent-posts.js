@@ -39,6 +39,9 @@ import './style.scss';
 const MAX_POSTS_COLUMNS = 6;
 const DEFAULT_COLUMNS = 3;
 
+// Import our Block Title component.
+import BlockTitle from '../../components/block-title';
+
 class RecentPostsBlock extends Component {
 	constructor() {
 		super( ...arguments );
@@ -139,24 +142,31 @@ class RecentPostsBlock extends Component {
 					<Toolbar controls={ layoutControls } />
 				</BlockControls>
 			),
-			<ul
-				className={ classnames( this.props.className, {
-					'is-grid': postLayout === 'grid',
-					[ `columns-${ columns }` ]: postLayout === 'grid',
-				} ) }
-				key="latest-posts"
-			>
-				{ displayPosts.map( ( post, i ) =>
-					<li key={ i }>
-						<a href={ post.link } target="_blank">{ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }</a>
-						{ displayPostDate && post.date_gmt &&
-							<time dateTime={ moment( post.date_gmt ).utc().format() } className={ `${ this.props.className }__post-date` }>
-								{ moment( post.date_gmt ).local().format( 'MMMM DD, Y' ) }
-							</time>
-						}
-					</li>
-				) }
-			</ul>,
+			<section
+				key=""
+				className={ classnames( this.props.className ) }>
+				<BlockTitle
+					{ ...this.props }
+				/>
+				<ul
+					className={ classnames( {
+						'is-grid': postLayout === 'grid',
+						[ `columns-${ columns }` ]: postLayout === 'grid',
+					} ) }
+					key="latest-posts"
+				>
+					{ displayPosts.map( ( post, i ) =>
+						<li key={ i }>
+							<a href={ post.link } target="_blank">{ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }</a>
+							{ displayPostDate && post.date_gmt &&
+								<time dateTime={ moment( post.date_gmt ).utc().format() } className={ `${ this.props.className }__post-date` }>
+									{ moment( post.date_gmt ).local().format( 'MMMM DD, Y' ) }
+								</time>
+							}
+						</li>
+					) }
+				</ul>
+			</section>,
 		];
 	}
 }
