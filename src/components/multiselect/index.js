@@ -23,7 +23,7 @@ class MultiSelect extends Component {
 		this.APIRootURL = wpApiSettings.root + 'wp/v2/';
 
 		this.state = {
-			selectedItems: [],
+			selectedItems: {},
 			expanded: true,
 			tags: [],
 			categories: [],
