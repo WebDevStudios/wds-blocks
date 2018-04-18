@@ -62,7 +62,20 @@ class MultiSelect extends Component {
 	}
 
 	handleChange = item => () => {
-		const inSelected = this.state.selectedItems.filter( selectedItem => selectedItem.id === item.id );
+		if ( ! this.state.selectedItems[ item.taxonomy ] ) {
+			this.setState( ( prevState ) => {
+				return {
+					selectedItems: {
+						...prevState.selectedItems,
+						[ item.taxonomy ]: [ item ]
+					}
+				};
+			} );
+
+			return;
+		}
+
+		const inSelected = this.state.selectedItems[ item.taxonomy ].filter( selectedItem => selectedItem.id === item.id );
 
 		if ( 0 < inSelected.length ) {
 			return;
@@ -70,18 +83,26 @@ class MultiSelect extends Component {
 
 		this.setState( ( prevState ) => {
 			return {
-				selectedItems: [ ...prevState.selectedItems, item ]
-			}
+				selectedItems: {
+					...prevState.selectedItems,
+					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], item ]
+				}
+			};
 		} );
 	};
 
 	handleInputClick = item => () => {
-		const newSelected = this.state.selectedItems.filter( selectedItem => selectedItem.id !== item.id );
+		const newSelected = this.state.selectedItems[ item.taxonomy ].filter( selectedItem => selectedItem.id !== item.id );
 
-		this.setState({ selectedItems: newSelected });
-	};
-
+		this.setState( ( prevState ) => {
+			return {
+				selectedItems: {
+					...prevState.selectedItems,
+					[ item.taxonomy ]: [ ...newSelected ]
+				}
+			};
 		} );
+	};
 
 	render() {
 		const { tags, categories } = this.state;
