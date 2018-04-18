@@ -95,7 +95,7 @@ class RecentPostsBlock extends Component {
 				inspectorControls,
 				<Placeholder key="placeholder"
 					icon="admin-post"
-					label={ __( 'Latest Posts' ) }
+					label={ __( 'Recent Posts' ) }
 				>
 					{ ! Array.isArray( latestPosts ) ?
 						<Spinner /> :
