@@ -49,7 +49,7 @@ class MultiSelect extends Component {
 		}
 	}
 
-	checkStatus = ( item ) => {
+	checkStatus = item => {
 
 		const status = this.state.selectedItems.some( element => {
 			return element === item;
@@ -58,7 +58,7 @@ class MultiSelect extends Component {
 		return status;
 	}
 
-	handleChange = ( item ) => () => {
+	handleChange = item => () => {
 		const inSelected = this.state.selectedItems.filter( selectedItem => selectedItem.id === item.id );
 
 		if ( 0 < inSelected.length ) {
@@ -72,14 +72,13 @@ class MultiSelect extends Component {
 		} );
 	};
 
-	handleInputClick = ( item ) => () => {
+	handleInputClick = item => () => {
 		const newSelected = this.state.selectedItems.filter( selectedItem => selectedItem.id !== item.id );
 
 		this.setState({ selectedItems: newSelected });
 	};
 
-	renderDropdown = () => {
-		const inputValue = this.state.tags;
+	renderDropdown = inputValue => {
 
 		return (
 			inputValue.map( ( item ) => (
