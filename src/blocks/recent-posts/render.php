@@ -126,6 +126,24 @@ function register_block() {
 			'blockTitle' => array(
 				'type' => 'string'
 			),
+			'backgroundType' => array(
+				'type' => 'string'
+			),
+			// 'backgroundImage' => array(
+			// 	'type' => 'object'
+			// ),
+			// 'backgroundVideo' => array(
+			// 	'type' => 'object'
+			// ),
+			'backgroundColor' => array(
+				'type' => 'string'
+			),
+			'animationType' => array(
+				'type' => 'string'
+			),
+			'textColor' => array(
+				'type' => 'string'
+			),
 		),
 		'render_callback' => __NAMESPACE__ . '\\render_block',
 	));
