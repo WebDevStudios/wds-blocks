@@ -4,5 +4,10 @@
 // Additional styles necessary to assist the editor.
 // Enqueued after style.scss.
 //--------------------------------------------------------------
-.wp-block-wds-default {
+.gutenberg .wp-block-recent-posts {
+	padding-left: 2.5em;
+
+	&.is-grid {
+		padding-left: 0;
+	}
 }

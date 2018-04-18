@@ -4,25 +4,31 @@
 // Default styles for this block.
 // Appears on both front and back-end.
 //--------------------------------------------------------------
-.has-video-background {
-	overflow: hidden;
-	position: relative;
+.wp-block-wds-recent-posts {
+	&.alignleft {
+		margin-right: 2em;
+	}
 
-	.video-container {
-		height: 100%;
-		left: 50%;
-		min-height: 100%;
-		min-width: 100%;
-		object-fit: none;
-		object-position: center center;
-		position: absolute;
-		transform: translate(-50%, -50%);
-		top: 50%;
-		width: 100%;
-		z-index: -1;
-	} // .video-container
-} // .has-video-background
+	&.alignright {
+		margin-left: 2em;
+	}
 
-.has-custom-background {
-	padding: 20px;
-} // .has-custom-background
+	&.is-grid {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		padding: 0;
+
+		li {
+			margin: 0 16px 16px 0;
+			width: 100%;
+		}
+	}
+
+	@for $i from 2 through 6 {
+		&.columns-#{ $i } li {
+			width: calc( ( 100% / #{ $i } ) - 16px );
+		}
+	}
+}
+
