@@ -1,20 +1,24 @@
 <?php
 
 /**
- * Server-side rendering of the `core/recent-posts` block.
+ * Server-side rendering of the `wds/recent-posts` block.
  *
  * @package gutenberg
  */
 
+namespace WDS\Gutenberg\blocks\recent_posts;
+
 /**
- * Renders the `core/recent-posts` block on server.
+ * Renders the `wds/recent-posts` block on server.
  *
  * @param array $attributes The block attributes.
  *
  * @return string Returns the post content with recent posts added.
  */
-function render_block_core_recent_posts($attributes)
-{
+function render_block( $attributes ) {
+
+	var_dump($attributes);
+
 	$recent_posts = wp_get_recent_posts(array(
 		'numberposts' => $attributes['postsToShow'],
 		'post_status' => 'publish',
@@ -68,10 +72,10 @@ function render_block_core_recent_posts($attributes)
 }
 
 /**
- * Registers the `core/recent-posts` block on server.
+ * Registers the `wds/recent-posts` block on server.
  */
-function register_block_core_recent_posts()
-{
+function register_block() {
+
 	register_block_type('wds/recent-posts', array(
 		'attributes' => array(
 			'categories' => array(
@@ -106,8 +110,8 @@ function register_block_core_recent_posts()
 				'default' => 'date',
 			),
 		),
-		'render_callback' => 'render_block_core_recent_posts',
+		'render_callback' => __NAMESPACE__ . '\\render_block',
 	));
 }
 
-add_action('init', 'register_block_core_recent_posts');
+add_action( 'init', __NAMESPACE__ . '\\register_block' );
