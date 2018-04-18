@@ -6,13 +6,16 @@
 //--------------------------------------------------------------
 .wp-block-wds-recent-posts {
 
-	li {
-		list-style: none;
-	}
+	ul {
 
-	@for $i from 2 through 6 {
-		&.columns-#{ $i } li {
-			width: calc( ( 100% / #{ $i } ) - 16px );
+		li {
+			list-style: none;
+		}
+
+		@for $i from 2 through 6 {
+			&.columns-#{ $i } li {
+				width: calc( ( 100% / #{ $i } ) - 16px );
+			}
 		}
 	}
 }
