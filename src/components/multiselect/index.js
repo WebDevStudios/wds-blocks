@@ -129,18 +129,27 @@ class MultiSelect extends Component {
 
 	render() {
 		const { tags, categories } = this.state;
-		console.log(categories);
-		const { selectedItems } = this.state;
+		const selectedTags = this.state.selectedItems.post_tag;
+		const selectedCategories = this.state.selectedItems.category;
 
-		return(
-			<Fragment>
-				{ this.renderMultiSelect( tags, selectedItems ) }
-				{ this.renderMultiSelect( categories, selectedItems ) }
-			</Fragment>
-		)
-
-		
-
+		return (
+			<div className="multiselect-wrapper">
+				<Taxonomy
+					selectedItems={ selectedTags }
+					items={ tags }
+					handleChange={ this.handleChange }
+					checkStatus={ this.checkStatus }
+					handleInputClick={ this.handleInputClick }
+				/>
+				<Taxonomy
+					selectedItems={ selectedCategories }
+					items={ categories }
+					handleChange={ this.handleChange }
+					checkStatus={ this.checkStatus }
+					handleInputClick={ this.handleInputClick }
+				/>
+			</div>
+		);
 	}
 }
 
