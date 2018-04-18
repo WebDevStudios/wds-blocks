@@ -42,6 +42,15 @@ const DEFAULT_COLUMNS = 3;
 // Import our Block Title component.
 import BlockTitle from '../../components/block-title';
 
+// Import all of our Background Options requirements.
+import BackgroundOptions, { BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
+
+// Import all of our Text Options requirements.
+import TextOptions, { TextOptionsInlineStyles } from '../../components/text-options';
+
+// Import all of our Other Options requirements.
+import OtherOptions, { OtherOptionsClasses } from '../../components/other-options';
+
 class RecentPostsBlock extends Component {
 	constructor() {
 		super( ...arguments );
@@ -89,6 +98,15 @@ class RecentPostsBlock extends Component {
 						/>
 					}
 				</PanelBody>
+				<BackgroundOptions
+					{ ...this.props }
+				/>
+				<TextOptions
+					{ ...this.props }
+				/>
+				<OtherOptions
+					{ ...this.props }
+				/>
 			</InspectorControls>
 		);
 
@@ -144,7 +162,18 @@ class RecentPostsBlock extends Component {
 			),
 			<section
 				key=""
-				className={ classnames( this.props.className ) }>
+				className={ classnames(
+					this.props.className,
+					...BackgroundOptionsClasses( this.props ),
+					...OtherOptionsClasses( this.props ),
+				) }
+				style={ {
+					...BackgroundOptionsInlineStyles( this.props ),
+					...TextOptionsInlineStyles( this.props ),
+				} }
+			>
+				{ BackgroundOptionsVideoOutput( this.props ) }
+
 				<BlockTitle
 					{ ...this.props }
 				/>
@@ -156,7 +185,13 @@ class RecentPostsBlock extends Component {
 					key="latest-posts"
 				>
 					{ displayPosts.map( ( post, i ) =>
-						<li key={ i }>
+						<li
+							key={ i }
+							style={ {
+								...BackgroundOptionsInlineStyles( this.props ),
+								...TextOptionsInlineStyles( this.props ),
+							} }
+						>
 							<a href={ post.link } target="_blank">{ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }</a>
 							{ displayPostDate && post.date_gmt &&
 								<time dateTime={ moment( post.date_gmt ).utc().format() } className={ `${ this.props.className }__post-date` }>
