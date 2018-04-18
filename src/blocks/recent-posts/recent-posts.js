@@ -37,6 +37,7 @@ import './editor.scss';
 import './style.scss';
 
 const MAX_POSTS_COLUMNS = 6;
+const DEFAULT_COLUMNS = 3;
 
 class RecentPostsBlock extends Component {
 	constructor() {
@@ -78,7 +79,7 @@ class RecentPostsBlock extends Component {
 					{ layout === 'grid' &&
 						<RangeControl
 							label={ __( 'Columns' ) }
-							value={ columns }
+							value={ columns || DEFAULT_COLUMNS }
 							onChange={ ( value ) => setAttributes( { columns: value } ) }
 							min={ 2 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
