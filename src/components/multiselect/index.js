@@ -1,11 +1,15 @@
 import './editor.scss';
 
 /**
- * Internal block libraries
+ * External libraries
  */
 const { __ } = wp.i18n;
+const { Component } = wp.element;
 
-const { Component, Fragment } = wp.element;
+/**
+ * Internal components.
+ */
+import Taxonomy from './taxonomy';
 
 class MultiSelect extends Component {
 	static defaultProps = {
@@ -16,7 +20,7 @@ class MultiSelect extends Component {
 	constructor( props ) {
 		super( props );
 
-		this.APIRootURL = wpApiSettings.root + `wp/v2/`;
+		this.APIRootURL = wpApiSettings.root + 'wp/v2/';
 
 		this.state = {
 			selectedItems: [],
@@ -28,7 +32,7 @@ class MultiSelect extends Component {
 	}
 
 	composeURL = suffix => {
-		return this.APIRootURL + `${suffix}`;
+		return this.APIRootURL + `${ suffix }`;
 	}
 
 	componentDidMount() {
@@ -37,7 +41,7 @@ class MultiSelect extends Component {
 
 			window.fetch( tagURL )
 				.then( res => res.json() )
-				.then( tags => this.setState({ tags }) );
+				.then( tags => this.setState( { tags } ) );
 		}
 
 		if ( this.props.categories ) {
@@ -45,12 +49,11 @@ class MultiSelect extends Component {
 
 			window.fetch( catURL )
 				.then( res => res.json() )
-				.then( categories => this.setState({ categories }) );
+				.then( categories => this.setState( { categories } ) );
 		}
 	}
 
 	checkStatus = item => {
-
 		const status = this.state.selectedItems.some( element => {
 			return element === item;
 		} );
