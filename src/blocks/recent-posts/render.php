@@ -17,8 +17,6 @@ namespace WDS\Gutenberg\blocks\recent_posts;
  */
 function render_block( $attributes ) {
 
-	var_dump($attributes);
-
 	$recent_posts = wp_get_recent_posts(array(
 		'numberposts' => $attributes['postsToShow'],
 		'post_status' => 'publish',
@@ -44,7 +42,7 @@ function render_block( $attributes ) {
 
 		if (isset($attributes['displayPostDate']) && $attributes['displayPostDate']) {
 			$list_items_markup .= sprintf(
-				'<time datetime="%1$s" class="wp-block-recent-posts__post-date">%2$s</time>',
+				'<time datetime="%1$s" class="wp-block-wds-recent-posts__post-date">%2$s</time>',
 				esc_attr(get_the_date('c', $post_id)),
 				esc_html(get_the_date('', $post_id))
 			);
@@ -53,7 +51,7 @@ function render_block( $attributes ) {
 		$list_items_markup .= "</li>\n";
 	}
 
-	$class = "wp-block-recent-posts align{$attributes['align']}";
+	$class = "wp-block-wds-recent-posts align{$attributes['align']}";
 	if (isset($attributes['postLayout']) && 'grid' === $attributes['postLayout']) {
 		$class .= ' is-grid';
 	}
