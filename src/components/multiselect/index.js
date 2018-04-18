@@ -78,54 +78,7 @@ class MultiSelect extends Component {
 		this.setState({ selectedItems: newSelected });
 	};
 
-	renderDropdown = inputValue => {
-
-		return (
-			inputValue.map( ( item ) => (
-				<Fragment key={ `${ item.name }-${ item.id } ` }>
-					<input id={ item.id } type="checkbox" value={ item.name } onChange={ this.handleChange( item ) } ref={ input => this[ `checkbox${ item.name }` ] = input } checked={ this.checkStatus( item ) } />
-					<label htmlFor={ item.id }>{ item.name }</label>
-				</Fragment>
-			) )
-		);
-	}
-
-	toggleDropdown() {
-		this.setState( {
-			expanded: ! this.state.expanded,
 		} );
-	}
-
-	hydrateInput( items ) {
-
-		return (
-			items.length > 0 ?
-				items.map( ( item ) => (
-					/* eslint-disable */
-					<span key={ `${ item.name }-${ item.id } ` } className="item-pill" onClick={ this.handleInputClick( item ) }>
-						{ item.name }
-					</span>
-					/* eslint-enable */
-				) ) :
-				'Select Items...'
-		);
-	}
-
-	renderMultiSelect( items, selectedItems ) {
-		return (
-			<form>
-				<div className="multiselect-wrapper">
-					<div className={ 'select-input' }>
-						{ this.hydrateInput( selectedItems ) }
-					</div>
-					<div className={ `select-dropdown ${ this.state.expanded ? 'shown' : 'hidden' }` }>
-						{ this.renderDropdown( items ) }
-					</div>
-
-				</div>
-			</form>
-		)
-	}
 
 	render() {
 		const { tags, categories } = this.state;
