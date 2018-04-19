@@ -173,7 +173,7 @@ class EditComponent extends Component {
 					key="related-right-column"
 					posts={ this.state.selectedPosts }
 					handleEvent={ this.handleEvent }
-					onChange={ this.props.setAttributes( {
+					onChange={ this.props.setAttributes.bind( {
 						selectedPostsJSON: JSON.stringify( this.state.selectedPosts.map( post => post.id ) ),
 						selectedPosts: this.state.selectedPosts,
 					} ) }
