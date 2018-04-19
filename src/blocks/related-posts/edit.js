@@ -6,17 +6,20 @@ import classnames from 'classnames'; // Import NPM libraries here.
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
 const {
 	InspectorControls,
 } = wp.blocks;
+
+const {
+	withAPIData,
+} = wp.components;
 
 const { Component, Fragment } = wp.element;
 
 import Output from './output';
 import Loader from '../../components/loader';
 import Search from '../../components/search';
-import PostOutput from './post';
+import PostRenderer from './post-render';
 
 // Import our Block Title component.
 import BlockTitle from '../../components/block-title';
@@ -47,9 +50,11 @@ class EditComponent extends Component {
 		};
 
 		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/posts?_embed&page=${ page }&per_page=5`;
+		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/posts?_embed&${ ids }`;
 
 		this.handleEvent = this.handleEvent.bind( this );
 		this.fetchData = this.fetchData.bind( this );
+		this.fetchSelectedData = this.fetchSelectedData.bind( this );
 		this.returnLayout = this.returnLayout.bind( this );
 		this.returnQuery = this.returnQuery.bind( this );
 	}
@@ -101,14 +106,40 @@ class EditComponent extends Component {
 				} );
 			} );
 	}
-	componentDidMount() {
-		const { selectedPostsJSON } = this.props.attributes;
 
-		// Set state from existing attributes.
-		this.setState( {
-			selectedPostsJSON: selectedPostsJSON ? selectedPostsJSON : '[]',
-			selectedPosts: selectedPostsJSON ? JSON.parse( selectedPostsJSON ) : [],
-		} );
+	fetchSelectedData( props ) {
+		const { selectedPostsJSON } = props.attributes;
+
+		if ( selectedPostsJSON !== undefined ) {
+			const selectedPostsQuery = JSON.parse( selectedPostsJSON ).filter( post => {
+				return post;
+			} ).map( item => {
+				return `include[]=${ item.id }`;
+			} );
+
+			if ( selectedPostsQuery.length > 0 ) {
+				const selectedPostsFilter = selectedPostsQuery.join( '&' );
+
+				window.fetch( this.newApiURL( selectedPostsFilter ) )
+					.then( response => {
+						if ( response.status === 200 ) {
+							return response.json();
+						}
+						return [];
+					} )
+					.then( response => {
+						// Set state from existing attributes.
+						this.setState( {
+							selectedPostsJSON: response ? JSON.stringify( response ) : '[]',
+							selectedPosts: response ? response : [],
+						} );
+					} );
+			}
+		}
+	}
+
+	componentDidMount() {
+		this.fetchSelectedData( this.props );
 
 		if ( this.state.page === 1 && this.state.allPosts.length === 0 && this.state.queriedPosts.length === 0 ) {
 			this.fetchData( this.state.page );
@@ -206,7 +237,7 @@ class EditComponent extends Component {
 						className="related-block-container-list"
 					>
 						<ul className="selected-posts-container" tabIndex="0">
-							<PostOutput
+							<PostRenderer
 								{ ...this.props }
 							/>
 						</ul>
