@@ -107,6 +107,8 @@
       cursor: default;
       opacity: 0.5;
       pointer-events: none; }
+  .related-block-container-list .selected-posts-container {
+    min-height: 19rem; }
   .related-block-container-list .wp-block-loader {
     background-color: rgba(248, 249, 249, 0.8);
     height: 100%;
