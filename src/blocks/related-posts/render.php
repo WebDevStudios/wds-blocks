@@ -21,7 +21,7 @@ function render_block( $attributes ) {
 	ob_start(); ?>
 
 	<!-- wp:wds/related-posts -->
-	<?php \WDS\Gutenberg\template_tags\display_block_options( $attributes ); ?>
+	<?php \WDS\Gutenberg\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
 		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes ); ?>
 

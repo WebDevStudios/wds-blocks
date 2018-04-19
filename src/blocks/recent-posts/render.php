@@ -71,7 +71,7 @@ function render_block( $attributes ) {
 
 	<!-- wp:wds/recent-posts -->
 	<section class="wp-block-wds-recent-posts">
-	<?php // \WDS\Gutenberg\template_tags\display_block_options( $attributes ); ?>
+	<?php \WDS\Gutenberg\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
 		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes );
 
@@ -90,6 +90,7 @@ function render_block( $attributes ) {
  */
 function register_block() {
 
+	// Required to render output in editor.
 	register_block_type('wds/recent-posts', array(
 		'attributes' => array(
 			'categories' => array(
@@ -129,12 +130,12 @@ function register_block() {
 			'backgroundType' => array(
 				'type' => 'string'
 			),
-			// 'backgroundImage' => array(
-			// 	'type' => 'object'
-			// ),
-			// 'backgroundVideo' => array(
-			// 	'type' => 'object'
-			// ),
+			'backgroundImage' => array(
+				'type' => 'object'
+			),
+			'backgroundVideo' => array(
+				'type' => 'object'
+			),
 			'backgroundColor' => array(
 				'type' => 'string'
 			),
