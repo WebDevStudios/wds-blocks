@@ -10,10 +10,6 @@ const {
 	InspectorControls,
 } = wp.blocks;
 
-const {
-	withAPIData,
-} = wp.components;
-
 const { Component, Fragment } = wp.element;
 
 import Output from './output';
@@ -107,14 +103,15 @@ class EditComponent extends Component {
 			} );
 	}
 
+	// Fetch data from ids of selected content.
 	fetchSelectedData( props ) {
 		const { selectedPostsJSON } = props.attributes;
 
+		this.setState( { isLoaded: false } );
+
 		if ( selectedPostsJSON !== undefined ) {
-			const selectedPostsQuery = JSON.parse( selectedPostsJSON ).filter( post => {
-				return post;
-			} ).map( item => {
-				return `include[]=${ item.id }`;
+			const selectedPostsQuery = JSON.parse( selectedPostsJSON ).map( item => {
+				return `include[]=${ item }`;
 			} );
 
 			if ( selectedPostsQuery.length > 0 ) {
@@ -132,6 +129,7 @@ class EditComponent extends Component {
 						this.setState( {
 							selectedPostsJSON: response ? JSON.stringify( response ) : '[]',
 							selectedPosts: response ? response : [],
+							isLoaded: true,
 						} );
 					} );
 			}
@@ -164,7 +162,7 @@ class EditComponent extends Component {
 					textRef={ ( element ) => this.container = element }
 					title={ this.state.query !== '' ? 'Quieried Posts' : 'Posts' }
 					className="related-left-column"
-					key=""
+					key="related-left-column"
 					posts={ this.state.query !== '' ? this.state.queriedPosts : this.state.allPosts }
 					handleEvent={ this.handleEvent }
 				/>
@@ -172,11 +170,11 @@ class EditComponent extends Component {
 					activeClass={ this.state }
 					title="Selected Posts"
 					className="related-right-column"
-					key=""
+					key="related-right-column"
 					posts={ this.state.selectedPosts }
 					handleEvent={ this.handleEvent }
 					onChange={ this.props.setAttributes( {
-						selectedPostsJSON: JSON.stringify( this.state.selectedPosts ),
+						selectedPostsJSON: JSON.stringify( this.state.selectedPosts.map( post => post.id ) ),
 						selectedPosts: this.state.selectedPosts,
 					} ) }
 				/>
@@ -236,6 +234,7 @@ class EditComponent extends Component {
 						tabIndex="0"
 						className="related-block-container-list"
 					>
+						{ ! this.state.isLoaded ? <Loader key="selected-posts-block-loader" /> : null }
 						<ul className="selected-posts-container" tabIndex="0">
 							<PostRenderer
 								{ ...this.props }
