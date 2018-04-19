@@ -19,7 +19,6 @@ const {
  */
 import './style.scss';
 import './editor.scss';
-import classnames from 'classnames';
 
 /**
  * Import editor class.
@@ -27,17 +26,16 @@ import classnames from 'classnames';
 import EditComponent from './edit.js';
 
 // Import our components.
-import { BlockTitleAttributes, BlockTitleOutput } from '../../components/block-title';
-import PostOutput from './post';
+import { BlockTitleAttributes } from '../../components/block-title';
 
 // Import all of our Background Options requirements.
-import { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
+import { BackgroundOptionsAttributes } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+import { TextOptionsAttributes } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
-import { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
+import { OtherOptionsAttributes } from '../../components/other-options';
 
 /**
  * Register block
@@ -87,83 +85,5 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 	//
 	// For dynamic blocks, you can return null here and define a render callback function in PHP.
 	// https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
-	save: ( props ) => {
-		return (
-			<section
-				className={ classnames(
-					props.className,
-					...BackgroundOptionsClasses( props ),
-					...OtherOptionsClasses( props ),
-				) }
-				style={ {
-					...BackgroundOptionsInlineStyles( props ),
-					...TextOptionsInlineStyles( props ),
-				} }
-			>
-
-				{ BackgroundOptionsVideoOutput( props ) }
-				<BlockTitleOutput
-					key="related-block-title-output"
-					{ ...props }
-				/>
-				<div
-					key="related-block-container-output"
-					className="related-block-container-output"
-				>
-					<ul className="selected-posts-container">
-						<PostOutput
-							{ ...props }
-						/>
-					</ul>
-				</div>
-			</section>
-		);
-	},
-	deprecated: [
-		{
-			attributes: {
-				selectedPostsJSON: { // json array of objects
-					type: 'string',
-				},
-				selectedPosts: { // markup
-					type: 'array',
-					source: 'children',
-					selector: '.related-right-column',
-				},
-				...BlockTitleAttributes,
-				...BackgroundOptionsAttributes,
-				...TextOptionsAttributes,
-				...OtherOptionsAttributes,
-			},
-			save( props ) {
-				return (
-					<section
-						className={ classnames(
-							props.className,
-							...BackgroundOptionsClasses( props ),
-							...OtherOptionsClasses( props ),
-						) }
-						style={ {
-							...BackgroundOptionsInlineStyles( props ),
-							...TextOptionsInlineStyles( props ),
-						} }
-					>
-
-						{ BackgroundOptionsVideoOutput( props ) }
-						<BlockTitleOutput
-							key="related-block-title-output"
-							{ ...props }
-						/>
-						<div key="related-block-container-output" className={ classnames( props.className ) }>
-							<ul className="selected-posts-container">
-								<PostOutput
-									{ ...props }
-								/>
-							</ul>
-						</div>
-					</section>
-				);
-			},
-		},
-	],
+	save: () => null,
 } );
