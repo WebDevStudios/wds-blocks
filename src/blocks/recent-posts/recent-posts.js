@@ -1,7 +1,10 @@
 /**
  * External dependencies
  */
-import { get, isUndefined, pickBy } from 'lodash';
+import _get from 'lodash/get';
+import _isUndefined from 'lodash/isUndefined';
+import _pickBy from 'lodash/pickBy';
+
 import moment from 'moment';
 import classnames from 'classnames';
 import { stringify } from 'querystringify';
@@ -76,7 +79,7 @@ class RecentPostsBlock extends Component {
 					<QueryControls
 						{ ...{ order, orderBy } }
 						numberOfItems={ postsToShow }
-						categoriesList={ get( categoriesList, 'data', {} ) }
+						categoriesList={ _get( categoriesList, 'data', {} ) }
 						selectedCategoryId={ categories }
 						onOrderChange={ ( value ) => setAttributes( { order: value } ) }
 						onOrderByChange={ ( value ) => setAttributes( { orderBy: value } ) }
@@ -208,13 +211,13 @@ class RecentPostsBlock extends Component {
 
 export default withAPIData( ( props ) => {
 	const { postsToShow, order, orderBy, categories } = props.attributes;
-	const latestPostsQuery = stringify( pickBy( {
+	const latestPostsQuery = stringify( _pickBy( {
 		categories,
 		order,
 		orderBy,
 		per_page: postsToShow,
 		_fields: [ 'date_gmt', 'link', 'title' ],
-	}, value => ! isUndefined( value ) ) );
+	}, value => ! _isUndefined( value ) ) );
 	const categoriesListQuery = stringify( {
 		per_page: 100,
 		_fields: [ 'id', 'name', 'parent' ],
