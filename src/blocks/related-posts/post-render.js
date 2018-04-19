@@ -62,7 +62,7 @@ export default withAPIData( ( props ) => {
 
 	if ( selectedPostsJSON !== undefined ) {
 		const selectedPostsQuery = JSON.parse( selectedPostsJSON ).map( item => {
-			return `include[]=${ item.id }`;
+			return `include[]=${ item }`;
 		} );
 
 		if ( selectedPostsQuery.length > 0 ) {
