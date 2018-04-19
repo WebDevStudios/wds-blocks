@@ -191,7 +191,6 @@ class RecentPostsBlock extends Component {
 						<li
 							key={ i }
 							style={ {
-								...BackgroundOptionsInlineStyles( this.props ),
 								...TextOptionsInlineStyles( this.props ),
 							} }
 						>
