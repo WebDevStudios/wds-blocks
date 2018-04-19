@@ -2,6 +2,8 @@
 
 Library of Gutenberg blocks for WebDevStudios to use on client projects. Please follow the instructions below to get spun up.
 
+<a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. WordPress for big brands."></a>
+
 # Table of Contents
 1. [Prequisites](#prerequisites)
 2. [Project Onboarding](#project-onboarding)
