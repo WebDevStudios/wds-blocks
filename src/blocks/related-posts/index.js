@@ -106,7 +106,10 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 					key="related-block-title-output"
 					{ ...props }
 				/>
-				<div key="related-block-container-output" className={ classnames( props.className ) }>
+				<div
+					key="related-block-container-output"
+					className="related-block-container-output"
+				>
 					<ul className="selected-posts-container">
 						<PostOutput
 							{ ...props }
