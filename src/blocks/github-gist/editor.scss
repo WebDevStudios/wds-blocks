@@ -4,13 +4,6 @@
 // Additional styles necessary to assist the editor.
 //--------------------------------------------------------------
 
-.edit-post-visual-editor .editor-block-list__block {
-	// Taget the hero only here.
-	&[data-type="wds/gihub-gist"] {
-		max-width: none;
-	} // &[data-type="wds/hero"]
-} // .edit-post-visual-editor .editor-block-list__block
-
 .gist-block-controls {
 	padding: 2px;
 

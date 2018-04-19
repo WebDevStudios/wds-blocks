@@ -23,8 +23,6 @@ const {
 /**
  * Internal dependencies
  */
-import './style.scss';
-import './editor.scss';
 
 // Import all of our Background Options requirements.
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';

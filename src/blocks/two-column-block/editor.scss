@@ -27,15 +27,6 @@
 //-----------------------------------------
 div[data-type='wds/two-column'] {
 
-	// Target visual editor for override below.
-	.edit-post-visual-editor & {
-
-		// Override Default max width.
-		&.editor-block-list__block {
-			max-width: none;
-		} // &.editor-block-list__block
-	} // .edit-post-visual-editor &
-
 	.editor-block-contextual-toolbar {
 		height: auto;
 	} // .editor-block-contextual-toolbar

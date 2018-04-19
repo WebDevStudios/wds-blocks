@@ -11,4 +11,38 @@
 .wp-admin [data-type^="wds"] {
 	margin-bottom: 30px;
 	margin-top: 30px;
+	max-width: none;
 } // .wp-admin [data-type^="wds"]
+
+// Custom video backgrounds.
+.has-video-background {
+	overflow: hidden;
+	position: relative;
+
+	.video-container {
+		height: 100%;
+		left: 50%;
+		min-height: 100%;
+		min-width: 100%;
+		object-fit: none;
+		object-position: center center;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		width: 100%;
+		z-index: -1;
+	} // .video-container
+} // .has-video-background
+
+
+// Custom background styles.
+.has-custom-background {
+	background-position: center center;
+	background-repeat: no-repeat;
+	padding: 20px;
+
+	// The should help the front end only to work out of the box.
+	.site-content & {
+		@include full-width;
+	} // .site-content &
+} // .has-custom-background
