@@ -13,7 +13,7 @@ const Output = ( props ) => {
 	return (
 		<div className={ className } tabIndex="0">
 			<h3 key="">{ title }</h3>
-			<ul ref={ textRef }>
+			<ul ref={ textRef } className={ `${ className }-container` }>
 				{ posts.map( ( result, index ) => (
 					<Item
 						isActive={ activeClass }
