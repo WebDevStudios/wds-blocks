@@ -139,22 +139,41 @@ class EditComponent extends Component {
 		}
 	}
 
+	// handleScroll = () => {
+	// 	console.log( 'scrolling' );
+	// 	if ( this.state.allPosts.length !== this.state.totalPosts && ( this.container.scrollTop === ( this.container.scrollHeight - this.container.offsetHeight ) ) ) {
+	// 		this.fetchData( this.state.page + 1 );
+	// 	} else {
+	// 		this.setState( { atEnd: true } );
+	// 	}
+	// }
+
+	handleScroll = () => {
+		if ( this.state.allPosts.length !== this.state.totalPosts && ( this.container.scrollTop === ( this.container.scrollHeight - this.container.offsetHeight ) ) ) {
+			this.fetchData( this.state.page + 1 );
+		} else {
+			this.setState( { atEnd: true } );
+		}
+	}
+
 	componentDidMount() {
+		this.container.addEventListener( 'scroll', this.handleScroll );
+
 		this.fetchSelectedData( this.props );
 
 		if ( this.state.page === 1 && this.state.allPosts.length === 0 && this.state.queriedPosts.length === 0 ) {
 			this.fetchData( this.state.page );
 		}
+	}
 
+	componentDidUpdate() {
 		if ( !! this.props.focus ) {
-			this.container.addEventListener( 'scroll', () => {
-				if ( this.state.allPosts.length !== this.state.totalPosts && ( this.container.scrollTop === ( this.container.scrollHeight - this.container.offsetHeight ) ) ) {
-					this.fetchData( this.state.page + 1 );
-				} else {
-					this.setState( { atEnd: true } );
-				}
-			} );
+			this.container.addEventListener( 'scroll', this.handleScroll );
 		}
+	}
+
+	componentWillUnmount() {
+		this.container.removeEventListener( 'scroll', this.handleScroll() );
 	}
 
 	returnLayout = () => {
