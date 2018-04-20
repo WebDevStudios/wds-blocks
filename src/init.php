@@ -5,7 +5,7 @@
  * @since 1.0.0
  */
 
-namespace WDS_Gutenberg\Src;
+namespace WDS\Gutenberg;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
