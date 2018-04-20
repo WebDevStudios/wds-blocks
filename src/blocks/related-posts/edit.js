@@ -139,15 +139,6 @@ class EditComponent extends Component {
 		}
 	}
 
-	// handleScroll = () => {
-	// 	console.log( 'scrolling' );
-	// 	if ( this.state.allPosts.length !== this.state.totalPosts && ( this.container.scrollTop === ( this.container.scrollHeight - this.container.offsetHeight ) ) ) {
-	// 		this.fetchData( this.state.page + 1 );
-	// 	} else {
-	// 		this.setState( { atEnd: true } );
-	// 	}
-	// }
-
 	handleScroll = () => {
 		if ( this.state.allPosts.length !== this.state.totalPosts && ( this.container.scrollTop === ( this.container.scrollHeight - this.container.offsetHeight ) ) ) {
 			this.fetchData( this.state.page + 1 );
