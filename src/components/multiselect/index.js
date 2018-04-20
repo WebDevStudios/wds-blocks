@@ -14,7 +14,7 @@ import Taxonomy from './taxonomy';
 class MultiSelect extends Component {
 	static defaultProps = {
 		tags: true,
-		categories: true
+		categories: true,
 	}
 
 	constructor( props ) {
@@ -27,7 +27,7 @@ class MultiSelect extends Component {
 			expanded: true,
 			tags: [],
 			categories: [],
-			inputValue: props.value
+			inputValue: props.value,
 		};
 	}
 
@@ -67,8 +67,8 @@ class MultiSelect extends Component {
 				return {
 					selectedItems: {
 						...prevState.selectedItems,
-						[ item.taxonomy ]: [ item ]
-					}
+						[ item.taxonomy ]: [ item ],
+					},
 				};
 			} );
 
@@ -85,8 +85,8 @@ class MultiSelect extends Component {
 			return {
 				selectedItems: {
 					...prevState.selectedItems,
-					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], item ]
-				}
+					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], item ],
+				},
 			};
 		} );
 	};
@@ -98,8 +98,8 @@ class MultiSelect extends Component {
 			return {
 				selectedItems: {
 					...prevState.selectedItems,
-					[ item.taxonomy ]: [ ...newSelected ]
-				}
+					[ item.taxonomy ]: [ ...newSelected ],
+				},
 			};
 		} );
 	};
