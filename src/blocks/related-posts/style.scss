@@ -41,6 +41,10 @@
 				line-height: 1.5;
 				margin-bottom: 0;
 			} // p
+
+			a {
+				color: inherit;
+			} // a
 		} // li
 	} // .selected-posts-container
 } // .wp-block-wds-new-related-posts
