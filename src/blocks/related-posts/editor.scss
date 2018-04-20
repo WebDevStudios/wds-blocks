@@ -45,6 +45,10 @@
 				} // &:last-child
 			} // li
 		} // > ul
+
+		a {
+			color: inherit;
+		} // a
 	} // .related-left-column, .related-right-column
 
 	.related-left-column {
