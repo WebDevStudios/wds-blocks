@@ -45,7 +45,7 @@ class EditComponent extends Component {
 			query: '',
 		};
 
-		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/posts?_embed&page=${ page }&per_page=5`;
+		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/posts?_embed&page=${ page }&per_page=6`;
 		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/posts?_embed&${ ids }`;
 	}
 
