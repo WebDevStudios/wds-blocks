@@ -47,12 +47,17 @@ class EditComponent extends Component {
 
 		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/posts?_embed&page=${ page }&per_page=5`;
 		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/posts?_embed&${ ids }`;
+	}
 
-		this.handleEvent = this.handleEvent.bind( this );
-		this.fetchData = this.fetchData.bind( this );
-		this.fetchSelectedData = this.fetchSelectedData.bind( this );
-		this.returnLayout = this.returnLayout.bind( this );
-		this.returnQuery = this.returnQuery.bind( this );
+	handleChange = ( selected ) => {
+		this.setState( {
+			selectedPosts: selected,
+			selectedPostsJSON: JSON.stringify( selected ),
+		} );
+		this.props.setAttributes( {
+			selectedPosts: selected,
+			selectedPostsJSON: JSON.stringify( selected.map( item => item.id ) ),
+		} );
 	}
 
 	handleEvent = clickedPost => {
@@ -63,17 +68,15 @@ class EditComponent extends Component {
 		const postDataId = clickedPost.post.id;
 
 		if ( postContainer.classList.contains( 'is-selected' ) ) {
-			this.setState( {
-				selectedPosts: selectedPosts.filter( post => post.id !== postDataId ),
-			} );
+			const selected = selectedPosts.filter( post => post.id !== postDataId );
+			this.handleChange( selected );
 		} else {
-			this.setState( {
-				selectedPosts: selectedPosts.concat( postDataObject ),
-			} );
+			const selected = selectedPosts.concat( postDataObject );
+			this.handleChange( selected );
 		}
 	};
 
-	returnQuery( response ) {
+	returnQuery = response => {
 		this.setState( {
 			query: response.string,
 			queriedPosts: response.data,
@@ -81,7 +84,7 @@ class EditComponent extends Component {
 		} );
 	}
 
-	fetchData( page ) {
+	fetchData = page => {
 		this.setState( { isLoaded: false } );
 
 		window.fetch( this.apiURL( page ) )
@@ -104,7 +107,7 @@ class EditComponent extends Component {
 	}
 
 	// Fetch data from ids of selected content.
-	fetchSelectedData( props ) {
+	fetchSelectedData = props => {
 		const { selectedPostsJSON } = props.attributes;
 
 		this.setState( { isLoaded: false } );
@@ -127,8 +130,8 @@ class EditComponent extends Component {
 					.then( response => {
 						// Set state from existing attributes.
 						this.setState( {
-							selectedPostsJSON: response ? JSON.stringify( response ) : '[]',
-							selectedPosts: response ? response : [],
+							selectedPostsJSON: JSON.stringify( response ),
+							selectedPosts: response,
 							isLoaded: true,
 						} );
 					} );
@@ -173,10 +176,6 @@ class EditComponent extends Component {
 					key="related-right-column"
 					posts={ this.state.selectedPosts }
 					handleEvent={ this.handleEvent }
-					onChange={ this.props.setAttributes.bind( {
-						selectedPostsJSON: JSON.stringify( this.state.selectedPosts.map( post => post.id ) ),
-						selectedPosts: this.state.selectedPosts,
-					} ) }
 				/>
 			</Fragment>
 		);
@@ -198,13 +197,13 @@ class EditComponent extends Component {
 					...BackgroundOptionsClasses( this.props ),
 					...OtherOptionsClasses( this.props ),
 				) }
-				style={ ! this.props.focus && JSON.parse( this.props.attributes.selectedPostsJSON ).length > 0 ? {
+				style={ ! this.props.focus && JSON.parse( this.state.selectedPostsJSON ).length > 0 ? {
 					...BackgroundOptionsInlineStyles( this.props ),
 					...TextOptionsInlineStyles( this.props ),
 				} : {} }
 			>
 
-				{ ! this.props.focus && JSON.parse( this.props.attributes.selectedPostsJSON ).length > 0 ?
+				{ ! this.props.focus && JSON.parse( this.state.selectedPostsJSON ).length > 0 ?
 					BackgroundOptionsVideoOutput( this.props ) :
 					null
 				}
@@ -213,7 +212,7 @@ class EditComponent extends Component {
 					key="related-block-title"
 					{ ...this.props }
 				/>
-				{ !! this.props.focus || JSON.parse( this.props.attributes.selectedPostsJSON ).length === 0 ? (
+				{ !! this.props.focus || JSON.parse( this.state.selectedPostsJSON ).length === 0 ? (
 					[
 						<Search
 							key="related-block-search"
@@ -235,11 +234,12 @@ class EditComponent extends Component {
 						className="related-block-container-list"
 					>
 						{ ! this.state.isLoaded ? <Loader key="selected-posts-block-loader" /> : null }
-						<ul className="selected-posts-container" tabIndex="0">
+						{ JSON.parse( this.state.selectedPostsJSON ).length > 0 ? ( <ul className="selected-posts-container" tabIndex="0">
 							<PostRenderer
+								posts={ this.state.selectedPostsJSON }
 								{ ...this.props }
 							/>
-						</ul>
+						</ul> ) : ( null ) }
 					</div>
 				) }
 			</section>,
