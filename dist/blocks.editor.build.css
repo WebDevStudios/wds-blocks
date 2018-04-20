@@ -101,6 +101,9 @@
         .related-block-container-list .related-left-column > ul li:last-child,
         .related-block-container-list .related-right-column > ul li:last-child {
           border-bottom: 0; }
+    .related-block-container-list .related-left-column a,
+    .related-block-container-list .related-right-column a {
+      color: inherit; }
   .related-block-container-list .related-left-column {
     border-right: 1px solid #dedede; }
     .related-block-container-list .related-left-column > ul li.is-selected {
