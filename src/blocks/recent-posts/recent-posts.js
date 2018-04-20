@@ -45,6 +45,9 @@ const DEFAULT_COLUMNS = 3;
 // Import our Block Title component.
 import BlockTitle from '../../components/block-title';
 
+// Import our Block Title component.
+import MultiSelect from '../../components/multiselect';
+
 // Import all of our Background Options requirements.
 import BackgroundOptions, { BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
@@ -75,7 +78,7 @@ class RecentPostsBlock extends Component {
 
 	onOrderByChange = ( value ) => this.props.setAttributes( { orderBy: value } )
 
-	onCategoryChange = ( value ) => this.props.setAttributes( { categories: '' !== value ? value : undefined } )
+	// onCategoryChange = ( value ) => this.props.setAttributes( { categories: '' !== value ? value : undefined } )
 
 	onNumberOfItemsChange = ( value ) => this.props.setAttributes( { postsToShow: value } )
 
@@ -83,8 +86,8 @@ class RecentPostsBlock extends Component {
 		const maxItems = DEFAULT_MAX_ITEMS;
 		const minItems = DEFAULT_MIN_ITEMS;
 		const latestPosts = this.props.latestPosts.data;
-		const { attributes, categoriesList, setAttributes } = this.props;
-		const { displayPostDate, align, postLayout, columns, order, orderBy, categories, postsToShow } = attributes;
+		const { attributes, setAttributes } = this.props;
+		const { displayPostDate, align, postLayout, columns, order, orderBy, postsToShow } = attributes;
 
 		const inspectorControls = !! this.props.focus && (
 			<InspectorControls key="inspector">
@@ -126,6 +129,7 @@ class RecentPostsBlock extends Component {
 								} }
 							/>
 						) }
+					{ <MultiSelect /> }
 					{
 						this.onNumberOfItemsChange && (
 							<RangeControl
@@ -261,20 +265,15 @@ class RecentPostsBlock extends Component {
 }
 
 export default withAPIData( ( props ) => {
-	const { postsToShow, order, orderBy, categories } = props.attributes;
+	const { postsToShow, order, orderBy } = props.attributes;
 	const latestPostsQuery = stringify( _pickBy( {
-		categories,
+
 		order,
 		orderBy,
 		per_page: postsToShow,
 		_fields: [ 'date_gmt', 'link', 'title' ],
 	}, value => ! _isUndefined( value ) ) );
-	const categoriesListQuery = stringify( {
-		per_page: 100,
-		_fields: [ 'id', 'name', 'parent' ],
-	} );
 	return {
 		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`,
-		categoriesList: `/wp/v2/categories?${ categoriesListQuery }`,
 	};
 } )( RecentPostsBlock );
