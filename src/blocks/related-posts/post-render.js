@@ -69,7 +69,7 @@ export default withAPIData( ( props ) => {
 			const selectedPostsFilter = selectedPostsQuery.join( '&' );
 
 			return {
-				selectedPostsJSONAlt: `/wp/v2/posts?${ selectedPostsFilter }`,
+				selectedPostsJSONAlt: `/wp/v2/posts?_embed&${ selectedPostsFilter }`,
 			};
 		}
 	}
