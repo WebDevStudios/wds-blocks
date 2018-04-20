@@ -17,7 +17,7 @@ const { Component } = wp.element;
 const {
 	PanelBody,
 	Placeholder,
-	QueryControls,
+	SelectControl,
 	RangeControl,
 	Spinner,
 	ToggleControl,
@@ -54,6 +54,9 @@ import TextOptions, { TextOptionsInlineStyles } from '../../components/text-opti
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsClasses } from '../../components/other-options';
 
+const DEFAULT_MIN_ITEMS = 1;
+const DEFAULT_MAX_ITEMS = 100;
+
 class RecentPostsBlock extends Component {
 	constructor() {
 		super( ...arguments );
@@ -68,7 +71,17 @@ class RecentPostsBlock extends Component {
 		setAttributes( { displayPostDate: ! displayPostDate } );
 	}
 
+	onOrderChange = ( value ) => this.props.setAttributes( { order: value } )
+
+	onOrderByChange = ( value ) => this.props.setAttributes( { orderBy: value } )
+
+	onCategoryChange = ( value ) => this.props.setAttributes( { categories: '' !== value ? value : undefined } )
+
+	onNumberOfItemsChange = ( value ) => this.props.setAttributes( { postsToShow: value } )
+
 	render() {
+		const maxItems = DEFAULT_MAX_ITEMS;
+		const minItems = DEFAULT_MIN_ITEMS;
 		const latestPosts = this.props.latestPosts.data;
 		const { attributes, categoriesList, setAttributes } = this.props;
 		const { displayPostDate, align, postLayout, columns, order, orderBy, categories, postsToShow } = attributes;
@@ -76,16 +89,55 @@ class RecentPostsBlock extends Component {
 		const inspectorControls = !! this.props.focus && (
 			<InspectorControls key="inspector">
 				<PanelBody title={ __( 'Latest Posts Settings' ) }>
-					<QueryControls
-						{ ...{ order, orderBy } }
-						numberOfItems={ postsToShow }
-						categoriesList={ _get( categoriesList, 'data', {} ) }
-						selectedCategoryId={ categories }
-						onOrderChange={ ( value ) => setAttributes( { order: value } ) }
-						onOrderByChange={ ( value ) => setAttributes( { orderBy: value } ) }
-						onCategoryChange={ ( value ) => setAttributes( { categories: '' !== value ? value : undefined } ) }
-						onNumberOfItemsChange={ ( value ) => setAttributes( { postsToShow: value } ) }
-					/>
+					{
+						( this.onOrderChange && this.onOrderByChange ) && (
+							<SelectControl
+								key="query-controls-order-select"
+								label={ __( 'Order by' ) }
+								value={ `${ orderBy }/${ order }` }
+								options={ [
+									{
+										label: __( 'Newest to Oldest' ),
+										value: 'date/desc',
+									},
+									{
+										label: __( 'Oldest to Newest' ),
+										value: 'date/asc',
+									},
+									{
+										/* translators: label for ordering posts by title in ascending order */
+										label: __( 'A → Z' ),
+										value: 'title/asc',
+									},
+									{
+										/* translators: label for ordering posts by title in descending order */
+										label: __( 'Z → A' ),
+										value: 'title/desc',
+									},
+								] }
+								onChange={ ( value ) => {
+									const [ newOrderBy, newOrder ] = value.split( '/' );
+									if ( newOrder !== order ) {
+										this.onOrderChange( newOrder );
+									}
+									if ( newOrderBy !== orderBy ) {
+										this.onOrderByChange( newOrderBy );
+									}
+								} }
+							/>
+						) }
+					{
+						this.onNumberOfItemsChange && (
+							<RangeControl
+								key="query-controls-range-control"
+								label={ __( 'Number of items' ) }
+								value={ postsToShow }
+								onChange={ this.onNumberOfItemsChange }
+								min={ minItems }
+								max={ maxItems }
+							/>
+						)
+					}
 					<ToggleControl
 						label={ __( 'Display post date' ) }
 						checked={ displayPostDate }
