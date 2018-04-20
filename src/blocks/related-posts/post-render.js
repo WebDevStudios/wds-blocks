@@ -58,11 +58,11 @@ class PostRenderer extends Component {
 }
 
 export default withAPIData( ( props ) => {
-	const { selectedPostsJSON } = props.attributes;
+	const { posts } = props;
 
-	if ( selectedPostsJSON !== undefined ) {
-		const selectedPostsQuery = JSON.parse( selectedPostsJSON ).map( item => {
-			return `include[]=${ item }`;
+	if ( posts !== undefined && posts !== '[]' ) {
+		const selectedPostsQuery = JSON.parse( posts ).map( item => {
+			return `include[]=${ item.id }`;
 		} );
 
 		if ( selectedPostsQuery.length > 0 ) {
