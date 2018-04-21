@@ -129,3 +129,57 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
 
 .wp-block-wds-recent-posts ul.columns-6 li {
   width: calc( ( 100% / 6 ) - 16px); }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.multiselect-wrapper {
+  border: 1px solid #dedede;
+  border-bottom: 0;
+  border-radius: 4px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  position: relative; }
+
+.select-dropdown {
+  border-top: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  left: 0;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 1; }
+  .select-dropdown label {
+    background-color: #f8f9f9;
+    border-bottom: 1px solid #dedede;
+    padding: 0.3125rem 0.625rem; }
+  .select-dropdown input[type='checkbox'] {
+    left: -9999px;
+    position: absolute;
+    top: -9999px; }
+    .select-dropdown input[type='checkbox']:checked + label {
+      background-color: #dedede; }
+  .select-dropdown.hidden {
+    height: 0; }
+  .select-dropdown.shown {
+    overflow: auto; }
+
+.select-input {
+  padding: 0.625rem; }
+  .select-input .item-pill {
+    background-color: #f8f9f9;
+    border-radius: 3px;
+    border: 1px solid #dedede;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 0 5px;
+    position: relative; }
+    .select-input .item-pill::after {
+      color: #dedede;
+      content: '\00d7';
+      margin-left: 5px; }
