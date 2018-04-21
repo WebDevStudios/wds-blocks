@@ -80,14 +80,18 @@ class RecentPostsBlock extends Component {
 
 	// onCategoryChange = ( value ) => this.props.setAttributes( { categories: '' !== value ? value : undefined } )
 
+	onCategoryChange = value => {
+		console.log( value );
+	}
+
 	onNumberOfItemsChange = ( value ) => this.props.setAttributes( { postsToShow: value } )
 
 	render() {
 		const maxItems = DEFAULT_MAX_ITEMS;
 		const minItems = DEFAULT_MIN_ITEMS;
 		const latestPosts = this.props.latestPosts.data;
-		const { attributes, setAttributes } = this.props;
-		const { displayPostDate, align, postLayout, columns, order, orderBy, postsToShow } = attributes;
+		const { attributes, categoriesList, setAttributes } = this.props;
+		const { displayPostDate, align, postLayout, columns, order, orderBy, categories, postsToShow } = attributes;
 
 		const inspectorControls = !! this.props.focus && (
 			<InspectorControls key="inspector">
@@ -129,7 +133,9 @@ class RecentPostsBlock extends Component {
 								} }
 							/>
 						) }
-					{ <MultiSelect /> }
+					{ !! this.props.focus ? (
+						<MultiSelect onCategoryChange={ this.onCategoryChange } />
+					) : ( null ) }
 					{
 						this.onNumberOfItemsChange && (
 							<RangeControl
@@ -265,15 +271,20 @@ class RecentPostsBlock extends Component {
 }
 
 export default withAPIData( ( props ) => {
-	const { postsToShow, order, orderBy } = props.attributes;
+	const { postsToShow, order, orderBy, categories } = props.attributes;
 	const latestPostsQuery = stringify( _pickBy( {
-
+		categories, // [1, 2]
 		order,
 		orderBy,
 		per_page: postsToShow,
 		_fields: [ 'date_gmt', 'link', 'title' ],
 	}, value => ! _isUndefined( value ) ) );
+	const categoriesListQuery = stringify( {
+		per_page: 100,
+		_fields: [ 'id', 'name', 'parent' ],
+	} );
 	return {
 		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`,
+		categoriesList: `/wp/v2/categories?${ categoriesListQuery }`,
 	};
 } )( RecentPostsBlock );
