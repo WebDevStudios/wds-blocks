@@ -11,7 +11,7 @@ import InputPanel from './input';
 import DropDown from './dropdown';
 
 const Taxonomy = ( props ) => {
-	const { selectedItems, items, handleChange, checkStatus, handleInputClick } = props;
+	const { selectedItems, items, handleChange, handleInputClick } = props;
 	return (
 		<Fragment>
 			<InputPanel
@@ -21,10 +21,9 @@ const Taxonomy = ( props ) => {
 			<DropDown
 				items={ items }
 				handleChange={ handleChange }
-				checkStatus={ checkStatus }
 			/>
 		</Fragment>
 	);
-}
+};
 
 export default Taxonomy;
