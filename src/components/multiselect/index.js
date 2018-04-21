@@ -41,7 +41,15 @@ class MultiSelect extends Component {
 
 			window.fetch( tagURL )
 				.then( res => res.json() )
-				.then( tags => this.setState( { tags } ) );
+				.then( tags => {
+					const newTags = tags.map( tag => {
+						return {
+							post: tag,
+							checked: false,
+						};
+					} );
+					this.setState( { tags: newTags } );
+				} );
 		}
 
 		if ( this.props.categories ) {
@@ -49,16 +57,16 @@ class MultiSelect extends Component {
 
 			window.fetch( catURL )
 				.then( res => res.json() )
-				.then( categories => this.setState( { categories } ) );
+				.then( categories => {
+					const newCategories = categories.map( cat => {
+						return {
+							post: cat,
+							checked: false,
+						};
+					} );
+					this.setState( { categories: newCategories } );
+				} );
 		}
-	}
-
-	checkStatus = item => {
-		const status = this.state.selectedItems.some( element => {
-			return element === item;
-		} );
-
-		return status;
 	}
 
 	handleChange = item => () => {
@@ -67,7 +75,8 @@ class MultiSelect extends Component {
 				return {
 					selectedItems: {
 						...prevState.selectedItems,
-						[ item.taxonomy ]: [ item ],
+						[ item.taxonomy ]: [ { post: item, checked: true } ],
+						// checked is false
 					},
 				};
 			} );
@@ -85,7 +94,8 @@ class MultiSelect extends Component {
 			return {
 				selectedItems: {
 					...prevState.selectedItems,
-					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], item ],
+					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], { post: item, checked: true } ],
+					// check is true
 				},
 			};
 		} );
@@ -105,6 +115,7 @@ class MultiSelect extends Component {
 	};
 
 	render() {
+		// const { onCategoryChange } = this.props;
 		const { tags, categories } = this.state;
 		const selectedTags = this.state.selectedItems.post_tag;
 		const selectedCategories = this.state.selectedItems.category;
@@ -115,15 +126,15 @@ class MultiSelect extends Component {
 					selectedItems={ selectedTags }
 					items={ tags }
 					handleChange={ this.handleChange }
-					checkStatus={ this.checkStatus }
 					handleInputClick={ this.handleInputClick }
+					// onClick={ ( ( items ) => onCategoryChange( { items } ) ) }
 				/>
 				<Taxonomy
 					selectedItems={ selectedCategories }
 					items={ categories }
 					handleChange={ this.handleChange }
-					checkStatus={ this.checkStatus }
 					handleInputClick={ this.handleInputClick }
+					// onClick={ ( ( items ) => onCategoryChange( { items } ) ) }
 				/>
 			</div>
 		);
