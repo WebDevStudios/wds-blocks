@@ -4,7 +4,7 @@
 const { __ } = wp.i18n;
 
 const InputPanel = ( props ) => {
-	const { selectedItems, handleInputClick } = props;
+	const { name, selectedItems, handleInputClick } = props;
 	return (
 		<div className={ 'select-input' }>
 			{
@@ -20,7 +20,7 @@ const InputPanel = ( props ) => {
 						/* eslint-enable */
 						);
 					} ) :
-					__( 'Select Items...' )
+					<strong>{__( `Select ${ name }.` )}</strong>
 			}
 		</div>
 	);
