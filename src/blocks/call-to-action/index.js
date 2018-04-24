@@ -24,7 +24,6 @@ const {
 /**
  * Internal dependencies
  */
-import './style.scss';
 import classnames from 'classnames';
 
 // Import our Block Title component.
@@ -128,7 +127,7 @@ export default registerBlockType(
 						tagName="div"
 						multiline="p"
 						className="content-block"
-						placeholder={ __( 'To customize this block, click on "Show Advanced Settings"' ) }
+						placeholder={ __( 'Click here to add paragraph text. To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
 						focus={ props.focus }
@@ -136,7 +135,7 @@ export default registerBlockType(
 					/>
 
 					<ButtonLink
-						placeholder={ __( 'Click Here' ) }
+						placeholder={ __( 'Add Button Text Here' ) }
 						{ ...props }
 					/>
 				</section>,
