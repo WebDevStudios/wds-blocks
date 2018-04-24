@@ -42,13 +42,7 @@ class MultiSelect extends Component {
 			window.fetch( tagURL )
 				.then( res => res.json() )
 				.then( tags => {
-					const newTags = tags.map( tag => {
-						return {
-							post: tag,
-							checked: false,
-						};
-					} );
-					this.setState( { tags: newTags } );
+					this.setState( { tags } );
 				} );
 		}
 
@@ -58,27 +52,28 @@ class MultiSelect extends Component {
 			window.fetch( catURL )
 				.then( res => res.json() )
 				.then( categories => {
-					const newCategories = categories.map( cat => {
-						return {
-							post: cat,
-							checked: false,
-						};
-					} );
-					this.setState( { categories: newCategories } );
+					this.setState( { categories } );
 				} );
 		}
 	}
 
+	// For handling dropdown change.
 	handleChange = item => () => {
+
 		if ( ! this.state.selectedItems[ item.taxonomy ] ) {
+
 			this.setState( ( prevState ) => {
 				return {
 					selectedItems: {
 						...prevState.selectedItems,
-						[ item.taxonomy ]: [ { post: item, checked: true } ],
-						// checked is false
-					},
+						[ item.taxonomy ]: [ item ]
+					}
 				};
+			} );
+
+			this.props.onCategoryChange({
+				...this.state.selectedItems,
+				[ item.taxonomy ]: [ item ]
 			} );
 
 			return;
