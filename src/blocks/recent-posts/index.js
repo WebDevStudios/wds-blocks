@@ -54,6 +54,14 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 		postsToShow: {
 			type: 'number',
 			default: 5
+		},
+		postLayout: {
+			type: 'string',
+			default: 'list'
+		},
+		columns: {
+			type: 'number',
+			default: 3
 		}
 	},
 	supports: {
@@ -69,5 +77,5 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 	//
 	// For dynamic blocks, you can return null here and define a render callback function in PHP.
 	// https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
-	save: () => null,
+	save: () => null
 } );
