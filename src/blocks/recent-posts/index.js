@@ -32,15 +32,19 @@ import RecentPostsBlock from './recent-posts';
 export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
 	title: __( 'WDS Recent Posts' ),
+
 	// Description: Write a quick description.
 	description: __( 'Shows a list of your site\'s most recent posts.' ),
+
 	// Category options: common, formatting, layout, widgets, embed.
 	category: 'widgets',
+
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
 	icon: 'clock',
+
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 	keywords: [
-		__( 'recent posts' ),
+		__( 'recent posts' )
 	],
 	attributes: {
 		taxonomies: {
@@ -53,11 +57,13 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 		}
 	},
 	supports: {
-		html: false,
+		html: false
 	},
+
 	// Determines what is displayed in the editor.
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#edit
 	edit: RecentPostsBlock,
+
 	// Determines what is displayed on the front-end.
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#save
 	//
