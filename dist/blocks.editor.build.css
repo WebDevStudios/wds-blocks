@@ -382,7 +382,8 @@ div[data-type="wds/related-posts"] ul {
   background-color: transparent; }
 
 .wp-admin .wp-block-wds-two-column .content-block-content h2 {
-  font-size: rem(18); }
+  color: #b1b1b1;
+  font-size: 17px; }
 
 div[data-type='wds/two-column'] .editor-block-contextual-toolbar {
   height: auto; }
