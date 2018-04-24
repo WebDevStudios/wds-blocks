@@ -236,7 +236,7 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		function displayMediaUpload() {
 			return (
 				<div className="content-block-content content-block">
-					<h2>{ __( 'Column Image Area' ) }</h2>
+					<h2>{ __( 'Image Column Area' ) }</h2>
 					{ ! props.attributes.imgID ? (
 						<MediaUpload
 							buttonProps={ {
