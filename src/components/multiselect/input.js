@@ -9,13 +9,11 @@ const InputPanel = ( props ) => {
 		<div className={ 'select-input' }>
 			{
 				selectedItems && 0 < selectedItems.length ?
-					selectedItems.map( ( itemObject ) => {
-						const item = itemObject.post;
-
+					selectedItems.map( ( post ) => {
 						return (
 						/* eslint-disable */
-						<span key={ `${ item.name }-${ item.id } ` } className="item-pill" onClick={ handleInputClick( item ) }>
-						{ item.name }
+						<span key={ `${ post.name }-${ post.id } ` } className="item-pill" onClick={ handleInputClick( post ) }>
+						{ post.name }
 					</span>
 						/* eslint-enable */
 						);
