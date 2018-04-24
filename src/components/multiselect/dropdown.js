@@ -1,10 +1,23 @@
 /**
  * Externals
  */
-const { __ } = wp.i18n;
 const { Component, Fragment } = wp.element;
 
 class DropDown extends Component {
+	constructor( props ) {
+		super( props );
+
+		this.state = {
+			selectedItems: this.props.selectedItems ? this.props.selectedItems : []
+		};
+	}
+
+	componentWillReceiveProps( nextProps ) {
+		if ( nextProps.selectedItems !== undefined ) {
+			this.setState( { selectedItems: nextProps.selectedItems } );
+		}
+	}
+
 	render() {
 		const { items, handleChange } = this.props;
 
