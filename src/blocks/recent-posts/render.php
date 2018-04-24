@@ -24,6 +24,25 @@ function render_block( $attributes ) {
 		'orderby' => $attributes['orderBy'],
 		'category' => $attributes['categories'],
 	));
+	$taxonomies   = isset( $attributes['taxonomies'] ) ? json_decode( $attributes['taxonomies'], true ) : array();
+	$tags         = isset( $taxonomies['post_tag'] ) ? $taxonomies['post_tag'] : array();
+	$categories   = isset( $taxonomies['category'] ) ? $taxonomies['category'] : array();
+	$tag_ids      = array();
+	$category_ids = array();
+
+	// Get tag ids.
+	if ( ! empty( $tags ) ) {
+		foreach( $tags as $tag ) {
+			$tag_ids[] = $tag['id'];
+		}
+	}
+
+	// Get category ids.
+	if ( ! empty( $categories ) ) {
+		foreach( $categories as $category ) {
+			$category_ids[] = $category['id'];
+		}
+	}
 
 	$list_items_markup = '';
 
