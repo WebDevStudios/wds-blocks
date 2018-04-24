@@ -14,7 +14,7 @@ import Taxonomy from './taxonomy';
 class MultiSelect extends Component {
 	static defaultProps = {
 		tags: true,
-		categories: true,
+		categories: true
 	}
 
 	constructor( props ) {
@@ -22,8 +22,10 @@ class MultiSelect extends Component {
 
 		this.APIRootURL = wpApiSettings.root + 'wp/v2/';
 
+		const taxonomies = this.props.attributes.taxonomies ? JSON.parse( this.props.attributes.taxonomies ) : {};
+
 		this.state = {
-			selectedItems: {},
+			selectedItems: taxonomies,
 			expanded: true,
 			tags: [],
 			categories: [],
