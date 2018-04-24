@@ -81,7 +81,7 @@ class RecentPostsBlock extends Component {
 	// onCategoryChange = ( value ) => this.props.setAttributes( { categories: '' !== value ? value : undefined } )
 
 	onCategoryChange = value => {
-		console.log( value );
+		this.props.setAttributes( { taxonomies: JSON.stringify( value ) } );
 	}
 
 	onNumberOfItemsChange = ( value ) => this.props.setAttributes( { postsToShow: value } )
@@ -90,8 +90,8 @@ class RecentPostsBlock extends Component {
 		const maxItems = DEFAULT_MAX_ITEMS;
 		const minItems = DEFAULT_MIN_ITEMS;
 		const latestPosts = this.props.latestPosts.data;
-		const { attributes, categoriesList, setAttributes } = this.props;
-		const { displayPostDate, align, postLayout, columns, order, orderBy, categories, postsToShow } = attributes;
+		const { attributes, setAttributes } = this.props;
+		const { displayPostDate, align, postLayout, columns, order, orderBy, postsToShow } = attributes;
 
 		const inspectorControls = !! this.props.focus && (
 			<InspectorControls key="inspector">
@@ -134,7 +134,7 @@ class RecentPostsBlock extends Component {
 							/>
 						) }
 					{ !! this.props.focus ? (
-						<MultiSelect onCategoryChange={ this.onCategoryChange } />
+						<MultiSelect attributes={this.props.attributes} onCategoryChange={ this.onCategoryChange } />
 					) : ( null ) }
 					{
 						this.onNumberOfItemsChange && (
