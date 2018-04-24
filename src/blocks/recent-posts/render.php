@@ -93,7 +93,7 @@ function register_block() {
 	// Required to render output in editor.
 	register_block_type('wds/recent-posts', array(
 		'attributes' => array(
-			'categories' => array(
+			'taxonomies' => array(
 				'type' => 'string',
 			),
 			'postsToShow' => array(
