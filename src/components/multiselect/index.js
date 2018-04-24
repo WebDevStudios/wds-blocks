@@ -89,47 +89,54 @@ class MultiSelect extends Component {
 			return {
 				selectedItems: {
 					...prevState.selectedItems,
-					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], { post: item, checked: true } ],
-					// check is true
+					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], item ]
 				},
 			};
+		} );
+
+		this.props.onCategoryChange( {
+			...this.state.selectedItems,
+			[ item.taxonomy ]: [ ...this.state.selectedItems[ item.taxonomy ], item ]
 		} );
 	};
 
 	handleInputClick = item => () => {
+		console.log(this.state.selectedItems[item.taxonomy]);
 		const newSelected = this.state.selectedItems[ item.taxonomy ].filter( selectedItem => selectedItem.id !== item.id );
 
 		this.setState( ( prevState ) => {
 			return {
 				selectedItems: {
 					...prevState.selectedItems,
-					[ item.taxonomy ]: [ ...newSelected ],
-				},
+					[ item.taxonomy ]: [ ...newSelected ]
+				}
 			};
+		} );
+
+		this.props.onCategoryChange( {
+			...this.state.selectedItems,
+			[ item.taxonomy ]: [ ...newSelected ]
 		} );
 	};
 
 	render() {
-		// const { onCategoryChange } = this.props;
 		const { tags, categories } = this.state;
-		const selectedTags = this.state.selectedItems.post_tag;
-		const selectedCategories = this.state.selectedItems.category;
 
 		return (
-			<div className="multiselect-wrapper">
+			<div className="components-base-control multiselect-wrapper">
 				<Taxonomy
-					selectedItems={ selectedTags }
+					selectedItems={ this.state.selectedItems.post_tag }
 					items={ tags }
+					name={ __( 'Tags' ) }
 					handleChange={ this.handleChange }
 					handleInputClick={ this.handleInputClick }
-					// onClick={ ( ( items ) => onCategoryChange( { items } ) ) }
 				/>
 				<Taxonomy
-					selectedItems={ selectedCategories }
+					selectedItems={ this.state.selectedItems.category }
 					items={ categories }
+					name={ __( 'Categories' ) }
 					handleChange={ this.handleChange }
 					handleInputClick={ this.handleInputClick }
-					// onClick={ ( ( items ) => onCategoryChange( { items } ) ) }
 				/>
 			</div>
 		);
