@@ -265,26 +265,27 @@ class RecentPostsBlock extends Component {
 						</li>
 					) }
 				</ul>
-			</section>,
+			</section>
 		];
 	}
 }
 
 export default withAPIData( ( props ) => {
-	const { postsToShow, order, orderBy, categories } = props.attributes;
+	const { postsToShow, order, orderBy, taxonomies } = props.attributes;
+	const decodedTaxonomies = taxonomies ? JSON.parse( taxonomies ) : {};
+
+	// This can be made to be much more flexible and allow for custom taxonomies and the like. Phase 2!
+	const tags = decodedTaxonomies.post_tag && 0 < decodedTaxonomies.post_tag.length ? decodedTaxonomies.post_tag.map( tag => tag.id ) : undefined;
+	const categories = decodedTaxonomies.category && 0 < decodedTaxonomies.category.length ? decodedTaxonomies.category.map( category => category.id ) : undefined;
 	const latestPostsQuery = stringify( _pickBy( {
-		categories, // [1, 2]
+		tags,
+		categories,
 		order,
 		orderBy,
 		per_page: postsToShow,
-		_fields: [ 'date_gmt', 'link', 'title' ],
+		_fields: [ 'date_gmt', 'link', 'title' ]
 	}, value => ! _isUndefined( value ) ) );
-	const categoriesListQuery = stringify( {
-		per_page: 100,
-		_fields: [ 'id', 'name', 'parent' ],
-	} );
 	return {
-		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`,
-		categoriesList: `/wp/v2/categories?${ categoriesListQuery }`,
+		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`
 	};
 } )( RecentPostsBlock );
