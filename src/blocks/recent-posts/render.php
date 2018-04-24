@@ -17,13 +17,6 @@ namespace WDS\Gutenberg\blocks\recent_posts;
  */
 function render_block( $attributes ) {
 
-	$recent_posts = wp_get_recent_posts(array(
-		'numberposts' => $attributes['postsToShow'],
-		'post_status' => 'publish',
-		'order' => $attributes['order'],
-		'orderby' => $attributes['orderBy'],
-		'category' => $attributes['categories'],
-	));
 	$taxonomies   = isset( $attributes['taxonomies'] ) ? json_decode( $attributes['taxonomies'], true ) : array();
 	$tags         = isset( $taxonomies['post_tag'] ) ? $taxonomies['post_tag'] : array();
 	$categories   = isset( $taxonomies['category'] ) ? $taxonomies['category'] : array();
@@ -43,6 +36,15 @@ function render_block( $attributes ) {
 			$category_ids[] = $category['id'];
 		}
 	}
+
+	$recent_posts = wp_get_recent_posts( array(
+		'numberposts'  => $attributes['postsToShow'],
+		'post_status'  => 'publish',
+		'order'        => $attributes['order'],
+		'orderby'      => $attributes['orderBy'],
+		'tag__in'      => $tag_ids,
+		'category__in' => $category_ids,
+	) );
 
 	$list_items_markup = '';
 
