@@ -22,6 +22,17 @@
 	} // .block-title
 } // .wp-block-wds-two-column
 
+// Ensure we're only changing the admin font size.
+.wp-admin {
+
+	.wp-block-wds-two-column {
+
+		.content-block-content h2 {
+			font-size: rem(18);
+		} // .content-block-contenth2
+	} // .wp-block-wds-two-column
+} // .wp-admin
+
 //-----------------------------------------
 // Editing Toolbar (alignment, bold, italic, etc.)
 //-----------------------------------------
