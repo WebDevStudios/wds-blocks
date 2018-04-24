@@ -201,13 +201,13 @@ class RecentPostsBlock extends Component {
 				icon: 'list-view',
 				title: __( 'List View' ),
 				onClick: () => setAttributes( { postLayout: 'list' } ),
-				isActive: postLayout === 'list',
+				isActive: postLayout === 'list'
 			},
 			{
 				icon: 'grid-view',
 				title: __( 'Grid View' ),
 				onClick: () => setAttributes( { postLayout: 'grid' } ),
-				isActive: postLayout === 'grid',
+				isActive: postLayout === 'grid'
 			},
 		];
 
