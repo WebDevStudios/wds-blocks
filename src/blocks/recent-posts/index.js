@@ -42,6 +42,16 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 	keywords: [
 		__( 'recent posts' ),
 	],
+	attributes: {
+		taxonomies: {
+			type: 'string',
+			default: ''
+		},
+		postsToShow: {
+			type: 'number',
+			default: 5
+		}
+	},
 	supports: {
 		html: false,
 	},
