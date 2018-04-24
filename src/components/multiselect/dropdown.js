@@ -23,25 +23,24 @@ class DropDown extends Component {
 
 		return (
 			<div className={ 'select-dropdown' }>
-				{ items.length > 0 ?
-					items.map( ( itemObject ) => {
-						const item = itemObject.post;
+				{ 0 < items.length ?
+					items.map( ( post ) => {
+						const matched = this.state.selectedItems.filter( selectedItem => selectedItem.id === post.id );
 
-						// init [ {} ]
-						// change [ { post: {}, checked: bool } ]
-
-						return ( <Fragment key={ `${ item.name }-${ item.id } ` }>
+						return ( <Fragment key={ `${ post.name }-${ post.id } ` }>
 							<input
-								id={ item.id }
+								id={ post.id }
 								type="checkbox"
-								value={ item.name }
-								onChange={ handleChange( item ) }
-								ref={ input => this[ `checkbox${ item.name }` ] = input }
-								checked={ item.checked } // true || false
+								className={ matched && matched.length > 0 ? 'checked' : 'not-checked'}
+								value={ post.name }
+								onChange={ handleChange( post ) }
+								ref={ input => this[ `checkbox${ post.name }` ] = input }
+								checked={ !!matched.length } // true || false
 							/>
-							<label htmlFor={ item.id }>{ item.name }</label>
+							<label htmlFor={ post.id }>{ post.name }</label>
 						</Fragment> );
 					} ) : ( null ) }
+
 			</div>
 		);
 	}
