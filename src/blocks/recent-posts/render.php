@@ -55,10 +55,17 @@ function render_block( $attributes ) {
 		if (!$title) {
 			$title = __('(Untitled)', 'gutenberg');
 		}
+
+		$thumbnail = '';
+		if ( has_post_thumbnail( $post_id ) ) {
+			$thumbnail = wp_get_attachment_image( get_post_thumbnail_id( $post_id ), 'medium_large' );
+		}
+
 		$list_items_markup .= sprintf(
-			'<li><a href="%1$s">%2$s</a>',
+			'<li>%3$s<a href="%1$s"><h3>%2$s</h3></a>',
 			esc_url(get_permalink($post_id)),
-			esc_html($title)
+			esc_html($title),
+			$thumbnail
 		);
 
 		if (isset($attributes['displayPostDate']) && $attributes['displayPostDate']) {
