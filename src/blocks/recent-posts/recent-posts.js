@@ -250,20 +250,23 @@ class RecentPostsBlock extends Component {
 					} ) }
 					key="latest-posts"
 				>
-					{ displayPosts.map( ( post, i ) =>
-						<li
-							key={ i }
+					{ displayPosts.map( ( post ) => {
+						return <li
+							key={ post.id }
 							style={ {
 								...TextOptionsInlineStyles( this.props )
 							} }
 						>
-							<a href={ post.link } target="_blank">{ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }</a>
+							<a href={ post.link }
+								target="_blank">{ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }</a>
 							{ displayPostDate && post.date_gmt &&
-								<time dateTime={ moment( post.date_gmt ).utc().format() } className={ `${ this.props.className }__post-date` }>
-									{ moment( post.date_gmt ).local().format( 'MMMM DD, Y' ) }
-								</time>
+							<time dateTime={ moment( post.date_gmt ).utc().format() }
+								className={ `${ this.props.className }__post-date` }>
+								{ moment( post.date_gmt ).local().format( 'MMMM DD, Y' ) }
+							</time>
 							}
-						</li>
+						</li>;
+					}
 					) }
 				</ul>
 			</section>
@@ -279,12 +282,12 @@ export default withAPIData( ( props ) => {
 	const tags = decodedTaxonomies.post_tag && 0 < decodedTaxonomies.post_tag.length ? decodedTaxonomies.post_tag.map( tag => tag.id ) : undefined;
 	const categories = decodedTaxonomies.category && 0 < decodedTaxonomies.category.length ? decodedTaxonomies.category.map( category => category.id ) : undefined;
 	const latestPostsQuery = stringify( _pickBy( {
+		_embed: 'embed',
 		tags,
 		categories,
 		order,
 		orderBy,
 		per_page: postsToShow, // eslint-disable-line
-		_fields: [ 'date_gmt', 'link', 'title' ]
 	}, value => ! _isUndefined( value ) ) );
 	return {
 		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`
