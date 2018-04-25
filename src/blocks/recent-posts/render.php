@@ -72,7 +72,7 @@ function render_block( $attributes ) {
 		if ( $new_recent_posts->have_posts() ) :
 			?>
 
-			<div class="related-block-container-output" tabindex="0">
+			<div class="recent-block-container-output" tabindex="0">
 
 				<ul <?php post_class( 'selected-posts-container ' . $class ); ?>">
 
