@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import _get from 'lodash/get';
 import _isUndefined from 'lodash/isUndefined';
 import _pickBy from 'lodash/pickBy';
 
@@ -22,7 +21,7 @@ const {
 	Spinner,
 	ToggleControl,
 	Toolbar,
-	withAPIData,
+	withAPIData
 } = wp.components;
 const { __ } = wp.i18n;
 const { decodeEntities } = wp.utils;
@@ -30,7 +29,7 @@ const { decodeEntities } = wp.utils;
 const {
 	InspectorControls,
 	BlockControls,
-	BlockAlignmentToolbar,
+	BlockAlignmentToolbar
 } = wp.blocks;
 
 /**
@@ -105,22 +104,24 @@ class RecentPostsBlock extends Component {
 								options={ [
 									{
 										label: __( 'Newest to Oldest' ),
-										value: 'date/desc',
+										value: 'date/desc'
 									},
 									{
 										label: __( 'Oldest to Newest' ),
-										value: 'date/asc',
+										value: 'date/asc'
 									},
 									{
+
 										/* translators: label for ordering posts by title in ascending order */
 										label: __( 'A → Z' ),
-										value: 'title/asc',
+										value: 'title/asc'
 									},
 									{
+
 										/* translators: label for ordering posts by title in descending order */
 										label: __( 'Z → A' ),
-										value: 'title/desc',
-									},
+										value: 'title/desc'
+									}
 								] }
 								onChange={ ( value ) => {
 									const [ newOrderBy, newOrder ] = value.split( '/' );
@@ -134,7 +135,7 @@ class RecentPostsBlock extends Component {
 							/>
 						) }
 					{ !! this.props.focus ? (
-						<MultiSelect attributes={this.props.attributes} onCategoryChange={ this.onCategoryChange } />
+						<MultiSelect attributes={ this.props.attributes } onCategoryChange={ this.onCategoryChange } />
 					) : ( null ) }
 					{
 						this.onNumberOfItemsChange && (
@@ -153,7 +154,7 @@ class RecentPostsBlock extends Component {
 						checked={ displayPostDate }
 						onChange={ this.toggleDisplayPostDate }
 					/>
-					{ postLayout === 'grid' &&
+					{ 'grid' === postLayout &&
 						<RangeControl
 							label={ __( 'Columns' ) }
 							value={ columns || DEFAULT_COLUMNS }
@@ -187,7 +188,7 @@ class RecentPostsBlock extends Component {
 						<Spinner /> :
 						__( 'No posts found.' )
 					}
-				</Placeholder>,
+				</Placeholder>
 			];
 		}
 
@@ -201,14 +202,14 @@ class RecentPostsBlock extends Component {
 				icon: 'list-view',
 				title: __( 'List View' ),
 				onClick: () => setAttributes( { postLayout: 'list' } ),
-				isActive: postLayout === 'list'
+				isActive: 'list' === postLayout
 			},
 			{
 				icon: 'grid-view',
 				title: __( 'Grid View' ),
 				onClick: () => setAttributes( { postLayout: 'grid' } ),
-				isActive: postLayout === 'grid'
-			},
+				isActive: 'grid' === postLayout
+			}
 		];
 
 		return [
@@ -234,7 +235,7 @@ class RecentPostsBlock extends Component {
 				) }
 				style={ {
 					...BackgroundOptionsInlineStyles( this.props ),
-					...TextOptionsInlineStyles( this.props ),
+					...TextOptionsInlineStyles( this.props )
 				} }
 			>
 				{ BackgroundOptionsVideoOutput( this.props ) }
@@ -244,8 +245,8 @@ class RecentPostsBlock extends Component {
 				/>
 				<ul
 					className={ classnames( {
-						'is-grid': postLayout === 'grid',
-						[ `columns-${ columns }` ]: postLayout === 'grid',
+						'is-grid': 'grid' === postLayout,
+						[ `columns-${ columns }` ]: 'grid' === postLayout
 					} ) }
 					key="latest-posts"
 				>
@@ -253,7 +254,7 @@ class RecentPostsBlock extends Component {
 						<li
 							key={ i }
 							style={ {
-								...TextOptionsInlineStyles( this.props ),
+								...TextOptionsInlineStyles( this.props )
 							} }
 						>
 							<a href={ post.link } target="_blank">{ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }</a>
@@ -282,7 +283,7 @@ export default withAPIData( ( props ) => {
 		categories,
 		order,
 		orderBy,
-		per_page: postsToShow,
+		per_page: postsToShow, // eslint-disable-line
 		_fields: [ 'date_gmt', 'link', 'title' ]
 	}, value => ! _isUndefined( value ) ) );
 	return {
