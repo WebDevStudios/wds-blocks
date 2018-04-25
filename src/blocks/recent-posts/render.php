@@ -18,8 +18,8 @@ namespace WDS\Gutenberg\blocks\recent_posts;
 function render_block( $attributes ) {
 
 	$taxonomies   = isset( $attributes['taxonomies'] ) ? json_decode( $attributes['taxonomies'], true ) : array();
-	$tags         = isset( $taxonomies['post_tag'] ) ? esc_html( $taxonomies['post_tag'] ) : array();
-	$categories   = isset( $taxonomies['category'] ) ? esc_html( $taxonomies['category'] ) : array();
+	$tags         = isset( $taxonomies['post_tag'] ) ? $taxonomies['post_tag'] : array();
+	$categories   = isset( $taxonomies['category'] ) ? $taxonomies['category'] : array();
 	$tag_ids      = array();
 	$category_ids = array();
 

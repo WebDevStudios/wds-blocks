@@ -10,10 +10,20 @@ const {
 	registerBlockType
 } = wp.blocks;
 
-/**
- * Internal dependencies
- */
+// Styles
 import './style.scss';
+
+// Import our components.
+import { BlockTitleAttributes } from '../../components/block-title';
+
+// Import all of our Background Options requirements.
+import { BackgroundOptionsAttributes } from '../../components/background-options';
+
+// Import all of our Text Options requirements.
+import { TextOptionsAttributes } from '../../components/text-options';
+
+// Import all of our Other Options requirements.
+import { OtherOptionsAttributes } from '../../components/other-options';
 
 import RecentPostsBlock from './recent-posts';
 
@@ -59,7 +69,11 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 		columns: {
 			type: 'number',
 			default: 3
-		}
+		},
+		...BlockTitleAttributes,
+		...BackgroundOptionsAttributes,
+		...TextOptionsAttributes,
+		...OtherOptionsAttributes
 	},
 	supports: {
 		html: false
