@@ -3,7 +3,6 @@
  */
 import _isUndefined from 'lodash/isUndefined';
 import _pickBy from 'lodash/pickBy';
-
 import moment from 'moment';
 import classnames from 'classnames';
 import { stringify } from 'querystringify';
@@ -76,8 +75,6 @@ class RecentPostsBlock extends Component {
 	onOrderChange = ( value ) => this.props.setAttributes( { order: value } )
 
 	onOrderByChange = ( value ) => this.props.setAttributes( { orderBy: value } )
-
-	// onCategoryChange = ( value ) => this.props.setAttributes( { categories: '' !== value ? value : undefined } )
 
 	onCategoryChange = value => {
 		this.props.setAttributes( { taxonomies: JSON.stringify( value ) } );

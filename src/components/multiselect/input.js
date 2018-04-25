@@ -3,7 +3,7 @@
  */
 const { __ } = wp.i18n;
 
-const InputPanel = ( props ) => {
+const InputPanel = ( props ) => { // eslint-disable-line
 	const { name, selectedItems, handleInputClick } = props;
 	return (
 		<div className={ 'select-input' }>
@@ -18,7 +18,7 @@ const InputPanel = ( props ) => {
 						/* eslint-enable */
 						);
 					} ) :
-					<strong>{__( `Select ${ name }.` )}</strong>
+					<strong>{ __( 'Select' ) + name + '.' }</strong>
 			}
 		</div>
 	);

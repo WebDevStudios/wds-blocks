@@ -31,11 +31,11 @@ class DropDown extends Component {
 							<input
 								id={ post.id }
 								type="checkbox"
-								className={ matched && matched.length > 0 ? 'checked' : 'not-checked'}
+								className={ matched && 0 < matched.length ? 'checked' : 'not-checked' }
 								value={ post.name }
 								onChange={ handleChange( post ) }
 								ref={ input => this[ `checkbox${ post.name }` ] = input }
-								checked={ !!matched.length } // true || false
+								checked={ !! matched.length } // true || false
 							/>
 							<label htmlFor={ post.id }>{ post.name }</label>
 						</Fragment> );

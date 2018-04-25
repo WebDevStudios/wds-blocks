@@ -1,7 +1,6 @@
 /**
  * Externals.
  */
-const { __ } = wp.i18n;
 const { Fragment } = wp.element;
 
 /**
@@ -10,7 +9,7 @@ const { Fragment } = wp.element;
 import InputPanel from './input';
 import DropDown from './dropdown';
 
-const Taxonomy = ( props ) => {
+const Taxonomy = ( props ) => { // eslint-disable-line
 	const { name, selectedItems, items, handleChange, handleInputClick } = props;
 
 	return (
