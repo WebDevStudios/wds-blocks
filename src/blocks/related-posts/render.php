@@ -30,13 +30,14 @@ function render_block( $attributes ) {
 		'posts_per_page' => $posts_per_page,
 	);
 
+	$attributes['class'] = 'wp-block-wds-related-posts';
+
 	$the_query = new \WP_Query( $args );
 
 	ob_start();
 	?>
 
 	<!-- wp:wds/related-posts -->
-	<section class="wp-block-wds-related-posts">
 	<?php \WDS\Gutenberg\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
 		<?php
