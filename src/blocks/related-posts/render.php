@@ -64,7 +64,7 @@ function render_block( $attributes ) {
 								<?php the_title(); ?>
 							</a>
 						</h3>
-						<div class="">
+						<div class="entry-content">
 							<?php the_excerpt(); ?>
 						</div>
 					</li>
