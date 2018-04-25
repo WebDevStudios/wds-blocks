@@ -54,6 +54,10 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 		__( 'recent posts' )
 	],
 	attributes: {
+		displayPostDate: {
+			type: 'boolean',
+			default: false
+		},
 		taxonomies: {
 			type: 'string',
 			default: ''

@@ -93,6 +93,15 @@ function render_block( $attributes ) {
 							<div class="post-excerpt">
 								<?php the_excerpt(); ?>
 							</div>
+							<?php
+							if ( isset( $attributes['displayPostDate'] ) && $attributes['displayPostDate'] ) {
+								echo  sprintf(
+									'<time datetime="%1$s" class="wp-block-latest-posts__post-date">%2$s</time>',
+									esc_attr( get_the_date( 'c', get_the_ID() ) ),
+									esc_html( get_the_date( '', get_the_ID() ) )
+								);
+							}
+							?>
 						</li>
 					<?php
 					endwhile;
