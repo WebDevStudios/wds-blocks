@@ -20,12 +20,14 @@ function render_block( $attributes ) {
 	// Get ids.
 	$post_id_array = json_decode( $attributes['selectedPostsJSON'] );
 
-	// echo '<xmp>: '. print_r( $attributes, true ) .'</xmp>';
+	// Set a post limit if no posts are manually selected.
+	$posts_per_page = $post_id_array ? null : 3;
 
 	$args = array(
-		'post_type' => array( 'post' ),
-		'orderby' => 'post__in',
-		'post__in' => $post_id_array
+		'post_type'      => array( 'post' ),
+		'orderby'        => 'post__in',
+		'post__in'       => $post_id_array,
+		'posts_per_page' => $posts_per_page,
 	);
 
 	$the_query = new \WP_Query( $args );
