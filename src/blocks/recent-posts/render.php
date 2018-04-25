@@ -37,7 +37,7 @@ function render_block( $attributes ) {
 		}
 	}
 
-	$recent_posts = wp_get_recent_posts( array(
+	$new_recent_posts = new \WP_Query( array(
 		'numberposts'  => $attributes['postsToShow'],
 		'post_status'  => 'publish',
 		'order'        => $attributes['order'],
@@ -45,39 +45,6 @@ function render_block( $attributes ) {
 		'tag__in'      => $tag_ids,
 		'category__in' => $category_ids,
 	) );
-
-	$list_items_markup = '';
-
-	foreach ($recent_posts as $post) {
-		$post_id = $post['ID'];
-
-		$title = get_the_title($post_id);
-		if (!$title) {
-			$title = __('(Untitled)', 'gutenberg');
-		}
-
-		$thumbnail = '';
-		if ( has_post_thumbnail( $post_id ) ) {
-			$thumbnail = wp_get_attachment_image( get_post_thumbnail_id( $post_id ), 'medium_large' );
-		}
-
-		$list_items_markup .= sprintf(
-			'<li>%3$s<a href="%1$s"><h3>%2$s</h3></a>',
-			esc_url(get_permalink($post_id)),
-			esc_html($title),
-			$thumbnail
-		);
-
-		if (isset($attributes['displayPostDate']) && $attributes['displayPostDate']) {
-			$list_items_markup .= sprintf(
-				'<time datetime="%1$s" class="wp-block-wds-recent-posts__post-date">%2$s</time>',
-				esc_attr(get_the_date('c', $post_id)),
-				esc_html(get_the_date('', $post_id))
-			);
-		}
-
-		$list_items_markup .= "</li>\n";
-	}
 
 	$class = "align{$attributes['align']}";
 	if (isset($attributes['postLayout']) && 'grid' === $attributes['postLayout']) {
@@ -88,12 +55,6 @@ function render_block( $attributes ) {
 		$class .= ' columns-' . $attributes['columns'];
 	}
 
-	$block_content = sprintf(
-		'<ul class="%1$s">%2$s</ul>',
-		esc_attr($class),
-		$list_items_markup
-	);
-
 	ob_start();
 	?>
 
@@ -103,8 +64,38 @@ function render_block( $attributes ) {
 
 		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes );
 
-		echo $block_content;
-		?>
+		if ( $new_recent_posts->have_posts() ) :
+			?>
+
+			<div class="related-block-container-output" tabindex="0">
+
+				<ul <?php post_class( 'selected-posts-container ' . $class ); ?>">
+
+					<?php
+					while ( $new_recent_posts->have_posts() ) :
+						$new_recent_posts->the_post();
+						$post_thumb_id = get_post_thumbnail_id();
+						?>
+						<li tabindex="0">
+							<?php if ( has_post_thumbnail() ) : ?>
+								<?php echo wp_get_attachment_image( $post_thumb_id, 'medium_large' ); ?>
+							<?php endif; ?>
+							<h3 class="h1">
+								<a href="<?php the_permalink(); ?>">
+									<?php the_title(); ?>
+								</a>
+							</h3>
+							<div class="post-excerpt">
+								<?php the_excerpt(); ?>
+							</div>
+						</li>
+					<?php
+					endwhile;
+					wp_reset_postdata();
+					?>
+				</ul>
+			</div><!-- related-block-container-list -->
+		<?php endif; ?>
 
 	</section>
 	<!-- /wp:wds/recent-posts -->
