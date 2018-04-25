@@ -26,10 +26,8 @@ class MultiSelect extends Component {
 
 		this.state = {
 			selectedItems: taxonomies,
-			expanded: true,
 			tags: [],
-			categories: [],
-			inputValue: props.value,
+			categories: []
 		};
 	}
 
@@ -61,9 +59,7 @@ class MultiSelect extends Component {
 
 	// For handling dropdown change.
 	handleChange = item => () => {
-
 		if ( ! this.state.selectedItems[ item.taxonomy ] ) {
-
 			this.setState( ( prevState ) => {
 				return {
 					selectedItems: {
@@ -73,7 +69,7 @@ class MultiSelect extends Component {
 				};
 			} );
 
-			this.props.onCategoryChange({
+			this.props.onCategoryChange( {
 				...this.state.selectedItems,
 				[ item.taxonomy ]: [ item ]
 			} );
@@ -92,7 +88,7 @@ class MultiSelect extends Component {
 				selectedItems: {
 					...prevState.selectedItems,
 					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], item ]
-				},
+				}
 			};
 		} );
 
@@ -103,7 +99,6 @@ class MultiSelect extends Component {
 	};
 
 	handleInputClick = item => () => {
-		console.log(this.state.selectedItems[item.taxonomy]);
 		const newSelected = this.state.selectedItems[ item.taxonomy ].filter( selectedItem => selectedItem.id !== item.id );
 
 		this.setState( ( prevState ) => {
