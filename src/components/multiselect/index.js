@@ -35,7 +35,9 @@ class MultiSelect extends Component {
 		return this.APIRootURL + `${ suffix }`;
 	}
 
-	componentDidMount() {
+	componentDidMount() { // eslint-disable-line
+
+		// Grab the tags from the API.
 		if ( this.props.tags ) {
 			const tagURL = this.composeURL( 'tags' );
 
@@ -46,6 +48,7 @@ class MultiSelect extends Component {
 				} );
 		}
 
+		// Grab the categories from the API.
 		if ( this.props.categories ) {
 			const catURL = this.composeURL( 'categories' );
 
@@ -58,7 +61,9 @@ class MultiSelect extends Component {
 	}
 
 	// For handling dropdown change.
-	handleChange = item => () => {
+	handleChange = item => () => { // eslint-disable-line
+
+		// If no items have been selected, allow for dynamic object property creation.
 		if ( ! this.state.selectedItems[ item.taxonomy ] ) {
 			this.setState( ( prevState ) => {
 				return {
@@ -69,6 +74,7 @@ class MultiSelect extends Component {
 				};
 			} );
 
+			// Set attributes.
 			this.props.onCategoryChange( {
 				...this.state.selectedItems,
 				[ item.taxonomy ]: [ item ]
@@ -83,6 +89,7 @@ class MultiSelect extends Component {
 			return;
 		}
 
+		// Set state.
 		this.setState( ( prevState ) => {
 			return {
 				selectedItems: {
@@ -92,15 +99,18 @@ class MultiSelect extends Component {
 			};
 		} );
 
+		// Set attributes.
 		this.props.onCategoryChange( {
 			...this.state.selectedItems,
 			[ item.taxonomy ]: [ ...this.state.selectedItems[ item.taxonomy ], item ]
 		} );
 	};
 
+	// Handle when an input item is clicked.
 	handleInputClick = item => () => {
 		const newSelected = this.state.selectedItems[ item.taxonomy ].filter( selectedItem => selectedItem.id !== item.id );
 
+		// Set state.
 		this.setState( ( prevState ) => {
 			return {
 				selectedItems: {
@@ -110,6 +120,7 @@ class MultiSelect extends Component {
 			};
 		} );
 
+		// Set attributes.
 		this.props.onCategoryChange( {
 			...this.state.selectedItems,
 			[ item.taxonomy ]: [ ...newSelected ]
