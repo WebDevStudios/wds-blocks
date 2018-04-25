@@ -70,6 +70,12 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 			type: 'number',
 			default: 3
 		},
+		order: {
+			type: 'string'
+		},
+		orderby: {
+			type: 'string'
+		},
 		...BlockTitleAttributes,
 		...BackgroundOptionsAttributes,
 		...TextOptionsAttributes,

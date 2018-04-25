@@ -74,7 +74,7 @@ class RecentPostsBlock extends Component {
 
 	onOrderChange = ( value ) => this.props.setAttributes( { order: value } )
 
-	onOrderByChange = ( value ) => this.props.setAttributes( { orderBy: value } )
+	onOrderByChange = ( value ) => this.props.setAttributes( { orderby: value } )
 
 	onCategoryChange = value => {
 		this.props.setAttributes( { taxonomies: JSON.stringify( value ) } );
@@ -87,7 +87,7 @@ class RecentPostsBlock extends Component {
 		const minItems = DEFAULT_MIN_ITEMS;
 		const latestPosts = this.props.latestPosts.data;
 		const { attributes, setAttributes } = this.props;
-		const { displayPostDate, align, postLayout, columns, order, orderBy, postsToShow } = attributes;
+		const { displayPostDate, align, postLayout, columns, order, orderby, postsToShow } = attributes;
 
 		const inspectorControls = !! this.props.focus && (
 			<InspectorControls key="inspector">
@@ -97,7 +97,7 @@ class RecentPostsBlock extends Component {
 							<SelectControl
 								key="query-controls-order-select"
 								label={ __( 'Order by' ) }
-								value={ `${ orderBy }/${ order }` }
+								value={ `${ orderby }/${ order }` }
 								options={ [
 									{
 										label: __( 'Newest to Oldest' ),
@@ -125,7 +125,7 @@ class RecentPostsBlock extends Component {
 									if ( newOrder !== order ) {
 										this.onOrderChange( newOrder );
 									}
-									if ( newOrderBy !== orderBy ) {
+									if ( newOrderBy !== orderby ) {
 										this.onOrderByChange( newOrderBy );
 									}
 								} }
@@ -287,7 +287,7 @@ class RecentPostsBlock extends Component {
 }
 
 export default withAPIData( ( props ) => {
-	const { postsToShow, order, orderBy, taxonomies } = props.attributes;
+	const { postsToShow, order, orderby, taxonomies } = props.attributes;
 	const decodedTaxonomies = taxonomies ? JSON.parse( taxonomies ) : {};
 
 	// This can be made to be much more flexible and allow for custom taxonomies and the like. Phase 2!
@@ -295,10 +295,10 @@ export default withAPIData( ( props ) => {
 	const categories = decodedTaxonomies.category && 0 < decodedTaxonomies.category.length ? decodedTaxonomies.category.map( category => category.id ) : undefined;
 	const latestPostsQuery = stringify( _pickBy( {
 		_embed: 'embed',
+		orderby,
+		order,
 		tags,
 		categories,
-		order,
-		orderBy,
 		per_page: postsToShow, // eslint-disable-line
 	}, value => ! _isUndefined( value ) ) );
 	return {

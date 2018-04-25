@@ -41,7 +41,7 @@ function render_block( $attributes ) {
 		'numberposts'  => $attributes['postsToShow'],
 		'post_status'  => 'publish',
 		'order'        => $attributes['order'],
-		'orderby'      => $attributes['orderBy'],
+		'orderby'      => $attributes['orderby'],
 		'tag__in'      => $tag_ids,
 		'category__in' => $category_ids,
 	) );
@@ -148,7 +148,7 @@ function register_block() {
 				'type' => 'string',
 				'default' => 'desc',
 			),
-			'orderBy' => array(
+			'orderby' => array(
 				'type' => 'string',
 				'default' => 'date',
 			),
