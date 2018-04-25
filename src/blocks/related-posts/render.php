@@ -20,9 +20,11 @@ function render_block( $attributes ) {
 	// Get ids.
 	$post_id_array = json_decode( $attributes['selectedPostsJSON'] );
 
+	// echo '<xmp>: '. print_r( $attributes, true ) .'</xmp>';
+
 	$args = array(
 		'post_type' => array( 'post' ),
-		'orderby' => 'ASC',
+		'orderby' => 'post__in',
 		'post__in' => $post_id_array
 	);
 
