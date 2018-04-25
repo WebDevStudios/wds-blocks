@@ -18,7 +18,7 @@ const InputPanel = ( props ) => { // eslint-disable-line
 						/* eslint-enable */
 						);
 					} ) :
-					<strong>{ __( 'Select' ) + name + '.' }</strong>
+					<strong>{ __( 'Select ' ) + name + '.' }</strong>
 			}
 		</div>
 	);
