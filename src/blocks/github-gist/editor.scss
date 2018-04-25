@@ -1,0 +1,21 @@
+//--------------------------------------------------------------
+// Editor Styles
+//
+// Additional styles necessary to assist the editor.
+//--------------------------------------------------------------
+
+.gist-block-controls {
+	padding: 2px;
+
+	input[type="url"] {
+		min-width: 300px;
+
+		@include media($tablet-portrait) {
+			min-width: 350px;
+		}
+	} // input[type="url"]
+
+	.button {
+		font-family: $default-font;
+	} // .button
+} // .gist-block-controls
