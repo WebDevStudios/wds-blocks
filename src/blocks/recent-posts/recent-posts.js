@@ -269,6 +269,11 @@ class RecentPostsBlock extends Component {
 							}
 							<a href={ post.link }
 								target="_blank">{ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }</a>
+							<div
+								dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } }
+								style={ {
+									...TextOptionsInlineStyles( this.props )
+								} } />
 							{ displayPostDate && post.date_gmt &&
 							<time dateTime={ moment( post.date_gmt ).utc().format() }
 								className={ `${ this.props.className }__post-date` }>
