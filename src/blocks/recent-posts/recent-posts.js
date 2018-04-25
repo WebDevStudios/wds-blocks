@@ -257,6 +257,16 @@ class RecentPostsBlock extends Component {
 								...TextOptionsInlineStyles( this.props )
 							} }
 						>
+							{
+								post._embedded !== undefined && post._embedded[ 'wp:featuredmedia' ] ? (
+									<img
+										src={ post._embedded[ 'wp:featuredmedia' ][ 0 ][ 'source_url' ] }
+										alt=""
+									/>
+								) : (
+									null
+								)
+							}
 							<a href={ post.link }
 								target="_blank">{ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }</a>
 							{ displayPostDate && post.date_gmt &&
