@@ -47,19 +47,24 @@ function render_block( $attributes ) {
 	) );
 
 	$class = "align{$attributes['align']}";
-	if (isset($attributes['postLayout']) && 'grid' === $attributes['postLayout']) {
+	if ( isset($attributes['postLayout'] ) && 'grid' === $attributes['postLayout'] ) {
 		$class .= ' is-grid';
 	}
 
-	if (isset($attributes['columns']) && 'grid' === $attributes['postLayout']) {
+	if ( isset( $attributes['columns'] ) && 'grid' === $attributes['postLayout'] ) {
 		$class .= ' columns-' . $attributes['columns'];
+	}
+
+	// Handle a custom CSS class.
+	$class_name = 'wp-block-wds-recent-posts ';
+	if ( isset( $attributes['className'] ) ) {
+		$attributes['className'] = $class_name . $attributes['className'];
 	}
 
 	ob_start();
 	?>
 
 	<!-- wp:wds/recent-posts -->
-	<section class="wp-block-wds-recent-posts">
 	<?php \WDS\Gutenberg\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
 		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes );
@@ -112,6 +117,10 @@ function register_block() {
 	// Required to render output in editor.
 	register_block_type('wds/recent-posts', array(
 		'attributes' => array(
+			'className' => array(
+				'type'    => 'string',
+				'default' => 'wp-block-wds-recent-posts',
+			),
 			'taxonomies' => array(
 				'type' => 'string',
 			),
