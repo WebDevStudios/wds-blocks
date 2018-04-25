@@ -74,7 +74,7 @@ function render_block( $attributes ) {
 
 			<div class="recent-block-container-output" tabindex="0">
 
-				<ul <?php post_class( 'selected-posts-container ' . $class ); ?>">
+				<ul <?php post_class( 'selected-posts-container ' . $class ); ?>>
 
 					<?php
 					while ( $new_recent_posts->have_posts() ) :
