@@ -1,9 +1,8 @@
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  max-width: none; }
+
 .has-video-background {
   overflow: hidden;
   position: relative; }
@@ -25,41 +24,17 @@
     z-index: -1; }
 
 .has-custom-background {
+  background-position: center center;
+  background-repeat: no-repeat;
   padding: 20px; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-.has-video-background {
-  overflow: hidden;
-  position: relative; }
-  .has-video-background .video-container {
-    height: 100%;
+  .site-content .has-custom-background {
     left: 50%;
-    min-height: 100%;
-    min-width: 100%;
-    -o-object-fit: none;
-       object-fit: none;
-    -o-object-position: center center;
-       object-position: center center;
-    position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    top: 50%;
-    width: 100%;
-    z-index: -1; }
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    right: 50%;
+    width: 100vw; }
 
-.has-custom-background {
-  padding: 20px; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
 .wds-components-placeholder {
   display: -ms-flexbox;
   display: flex;
@@ -110,12 +85,82 @@
 
 .wds-components-placeholder__instructions {
   margin-bottom: 1em; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  max-width: none; }
+
+.has-video-background {
+  overflow: hidden;
+  position: relative; }
+  .has-video-background .video-container {
+    height: 100%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    -o-object-fit: none;
+       object-fit: none;
+    -o-object-position: center center;
+       object-position: center center;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+    z-index: -1; }
+
+.has-custom-background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 20px; }
+  .site-content .has-custom-background {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    right: 50%;
+    width: 100vw; }
+
+.wp-block-wds-gihub-gist {
+  margin-top: 16px; }
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  max-width: none; }
+
+.has-video-background {
+  overflow: hidden;
+  position: relative; }
+  .has-video-background .video-container {
+    height: 100%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    -o-object-fit: none;
+       object-fit: none;
+    -o-object-position: center center;
+       object-position: center center;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+    z-index: -1; }
+
+.has-custom-background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 20px; }
+  .site-content .has-custom-background {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    right: 50%;
+    width: 100vw; }
+
 .wp-block-wds-hero {
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,18 +171,115 @@
   -ms-flex-pack: center;
       justify-content: center;
   min-height: 640px; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
+  .site-content .wp-block-wds-hero {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    right: 50%;
+    width: 100vw; }
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  max-width: none; }
+
+.has-video-background {
+  overflow: hidden;
+  position: relative; }
+  .has-video-background .video-container {
+    height: 100%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    -o-object-fit: none;
+       object-fit: none;
+    -o-object-position: center center;
+       object-position: center center;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+    z-index: -1; }
+
+.has-custom-background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 20px; }
+  .site-content .has-custom-background {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    right: 50%;
+    width: 100vw; }
+
+.wp-block-wds-related-posts .related-block-container-list > .selected-posts-container {
+  padding: 0.625rem 0.625rem 0; }
+
+.wp-block-wds-related-posts .selected-posts-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .wp-block-wds-related-posts .selected-posts-container li {
+    -ms-flex: 0 0 31.333%;
+        flex: 0 0 31.333%;
+    list-style: none;
+    margin-bottom: 1.5625rem;
+    margin-right: 3%; }
+    .wp-block-wds-related-posts .selected-posts-container li:nth-child(3n) {
+      margin-right: 0; }
+    .wp-block-wds-related-posts .selected-posts-container li h3 {
+      line-height: 1.125;
+      margin-top: 0; }
+    .wp-block-wds-related-posts .selected-posts-container li p {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0; }
+    .wp-block-wds-related-posts .selected-posts-container li a {
+      color: inherit; }
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  max-width: none; }
+
+.has-video-background {
+  overflow: hidden;
+  position: relative; }
+  .has-video-background .video-container {
+    height: 100%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    -o-object-fit: none;
+       object-fit: none;
+    -o-object-position: center center;
+       object-position: center center;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+    z-index: -1; }
+
+.has-custom-background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 20px; }
+  .site-content .has-custom-background {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    right: 50%;
+    width: 100vw; }
+
 /**
  * #.# Styles
  *
@@ -145,20 +287,62 @@
  */
 .wp-block-wds-two-column .content-block-container {
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  @media (min-width: 600px) {
+    .wp-block-wds-two-column .content-block-container {
+      -ms-flex-direction: row;
+          flex-direction: row; } }
 
 .wp-block-wds-two-column .content-block-content {
-  -ms-flex: 0 1 50%;
-      flex: 0 1 50%;
-  max-width: 50%; }
-  .wp-block-wds-two-column .content-block-content:last-child {
-    margin-left: 20px; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
+  -ms-flex: 1 1 100%;
+      flex: 1 1 100%; }
+  @media (min-width: 600px) {
+    .wp-block-wds-two-column .content-block-content {
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+      max-width: 50%; } }
+  @media (min-width: 600px) {
+    .wp-block-wds-two-column .content-block-content:last-child {
+      margin-left: 20px; } }
+.wp-admin [data-type^="wds"] {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  max-width: none; }
+
+.has-video-background {
+  overflow: hidden;
+  position: relative; }
+  .has-video-background .video-container {
+    height: 100%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    -o-object-fit: none;
+       object-fit: none;
+    -o-object-position: center center;
+       object-position: center center;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+    z-index: -1; }
+
+.has-custom-background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 20px; }
+  .site-content .has-custom-background {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    right: 50%;
+    width: 100vw; }
+
 .wp-block-wds-recent-posts ul.alignleft {
   margin-right: 2em; }
 

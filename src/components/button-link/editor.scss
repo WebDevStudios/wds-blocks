@@ -14,9 +14,14 @@
 		max-width: 280px;
 		padding: 0;
 
-		textarea,
+		textarea {
+			border-radius: 0;
+			padding: 5px 10px;
+		} // textarea
+
 		form {
 			padding: 0 10px;
-		} // textarea, form
+			border-radius: 0;
+		} // form
 	} // .button.wds-button-component
 } // .editor-block-list__layout

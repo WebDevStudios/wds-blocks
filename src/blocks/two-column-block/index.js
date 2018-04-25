@@ -61,7 +61,7 @@ import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../..
  */
 export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Two-Column Block' ),
+	title: __( 'Two Column Block' ),
 	// Description: Write a quick description.
 	description: __( 'Two equal-width columns displaying a combination of text and/or an image.' ),
 	// Category options: common, formatting, layout, widgets, embed.
@@ -176,7 +176,7 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		function displayLeftContent() {
 			return (
 				<div className="content-block-content content-block">
-					<h2>{ __( 'Column Text' ) }</h2>
+					<h2>{ __( 'Text Column Area' ) }</h2>
 
 					{
 						!! props.isSelected && (
@@ -197,7 +197,6 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 						onChange={ onChangeContentLeft }
 						value={ props.attributes.contentLeft }
 						formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
-						isSelected={ props.isSelected }
 					/>
 				</div>
 			);
@@ -207,7 +206,7 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		function displayRightContent() {
 			return (
 				<div className="content-block-content content-block">
-					<h2>{ __( 'Column Text' ) }</h2>
+					<h2>{ __( 'Text Column Area' ) }</h2>
 
 					{
 						!! props.isSelected && (
@@ -228,7 +227,6 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 						onChange={ onChangeContentRight }
 						value={ props.attributes.contentRight }
 						formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
-						isSelected={ props.isSelected }
 					/>
 				</div>
 			);
@@ -238,7 +236,7 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		function displayMediaUpload() {
 			return (
 				<div className="content-block-content content-block">
-					<h2>{ __( 'Column Image' ) }</h2>
+					<h2>{ __( 'Image Column Area' ) }</h2>
 					{ ! props.attributes.imgID ? (
 						<MediaUpload
 							buttonProps={ {
@@ -259,14 +257,12 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 								src={ props.attributes.imgURL }
 								alt={ props.attributes.imgAlt }
 							/>
-							{ props.isSelected ? (
-								<Button
-									className="remove-image button button-large"
-									onClick={ onRemoveImage }
-								>
-									<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
-								</Button>
-							) : null }
+							<Button
+								className="remove-image button button-large"
+								onClick={ onRemoveImage }
+							>
+								<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
+							</Button>
 						</p>
 					) }
 				</div>

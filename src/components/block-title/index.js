@@ -48,7 +48,7 @@ export default class BlockTitle extends Component {
 							'wds-block-title',
 							{ 'no-title-set': ! this.props.attributes.blockTitle },
 						) }
-						value={ ! this.props.attributes.blockTitle ? undefined : this.props.attributes.blockTitle }
+						value={ ! this.props.attributes.blockTitle ? '' : this.props.attributes.blockTitle }
 						onChange={ this.onChangeBlockTitle }
 						placeholder={ this.props.placeholder ? this.props.placeholder : __( 'Block Title (optional)' ) }
 						style={ {
