@@ -14,7 +14,7 @@ import Taxonomy from './taxonomy';
 class MultiSelect extends Component {
 	static defaultProps = {
 		tags: true,
-		categories: true
+		categories: true,
 	}
 
 	constructor( props ) {
@@ -27,7 +27,7 @@ class MultiSelect extends Component {
 		this.state = {
 			selectedItems: taxonomies,
 			tags: [],
-			categories: []
+			categories: [],
 		};
 	}
 
@@ -69,15 +69,15 @@ class MultiSelect extends Component {
 				return {
 					selectedItems: {
 						...prevState.selectedItems,
-						[ item.taxonomy ]: [ item ]
-					}
+						[ item.taxonomy ]: [ item ],
+					},
 				};
 			} );
 
 			// Set attributes.
 			this.props.onCategoryChange( {
 				...this.state.selectedItems,
-				[ item.taxonomy ]: [ item ]
+				[ item.taxonomy ]: [ item ],
 			} );
 
 			return;
@@ -94,37 +94,40 @@ class MultiSelect extends Component {
 			return {
 				selectedItems: {
 					...prevState.selectedItems,
-					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], item ]
-				}
+					[ item.taxonomy ]: [ ...prevState.selectedItems[ item.taxonomy ], item ],
+				},
 			};
 		} );
 
 		// Set attributes.
 		this.props.onCategoryChange( {
 			...this.state.selectedItems,
-			[ item.taxonomy ]: [ ...this.state.selectedItems[ item.taxonomy ], item ]
+			[ item.taxonomy ]: [ ...this.state.selectedItems[ item.taxonomy ], item ],
 		} );
 	};
 
 	// Handle when an input item is clicked.
-	handleInputClick = item => () => {
-		const newSelected = this.state.selectedItems[ item.taxonomy ].filter( selectedItem => selectedItem.id !== item.id );
+	handleInputClick = item => ( e ) => {
+		console.log( e.keyCode, e.type, e.key );
+		if ( e.type === 'click' || e.key === ' ' ) {
+			const newSelected = this.state.selectedItems[ item.taxonomy ].filter( selectedItem => selectedItem.id !== item.id );
 
-		// Set state.
-		this.setState( ( prevState ) => {
-			return {
-				selectedItems: {
-					...prevState.selectedItems,
-					[ item.taxonomy ]: [ ...newSelected ]
-				}
-			};
-		} );
+			// Set state.
+			this.setState( ( prevState ) => {
+				return {
+					selectedItems: {
+						...prevState.selectedItems,
+						[ item.taxonomy ]: [ ...newSelected ],
+					},
+				};
+			} );
 
-		// Set attributes.
-		this.props.onCategoryChange( {
-			...this.state.selectedItems,
-			[ item.taxonomy ]: [ ...newSelected ]
-		} );
+			// Set attributes.
+			this.props.onCategoryChange( {
+				...this.state.selectedItems,
+				[ item.taxonomy ]: [ ...newSelected ],
+			} );
+		}
 	};
 
 	render() {

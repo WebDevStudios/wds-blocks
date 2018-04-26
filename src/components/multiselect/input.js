@@ -12,7 +12,13 @@ const InputPanel = ( props ) => { // eslint-disable-line
 					selectedItems.map( ( post ) => {
 						return (
 						/* eslint-disable */
-						<span key={ `${ post.name }-${ post.id } ` } tabindex="0" className="item-pill" onClick={ handleInputClick( post ) }>
+						<span
+							key={ `${ post.name }-${ post.id } ` }
+							className="item-pill"
+							onClick={ handleInputClick( post ) }
+							onKeyPress={ handleInputClick( post ) }
+							tabIndex="0"
+						>
 						{ post.name }
 					</span>
 						/* eslint-enable */
