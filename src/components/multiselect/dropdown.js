@@ -8,7 +8,7 @@ class DropDown extends Component {
 		super( props );
 
 		this.state = {
-			selectedItems: this.props.selectedItems ? this.props.selectedItems : []
+			selectedItems: this.props.selectedItems ? this.props.selectedItems : [],
 		};
 	}
 
@@ -36,6 +36,7 @@ class DropDown extends Component {
 								onChange={ handleChange( post ) }
 								ref={ input => this[ `checkbox${ post.name }` ] = input }
 								checked={ !! matched.length } // true || false
+								tabIndex="0"
 							/>
 							<label htmlFor={ post.id }>{ post.name }</label>
 						</Fragment> );
