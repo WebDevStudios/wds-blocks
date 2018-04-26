@@ -584,6 +584,10 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
     left: -9999px;
     position: absolute;
     top: -9999px; }
+    .select-dropdown input[type='checkbox']:focus + label {
+      background-color: #b1b1b1; }
+    .select-dropdown input[type='checkbox']:checked:focus + label {
+      background-color: #b1b1b1; }
     .select-dropdown input[type='checkbox']:checked + label {
       background-color: #dedede; }
   .select-dropdown.hidden {

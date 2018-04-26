@@ -346,6 +346,9 @@
 .wp-block-wds-recent-posts ul.alignleft {
   margin-right: 2em; }
 
+.wp-block-wds-recent-posts ul.aligncenter {
+  text-align: center; }
+
 .wp-block-wds-recent-posts ul.alignright {
   margin-left: 2em; }
 
