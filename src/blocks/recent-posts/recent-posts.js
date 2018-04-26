@@ -20,6 +20,7 @@ const {
 	Spinner,
 	ToggleControl,
 	Toolbar,
+	withAPIData,
 } = wp.components;
 const { __ } = wp.i18n;
 const { decodeEntities } = wp.utils;
@@ -27,6 +28,7 @@ const { decodeEntities } = wp.utils;
 const {
 	InspectorControls,
 	BlockControls,
+	BlockAlignmentToolbar,
 } = wp.blocks;
 
 /**
