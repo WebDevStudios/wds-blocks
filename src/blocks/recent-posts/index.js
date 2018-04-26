@@ -7,7 +7,7 @@
  */
 const { __ } = wp.i18n;
 const {
-	registerBlockType
+	registerBlockType,
 } = wp.blocks;
 
 // Styles
@@ -51,42 +51,42 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 	keywords: [
-		__( 'recent posts' )
+		__( 'recent posts' ),
 	],
 	attributes: {
 		displayPostDate: {
 			type: 'boolean',
-			default: false
+			default: false,
 		},
 		taxonomies: {
 			type: 'string',
-			default: ''
+			default: '',
 		},
 		postsToShow: {
 			type: 'number',
-			default: 5
+			default: 3,
 		},
 		postLayout: {
 			type: 'string',
-			default: 'list'
+			default: 'list',
 		},
 		columns: {
 			type: 'number',
-			default: 3
+			default: 3,
 		},
 		order: {
-			type: 'string'
+			type: 'string',
 		},
 		orderby: {
-			type: 'string'
+			type: 'string',
 		},
 		...BlockTitleAttributes,
 		...BackgroundOptionsAttributes,
 		...TextOptionsAttributes,
-		...OtherOptionsAttributes
+		...OtherOptionsAttributes,
 	},
 	supports: {
-		html: false
+		html: false,
 	},
 
 	// Determines what is displayed in the editor.
@@ -98,5 +98,5 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 	//
 	// For dynamic blocks, you can return null here and define a render callback function in PHP.
 	// https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
-	save: () => null
+	save: () => null,
 } );

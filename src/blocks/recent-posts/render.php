@@ -135,7 +135,7 @@ function register_block() {
 			),
 			'postsToShow' => array(
 				'type' => 'number',
-				'default' => 5,
+				'default' => 3,
 			),
 			'displayPostDate' => array(
 				'type' => 'boolean',
