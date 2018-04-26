@@ -46,8 +46,6 @@ function render_block( $attributes ) {
 		'category__in' => $category_ids,
 	) );
 
-	// var_dump( $new_recent_posts );
-
 	$class = "align{$attributes['align']}";
 	if ( isset($attributes['postLayout'] ) && 'grid' === $attributes['postLayout'] ) {
 		$class .= ' is-grid';
