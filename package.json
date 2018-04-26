@@ -11,6 +11,9 @@
     "cgb-scripts": "1.9.4",
     "classnames": "^2.2.5",
     "jsonp": "^0.2.1",
-    "prettier": "^1.11.1"
+    "lodash": "^4.17.5",
+    "moment": "^2.22.1",
+    "prettier": "^1.11.1",
+    "querystringify": "^1.0.0"
   }
 }
