@@ -91,7 +91,7 @@ class RecentPostsBlock extends Component {
 
 		const inspectorControls = !! this.props.focus && (
 			<InspectorControls key="inspector">
-				<PanelBody title={ __( 'Latest Posts Settings' ) }>
+				<PanelBody title={ __( 'Recent Posts Settings' ) }>
 					{
 						( this.onOrderChange && this.onOrderByChange ) && (
 							<SelectControl
@@ -245,7 +245,7 @@ class RecentPostsBlock extends Component {
 						'is-grid': 'grid' === postLayout,
 						[ `columns-${ columns }` ]: 'grid' === postLayout,
 					} ) }
-					key="latest-posts"
+					key="recent-posts"
 				>
 					{ displayPosts.map( ( post ) => {
 						return <li
