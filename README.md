@@ -33,7 +33,7 @@ Head on over to the [Wiki](https://github.com/WebDevStudios/wds-blocks/wiki) to 
 
 ## Development
 
-Your contributions are welcome. Here's a quick start guide to developing with WDS Blocks.
+Your [contributions](https://github.com/WebDevStudios/wds-blocks/blob/master/.github/CONTRIBUTING.md) are welcome. Here's a quick start guide to developing with WDS Blocks.
 
 ### File structure
 - Blocks are stored in the `/src/blocks/` directory. These are the blocks that users can insert into posts in the wp-admin.
@@ -79,5 +79,13 @@ Please use the following file naming convention for all blocks for consistency:
 - It's a one-way street, `eject` and you have to maintain everything yourself.
 - You don't normally have to `eject` a project because by ejecting you lose the connection with `create-guten-block` and from there onwards you have to update and maintain all the dependencies on your own.
 
+## Contributing
+
+Your contributions are welcome. Please follow the [contribution guidelines](https://github.com/WebDevStudios/wds-blocks/blob/master/.github/CONTRIBUTING.md).
+
+## Credits
 
 This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
+
+<br/><br/>
+[![wds-logo](https://dl.dropboxusercontent.com/s/71hvyg2dsjj2ubh/webdevstudios-goots-logo.png?dl=0)](https://webdevstudios.com)
