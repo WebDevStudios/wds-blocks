@@ -32,6 +32,14 @@
 		position: absolute;
 		top: -9999px;
 
+		&:focus + label {
+			background-color: $color-silver;
+		}
+
+		&:checked:focus + label {
+			background-color: $color-silver;
+		}
+
 		&:checked + label {
 			background-color: $gray;
 		} // &:checked + label
