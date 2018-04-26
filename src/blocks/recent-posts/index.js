@@ -68,7 +68,7 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 		},
 		postLayout: {
 			type: 'string',
-			default: 'list',
+			default: 'grid',
 		},
 		columns: {
 			type: 'number',

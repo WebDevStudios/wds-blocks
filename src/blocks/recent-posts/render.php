@@ -143,7 +143,7 @@ function register_block() {
 			),
 			'postLayout' => array(
 				'type' => 'string',
-				'default' => 'list',
+				'default' => 'grid',
 			),
 			'columns' => array(
 				'type' => 'number',
