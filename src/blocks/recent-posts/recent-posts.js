@@ -20,7 +20,6 @@ const {
 	Spinner,
 	ToggleControl,
 	Toolbar,
-	withAPIData
 } = wp.components;
 const { __ } = wp.i18n;
 const { decodeEntities } = wp.utils;
@@ -28,7 +27,6 @@ const { decodeEntities } = wp.utils;
 const {
 	InspectorControls,
 	BlockControls,
-	BlockAlignmentToolbar
 } = wp.blocks;
 
 /**
@@ -101,24 +99,24 @@ class RecentPostsBlock extends Component {
 								options={ [
 									{
 										label: __( 'Newest to Oldest' ),
-										value: 'date/desc'
+										value: 'date/desc',
 									},
 									{
 										label: __( 'Oldest to Newest' ),
-										value: 'date/asc'
+										value: 'date/asc',
 									},
 									{
 
 										/* translators: label for ordering posts by title in ascending order */
 										label: __( 'A → Z' ),
-										value: 'title/asc'
+										value: 'title/asc',
 									},
 									{
 
 										/* translators: label for ordering posts by title in descending order */
 										label: __( 'Z → A' ),
-										value: 'title/desc'
-									}
+										value: 'title/desc',
+									},
 								] }
 								onChange={ ( value ) => {
 									const [ newOrderBy, newOrder ] = value.split( '/' );
@@ -185,7 +183,7 @@ class RecentPostsBlock extends Component {
 						<Spinner /> :
 						__( 'No posts found.' )
 					}
-				</Placeholder>
+				</Placeholder>,
 			];
 		}
 
@@ -199,14 +197,14 @@ class RecentPostsBlock extends Component {
 				icon: 'list-view',
 				title: __( 'List View' ),
 				onClick: () => setAttributes( { postLayout: 'list' } ),
-				isActive: 'list' === postLayout
+				isActive: 'list' === postLayout,
 			},
 			{
 				icon: 'grid-view',
 				title: __( 'Grid View' ),
 				onClick: () => setAttributes( { postLayout: 'grid' } ),
-				isActive: 'grid' === postLayout
-			}
+				isActive: 'grid' === postLayout,
+			},
 		];
 
 		return [
@@ -232,7 +230,7 @@ class RecentPostsBlock extends Component {
 				) }
 				style={ {
 					...BackgroundOptionsInlineStyles( this.props ),
-					...TextOptionsInlineStyles( this.props )
+					...TextOptionsInlineStyles( this.props ),
 				} }
 			>
 				{ BackgroundOptionsVideoOutput( this.props ) }
@@ -243,7 +241,7 @@ class RecentPostsBlock extends Component {
 				<ul
 					className={ classnames( {
 						'is-grid': 'grid' === postLayout,
-						[ `columns-${ columns }` ]: 'grid' === postLayout
+						[ `columns-${ columns }` ]: 'grid' === postLayout,
 					} ) }
 					key="latest-posts"
 				>
@@ -251,7 +249,7 @@ class RecentPostsBlock extends Component {
 						return <li
 							key={ post.id }
 							style={ {
-								...TextOptionsInlineStyles( this.props )
+								...TextOptionsInlineStyles( this.props ),
 							} }
 						>
 							{
@@ -269,7 +267,7 @@ class RecentPostsBlock extends Component {
 							<div
 								dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } }
 								style={ {
-									...TextOptionsInlineStyles( this.props )
+									...TextOptionsInlineStyles( this.props ),
 								} } />
 							{ displayPostDate && post.date_gmt &&
 							<time dateTime={ moment( post.date_gmt ).utc().format() }
@@ -281,7 +279,7 @@ class RecentPostsBlock extends Component {
 					}
 					) }
 				</ul>
-			</section>
+			</section>,
 		];
 	}
 }
@@ -302,6 +300,6 @@ export default withAPIData( ( props ) => {
 		per_page: postsToShow, // eslint-disable-line
 	}, value => ! _isUndefined( value ) ) );
 	return {
-		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`
+		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`,
 	};
 } )( RecentPostsBlock );
