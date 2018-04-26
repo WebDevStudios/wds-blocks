@@ -38,13 +38,15 @@ function render_block( $attributes ) {
 	}
 
 	$new_recent_posts = new \WP_Query( array(
-		'numberposts'  => $attributes['postsToShow'],
+		'posts_per_page'  => $attributes['postsToShow'],
 		'post_status'  => 'publish',
 		'order'        => $attributes['order'],
 		'orderby'      => $attributes['orderby'],
 		'tag__in'      => $tag_ids,
 		'category__in' => $category_ids,
 	) );
+
+	// var_dump( $new_recent_posts );
 
 	$class = "align{$attributes['align']}";
 	if ( isset($attributes['postLayout'] ) && 'grid' === $attributes['postLayout'] ) {
