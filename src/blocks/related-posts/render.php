@@ -3,10 +3,10 @@
 /**
  * Server-side rendering of the `wds/related-posts` block.
  *
- * @package gutenberg
+ * @package WDS_Blocks
  */
 
-namespace WDS\Gutenberg\blocks\related_posts;
+namespace WDS\Blocks\blocks\related_posts;
 
 /**
  * Renders the `wds/related-posts` block on server.
@@ -38,10 +38,10 @@ function render_block( $attributes ) {
 	?>
 
 	<!-- wp:wds/related-posts -->
-	<?php \WDS\Gutenberg\template_tags\block_container_options\display_block_options( $attributes ); ?>
+	<?php \WDS\Blocks\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
 		<?php
-		\WDS\Gutenberg\components\block_title\display_block_title( $attributes );
+		\WDS\Blocks\components\block_title\display_block_title( $attributes );
 
 		if ( $the_query->have_posts() ) :
 		?>

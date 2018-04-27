@@ -5,7 +5,7 @@
  * @since 1.0.0
  */
 
-namespace WDS\Gutenberg;
+namespace WDS\Blocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
