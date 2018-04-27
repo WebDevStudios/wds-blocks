@@ -16,7 +16,6 @@ const { __ } = wp.i18n;
 const {
 	AlignmentToolbar,
 	BlockControls,
-	description,
 	InspectorControls,
 	MediaUpload,
 	registerBlockType,
@@ -175,7 +174,10 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		// Details on RichText Editor: https://wordpress.org/gutenberg/handbook/block-api/rich-text-api/
 		function displayLeftContent() {
 			return (
-				<div className="content-block-content content-block">
+				<div
+					className="content-block-content content-block"
+					key="two-column-content-left"
+				>
 					<h2>{ __( 'Text Column Area' ) }</h2>
 
 					{
@@ -205,7 +207,10 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		// Displays the Right contenet block.
 		function displayRightContent() {
 			return (
-				<div className="content-block-content content-block">
+				<div
+					className="content-block-content content-block"
+					key="two-column-content-right"
+				>
 					<h2>{ __( 'Text Column Area' ) }</h2>
 
 					{
@@ -301,11 +306,6 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		return [
 			!! props.isSelected && (
 				<InspectorControls key="inspector">
-
-					<description>
-						<p>{ __( 'Layout options for the Two-Column Block' ) }</p>
-					</description>
-
 					<PanelBody
 						className="wds-two-column-options"
 						title={ __( 'Two-Column Options Panel' ) }
