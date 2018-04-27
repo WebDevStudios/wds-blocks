@@ -14,7 +14,7 @@ const { Component, Fragment } = wp.element;
 
 import Output from './output';
 import Loader from '../../components/loader';
-import UserSearch from '../../components/user-search';
+import Search from '../../components/search';
 import PostRenderer from './post-render';
 
 // Import our Block Title component.
@@ -224,10 +224,11 @@ class EditComponent extends Component {
 				/>
 				{ !! this.props.focus || JSON.parse( this.state.selectedUsersJSON ).length === 0 ? (
 					[
-						<UserSearch
+						<Search
 							key="users-grid-search"
 							className="wds-related-posts-search-form"
 							onQueryChange={ this.returnQuery }
+							queryFor="users"
 						/>,
 						<div
 							key="users-grid-container-search"
