@@ -8,9 +8,9 @@ WebDevStudios library of Gutenberg blocks used to build awesome client websites.
 
 - Hero
 - Call To Action
-- Multi-select Recent Posts
-- Multi-select Related Posts
-- Two Column
+- Recent Posts Grid
+- Multi-select, Related Posts Grid
+- Two Column Layout
 - Github Gist
 
 WDS Blocks also come with a robust set of options: background image, video, and color support. Plus, text color, custom CSS classes, and [Animate.css](https://daneden.github.io/animate.css/) support. These blocks have been tested with our starter theme, [wd_s](https://github.com/WebDevStudios/wd_s).
