@@ -1,6 +1,6 @@
 # WDS Blocks
 
-WebDevStudios library of Gutenberg blocks used to build awesome client websites.
+WebDevStudios library of Gutenberg blocks.
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. WordPress for big brands."></a>
 
@@ -19,21 +19,24 @@ WDS Blocks also come with a robust set of options: background image, video, and 
 
 You must have the [WordPress Gutenberg](https://wordpress.org/plugins/gutenberg/) plugin installed and activated.
 
-- [Clone](https://github.com/WebDevStudios/wds-gutenberg.git) or download a .zip this repo
+- [Clone](https://github.com/WebDevStudios/WDS-Blocks.git) or [download a .zip](https://github.com/WebDevStudios/WDS-Blocks/releases)
 - Place into `/plugins/`
 - Activate this plugin
 
-Head on over to a post or page and start inserting WDS Blocks!
+Head on over to a post or page, and start inserting WDS Blocks!
 
 <img src="https://dl.dropbox.com/s/we5phkd1mpsnnms/Screenshot%202018-04-27%2012.45.27.png?dl=0" width="350">
 
 ## Documentation
 
-Head on over to the [Wiki](https://github.com/WebDevStudios/wds-blocks/wiki) to read up on the docs.
+Check out the [Wiki](https://github.com/WebDevStudios/WDS-Blocks/wiki) for more info.
 
 ## Development
 
-Your [contributions](https://github.com/WebDevStudios/wds-blocks/blob/master/.github/CONTRIBUTING.md) are welcome. Here's a quick start guide to developing with WDS Blocks.
+Your [contributions](https://github.com/WebDevStudios/WDS-Blocks/blob/master/.github/CONTRIBUTING.md) are welcome. Here's a quick start guide to developing with WDS Blocks.
+
+### Quick Start
+There is a "Default Block" which is intended to be a jumping off point. Read the [Default Block page](https://github.com/WebDevStudios/WDS-Blocks/wiki/Blocks#default-block) on the wiki for more.
 
 ### File structure
 - Blocks are stored in the `/src/blocks/` directory. These are the blocks that users can insert into posts in the wp-admin.
@@ -81,7 +84,7 @@ Please use the following file naming convention for all blocks for consistency:
 
 ## Contributing
 
-Your contributions are welcome. Please follow the [contribution guidelines](https://github.com/WebDevStudios/wds-blocks/blob/master/.github/CONTRIBUTING.md).
+Your contributions are welcome. Please follow the [contribution guidelines](https://github.com/WebDevStudios/WDS-Blocks/blob/master/.github/CONTRIBUTING.md).
 
 ## Credits
 
