@@ -6,7 +6,7 @@
  * @package WDS_Blocks
  */
 
-namespace WDS\Blocks\blocks\related_posts;
+namespace WDS\Blocks\block\related_posts;
 
 /**
  * Renders the `wds/related-posts` block on server.

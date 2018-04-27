@@ -6,7 +6,7 @@
  * @package WDS_Blocks
  */
 
-namespace WDS\Blocks\blocks\recent_posts;
+namespace WDS\Blocks\block\recent_posts;
 
 /**
  * Renders the `wds/recent-posts` block on server.
