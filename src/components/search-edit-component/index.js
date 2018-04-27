@@ -47,8 +47,8 @@ class SearchEditComponent extends Component {
 
 		const queryFor = props.attributes.queryFor ? props.attributes.queryFor : 'posts';
 
-		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/${ queryFor }?&page=${ page }&per_page=6`;
-		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/${ queryFor }?&${ ids }`;
+		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/${ queryFor }?_embed&page=${ page }&per_page=6`;
+		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/${ queryFor }?_embed&${ ids }`;
 	}
 
 	handleChange = ( selected ) => {
@@ -180,6 +180,7 @@ class SearchEditComponent extends Component {
 					key="related-left-column"
 					posts={ this.state.query !== '' ? this.state.queriedUsers : this.state.allUsers }
 					handleEvent={ this.handleEvent }
+					queryFor={ this.props.attributes.queryFor }
 				/>
 				<Output
 					activeClass={ this.state }
@@ -188,6 +189,7 @@ class SearchEditComponent extends Component {
 					key="related-right-column"
 					posts={ this.state.selectedUsers }
 					handleEvent={ this.handleEvent }
+					queryFor={ this.props.attributes.queryFor }
 				/>
 			</Fragment>
 		);

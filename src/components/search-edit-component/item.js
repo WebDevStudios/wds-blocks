@@ -1,15 +1,20 @@
 const Item = ( props ) => {
-	const { handleClick, post, postName, isActive } = props;
+	const {
+		handleClick,
+		post,
+		postName,
+		isActive,
+	} = props;
 
 	// Set classname if post.id exists in selected posts.
 	function className() {
 		// If current post is in selectedUsers.
 		if ( post && undefined !== isActive ) {
 			if ( isActive.selectedUsers.filter( e => e.id === post.id ).length > 0 ) {
-				return post.username + ' is-selected';
+				return post.slug + ' is-selected';
 			}
 
-			return post.username;
+			return post.slug;
 		}
 	}
 	/* eslint-disable */
