@@ -66,7 +66,7 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 	// Category options: common, formatting, layout, widgets, embed.
 	category: 'layout',
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
-	icon: 'edit',
+	icon: 'grid-view',
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 	keywords: [
 		__( 'Two-Column' ),
