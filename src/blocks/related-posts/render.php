@@ -18,7 +18,7 @@ namespace WDS\Gutenberg\blocks\related_posts;
 function render_block( $attributes ) {
 
 	// Get ids.
-	$post_id_array = json_decode( $attributes['selectedPostsJSON'] );
+	$post_id_array = json_decode( $attributes['selectedUsersJSON'] );
 
 	// Set a post limit if no posts are manually selected.
 	$posts_per_page = $post_id_array ? null : 3;
@@ -95,10 +95,10 @@ function register_block() {
 				'type' => 'string',
 				'defautlt' => 'wp-block-wds-related-posts',
 			),
-			'selectedPostsJSON' => array(
+			'selectedUsersJSON' => array(
 				'type' => 'string',
 			),
-			'selectedPosts' => array(
+			'selectedUsers' => array(
 				'type' => 'array',
 				'source' => 'children',
 				'selector' => '.related-right-column',
