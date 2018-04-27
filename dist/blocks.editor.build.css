@@ -646,64 +646,76 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
     right: 50%;
     width: 100vw; }
 
-.related-block-container-list {
+.users-grid-container-list {
   border: 1px solid #dedede;
   display: -ms-flexbox;
   display: flex;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   position: relative; }
-  .related-block-container-list .related-left-column,
-  .related-block-container-list .related-right-column {
+  .users-grid-container-list .related-left-column,
+  .users-grid-container-list .related-right-column {
     height: 19rem;
     margin: 0;
     width: 50%; }
-    .related-block-container-list .related-left-column h3,
-    .related-block-container-list .related-right-column h3 {
+    .users-grid-container-list .related-left-column h3,
+    .users-grid-container-list .related-right-column h3 {
       background-color: #f8f9f9;
       border-bottom: 1px solid #dedede;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%;
       margin: 0;
       padding: 0.4375rem; }
-    .related-block-container-list .related-left-column > ul,
-    .related-block-container-list .related-right-column > ul {
+    .users-grid-container-list .related-left-column > ul,
+    .users-grid-container-list .related-right-column > ul {
       height: calc(100% - 52px);
       margin: 0;
       overflow-y: auto; }
-      .related-block-container-list .related-left-column > ul li,
-      .related-block-container-list .related-right-column > ul li {
+      .users-grid-container-list .related-left-column > ul li,
+      .users-grid-container-list .related-right-column > ul li {
         border-bottom: 1px solid #dedede;
         cursor: pointer;
         font-size: 1rem;
         line-height: 1.125rem;
         list-style: none;
         padding: 0.4375rem; }
-        .related-block-container-list .related-left-column > ul li:last-child,
-        .related-block-container-list .related-right-column > ul li:last-child {
+        .users-grid-container-list .related-left-column > ul li:last-child,
+        .users-grid-container-list .related-right-column > ul li:last-child {
           border-bottom: 0; }
-    .related-block-container-list .related-left-column a,
-    .related-block-container-list .related-right-column a {
+    .users-grid-container-list .related-left-column a,
+    .users-grid-container-list .related-right-column a {
       color: inherit; }
-  .related-block-container-list .related-left-column {
+  .users-grid-container-list .related-left-column {
     border-right: 1px solid #dedede; }
-    .related-block-container-list .related-left-column > ul li.is-selected {
+    .users-grid-container-list .related-left-column > ul li.is-selected {
       cursor: default;
       opacity: 0.5;
       pointer-events: none; }
-  .related-block-container-list .selected-posts-container {
+  .users-grid-container-list .selected-posts-container {
     min-height: 19rem; }
-  .related-block-container-list .wp-block-loader {
+  .users-grid-container-list .wp-block-loader {
     background-color: rgba(248, 249, 249, 0.8);
     height: 100%;
     position: absolute;
     width: 100%; }
-    .related-block-container-list .wp-block-loader > img {
+    .users-grid-container-list .wp-block-loader > img {
       left: 50%;
       position: absolute;
       top: 50%;
       -webkit-transform: translateX(-50%);
           -ms-transform: translateX(-50%);
               transform: translateX(-50%); }
+  .users-grid-container-list .selected-users-container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: space-evenly;
+        justify-content: space-evenly;
+    width: 100%; }
+    .users-grid-container-list .selected-users-container:not(.wp-block-gallery) {
+      list-style-type: none; }
+    .users-grid-container-list .selected-users-container li {
+      text-align: center; }
+      .users-grid-container-list .selected-users-container li img {
+        border-radius: 100%; }
 
 .editor-block-list__block input.wds-related-posts-search-form {
   border-radius: 0;
