@@ -23,7 +23,7 @@ import './editor.scss';
 /**
  * Import editor class.
  */
-import EditComponent from './edit.js';
+import SearchEditComponent from '../../components/search-edit-component';
 
 // Import our components.
 import { BlockTitleAttributes } from '../../components/block-title';
@@ -64,13 +64,17 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 	// Set for each piece of dynamic data used in your block.
 	// https://wordpress.org/gutenberg/handbook/block-api/attributes/
 	attributes: {
-		selectedPostsJSON: { // json array of objects
+		selectedUsersJSON: { // json array of objects
 			type: 'string',
 		},
-		selectedPosts: { // markup
+		selectedUsers: { // markup
 			type: 'array',
 			source: 'children',
 			selector: '.related-right-column',
+		},
+		queryFor: {
+			type: 'string',
+			default: 'posts',
 		},
 		...BlockTitleAttributes,
 		...BackgroundOptionsAttributes,
@@ -79,7 +83,7 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 	},
 	// Determines what is displayed in the editor.
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#edit
-	edit: EditComponent,
+	edit: SearchEditComponent,
 	// Determines what is displayed on the front-end.
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#save
 	//
