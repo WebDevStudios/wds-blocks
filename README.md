@@ -25,7 +25,7 @@ You must have the [WordPress Gutenberg](https://wordpress.org/plugins/gutenberg/
 
 Head on over to a post or page and start inserting WDS Blocks!
 
-![screenshot](https://dl.dropbox.com/s/twp4cmpz6oyj193/Screenshot%202018-04-26%2011.50.12.png?dl=0)
+<img src="https://dl.dropbox.com/s/we5phkd1mpsnnms/Screenshot%202018-04-27%2012.45.27.png?dl=0" width="350">
 
 ## Documentation
 
