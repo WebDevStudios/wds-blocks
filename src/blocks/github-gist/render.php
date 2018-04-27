@@ -1,10 +1,10 @@
 <?php
 
-namespace WDS\Gutenberg\blocks\github_gist;
+namespace WDS\Blocks\blocks\github_gist;
 
 /**
  * Render block: GitHub Gist.
- * 
+ *
  * @return string The block markup.
  */
 function render_block( $attributes ) {
