@@ -55,9 +55,9 @@ export default registerBlockType(
 	'wds/call-to-action',
 	{
 		// Localize title using wp.i18n.__()
-		title: __( 'WDS Call To Action' ),
+		title: __( 'Call To Action Block (WDS)' ),
 		// Description: Write a quick description.
-		description: __( 'Create a call to action area which will encourage a user to take action.' ),
+		description: __( 'A block to display a call to action area which will encourage a user to take action.' ),
 		// Category options: common, formatting, layout, widgets, embed.
 		category: 'common',
 		// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.

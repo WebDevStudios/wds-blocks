@@ -26,10 +26,10 @@ import RecentPostsBlock from './recent-posts';
  */
 export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Recent Posts' ),
+	title: __( 'Recent Posts Block (WDS)' ),
 
 	// Description: Write a quick description.
-	description: __( 'Shows a list of your site\'s most recent posts.' ),
+	description: __( 'A block to display your site\'s most recent posts.' ),
 
 	// Category options: common, formatting, layout, widgets, embed.
 	category: 'widgets',
@@ -39,7 +39,7 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 	keywords: [
-		__( 'recent posts' ),
+		__( 'Recent Posts' ),
 	],
 	supports: {
 		html: false,
