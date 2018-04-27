@@ -3,9 +3,9 @@ const Item = ( props ) => {
 
 	// Set classname if post.id exists in selected posts.
 	function className() {
-		// If current post is in selectedPosts.
+		// If current post is in selectedUsers.
 		if ( post && undefined !== isActive ) {
-			if ( isActive.selectedPosts.filter( e => e.id === post.id ).length > 0 ) {
+			if ( isActive.selectedUsers.filter( e => e.id === post.id ).length > 0 ) {
 				return post.slug + ' is-selected';
 			}
 

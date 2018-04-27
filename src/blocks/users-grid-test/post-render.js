@@ -16,11 +16,11 @@ class PostRenderer extends Component {
 	}
 
 	render() {
-		const selectedPosts = this.props.selectedPostsJSONAlt.data;
+		const selectedUsers = this.props.selectedUsersJSONAlt.data;
 
 		return (
-			( selectedPosts !== undefined && selectedPosts.length > 0 ) ? (
-				selectedPosts.map( post =>
+			( selectedUsers !== undefined && selectedUsers.length > 0 ) ? (
+				selectedUsers.map( post =>
 					<li
 						className="column"
 						id={ `post-${ post.id }` }
@@ -46,15 +46,15 @@ export default withAPIData( ( props ) => {
 	const { posts } = props;
 
 	if ( posts !== undefined && posts !== '[]' ) {
-		const selectedPostsQuery = JSON.parse( posts ).map( item => {
+		const selectedUsersQuery = JSON.parse( posts ).map( item => {
 			return `include[]=${ item.id }`;
 		} );
 
-		if ( selectedPostsQuery.length > 0 ) {
-			const selectedPostsFilter = selectedPostsQuery.join( '&' );
+		if ( selectedUsersQuery.length > 0 ) {
+			const selectedUsersFilter = selectedUsersQuery.join( '&' );
 
 			return {
-				selectedPostsJSONAlt: `/wp/v2/users?_embed&${ selectedPostsFilter }`,
+				selectedUsersJSONAlt: `/wp/v2/users?&${ selectedUsersFilter }`,
 			};
 		}
 	}

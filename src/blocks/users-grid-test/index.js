@@ -64,7 +64,7 @@ export default registerBlockType( 'wds/users-grid-test', { // Namespaced with 'w
 	// Set for each piece of dynamic data used in your block.
 	// https://wordpress.org/gutenberg/handbook/block-api/attributes/
 	attributes: {
-		selectedPostsJSON: { // json array of objects
+		selectedUsersJSON: { // json array of objects
 			type: 'string',
 		},
 		selectedPosts: { // markup
