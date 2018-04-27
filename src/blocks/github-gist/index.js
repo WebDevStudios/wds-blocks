@@ -29,7 +29,7 @@ import './editor.scss';
  *                             registered; otherwise `undefined`.
  */
 registerBlockType( 'wds/gihub-gist', {
-	title: __( 'GitHub Gist' ),
+	title: __( 'WDS GitHub Gist Block' ),
 	icon,
 	category: 'embed',
 	supportHTML: false,

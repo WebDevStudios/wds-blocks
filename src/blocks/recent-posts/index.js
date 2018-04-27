@@ -26,7 +26,7 @@ import RecentPostsBlock from './recent-posts';
  */
 export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Recent Posts' ),
+	title: __( 'WDS Recent Posts Block' ),
 
 	// Description: Write a quick description.
 	description: __( 'Shows a list of your site\'s most recent posts.' ),
