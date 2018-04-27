@@ -39,7 +39,7 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 	keywords: [
-		__( 'recent posts' ),
+		__( 'Recent Posts' ),
 	],
 	supports: {
 		html: false,
