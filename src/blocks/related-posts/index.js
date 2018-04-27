@@ -48,7 +48,7 @@ import { OtherOptionsAttributes } from '../../components/other-options';
  */
 export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Related Posts Block' ),
+	title: __( 'Related Posts Block (WDS)' ),
 	// Description: Write a quick description.
 	description: __( 'A block to display manually selected related posts.' ),
 	// Category options: common, formatting, layout, widgets, embed.

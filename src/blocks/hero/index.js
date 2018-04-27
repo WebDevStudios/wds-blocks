@@ -52,7 +52,7 @@ export default registerBlockType(
 	'wds/hero',
 	{
 		// Localize title using wp.i18n.__()
-		title: __( 'WDS Hero Block' ),
+		title: __( 'Hero Block (WDS)' ),
 		// Description: Write a quick description.
 		description: __( 'A block to display a full-width hero with a video, image, or color background.' ),
 		// Category options: common, formatting, layout, widgets, embed.

@@ -60,7 +60,7 @@ import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../..
  */
 export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Two Column Block' ),
+	title: __( 'Two Column Block (WDS)' ),
 	// Description: Write a quick description.
 	description: __( 'A block to display two equal-width columns containing a combination of text and/or an image.' ),
 	// Category options: common, formatting, layout, widgets, embed.
