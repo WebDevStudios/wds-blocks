@@ -219,32 +219,32 @@ class EditComponent extends Component {
 				}
 
 				<BlockTitle
-					key="related-block-title"
+					key="users-grid-title"
 					{ ...this.props }
 				/>
 				{ !! this.props.focus || JSON.parse( this.state.selectedUsersJSON ).length === 0 ? (
 					[
 						<Search
-							key="related-block-search"
+							key="users-grid-search"
 							className="wds-related-posts-search-form"
 							onQueryChange={ this.returnQuery }
 						/>,
 						<div
-							key="related-block-container-search"
-							className="related-block-container-list"
+							key="users-grid-container-search"
+							className="users-grid-container-list"
 						>
-							{ ! this.state.isLoaded ? <Loader key="related-block-loader" /> : null }
+							{ ! this.state.isLoaded ? <Loader key="users-grid-loader" /> : null }
 							{ this.returnLayout() }
 						</div>,
 					]
 				) : (
 					<div
-						key="related-block-container-list"
+						key="users-grid-container-list"
 						tabIndex="0"
-						className="related-block-container-list"
+						className="users-grid-container-list"
 					>
 						{ ! this.state.isLoaded ? <Loader key="selected-posts-block-loader" /> : null }
-						{ JSON.parse( this.state.selectedUsersJSON ).length > 0 ? ( <ul className="selected-posts-container" tabIndex="0">
+						{ JSON.parse( this.state.selectedUsersJSON ).length > 0 ? ( <ul className="selected-users-container" tabIndex="0">
 							<PostRenderer
 								posts={ this.state.selectedUsersJSON }
 								{ ...this.props }

@@ -33,6 +33,8 @@ class PostRenderer extends Component {
 								...TextOptionsInlineStyles( this.props ),
 							} }
 						>{ post.name }</h3>
+						<img src={ post.avatar_urls[96] } />
+						{ post.description ? <p>{ post.description }</p> : null }
 					</li>
 				)
 			) : (

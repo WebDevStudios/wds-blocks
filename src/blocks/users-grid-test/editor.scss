@@ -7,7 +7,7 @@
 
 // sass-lint:disable class-name-format, no-qualifying-elements
 
-.related-block-container-list {
+.users-grid-container-list {
 	border: 1px solid $gray;
 	display: flex;
 	font-family: $default-font;
@@ -87,6 +87,24 @@
 			transform: translateX( -50% );
 		} // img
 	} // .wp-block-loader
+
+	.selected-users-container {
+		display: flex;
+		justify-content: space-evenly;
+		width: 100%;
+
+		&:not(.wp-block-gallery) {
+			list-style-type: none;
+		}
+
+		li {
+			text-align: center;
+
+			img {
+				border-radius: 100%;
+			}
+		}
+	}
 } // .wp-block-wds-related-posts-test
 
 //-----------------------------------------
