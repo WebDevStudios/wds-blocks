@@ -6,10 +6,10 @@ const Item = ( props ) => {
 		// If current post is in selectedUsers.
 		if ( post && undefined !== isActive ) {
 			if ( isActive.selectedUsers.filter( e => e.id === post.id ).length > 0 ) {
-				return post.slug + ' is-selected';
+				return post.username + ' is-selected';
 			}
 
-			return post.slug;
+			return post.username;
 		}
 	}
 	/* eslint-disable */
