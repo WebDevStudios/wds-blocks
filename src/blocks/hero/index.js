@@ -54,7 +54,7 @@ export default registerBlockType(
 		// Localize title using wp.i18n.__()
 		title: __( 'WDS Hero Block' ),
 		// Description: Write a quick description.
-		description: __( 'A full-width hero with a video, image, or color background.' ),
+		description: __( 'A block to display a full-width hero with a video, image, or color background.' ),
 		// Category options: common, formatting, layout, widgets, embed.
 		category: 'common',
 		// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.

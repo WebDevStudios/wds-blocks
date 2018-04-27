@@ -30,6 +30,7 @@ import './editor.scss';
  */
 registerBlockType( 'wds/gihub-gist', {
 	title: __( 'WDS GitHub Gist Block' ),
+	description: __( 'A block to embed a Gist via URL.' ),
 	icon,
 	category: 'embed',
 	supportHTML: false,

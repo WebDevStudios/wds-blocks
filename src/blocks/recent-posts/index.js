@@ -29,7 +29,7 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 	title: __( 'WDS Recent Posts Block' ),
 
 	// Description: Write a quick description.
-	description: __( 'Shows a list of your site\'s most recent posts.' ),
+	description: __( 'A block to display your site\'s most recent posts.' ),
 
 	// Category options: common, formatting, layout, widgets, embed.
 	category: 'widgets',

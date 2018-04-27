@@ -63,7 +63,7 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 	// Localize title using wp.i18n.__()
 	title: __( 'WDS Two Column Block' ),
 	// Description: Write a quick description.
-	description: __( 'Two equal-width columns displaying a combination of text and/or an image.' ),
+	description: __( 'A block to display two equal-width columns containing a combination of text and/or an image.' ),
 	// Category options: common, formatting, layout, widgets, embed.
 	category: 'layout',
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
