@@ -38,7 +38,7 @@ register_block_type( 'wds/gihub-gist', [ 'render_callback' => __NAMESPACE__ . '\
  * @param string $url The URL.
  */
 function get_noscript_link_markup( $url ) {
-  return sprintf( '<a href="%1$s">%2$s</a>.', esc_url( $url ), esc_html__( 'View code on GitHub', 'wds-gutenberg' ) );
+  return sprintf( '<a href="%1$s">%2$s</a>.', esc_url( $url ), esc_html__( 'View code on GitHub', 'wds-blocks' ) );
 }
 
 /**
