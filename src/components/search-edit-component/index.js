@@ -29,7 +29,7 @@ import TextOptions, { TextOptionsInlineStyles } from '../../components/text-opti
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsClasses } from '../../components/other-options';
 
-class EditComponent extends Component {
+class SearchEditComponent extends Component {
 	constructor( props ) {
 		super( ...props );
 
@@ -45,8 +45,10 @@ class EditComponent extends Component {
 			query: '',
 		};
 
-		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/users?&page=${ page }&per_page=6`;
-		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/users?&${ ids }`;
+		const queryFor = props.attributes.queryFor ? props.attributes.queryFor : 'posts';
+
+		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/${ queryFor }?&page=${ page }&per_page=6`;
+		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/${ queryFor }?&${ ids }`;
 	}
 
 	handleChange = ( selected ) => {
@@ -258,4 +260,4 @@ class EditComponent extends Component {
 	}
 }
 
-export default EditComponent;
+export default SearchEditComponent;

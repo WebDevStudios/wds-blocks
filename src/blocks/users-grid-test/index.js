@@ -23,7 +23,7 @@ import './editor.scss';
 /**
  * Import editor class.
  */
-import EditComponent from './edit.js';
+import SearchEditComponent from '../../components/search-edit-component';
 
 // Import our components.
 import { BlockTitleAttributes } from '../../components/block-title';
@@ -72,6 +72,10 @@ export default registerBlockType( 'wds/users-grid-test', { // Namespaced with 'w
 			source: 'children',
 			selector: '.related-right-column',
 		},
+		queryFor: {
+			type: 'string',
+			default: 'users',
+		},
 		...BlockTitleAttributes,
 		...BackgroundOptionsAttributes,
 		...TextOptionsAttributes,
@@ -79,7 +83,7 @@ export default registerBlockType( 'wds/users-grid-test', { // Namespaced with 'w
 	},
 	// Determines what is displayed in the editor.
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#edit
-	edit: EditComponent,
+	edit: SearchEditComponent,
 	// Determines what is displayed on the front-end.
 	// https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/#save
 	//
