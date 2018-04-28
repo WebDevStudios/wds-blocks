@@ -10,7 +10,6 @@
  */
 const { __ } = wp.i18n;
 const {
-	// InspectorControls,
 	registerBlockType,
 } = wp.blocks;
 
@@ -64,10 +63,10 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 	// Set for each piece of dynamic data used in your block.
 	// https://wordpress.org/gutenberg/handbook/block-api/attributes/
 	attributes: {
-		selectedUsersJSON: { // json array of objects
+		selectedResultsJSON: { // json array of objects
 			type: 'string',
 		},
-		selectedUsers: { // markup
+		selectedResults: { // markup
 			type: 'array',
 			source: 'children',
 			selector: '.related-right-column',

@@ -18,7 +18,7 @@ namespace WDS\Gutenberg\blocks\users_grid_test;
 function render_block( $attributes ) {
 
 	// Get ids.
-	$post_id_array = json_decode( $attributes['selectedUsersJSON'] );
+	$post_id_array = json_decode( $attributes['selectedResultsJSON'] );
 
 	// Set a post limit if no posts are manually selected.
 	$posts_per_page = $post_id_array ? null : 3;
@@ -74,10 +74,10 @@ function register_block() {
 				'type' => 'string',
 				'defautlt' => 'wp-block-wds-users-grid-test',
 			),
-			'selectedUsersJSON' => array(
+			'selectedResultsJSON' => array(
 				'type' => 'string',
 			),
-			'selectedUsers' => array(
+			'selectedResults' => array(
 				'type' => 'array',
 				'source' => 'children',
 				'selector' => '.related-right-column',
