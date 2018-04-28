@@ -4,22 +4,3 @@
 // Additional styles necessary to assist the editor.
 // Enqueued after style.scss.
 //--------------------------------------------------------------
-
-.wp-block-wds-related-posts {
-
-	.search-selected-container {
-		align-content: center;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-evenly;
-		width: 100%;
-
-		&:not(.wp-block-gallery) {
-			list-style-type: none;
-		}
-
-		.column {
-			flex: 0 1 33.333%;
-		} // .column
-	} // .search-selected-container
-} // .wp-block-wds-related-posts

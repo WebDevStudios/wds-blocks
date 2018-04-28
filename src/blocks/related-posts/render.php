@@ -46,9 +46,9 @@ function render_block( $attributes ) {
 		if ( $the_query->have_posts() ) :
 		?>
 
-		<div class="related-block-container-output" tabindex="0">
+		<div class="search-container-list" tabindex="0">
 
-			<ul class="selected-posts-container">
+			<ul class="search-selected-container">
 
 				<?php
 					while ( $the_query->have_posts() ) :

@@ -40,9 +40,9 @@ function render_block( $attributes ) {
 
 		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes ); ?>
 
-		<div class="related-block-container-output" tabindex="0">
+		<div class="search-container-list" tabindex="0">
 
-			<ul class="selected-posts-container">
+			<ul class="search-selected-container">
 
 				<?php
 					foreach( $users as $user ) {

@@ -1,5 +1,5 @@
 //--------------------------------------------------------------
-// New Related Posts Block Styles
+// Related Posts Block Styles
 //
 // Default styles for this block.
 // Appears on both front and back-end.
@@ -10,16 +10,17 @@
 //-----------------------------------------
 .wp-block-wds-related-posts {
 
-	.related-block-container-list > .selected-posts-container {
+	.search-container-list > .search-selected-container {
 		padding: 0.625rem 0.625rem 0;
-	} // .related-block-container-list > .selected-posts-container
+	} // .search-container-list > .search-selected-container
 
-	.selected-posts-container {
+	.search-selected-container {
 		display: flex;
 		flex-flow: row wrap;
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		width: 100%;
 
 		li {
 			flex: 0 0 31.333%;
@@ -46,5 +47,5 @@
 				color: inherit;
 			} // a
 		} // li
-	} // .selected-posts-container
+	} // .search-selected-container
 } // .wp-block-wds-new-related-posts

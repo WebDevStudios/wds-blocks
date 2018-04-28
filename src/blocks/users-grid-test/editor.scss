@@ -4,25 +4,3 @@
 // Additional styles necessary to assist the editor.
 // Enqueued after style.scss.
 //--------------------------------------------------------------
-
-// sass-lint:disable class-name-format, no-qualifying-elements
-
-.wp-block-wds-users-grid-test {
-
-	.search-selected-container {
-		align-content: center;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-evenly;
-		width: 100%;
-
-		&:not(.wp-block-gallery) {
-			list-style-type: none;
-		}
-
-		.column {
-			flex: 0 1 25%;
-			text-align: center;
-		} // .column
-	} // .search-selected-container
-} // .wp-block-wds-users-grid-test
