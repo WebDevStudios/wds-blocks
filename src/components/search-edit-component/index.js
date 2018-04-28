@@ -210,6 +210,7 @@ class SearchEditComponent extends Component {
 				key={ this.props.className }
 				className={ classnames(
 					this.props.className,
+					'wds-search-component-container',
 					...BackgroundOptionsClasses( this.props ),
 					...OtherOptionsClasses( this.props ),
 				) }
