@@ -30,7 +30,7 @@ function render_block( $attributes ) {
 		'posts_per_page' => $posts_per_page,
 	);
 
-	$attributes['class'] = 'wp-block-wds-related-posts';
+	$attributes['class'] = 'wp-block-wds-related-posts wds-search-component-container';
 
 	$the_query = new \WP_Query( $args );
 

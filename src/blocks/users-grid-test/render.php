@@ -28,7 +28,7 @@ function render_block( $attributes ) {
 		'orderby' => 'include',
 	);
 
-	$attributes['class'] = 'wp-block-wds-users-grid-test';
+	$attributes['class'] = 'wp-block-wds-users-grid-test wds-search-component-container';
 
 	$users = get_users( $args );
 

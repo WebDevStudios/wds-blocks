@@ -16,6 +16,7 @@ import Output from './output';
 import Loader from '../../components/loader';
 import Search from '../../components/search';
 import PostRenderer from './post-render';
+import './style.scss';
 import './editor.scss';
 
 // Import our Block Title component.
