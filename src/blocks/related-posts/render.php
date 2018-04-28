@@ -101,7 +101,7 @@ function register_block() {
 			'selectedResults' => array(
 				'type' => 'array',
 				'source' => 'children',
-				'selector' => '.related-right-column',
+				'selector' => '.search-right-column',
 			),
 			'blockTitle' => array(
 				'type' => 'string'

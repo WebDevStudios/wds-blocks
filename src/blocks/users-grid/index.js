@@ -1,8 +1,7 @@
 /**
- * BLOCK: Related Posts Block
+ * BLOCK: Users Grid Block
  *
- * This block was meant to be duplicated.
- * It serves as the starting point for new blocks. 😀
+ * A block to display a set of users in a grid.
  */
 
 /**
@@ -46,20 +45,20 @@ import { OtherOptionsAttributes } from '../../components/other-options';
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-export default registerBlockType( 'wds/users-grid-test', { // Namespaced with 'wds/', lowercase, hyphenated.
+export default registerBlockType( 'wds/users-grid', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Users Grid Test' ),
+	title: __( 'Users Grid Test (WDS)' ),
 	// Description: Write a quick description.
-	description: __( 'A related posts block.' ),
+	description: __( 'A block to display users in a grid. Note: Only users with published posts will display in search results.' ),
 	// Category options: common, formatting, layout, widgets, embed.
 	category: 'common',
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
 	icon: 'admin-users',
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 	keywords: [
-		__( 'Related' ),
-		__( 'Posts' ),
-		__( 'Dynamic' ),
+		__( 'Users' ),
+		__( 'Search' ),
+		__( 'Author' ),
 	],
 	// Set for each piece of dynamic data used in your block.
 	// https://wordpress.org/gutenberg/handbook/block-api/attributes/
@@ -70,7 +69,7 @@ export default registerBlockType( 'wds/users-grid-test', { // Namespaced with 'w
 		selectedPosts: { // markup
 			type: 'array',
 			source: 'children',
-			selector: '.related-right-column',
+			selector: '.search-right-column',
 		},
 		queryFor: {
 			type: 'string',

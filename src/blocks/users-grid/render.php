@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Server-side rendering of the `wds/related-posts` block.
+ * Server-side rendering of the `wds/users-grid` block.
  *
  * @package gutenberg
  */
 
-namespace WDS\Gutenberg\blocks\users_grid_test;
+namespace WDS\Gutenberg\blocks\users_grid;
 
 /**
- * Renders the `wds/related-posts` block on server.
+ * Renders the `wds/users-grid` block on server.
  *
  * @param array $attributes The block attributes.
  *
- * @return string Returns the post content with related posts added.
+ * @return string Returns the post content with users added.
  */
 function render_block( $attributes ) {
 
@@ -28,14 +28,14 @@ function render_block( $attributes ) {
 		'orderby' => 'include',
 	);
 
-	$attributes['class'] = 'wp-block-wds-users-grid-test wds-search-component-container';
+	$attributes['class'] = 'wp-block-wds-users-grid wds-search-component-container';
 
 	$users = get_users( $args );
 
 	ob_start();
 	?>
 
-	<!-- wp:wds/related-posts -->
+	<!-- wp:wds/users-grid -->
 	<?php \WDS\Gutenberg\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
 		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes ); ?>
@@ -54,25 +54,25 @@ function render_block( $attributes ) {
 					}
 				?>
 			</ul>
-		</div><!-- related-block-container-list -->
+		</div><!-- .search-container-list -->
 	</section>
-	<!-- /wp:wds/related-posts -->
+	<!-- /wp:wds/users-grid -->
 
 	<?php
 	return ob_get_clean();
 }
 
 /**
- * Registers the `wds/related-posts` block on server.
+ * Registers the `wds/users-grid` block on server.
  */
 function register_block() {
 
 	// Required to render output in editor.
-	register_block_type('wds/users-grid-test', array(
+	register_block_type('wds/users-grid', array(
 		'attributes' => array(
 			'className' => array(
 				'type' => 'string',
-				'defautlt' => 'wp-block-wds-users-grid-test',
+				'defautlt' => 'wp-block-wds-users-grid',
 			),
 			'selectedResultsJSON' => array(
 				'type' => 'string',
@@ -80,7 +80,7 @@ function register_block() {
 			'selectedResults' => array(
 				'type' => 'array',
 				'source' => 'children',
-				'selector' => '.related-right-column',
+				'selector' => '.search-right-column',
 			),
 			'blockTitle' => array(
 				'type' => 'string'

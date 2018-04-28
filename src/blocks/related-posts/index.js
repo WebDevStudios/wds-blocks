@@ -69,7 +69,7 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 		selectedResults: { // markup
 			type: 'array',
 			source: 'children',
-			selector: '.related-right-column',
+			selector: '.search-right-column',
 		},
 		queryFor: {
 			type: 'string',
