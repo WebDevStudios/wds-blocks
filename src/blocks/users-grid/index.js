@@ -47,7 +47,7 @@ import { OtherOptionsAttributes } from '../../components/other-options';
  */
 export default registerBlockType( 'wds/users-grid', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'Users Grid Test (WDS)' ),
+	title: __( 'Users Grid (WDS)' ),
 	// Description: Write a quick description.
 	description: __( 'A block to display users in a grid. Note: Only users with published posts will display in search results.' ),
 	// Category options: common, formatting, layout, widgets, embed.
