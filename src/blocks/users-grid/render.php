@@ -3,10 +3,10 @@
 /**
  * Server-side rendering of the `wds/users-grid` block.
  *
- * @package gutenberg
+ * @package WDS_Blocks
  */
 
-namespace WDS\Gutenberg\blocks\users_grid;
+namespace WDS\Blocks\block\users_grid;
 
 /**
  * Renders the `wds/users-grid` block on server.
@@ -36,9 +36,9 @@ function render_block( $attributes ) {
 	?>
 
 	<!-- wp:wds/users-grid -->
-	<?php \WDS\Gutenberg\template_tags\block_container_options\display_block_options( $attributes ); ?>
+	<?php \WDS\Blocks\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
-		<?php \WDS\Gutenberg\components\block_title\display_block_title( $attributes ); ?>
+		<?php \WDS\Blocks\components\block_title\display_block_title( $attributes ); ?>
 
 		<div class="search-container-list" tabindex="0">
 

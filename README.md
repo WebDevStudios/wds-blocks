@@ -1,63 +1,45 @@
-# WDS Gutenberg
+# WDS Blocks
 
-Library of Gutenberg blocks for WebDevStudios to use on client projects. Please follow the instructions below to get spun up.
+WebDevStudios library of Gutenberg blocks.
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. WordPress for big brands."></a>
 
-# Table of Contents
-1. [Prequisites](#prerequisites)
-2. [Project Onboarding](#project-onboarding)
-3. [Plugin Development](#wds-gutenberg-plugin-development)
-4. [Theme Development](#theme-development)
-5. [Contributing](#contributing)
+## Available Blocks
 
-## Prequisites
-- [Node/NPM](https://nodejs.org/en/)
-- [Advanced Custom Fields Pro v5+
-](https://www.advancedcustomfields.com/) (for testing and converting our existing ACF blocks)
-- [Migrate DB Pro](https://deliciousbrains.com/wp-migrate-db-pro/) (to pull the Lab DB)
+- Hero
+- Call To Action
+- Recent Posts Grid
+- Multi-select, Related Posts Grid
+- Two Column Layout
+- Github Gist
 
-**Why?**
+WDS Blocks also come with a robust set of options: background image, video, and color support. Plus, text color, custom CSS classes, and [Animate.css](https://daneden.github.io/animate.css/) support. These blocks have been tested with our starter theme, [wd_s](https://github.com/WebDevStudios/wd_s).
 
-This will ensure that you're able to re-create our ACF content blocks for testing, and MigrateDB Pro ensures that you will stay in sync with WDS Lab. We will also working with [wd_s](https://github.com/WebDevStudios/wd_s/tree/feature/gutenberg) `feature/gutenberg` branch, to ensure our theme supports *all* blocks.
+## Usage
 
-When all the ACF blocks have been converted, we can drop the ACF Pro requirement. When this plugin goes live, we can drop MigrateDB Pro requirement too.
+You must have the [WordPress Gutenberg](https://wordpress.org/plugins/gutenberg/) plugin installed and activated.
 
-## Project Onboarding
+- [Clone](https://github.com/WebDevStudios/WDS-Blocks.git) or [download a .zip](https://github.com/WebDevStudios/WDS-Blocks/releases)
+- Place into `/plugins/`
+- Activate this plugin
 
-The Project is actually made up of 4 libraries, 3 of which have their own git repo:
+Head on over to a post or page, and start inserting WDS Blocks!
 
-    wp-content
-        ├── plugins
-        │   ├── advanced-custom-fields-pro For converting ACF Blocks to Gutenberg (not version controlled)
-        │   ├── gutenberg                  The core Gutenberg plugin (master)
-        │   └── wds-gutenberg              The WDS Gutenberg Plugin (master)
-        └── themes
-            └── wd_s                       WebDevStudios' starter theme. (feature/gutenberg)
+<img src="https://dl.dropbox.com/s/we5phkd1mpsnnms/Screenshot%202018-04-27%2012.45.27.png?dl=0" width="350">
 
-### Install script (bash)
+## Documentation
 
-Set up a fresh local install of WordPress at [https://gutenberg.test](https://gutenberg.test). Then...
+Check out the [Wiki](https://github.com/WebDevStudios/WDS-Blocks/wiki) for more info.
 
-1. Open your terminal
-2. CD into `wp-content/plugins`
-3. Run the following command: `git clone git@github.com:WebDevStudios/wds-gutenberg.git && cd wds-gutenberg && sh install.sh`
-4. Download, install, and activate both Advanced Custom Fields Pro and MigrateDB Pro
-5. Import the database using MigrateDB Pro (credentials in the 1pass vault: WDS Gutenberg)
+## Development
 
-*Note: This script will clone [WordPress Gutenberg](https://github.com/WordPress/gutenberg) and [wd_s](https://github.com/WebDevStudios/wd_s/tree/feature/gutenberg). It will also "build" all three libraries, so you can get started right away.*
+Your [contributions](https://github.com/WebDevStudios/WDS-Blocks/blob/master/.github/CONTRIBUTING.md) are welcome. Here's a quick start guide to developing with WDS Blocks.
 
-### Updating (bash)
-
-1. CD into `wp-content/plugins/wds-gutenberg`
-2. type `sh update.sh`
-
-This will do a quick `git pull` on all three repositories in this project.
-
-## WDS Gutenberg Plugin Development
+### Quick Start
+There is a "Default Block" which is intended to be a jumping off point. Read the [Default Block page](https://github.com/WebDevStudios/WDS-Blocks/wiki/Blocks#default-block) on the wiki for more.
 
 ### File structure
-- WDS Gutenberg blocks are stored in the `/src/blocks/` directory. These are the blocks that users can insert into posts in the wp-admin.
+- Blocks are stored in the `/src/blocks/` directory. These are the blocks that users can insert into posts in the wp-admin.
 - Components are stored in the `/src/components/` directory. These individual components can can be imported into and used by one or more blocks. Example: If block A and block B both display a dropdown of recent posts, a recent posts component could be created, then imported into and used by both of those blocks.
 
 Please use the following file naming convention for all blocks for consistency:
@@ -78,7 +60,7 @@ Please use the following file naming convention for all blocks for consistency:
 1. Inside of that new directory, open the `index.js` file. This is where the call to `registerBlockType()` to register the block needs to be.
 1. Inside of `/src/blocks.js`, add a line like the following to import your new block: `import './blocks/my-block';`. This will ensure that you're new block is included in the webpack build process.
 1. For any other JS or SCSS files your block uses, be sure to `import` them from within `index.js`. Any PHP files included in your block's directory will be loaded up automatically – you don't need to worry about adding `require`/`include` statements anywhere.
-1. Namespace any PHP files using the name of your block, such as: `namespace WDS\Gutenberg\blocks\my_block;`.
+1. Namespace any PHP files using the name of your block, such as: `namespace WDS\Blocks\block\my_block;`.
 
 ### Code syntax and formatting
 - Please write all JavaScript using modern ES6+/ESNext syntax. Webpack is configured to transpile all JS down into ES5 syntax that will work on all browsers, so don't hesitate to use modern JS language features in your code that aren't fully supported by all major browsers yet.
@@ -86,47 +68,27 @@ Please use the following file naming convention for all blocks for consistency:
 
 ### NPM Commands
 
-### 👉  `npm start`
+### `npm start`
 - Use to compile and run the block in development mode.
 - Watches for any changes and reports back any errors in your code.
 
-### 👉  `npm run build`
+### `npm run build`
 - Use to build production code for your block inside `dist` folder.
 - Runs once and reports back the gzip file sizes of the produced code.
 
-### 👉  `npm run eject`
+### `npm run eject`
 - Use to eject your plugin out of `create-guten-block`.
 - Provides all the configurations so you can customize the project as you want.
 - It's a one-way street, `eject` and you have to maintain everything yourself.
 - You don't normally have to `eject` a project because by ejecting you lose the connection with `create-guten-block` and from there onwards you have to update and maintain all the dependencies on your own.
 
-## wd_s Theme Development
+## Contributing
 
-wd_s must be 100% compatible with all blocks. If you imported from Local or ran the install script, then wd_s has been cloned using the `feature/gutenberg` branch.
+Your contributions are welcome. Please follow the [contribution guidelines](https://github.com/WebDevStudios/WDS-Blocks/blob/master/.github/CONTRIBUTING.md).
 
-- Be sure that all blocks look and work as expected in the Dashboard
-- Check to see that blocks display correctly on the front-end
-- If a block is broken, create an issue at [WDS Gutenberg](https://github.com/WebDevStudios/wds-gutenberg/issues) and assign the label: [wd_s](https://github.com/WebDevStudios/wds-gutenberg/labels/wd_s)
-- Please branch off the `feature/gutenberg`, and push up PRs for review
-- Code reviews will have to happen in the [wd_s repo](https://github.com/WebDevStudios/wd_s/pulls)
-
-### Gulp Commands
-
-### 👉  `gulp watch`
-- Will monitor the directory and automatically compile as neeed.
-
-### 👉  `gulp`
-- Use to compile everything.
-
-### Contributing
-
-We welcome all contributions.
-
-- Create a new issue here: [https://github.com/WebDevStudios/wds-gutenberg/issues](https://github.com/WebDevStudios/wds-gutenberg/issues)
-- Assign the label: [bug](https://github.com/WebDevStudios/wds-gutenberg/labels/bug)
-
---
+## Credits
 
 This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
+
 <br/><br/>
 [![wds-logo](https://dl.dropboxusercontent.com/s/71hvyg2dsjj2ubh/webdevstudios-goots-logo.png?dl=0)](https://webdevstudios.com)

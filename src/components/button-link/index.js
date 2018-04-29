@@ -16,7 +16,7 @@ const { Component } = wp.element;
 
 const { PlainText, UrlInput } = wp.blocks;
 
-const { Button, IconButton, Dashicon } = wp.components;
+const { IconButton, Dashicon } = wp.components;
 
 /**
  * Create a button component
@@ -36,7 +36,9 @@ export default class ButtonLink extends Component {
 
 	render() {
 		return (
-			<Button className={ 'button wds-button-component button-large' }>
+			<div
+				className={ 'button wds-button-component button-large' }
+			>
 				<PlainText
 					value={ this.props.attributes.buttonText }
 					placeholder={
@@ -57,7 +59,7 @@ export default class ButtonLink extends Component {
 					/>
 					<IconButton icon="editor-break" label={ __( 'Apply' ) } type="submit" />
 				</form>
-			</Button>
+			</div>
 		);
 	}
 }
