@@ -49,7 +49,7 @@ export default registerBlockType( 'wds/users-grid', { // Namespaced with 'wds/',
 	// Localize title using wp.i18n.__()
 	title: __( 'Users Grid (WDS)' ),
 	// Description: Write a quick description.
-	description: __( 'A block to display users in a grid. Note: Only users with published posts will display in search results.' ),
+	description: __( 'A block to display users in a grid. Note: Only users with published posts will be displayed.' ),
 	// Category options: common, formatting, layout, widgets, embed.
 	category: 'common',
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
