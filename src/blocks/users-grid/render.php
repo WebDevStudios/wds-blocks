@@ -46,11 +46,15 @@ function render_block( $attributes ) {
 
 				<?php
 					foreach( $users as $user ) {
-						echo '<li>';
-						echo get_avatar( $user->ID, 96 );
-						echo '<h3>' . esc_html( $user->display_name ) . '</h3>';
-						echo get_the_author_meta( 'description', $user->ID ) ? wpautop( esc_html( get_the_author_meta( 'description', $user->ID ) ) ) : '';
-						echo '</li>';
+						?>
+						<li class="column" tabindex="0">
+							<?php
+							echo get_avatar( $user->ID, 96 );
+							echo '<h3>' . esc_html( $user->display_name ) . '</h3>';
+							echo get_the_author_meta( 'description', $user->ID ) ? wpautop( esc_html( get_the_author_meta( 'description', $user->ID ) ) ) : '';
+							?>
+						</li>
+						<?php
 					}
 				?>
 			</ul>
