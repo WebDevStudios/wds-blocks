@@ -20,7 +20,8 @@ WDS Blocks also come with a robust set of options: background image, video, and 
 You must have the [WordPress Gutenberg](https://wordpress.org/plugins/gutenberg/) plugin installed and activated.
 
 - [Clone](https://github.com/WebDevStudios/WDS-Blocks.git) or [download a .zip](https://github.com/WebDevStudios/WDS-Blocks/releases)
-- Place into `/plugins/`
+- Rename `WDS-Blocks-x.x` to `wds-blocks`
+- Place `wds-blocks` into `/plugins/`
 - Activate this plugin
 
 Head on over to a post or page, and start inserting WDS Blocks!
