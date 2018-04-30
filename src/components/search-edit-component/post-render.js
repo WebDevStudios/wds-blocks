@@ -89,14 +89,14 @@ export default withAPIData( ( props ) => {
 
 	if ( posts !== undefined && posts !== '[]' ) {
 		const selectedResultsQuery = JSON.parse( posts ).map( item => {
-			return `include[]=${ item.id }`;
+			return `include[]=${ item.id }&orderby=include`;
 		} );
 
 		if ( selectedResultsQuery.length > 0 ) {
 			const selectedResultsFilter = selectedResultsQuery.join( '&' );
 
 			return {
-				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }`,
+				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`,
 			};
 		}
 	}
