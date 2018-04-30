@@ -168,7 +168,7 @@ class SearchEditComponent extends Component {
 	}
 
 	componentWillUnmount() {
-		this.container.removeEventListener( 'scroll', this.handleScroll() );
+		this.setState( { isLoaded: false } );
 	}
 
 	returnLayout = () => {
