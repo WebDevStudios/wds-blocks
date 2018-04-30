@@ -50,7 +50,7 @@ class SearchEditComponent extends Component {
 		const queryFor = props.attributes.queryFor ? props.attributes.queryFor : 'posts';
 
 		this.apiURL = ( page ) => wpApiSettings.root + `wp/v2/${ queryFor }?_embed&page=${ page }&per_page=6`;
-		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/${ queryFor }?_embed&${ ids }`;
+		this.newApiURL = ( ids ) => wpApiSettings.root + `wp/v2/${ queryFor }?_embed&${ ids }&orderby=include`;
 	}
 
 	handleChange = ( selected ) => {
