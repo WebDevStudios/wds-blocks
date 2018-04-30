@@ -26,7 +26,7 @@ function require_gutenberg() {
 	<div class="error"><p><?php esc_html_e( 'WDS Blocks requires that the WordPress Gutenberg plugin is activated.', 'wds-blocks' ); ?></p></div>
 	<?php
 
-	deactivate_plugins( [ 'wds-blocks/wds-blocks.php' ] );
+	deactivate_plugins( plugin_basename( __FILE__ ) );
 }
 
 // @todo: When Gutenberg is rolled into WP core, change this to
