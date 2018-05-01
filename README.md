@@ -12,6 +12,7 @@ WebDevStudios library of Gutenberg blocks.
 - Multi-select, Related Posts Grid
 - Two Column Layout
 - Github Gist
+- Users Grid
 
 WDS Blocks also come with a robust set of options: background image, video, and color support. Plus, text color, custom CSS classes, and [Animate.css](https://daneden.github.io/animate.css/) support. These blocks have been tested with our starter theme, [wd_s](https://github.com/WebDevStudios/wd_s).
 
