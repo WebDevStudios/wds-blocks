@@ -16,3 +16,4 @@ import './blocks/hero';
 import './blocks/related-posts';
 import './blocks/two-column-block';
 import './blocks/recent-posts';
+import './blocks/users-grid';

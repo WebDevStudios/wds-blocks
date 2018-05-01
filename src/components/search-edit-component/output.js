@@ -18,7 +18,7 @@ const Output = ( props ) => {
 					<Item
 						isActive={ activeClass }
 						key={ `${ result.id }-${ index }` }
-						postName={ result.title.rendered }
+						postName={ result.name ? result.name : result.title.rendered }
 						post={ result }
 						handleClick={ handleEvent }
 					/>
