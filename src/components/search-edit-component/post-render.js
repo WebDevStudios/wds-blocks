@@ -2,7 +2,7 @@
  * WordPress dependencies
 */
 const {
-	withAPIData,
+	withAPIData
 } = wp.components;
 
 const { Component } = wp.element;
@@ -27,13 +27,16 @@ class PostRenderer extends Component {
 					<h3
 						className="h1"
 						style={ {
-							...TextOptionsInlineStyles( this.props ),
+							...TextOptionsInlineStyles( this.props )
 						} }
 					>{ post.name }</h3>
-					<img src={ post.avatar_urls[96] } />
+					<img
+						src={ post.avatar_urls[ 96 ] }
+						alt=""
+					/>
 					{ post.description ? <p>{ post.description }</p> : null }
 				</li>
-			)
+			);
 		}
 
 		return (
@@ -56,24 +59,24 @@ class PostRenderer extends Component {
 				<h3
 					className="h1"
 					style={ {
-						...TextOptionsInlineStyles( this.props ),
+						...TextOptionsInlineStyles( this.props )
 					} }
 				>{ post.title.rendered }</h3>
 				<div
 					dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } }
 					style={ {
-						...TextOptionsInlineStyles( this.props ),
+						...TextOptionsInlineStyles( this.props )
 					} }
 				/>
 			</li>
-		)
+		);
 	}
 
 	render() {
 		const selectedResults = this.props.selectedResultsJSONAlt.data;
 
 		return (
-			( selectedResults !== undefined && selectedResults.length > 0 ) ? (
+			( undefined !== selectedResults && 0 < selectedResults.length ) ? (
 				selectedResults.map( post =>
 					this.displayResultMarkup( post )
 				)
@@ -87,16 +90,16 @@ class PostRenderer extends Component {
 export default withAPIData( ( props ) => {
 	const { posts } = props;
 
-	if ( posts !== undefined && posts !== '[]' ) {
+	if ( undefined !== posts && '[]' !== posts ) {
 		const selectedResultsQuery = JSON.parse( posts ).map( item => {
 			return `include[]=${ item.id }&orderby=include`;
 		} );
 
-		if ( selectedResultsQuery.length > 0 ) {
+		if ( 0 < selectedResultsQuery.length ) {
 			const selectedResultsFilter = selectedResultsQuery.join( '&' );
 
 			return {
-				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`,
+				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`
 			};
 		}
 	}
