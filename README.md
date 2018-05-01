@@ -1,4 +1,4 @@
-# WDS Blocks
+# WDS Blocks v1.0.1
 
 WebDevStudios library of Gutenberg blocks.
 
@@ -12,6 +12,7 @@ WebDevStudios library of Gutenberg blocks.
 - Multi-select, Related Posts Grid
 - Two Column Layout
 - Github Gist
+- Users Grid
 
 WDS Blocks also come with a robust set of options: background image, video, and color support. Plus, text color, custom CSS classes, and [Animate.css](https://daneden.github.io/animate.css/) support. These blocks have been tested with our starter theme, [wd_s](https://github.com/WebDevStudios/wd_s).
 
@@ -20,7 +21,8 @@ WDS Blocks also come with a robust set of options: background image, video, and 
 You must have the [WordPress Gutenberg](https://wordpress.org/plugins/gutenberg/) plugin installed and activated.
 
 - [Clone](https://github.com/WebDevStudios/WDS-Blocks.git) or [download a .zip](https://github.com/WebDevStudios/WDS-Blocks/releases)
-- Place into `/plugins/`
+- Rename `WDS-Blocks-x.x` to `wds-blocks`
+- Place `wds-blocks` into `/plugins/`
 - Activate this plugin
 
 Head on over to a post or page, and start inserting WDS Blocks!
