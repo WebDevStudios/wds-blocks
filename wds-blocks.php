@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WDS Blocks
  * Plugin URI:  https://github.com/WebDevStudios/WDS-Blocks
- * Description: Gutenberg blocks from WebDevStudios
+ * Description: WebDevStudios library of Gutenberg blocks.
  * Author:      WebDevStudios
  * Author URI:  https://webdevstudios.com/
- * Version:     1.0.1
+ * Version:     1.0.2
  * License:     GPL3+
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
