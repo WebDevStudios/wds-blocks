@@ -38,6 +38,10 @@
 
 	// The should help the front end only to work out of the box.
 	.site-content & {
-		@include full-width;
+
+		// Don't apply full-width styles if we have a sidebar.
+		body:not(.has-sidebar) & {
+			@include full-width;
+		} // body:not(.has-sidebar) &
 	} // .site-content &
 } // .has-custom-background
