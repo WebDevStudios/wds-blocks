@@ -133,8 +133,6 @@ export default registerBlockType(
 						placeholder={ __( 'Click here to add paragraph text. To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
-						focus={ props.focus }
-						onFocus={ props.setFocus }
 					/>
 
 					<ButtonLink
@@ -224,8 +222,8 @@ export default registerBlockType(
 
 						</section>
 					);
-				}
-			}
-		]
+				},
+			},
+		],
 	},
 );

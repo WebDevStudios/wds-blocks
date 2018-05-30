@@ -120,8 +120,6 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 					placeholder={ __( 'To customize this block, click on "Show Advanced Settings"' ) }
 					onChange={ setMessageAttribute }
 					value={ props.attributes.message }
-					focus={ props.focus }
-					onFocus={ props.setFocus }
 				/>
 			</section>,
 		];
