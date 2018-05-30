@@ -94,7 +94,7 @@ export default registerBlockType(
 
 			// Return the markup displayed in the editor, including a core Editable field.
 			return [
-				!! props.focus && (
+				!! props.isSelected && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
 							{ ...props }

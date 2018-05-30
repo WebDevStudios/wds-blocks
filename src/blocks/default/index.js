@@ -81,7 +81,7 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 		};
 		// Return the markup displayed in the editor, including a core Editable field.
 		return [
-			!! props.focus && (
+			!! props.isSelected && (
 				<InspectorControls key="inspector">
 					{ BackgroundOptions( props ) }
 					{ TextOptions( props ) }
