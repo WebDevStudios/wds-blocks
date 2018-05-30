@@ -235,7 +235,7 @@ class SearchEditComponent extends Component {
 							key="search-component"
 							className="wds-search-form"
 							onQueryChange={ this.returnQuery }
-							queryFor="users"
+							queryFor={ this.props.attributes.queryFor }
 						/>,
 						<div
 							key="users-grid-container-search"
