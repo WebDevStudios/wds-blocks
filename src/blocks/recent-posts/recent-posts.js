@@ -89,7 +89,7 @@ class RecentPostsBlock extends Component {
 		const { attributes, setAttributes } = this.props;
 		const { displayPostDate, align, postLayout, columns, order, orderby, postsToShow } = attributes;
 
-		const inspectorControls = !! this.props.focus && (
+		const inspectorControls = !! this.props.isSelected && (
 			<InspectorControls key="inspector">
 				<PanelBody title={ __( 'Recent Posts Settings' ) }>
 					{
@@ -131,7 +131,7 @@ class RecentPostsBlock extends Component {
 								} }
 							/>
 						) }
-					{ !! this.props.focus ? (
+					{ !! this.props.isSelected ? (
 						<MultiSelect attributes={ this.props.attributes } onCategoryChange={ this.onCategoryChange } />
 					) : ( null ) }
 					{
@@ -211,7 +211,7 @@ class RecentPostsBlock extends Component {
 
 		return [
 			inspectorControls,
-			!! this.props.focus && (
+			!! this.props.isSelected && (
 				<BlockControls key="controls">
 					<BlockAlignmentToolbar
 						value={ align }
