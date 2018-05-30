@@ -9,12 +9,15 @@
  */
 const { __ } = wp.i18n;
 const {
+	registerBlockType,
+} = wp.blocks;
+
+const {
 	AlignmentToolbar,
 	BlockControls,
 	InspectorControls,
-	registerBlockType,
 	RichText,
-} = wp.blocks;
+} = wp.editor;
 
 /**
  * Internal dependencies

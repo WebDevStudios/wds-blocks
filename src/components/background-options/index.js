@@ -7,7 +7,7 @@ const {
 	ColorPalette,
 	description,
 	MediaUpload,
-} = wp.blocks;
+} = wp.editor;
 
 const {
 	Button,

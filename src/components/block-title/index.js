@@ -27,7 +27,7 @@ const { Component } = wp.element;
 
 const {
 	PlainText,
-} = wp.blocks;
+} = wp.editor;
 
 export default class BlockTitle extends Component {
 	onChangeBlockTitle = value => {

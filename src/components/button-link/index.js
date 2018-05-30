@@ -14,7 +14,7 @@ const { __ } = wp.i18n;
 
 const { Component } = wp.element;
 
-const { PlainText, UrlInput } = wp.blocks;
+const { PlainText, UrlInput } = wp.editor;
 
 const { IconButton, Dashicon } = wp.components;
 

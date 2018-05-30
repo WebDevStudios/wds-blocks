@@ -29,7 +29,7 @@ const {
 	InspectorControls,
 	BlockControls,
 	BlockAlignmentToolbar,
-} = wp.blocks;
+} = wp.editor;
 
 /**
  * Internal dependencies

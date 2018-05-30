@@ -15,10 +15,13 @@ import classnames from 'classnames'; // Import NPM libraries here.
  */
 const { __ } = wp.i18n;
 const {
-	InspectorControls,
 	registerBlockType,
-	RichText,
 } = wp.blocks;
+
+const {
+	InspectorControls,
+	RichText,
+} = wp.editor;
 
 /**
  * Internal dependencies
