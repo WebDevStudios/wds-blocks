@@ -16,7 +16,6 @@ const { __ } = wp.i18n;
 const {
 	AlignmentToolbar,
 	BlockControls,
-	description,
 	InspectorControls,
 	MediaUpload,
 	registerBlockType,
@@ -61,13 +60,13 @@ import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../..
  */
 export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Two-Column Block' ),
+	title: __( 'Two Column Block (WDS)' ),
 	// Description: Write a quick description.
-	description: __( 'Two equal-width columns displaying a combination of text and/or an image.' ),
+	description: __( 'A block to display two equal-width columns containing a combination of text and/or an image.' ),
 	// Category options: common, formatting, layout, widgets, embed.
 	category: 'layout',
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
-	icon: 'edit',
+	icon: 'grid-view',
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
 	keywords: [
 		__( 'Two-Column' ),
@@ -175,8 +174,11 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		// Details on RichText Editor: https://wordpress.org/gutenberg/handbook/block-api/rich-text-api/
 		function displayLeftContent() {
 			return (
-				<div className="content-block-content content-block">
-					<h2>{ __( 'Column Text' ) }</h2>
+				<div
+					className="content-block-content content-block"
+					key="two-column-content-left"
+				>
+					<h2>{ __( 'Text Column Area' ) }</h2>
 
 					{
 						!! props.isSelected && (
@@ -197,7 +199,6 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 						onChange={ onChangeContentLeft }
 						value={ props.attributes.contentLeft }
 						formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
-						isSelected={ props.isSelected }
 					/>
 				</div>
 			);
@@ -206,8 +207,11 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		// Displays the Right contenet block.
 		function displayRightContent() {
 			return (
-				<div className="content-block-content content-block">
-					<h2>{ __( 'Column Text' ) }</h2>
+				<div
+					className="content-block-content content-block"
+					key="two-column-content-right"
+				>
+					<h2>{ __( 'Text Column Area' ) }</h2>
 
 					{
 						!! props.isSelected && (
@@ -228,7 +232,6 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 						onChange={ onChangeContentRight }
 						value={ props.attributes.contentRight }
 						formattingControls={ [ 'bold', 'italic', 'strikethrough' ] }
-						isSelected={ props.isSelected }
 					/>
 				</div>
 			);
@@ -237,8 +240,11 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		// Displays the Media Upload block.
 		function displayMediaUpload() {
 			return (
-				<div className="content-block-content content-block">
-					<h2>{ __( 'Column Image' ) }</h2>
+				<div
+					className="content-block-content content-block"
+					key="two-column-content-upload"
+				>
+					<h2>{ __( 'Image Column Area' ) }</h2>
 					{ ! props.attributes.imgID ? (
 						<MediaUpload
 							buttonProps={ {
@@ -259,14 +265,12 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 								src={ props.attributes.imgURL }
 								alt={ props.attributes.imgAlt }
 							/>
-							{ props.isSelected ? (
-								<Button
-									className="remove-image button button-large"
-									onClick={ onRemoveImage }
-								>
-									<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
-								</Button>
-							) : null }
+							<Button
+								className="remove-image button button-large"
+								onClick={ onRemoveImage }
+							>
+								<Dashicon icon="no-alt" /> { __( 'Remove Image' ) }
+							</Button>
 						</p>
 					) }
 				</div>
@@ -305,11 +309,6 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 		return [
 			!! props.isSelected && (
 				<InspectorControls key="inspector">
-
-					<description>
-						<p>{ __( 'Layout options for the Two-Column Block' ) }</p>
-					</description>
-
 					<PanelBody
 						className="wds-two-column-options"
 						title={ __( 'Two-Column Options Panel' ) }

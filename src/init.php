@@ -5,7 +5,7 @@
  * @since 1.0.0
  */
 
-namespace WDS_Gutenberg\Src;
+namespace WDS\Blocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Enqueue Gutenberg block assets for both frontend & backend.
+ * Enqueue WDS Blocks block assets for both frontend & backend.
  *
  * `wp-blocks`: Includes block type registration and related functions.
  *
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function enqueue_block_assets() {
 	wp_enqueue_style(
-		'wds-gutenberg-css',
+		'wds-blocks-css',
 		plugins_url( 'dist/blocks.style.build.css', __DIR__ ),
 		[ 'wp-blocks' ], // Dependencies, defined above.
 		filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' )
@@ -30,7 +30,7 @@ function enqueue_block_assets() {
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\\enqueue_block_assets' );
 
 /**
- * Enqueue Gutenberg block assets for backend editor.
+ * Enqueue WDS Blocks block assets for backend editor.
  *
  * `wp-blocks`:  Includes block type registration and related functions.
  * `wp-element`: Includes the WordPress Element abstraction for describing the structure of blocks.
@@ -40,14 +40,14 @@ add_action( 'enqueue_block_assets', __NAMESPACE__ . '\\enqueue_block_assets' );
  */
 function enqueue_block_editor_assets() {
 	wp_enqueue_script(
-		'wds-gutenberg-editor-js',
+		'wds-blocks-editor-js',
 		plugins_url( 'dist/blocks.build.js', __DIR__ ),
 		[ 'wp-blocks', 'wp-i18n', 'wp-element' ], // Dependencies, defined above.
 		filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' )
 	);
 
 	wp_enqueue_style(
-		'wds-gutenberg-editor-css',
+		'wds-blocks-editor-css',
 		plugins_url( 'dist/blocks.editor.build.css', __DIR__ ),
 		[ 'wp-edit-blocks' ],
 		filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' )

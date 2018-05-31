@@ -14,7 +14,11 @@
 	padding: 2px;
 
 	input[type="url"] {
-		min-width: 350px;
+		min-width: 300px;
+
+		@include media($tablet-portrait) {
+			min-width: 350px;
+		}
 	} // input[type="url"]
 
 	.button {

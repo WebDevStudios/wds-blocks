@@ -2,11 +2,10 @@
 /**
  * Helper functions for rendering dynamic blocks.
  *
- * @package WDS_Gutenberg
- * @since NEXT
+ * @package WDS_Blocks
  */
 
-namespace WDS_Gutenberg\Src\Block_Options;
+namespace WDS\Blocks\template_tags\block_container_options;
 
 /**
  * Displays the opening tag for a custom block.

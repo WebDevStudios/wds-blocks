@@ -14,4 +14,4 @@ Closes #__
 How do we test this?
 
 ### DOCUMENTATION ###
-Will this pull request require updating the WDS Gutenberg [wiki](https://github.com/WebDevStudios/wds-gutenberg/wiki)?
+Will this pull request require updating the WDS Blocks [wiki](https://github.com/WebDevStudios/wds-blocks/wiki)?

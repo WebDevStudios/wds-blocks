@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name: WDS Gutenberg
- * Plugin URI:  https://github.com/WebDevStudios/WDS-Gutenberg
- * Description: Gutenberg blocks for webdvstudios.com
+ * Plugin Name: WDS Blocks
+ * Plugin URI:  https://github.com/WebDevStudios/WDS-Blocks
+ * Description: WebDevStudios library of Gutenberg blocks.
  * Author:      WebDevStudios
  * Author URI:  https://webdevstudios.com/
- * Version:     1.0.0
- * License:     GPL2+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Version:     1.0.3
+ * License:     GPL3+
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-namespace WDS_Gutenberg;
+namespace WDS\Blocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,10 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function require_gutenberg() {
 	?>
-		<div class="error"><p><?php esc_html_e( 'WDS Gutenberg requires that the Gutenberg plugin is activated.', 'wds-gutenberg' ); ?></p></div>
-		<?php
+	<div class="error"><p><?php esc_html_e( 'WDS Blocks requires that the WordPress Gutenberg plugin is activated.', 'wds-blocks' ); ?></p></div>
+	<?php
 
-		deactivate_plugins( [ 'wds-gutenberg/wds-gutenberg.php' ] );
+	deactivate_plugins( plugin_basename( __FILE__ ) );
 }
 
 // @todo: When Gutenberg is rolled into WP core, change this to
@@ -37,6 +37,6 @@ if ( ! function_exists( 'register_block_type' ) ) {
 }
 
 /**
- * Block Initializer.
+ * Initialize plugin.
  */
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';

@@ -2,11 +2,10 @@
 /**
  * Helper function for displaying the block title.
  *
- * @package WDS_Gutenberg
- * @since NEXT
+ * @package WDS_Blocks
  */
 
-namespace WDS_Gutenberg\Src\Component;
+namespace WDS\Blocks\components\block_title;
 
 /**
  * Displays the Block Title for the section.

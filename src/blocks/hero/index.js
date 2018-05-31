@@ -52,9 +52,9 @@ export default registerBlockType(
 	'wds/hero',
 	{
 		// Localize title using wp.i18n.__()
-		title: __( 'WDS Hero Block' ),
+		title: __( 'Hero Block (WDS)' ),
 		// Description: Write a quick description.
-		description: __( 'A full-width hero with a video, image, or color background.' ),
+		description: __( 'A block to display a full-width hero with a video, image, or color background.' ),
 		// Category options: common, formatting, layout, widgets, embed.
 		category: 'common',
 		// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
@@ -139,7 +139,7 @@ export default registerBlockType(
 						tagName="div"
 						multiline="p"
 						className="content-block"
-						placeholder={ __( 'To customize this block, click on "Show Advanced Settings"' ) }
+						placeholder={ __( 'Click here to add paragraph text. To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
 						focus={ props.isSelected }
@@ -150,7 +150,7 @@ export default registerBlockType(
 					/>
 
 					<ButtonLink
-						placeholder={ __( 'Click Here' ) }
+						placeholder={ __( 'Add Button Text Here' ) }
 						{ ...props }
 					/>
 				</section>,

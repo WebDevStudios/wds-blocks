@@ -5,7 +5,6 @@
 // Enqueued after style.scss.
 //--------------------------------------------------------------
 .wp-block-wds-two-column {
-	max-width: 740px;
 
 	.content-block-container {
 
@@ -23,6 +22,17 @@
 	} // .block-title
 } // .wp-block-wds-two-column
 
+// Ensure we're only changing the admin font size.
+.wp-admin {
+
+	.wp-block-wds-two-column {
+
+		.content-block-content h2 {
+			color: $color-silver;
+			font-size: 17px;
+		} // .content-block-contenth2
+	} // .wp-block-wds-two-column
+} // .wp-admin
 
 //-----------------------------------------
 // Editing Toolbar (alignment, bold, italic, etc.)

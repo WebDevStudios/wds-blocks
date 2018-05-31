@@ -23,7 +23,6 @@ const {
 /**
  * Internal dependencies
  */
-import './style.scss';
 
 // Import all of our Background Options requirements.
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
@@ -45,7 +44,7 @@ import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../..
  */
 export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Default Block: Duplicate Me' ),
+	title: __( 'Default Block: Duplicate Me (WDS)' ),
 	// Description: Write a quick description.
 	description: __( 'Optional description.' ),
 	// Category options: common, formatting, layout, widgets, embed.

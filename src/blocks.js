@@ -1,5 +1,5 @@
 /**
- * Gutenberg Blocks
+ * WDS Blocks
  *
  * All blocks related JavaScript files should be imported here.
  * You can create a new block folder in this dir and include code
@@ -15,3 +15,5 @@ import './blocks/github-gist';
 import './blocks/hero';
 import './blocks/related-posts';
 import './blocks/two-column-block';
+import './blocks/recent-posts';
+import './blocks/users-grid';
