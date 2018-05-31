@@ -251,13 +251,16 @@
   margin: 0 0 1.875rem 0;
   overflow: hidden; }
 
+.editor-block-contextual-toolbar .editor-block-toolbar {
+  width: 100%; }
+
 .gist-block-controls {
   padding: 0.125rem; }
   .gist-block-controls input[type='url'] {
     min-width: 300px; }
     @media (min-width: 600px) {
       .gist-block-controls input[type='url'] {
-        min-width: 350px; } }
+        min-width: 450px; } }
   .gist-block-controls .button {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 .wp-admin [data-type^="wds"] {
