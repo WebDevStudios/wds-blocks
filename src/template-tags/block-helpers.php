@@ -33,16 +33,22 @@ function block_get_excerpt( $post ) {
 	$post_content = $post->post_content;
 
 	// Set length
-	$length = 200;
+	$length = 300;
+
+	// URL regex.
+	$regex = '/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i';
 
 	// Strip shortcodes.
 	$strip_shortcodes = strip_shortcodes( $post_content );
 
-	// Strip all tags.
+	// Strip all tags — remove Gutenberg comments.
 	$strip_tags = strip_tags( $strip_shortcodes );
 
+	// Remove all urls from post content.
+	$strip_url = preg_replace( $regex, '', $strip_tags );
+
 	// Trim.
-	$the_excerpt = substr( strip_tags( $strip_shortcodes ), 0, $length );
+	$the_excerpt = substr( $strip_url, 0, $length );
 
 	// Make sure we have an excerpt before calling the_excerpt.
 	// Otherwise use our default excerpt.
