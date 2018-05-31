@@ -6,14 +6,14 @@
 
 .wp-block-wds-gihub-gist {
 	display: block;
-	margin: 0 0 30px 0;
+	margin: 0 0 1.875rem 0;
 	overflow: hidden;
 } // .wp-block-wds-gihub-gist
 
 .gist-block-controls {
-	padding: 2px;
+	padding: 0.125rem;
 
-	input[type="url"] {
+	input[type='url'] {
 		min-width: 300px;
 
 		@include media($tablet-portrait) {
