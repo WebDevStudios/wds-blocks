@@ -80,7 +80,7 @@ function BackgroundOptions( props ) {
 						alt={ props.attributes.backgroundImage.alt }
 					/>
 				</p>
-				{ props.focus ? (
+				{ props.isSelected ? (
 					<div className="media-button-wrapper">
 						<p>
 							<Button
@@ -139,7 +139,7 @@ function BackgroundOptions( props ) {
 						/>
 					</video>
 				</p>
-				{ props.focus ? (
+				{ props.isSelected ? (
 					<div className="media-button-wrapper">
 						<p>
 							<Button
