@@ -7,7 +7,7 @@ export { PostSearchAttributes };
 /**
  * Internal block libraries
  */
-const { UrlInput } = wp.blocks;
+const { UrlInput } = wp.editor;
 
 const { Dashicon } = wp.components;
 
@@ -19,7 +19,9 @@ const { Dashicon } = wp.components;
  * @author Corey Collins
  */
 function PostSearch( props ) {
-	const onChangeButtonURL = value => { props.setAttributes( { buttonUrl: value } ) };
+	const onChangeButtonURL = value => {
+ props.setAttributes( { buttonUrl: value } ); 
+};
 
 	return (
 		<div>

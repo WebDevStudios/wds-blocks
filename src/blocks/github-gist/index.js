@@ -9,7 +9,8 @@ import jsonp from 'jsonp';
 const { __ } = wp.i18n;
 const { Component } = wp.element;
 const { Button, Spinner } = wp.components;
-const { registerBlockType, BlockControls } = wp.blocks;
+const { registerBlockType } = wp.blocks;
+const { BlockControls } = wp.editor;
 
 /**
  * Internal dependencies

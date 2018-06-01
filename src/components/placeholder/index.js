@@ -6,7 +6,7 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-const { BlockIcon } = wp.blocks;
+const { BlockIcon } = wp.editor;
 
 /**
  * Internal dependencies

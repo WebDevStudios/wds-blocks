@@ -45,3 +45,8 @@
 		} // body:not(.has-sidebar) &
 	} // .site-content &
 } // .has-custom-background
+
+// Ensure sidebar fields span 100% width.
+.components-base-control {
+	width: 100%;
+} // .components-base-control

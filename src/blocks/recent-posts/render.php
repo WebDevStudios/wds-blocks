@@ -37,14 +37,17 @@ function render_block( $attributes ) {
 		}
 	}
 
-	$new_recent_posts = new \WP_Query( array(
+	$args = array(
+		'post_type'       => array( 'post' ),
 		'posts_per_page'  => $attributes['postsToShow'],
-		'post_status'  => 'publish',
-		'order'        => $attributes['order'],
-		'orderby'      => $attributes['orderby'],
-		'tag__in'      => $tag_ids,
-		'category__in' => $category_ids,
-	) );
+		'post_status'     => 'publish',
+		'order'           => $attributes['order'],
+		'orderby'         => $attributes['orderby'],
+		'tag__in'         => $tag_ids,
+		'category__in'    => $category_ids,
+	);
+
+	$the_query = new \WP_Query( $args );
 
 	$class = "align{$attributes['align']}";
 	if ( isset($attributes['postLayout'] ) && 'grid' === $attributes['postLayout'] ) {
@@ -69,7 +72,7 @@ function render_block( $attributes ) {
 
 		<?php \WDS\Blocks\components\block_title\display_block_title( $attributes );
 
-		if ( $new_recent_posts->have_posts() ) :
+		if ( $the_query->have_posts() ) :
 			?>
 
 			<div class="recent-block-container-output" tabindex="0">
@@ -77,8 +80,10 @@ function render_block( $attributes ) {
 				<ul <?php post_class( 'selected-posts-container ' . $class ); ?>>
 
 					<?php
-					while ( $new_recent_posts->have_posts() ) :
-						$new_recent_posts->the_post();
+					while ( $the_query->have_posts() ) :
+						$the_query->the_post();
+
+						// Get post thumbnail id.
 						$post_thumb_id = get_post_thumbnail_id();
 						?>
 						<li tabindex="0">
@@ -91,7 +96,7 @@ function render_block( $attributes ) {
 								</a>
 							</h3>
 							<div class="post-excerpt">
-								<?php the_excerpt(); ?>
+								<?php echo \WDS\Blocks\template_tags\block_helpers\block_get_excerpt( $the_query->post ); ?>
 							</div>
 							<?php
 							if ( isset( $attributes['displayPostDate'] ) && $attributes['displayPostDate'] ) {

@@ -54,7 +54,8 @@ function render_block( $attributes ) {
 					while ( $the_query->have_posts() ) :
 						$the_query->the_post();
 
-					$post_thumb_id = get_post_thumbnail_id();
+						// Get post thumbnail id.
+						$post_thumb_id = get_post_thumbnail_id();
 				?>
 					<li <?php post_class( 'column' ); ?> tabindex="0">
 						<?php if ( has_post_thumbnail() ) : ?>
@@ -66,7 +67,7 @@ function render_block( $attributes ) {
 							</a>
 						</h3>
 						<div class="entry-content">
-							<?php the_excerpt(); ?>
+							<?php echo \WDS\Blocks\template_tags\block_helpers\block_get_excerpt( $the_query->post ); ?>
 						</div>
 					</li>
 				<?php

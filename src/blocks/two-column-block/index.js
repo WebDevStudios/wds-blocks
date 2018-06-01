@@ -14,13 +14,16 @@ import classnames from 'classnames'; // Import NPM libraries here.
  */
 const { __ } = wp.i18n;
 const {
+	registerBlockType,
+} = wp.blocks;
+
+const {
 	AlignmentToolbar,
 	BlockControls,
 	InspectorControls,
 	MediaUpload,
-	registerBlockType,
 	RichText,
-} = wp.blocks;
+} = wp.editor;
 
 const {
 	Button,
@@ -538,7 +541,7 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 				...TextOptionsAttributes,
 				...OtherOptionsAttributes,
 			},
-			save(props) {
+			save( props ) {
 				// Display the output of the Left content block.
 				function displayLeftContentOutput() {
 					return (
@@ -635,7 +638,7 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 						</div>
 					</section>
 				);
-			}
-		}
-	]
+			},
+		},
+	],
 } );
