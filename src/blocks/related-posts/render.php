@@ -40,35 +40,17 @@ function render_block( $attributes ) {
 	<!-- wp:wds/related-posts -->
 	<?php \WDS\Blocks\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
-		<?php
-		\WDS\Blocks\components\block_title\display_block_title( $attributes );
+		<?php \WDS\Blocks\components\block_title\display_block_title( $attributes ); ?>
 
+		<ul class="search-selected-container">
 
-		<div class="search-container-list" tabindex="0">
+			<?php
+			foreach ( $related_posts as $related ) :
+				$post_id = $related->ID;
 
-			<ul class="search-selected-container">
-
-
-						// Get post thumbnail id.
-						$post_thumb_id = get_post_thumbnail_id();
+				// Get post thumbnail id.
+				$post_thumb_id = get_post_thumbnail_id( $post_id );
 				?>
-					<li <?php post_class( 'column' ); ?> tabindex="0">
-						<?php if ( has_post_thumbnail() ) : ?>
-							<?php echo wp_get_attachment_image( $post_thumb_id, 'medium_large' ); ?>
-						<?php endif; ?>
-						<h3 class="h1">
-							<a href="<?php the_permalink(); ?>">
-								<?php the_title(); ?>
-							</a>
-						</h3>
-						<div class="entry-content">
-							<?php echo \WDS\Blocks\template_tags\block_helpers\block_get_excerpt( $the_query->post ); ?>
-						</div>
-					</li>
-				?>
-			</ul>
-		</div><!-- related-block-container-list -->
-		<?php endif; ?>
 				<li <?php post_class( 'column' ); ?> tabindex="0">
 
 					<?php if ( has_post_thumbnail( $related ) ) : ?>
