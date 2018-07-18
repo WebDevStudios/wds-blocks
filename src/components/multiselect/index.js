@@ -108,7 +108,6 @@ class MultiSelect extends Component {
 
 	// Handle when an input item is clicked.
 	handleInputClick = item => ( e ) => {
-		console.log( e.keyCode, e.type, e.key );
 		if ( e.type === 'click' || e.key === ' ' ) {
 			const newSelected = this.state.selectedItems[ item.taxonomy ].filter( selectedItem => selectedItem.id !== item.id );
 
