@@ -100,40 +100,44 @@ function render_block( $attributes ) {
 function register_block() {
 
 	// Required to render output in editor.
-	register_block_type('wds/related-posts', array(
-		'attributes' => array(
-			'className' => array(
-				'type' => 'string',
+	register_block_type( 'wds/related-posts', array(
+		'attributes'      => array(
+			'className'           => array(
+				'type'     => 'string',
 				'defautlt' => 'wp-block-wds-related-posts',
 			),
 			'selectedResultsJSON' => array(
 				'type' => 'string',
 			),
-			'selectedResults' => array(
-				'type' => 'array',
-				'source' => 'children',
+			'selectedResults'     => array(
+				'type'     => 'array',
+				'source'   => 'children',
 				'selector' => '.search-right-column',
 			),
-			'blockTitle' => array(
-				'type' => 'string'
+			'queryFor'            => array(
+				'type'    => 'string',
+				'default' => 'posts',
 			),
-			'backgroundType' => array(
-				'type' => 'string'
+			'blockTitle'          => array(
+				'type' => 'string',
 			),
-			'backgroundImage' => array(
-				'type' => 'object'
+			'backgroundType'      => array(
+				'type' => 'string',
 			),
-			'backgroundVideo' => array(
-				'type' => 'object'
+			'backgroundImage'     => array(
+				'type' => 'object',
 			),
-			'backgroundColor' => array(
-				'type' => 'string'
+			'backgroundVideo'     => array(
+				'type' => 'object',
 			),
-			'animationType' => array(
-				'type' => 'string'
+			'backgroundColor'     => array(
+				'type' => 'string',
 			),
-			'textColor' => array(
-				'type' => 'string'
+			'animationType'       => array(
+				'type' => 'string',
+			),
+			'textColor'           => array(
+				'type' => 'string',
 			),
 		),
 		'render_callback' => __NAMESPACE__ . '\\render_block',
