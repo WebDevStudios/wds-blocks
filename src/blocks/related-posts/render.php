@@ -69,6 +69,24 @@ function render_block( $attributes ) {
 			</ul>
 		</div><!-- related-block-container-list -->
 		<?php endif; ?>
+				<li <?php post_class( 'column' ); ?> tabindex="0">
+
+					<?php if ( has_post_thumbnail( $related ) ) : ?>
+						<?php echo wp_get_attachment_image( $post_thumb_id, 'medium_large' ); ?>
+					<?php endif; ?>
+
+					<h3 class="h1">
+						<a href="<?php echo get_the_permalink( $post_id ); ?>">
+							<?php echo get_the_title( $post_id ); ?>
+						</a>
+					</h3>
+
+					<div class="entry-content">
+						<?php echo \WDS\Blocks\template_tags\block_helpers\block_get_excerpt( $related ); ?>
+					</div>
+				</li>
+			<?php endforeach; ?>
+		</ul>
 	</section>
 	<!-- /wp:wds/related-posts -->
 
