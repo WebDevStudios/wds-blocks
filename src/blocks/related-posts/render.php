@@ -26,13 +26,13 @@ function render_block( $attributes ) {
 	$args = array(
 		'post_type'      => array( 'post' ),
 		'orderby'        => 'post__in',
-		'post__in'       => $post_id_array,
-		'posts_per_page' => $posts_per_page,
+		'include'        => $post_id_array,
+		'numberposts'    => $posts_per_page,
 	);
 
 	$attributes['class'] = 'wp-block-wds-related-posts wds-search-component-container';
 
-	$the_query = new \WP_Query( $args );
+	$related_posts = get_posts( $args );
 
 	ob_start();
 	?>
@@ -43,16 +43,11 @@ function render_block( $attributes ) {
 		<?php
 		\WDS\Blocks\components\block_title\display_block_title( $attributes );
 
-		if ( $the_query->have_posts() ) :
-		?>
 
 		<div class="search-container-list" tabindex="0">
 
 			<ul class="search-selected-container">
 
-				<?php
-					while ( $the_query->have_posts() ) :
-						$the_query->the_post();
 
 						// Get post thumbnail id.
 						$post_thumb_id = get_post_thumbnail_id();
@@ -70,9 +65,6 @@ function render_block( $attributes ) {
 							<?php echo \WDS\Blocks\template_tags\block_helpers\block_get_excerpt( $the_query->post ); ?>
 						</div>
 					</li>
-				<?php
-					endwhile;
-					wp_reset_postdata();
 				?>
 			</ul>
 		</div><!-- related-block-container-list -->
