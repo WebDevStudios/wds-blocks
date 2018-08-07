@@ -50,13 +50,13 @@ function block_get_excerpt( $post ) {
 	// Trim.
 	$the_excerpt = substr( $strip_url, 0, $length );
 
-	// Make sure we have an excerpt before calling the_excerpt.
-	// Otherwise use our default excerpt.
+	// Make sure we have an excerpt before returning the excerpt.
+	// Otherwise use our default excerpt built from our content.
 	if ( ! empty( $post_excerpt ) ) :
-		$excerpt = get_the_excerpt();
+		$excerpt = $post_excerpt;
 	elseif ( ! empty( $post_content ) && empty( $post_excerpt ) ) :
 		$excerpt = esc_html( $the_excerpt );
 	endif;
 
-	return $excerpt;
+	return esc_html( $excerpt );
 }
