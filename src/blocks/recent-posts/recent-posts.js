@@ -23,7 +23,7 @@ const {
 	withAPIData,
 } = wp.components;
 const { __ } = wp.i18n;
-const { decodeEntities } = wp.utils;
+const { decodeEntities } = wp.htmlEntities;
 
 const {
 	InspectorControls,
