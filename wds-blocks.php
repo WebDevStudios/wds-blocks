@@ -29,14 +29,23 @@ function require_gutenberg() {
 	deactivate_plugins( plugin_basename( __FILE__ ) );
 }
 
-// @todo: When Gutenberg is rolled into WP core, change this to
-// a version_compare() and update the error message.
-if ( ! function_exists( 'register_block_type' ) ) {
-	add_action( 'admin_notices', __NAMESPACE__ . '\\require_gutenberg' );
-	return;
-}
-
 /**
- * Initialize plugin.
+ * Initializes plugin on plugins_loaded to
+ * properly call function_exists.
  */
-require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
+function init_gutenberg() {
+
+	// @todo: When Gutenberg is rolled into WP core, change this to
+	// a version_compare() and update the error message.
+	if ( ! function_exists( 'register_block_type' ) ) {
+		add_action( 'admin_notices', __NAMESPACE__ . '\\require_gutenberg' );
+		return;
+	}
+
+	/**
+	 * Initialize plugin.
+	 */
+	require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
+
+}
+add_action( 'plugins_loaded', __NAMESPACE__ . '\\init_gutenberg' );
