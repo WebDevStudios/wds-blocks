@@ -1,4 +1,4 @@
-# WDS Blocks v1.0.5
+# WDS Blocks v1.0.6
 
 WebDevStudios library of Gutenberg blocks.
 
