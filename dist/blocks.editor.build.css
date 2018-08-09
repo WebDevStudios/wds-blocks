@@ -35,6 +35,9 @@
     right: 50%;
     width: 100vw; }
 
+.components-base-control {
+  width: 100%; }
+
 .wds-block-title {
   background-color: transparent; }
 
@@ -76,6 +79,9 @@
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }
 
 .wds-background-options .blocks-base-control {
   width: 100%; }
@@ -119,6 +125,9 @@
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }
 .wp-admin [data-type^="wds"] {
   margin-bottom: 30px;
   margin-top: 30px;
@@ -155,6 +164,9 @@
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }
 
 .wds-other-options .blocks-base-control {
   width: 100%; }
@@ -194,6 +206,9 @@
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }
 
 .editor-block-list__layout .button.wds-button-component {
   background-color: transparent;
@@ -245,6 +260,9 @@
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }
 
 .wp-block-wds-gihub-gist {
   display: block;
@@ -300,6 +318,9 @@
     right: 50%;
     width: 100vw; }
 
+.components-base-control {
+  width: 100%; }
+
 .edit-post-visual-editor .editor-block-list__block .wp-block-wds-hero {
   min-height: 320px; }
 .wp-admin [data-type^="wds"] {
@@ -338,6 +359,9 @@
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }
 .wp-admin [data-type^="wds"] {
   margin-bottom: 30px;
   margin-top: 30px;
@@ -374,6 +398,9 @@
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }
 
 .search-container-list {
   border: 1px solid #dedede;
@@ -492,6 +519,9 @@
     right: 50%;
     width: 100vw; }
 
+.components-base-control {
+  width: 100%; }
+
 .wp-block-wds-two-column .content-block-container .components-button svg {
   position: relative;
   top: 5px; }
@@ -560,6 +590,9 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
     right: 50%;
     width: 100vw; }
 
+.components-base-control {
+  width: 100%; }
+
 .wp-block-wds-recent-posts ul li {
   list-style: none; }
 
@@ -613,6 +646,9 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }
 
 .multiselect-wrapper {
   border: 1px solid #dedede;
@@ -702,3 +738,6 @@ div[data-type='wds/two-column'] .editor-block-toolbar {
     position: relative;
     right: 50%;
     width: 100vw; }
+
+.components-base-control {
+  width: 100%; }

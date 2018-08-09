@@ -2,7 +2,7 @@
  * WordPress dependencies
 */
 const {
-	withAPIData
+	withAPIData,
 } = wp.components;
 
 const { Component } = wp.element;
@@ -27,7 +27,7 @@ class PostRenderer extends Component {
 					<h3
 						className="h1"
 						style={ {
-							...TextOptionsInlineStyles( this.props )
+							...TextOptionsInlineStyles( this.props ),
 						} }
 					>{ post.name }</h3>
 					<img
@@ -59,13 +59,13 @@ class PostRenderer extends Component {
 				<h3
 					className="h1"
 					style={ {
-						...TextOptionsInlineStyles( this.props )
+						...TextOptionsInlineStyles( this.props ),
 					} }
 				>{ post.title.rendered }</h3>
 				<div
 					dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } }
 					style={ {
-						...TextOptionsInlineStyles( this.props )
+						...TextOptionsInlineStyles( this.props ),
 					} }
 				/>
 			</li>
@@ -99,7 +99,7 @@ export default withAPIData( ( props ) => {
 			const selectedResultsFilter = selectedResultsQuery.join( '&' );
 
 			return {
-				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`
+				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`,
 			};
 		}
 	}

@@ -8,7 +8,7 @@ import classnames from 'classnames'; // Import NPM libraries here.
  */
 const {
 	InspectorControls,
-} = wp.blocks;
+} = wp.editor;
 
 const { Component, Fragment } = wp.element;
 
@@ -162,7 +162,7 @@ class SearchEditComponent extends Component {
 	}
 
 	componentDidUpdate() {
-		if ( !! this.props.focus ) {
+		if ( !! this.props.isSelected ) {
 			this.container.addEventListener( 'scroll', this.handleScroll );
 		}
 	}
@@ -199,7 +199,7 @@ class SearchEditComponent extends Component {
 
 	render() {
 		return [
-			!! this.props.focus && (
+			!! this.props.isSelected && (
 				<InspectorControls key="inspector">
 					{ BackgroundOptions( this.props ) }
 					{ TextOptions( this.props ) }
@@ -214,13 +214,13 @@ class SearchEditComponent extends Component {
 					...BackgroundOptionsClasses( this.props ),
 					...OtherOptionsClasses( this.props ),
 				) }
-				style={ ! this.props.focus && JSON.parse( this.state.selectedResultsJSON ).length > 0 ? {
+				style={ ! this.props.isSelected && JSON.parse( this.state.selectedResultsJSON ).length > 0 ? {
 					...BackgroundOptionsInlineStyles( this.props ),
 					...TextOptionsInlineStyles( this.props ),
 				} : {} }
 			>
 
-				{ ! this.props.focus && JSON.parse( this.state.selectedResultsJSON ).length > 0 ?
+				{ ! this.props.isSelected && JSON.parse( this.state.selectedResultsJSON ).length > 0 ?
 					BackgroundOptionsVideoOutput( this.props ) :
 					null
 				}
@@ -229,13 +229,13 @@ class SearchEditComponent extends Component {
 					key="search-block-title"
 					{ ...this.props }
 				/>
-				{ !! this.props.focus || JSON.parse( this.state.selectedResultsJSON ).length === 0 ? (
+				{ !! this.props.isSelected || JSON.parse( this.state.selectedResultsJSON ).length === 0 ? (
 					[
 						<Search
 							key="search-component"
 							className="wds-search-form"
 							onQueryChange={ this.returnQuery }
-							queryFor="users"
+							queryFor={ this.props.attributes.queryFor }
 						/>,
 						<div
 							key="users-grid-container-search"

@@ -15,10 +15,13 @@ import classnames from 'classnames'; // Import NPM libraries here.
  */
 const { __ } = wp.i18n;
 const {
-	InspectorControls,
 	registerBlockType,
-	RichText,
 } = wp.blocks;
+
+const {
+	InspectorControls,
+	RichText,
+} = wp.editor;
 
 /**
  * Internal dependencies
@@ -78,7 +81,7 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 		};
 		// Return the markup displayed in the editor, including a core Editable field.
 		return [
-			!! props.focus && (
+			!! props.isSelected && (
 				<InspectorControls key="inspector">
 					{ BackgroundOptions( props ) }
 					{ TextOptions( props ) }
@@ -117,8 +120,6 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 					placeholder={ __( 'To customize this block, click on "Show Advanced Settings"' ) }
 					onChange={ setMessageAttribute }
 					value={ props.attributes.message }
-					focus={ props.focus }
-					onFocus={ props.setFocus }
 				/>
 			</section>,
 		];

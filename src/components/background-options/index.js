@@ -5,9 +5,8 @@ const { __ } = wp.i18n;
 
 const {
 	ColorPalette,
-	description,
 	MediaUpload,
-} = wp.blocks;
+} = wp.editor;
 
 const {
 	Button,
@@ -67,9 +66,7 @@ function BackgroundOptions( props ) {
 						/>
 					</p>
 					<p>
-						<description>
-							{ __( 'Add/Upload an image file. (1920x1080px .jpg, .png)' ) }
-						</description>
+						{ __( 'Add/Upload an image file. (1920x1080px .jpg, .png)' ) }
 					</p>
 				</div>
 			);
@@ -83,7 +80,7 @@ function BackgroundOptions( props ) {
 						alt={ props.attributes.backgroundImage.alt }
 					/>
 				</p>
-				{ props.focus ? (
+				{ props.isSelected ? (
 					<div className="media-button-wrapper">
 						<p>
 							<Button
@@ -94,9 +91,7 @@ function BackgroundOptions( props ) {
 							</Button>
 						</p>
 						<p>
-							<description>
-								{ __( 'Add/Upload an image file. (1920x1080px .jpg, .png)' ) }
-							</description>
+							{ __( 'Add/Upload an image file. (1920x1080px .jpg, .png)' ) }
 						</p>
 					</div>
 				) : null }
@@ -128,9 +123,7 @@ function BackgroundOptions( props ) {
 						/>
 					</p>
 					<p>
-						<description>
-							{ __( 'Add/Upload a 1920x1080 .mp4 video file. Note: background videos are only supported on heroes.' ) }
-						</description>
+						{ __( 'Add/Upload a 1920x1080 .mp4 video file. Note: background videos are only supported on heroes.' ) }
 					</p>
 				</div>
 			);
@@ -146,7 +139,7 @@ function BackgroundOptions( props ) {
 						/>
 					</video>
 				</p>
-				{ props.focus ? (
+				{ props.isSelected ? (
 					<div className="media-button-wrapper">
 						<p>
 							<Button
@@ -158,9 +151,7 @@ function BackgroundOptions( props ) {
 						</p>
 
 						<p>
-							<description>
-								{ __( 'Add/Upload a 1920x1080 .mp4 video file. Note: background videos are only supported on heroes.' ) }
-							</description>
+							{ __( 'Add/Upload a 1920x1080 .mp4 video file. Note: background videos are only supported on heroes.' ) }
 						</p>
 					</div>
 				) : null }

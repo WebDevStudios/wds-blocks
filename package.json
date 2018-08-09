@@ -1,6 +1,6 @@
 {
 	"name": "wds-blocks-cgb-guten-block",
-	"version": "1.0.3",
+	"version": "1.0.5",
 	"private": true,
 	"scripts": {
 		"start": "cgb-scripts start",
@@ -8,7 +8,7 @@
 		"eject": "cgb-scripts eject"
 	},
 	"dependencies": {
-		"cgb-scripts": "1.9.4",
+		"cgb-scripts": "^1.9.7",
 		"classnames": "^2.2.5",
 		"jsonp": "^0.2.1",
 		"lodash": "^4.17.5",

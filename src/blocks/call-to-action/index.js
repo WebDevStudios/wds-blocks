@@ -16,10 +16,13 @@
  */
 const { __ } = wp.i18n;
 const {
-	InspectorControls,
 	registerBlockType,
-	RichText,
 } = wp.blocks;
+
+const {
+	InspectorControls,
+	RichText,
+} = wp.editor;
 
 /**
  * Internal dependencies
@@ -91,7 +94,7 @@ export default registerBlockType(
 
 			// Return the markup displayed in the editor, including a core Editable field.
 			return [
-				!! props.focus && (
+				!! props.isSelected && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
 							{ ...props }
@@ -130,8 +133,6 @@ export default registerBlockType(
 						placeholder={ __( 'Click here to add paragraph text. To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
-						focus={ props.focus }
-						onFocus={ props.setFocus }
 					/>
 
 					<ButtonLink
@@ -221,8 +222,8 @@ export default registerBlockType(
 
 						</section>
 					);
-				}
-			}
-		]
+				},
+			},
+		],
 	},
 );

@@ -14,7 +14,7 @@ const { __ } = wp.i18n;
 
 const { Component } = wp.element;
 
-const { PlainText, UrlInput } = wp.blocks;
+const { PlainText, URLInput } = wp.editor;
 
 const { IconButton, Dashicon } = wp.components;
 
@@ -53,7 +53,7 @@ export default class ButtonLink extends Component {
 					onSubmit={ event => event.preventDefault() }
 				>
 					<Dashicon icon="admin-links" />
-					<UrlInput
+					<URLInput
 						value={ this.props.attributes.buttonUrl }
 						onChange={ this.onChangeButtonURL }
 					/>

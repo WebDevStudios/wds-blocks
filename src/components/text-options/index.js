@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { ColorPalette } = wp.blocks;
+const { ColorPalette } = wp.editor;
 const {
 	PanelBody,
 	PanelColor,

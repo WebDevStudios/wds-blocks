@@ -9,12 +9,15 @@
  */
 const { __ } = wp.i18n;
 const {
+	registerBlockType,
+} = wp.blocks;
+
+const {
 	AlignmentToolbar,
 	BlockControls,
 	InspectorControls,
-	registerBlockType,
 	RichText,
-} = wp.blocks;
+} = wp.editor;
 
 /**
  * Internal dependencies
@@ -142,8 +145,6 @@ export default registerBlockType(
 						placeholder={ __( 'Click here to add paragraph text. To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
-						focus={ props.isSelected }
-						onFocus={ props.setFocus }
 						style={ {
 							textAlign: props.attributes.alignment,
 						} }
