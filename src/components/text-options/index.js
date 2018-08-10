@@ -14,12 +14,14 @@ const {
  */
 import TextOptionsAttributes from './attributes';
 import TextOptionsInlineStyles from './inline-styles';
+import TextOptionsClasses from './classes';
 import './editor.scss';
 
 // Export for ease of importing in individual blocks.
 export {
 	TextOptionsAttributes,
 	TextOptionsInlineStyles,
+	TextOptionsClasses
 };
 
 function TextOptions( props ) {
