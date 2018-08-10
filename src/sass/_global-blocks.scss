@@ -1,9 +1,10 @@
 //--------------------------------------------------------------
 // Global Block Styles (Editor/Backend)
 //--------------------------------------------------------------
+// sass-lint:disable property-units
 
 // Give our blocks some breathing room in the editor for a better experience.
-.wp-admin [data-type^="wds"] {
+.wp-admin [data-type^='wds'] {
 	margin-bottom: 30px;
 	margin-top: 30px;
 	max-width: none;
@@ -22,8 +23,8 @@
 		object-fit: none;
 		object-position: center center;
 		position: absolute;
-		transform: translate(-50%, -50%);
 		top: 50%;
+		transform: translate(-50%, -50%);
 		width: 100%;
 		z-index: -1;
 	} // .video-container
@@ -45,6 +46,15 @@
 		} // body:not(.has-sidebar) &
 	} // .site-content &
 } // .has-custom-background
+
+
+// Custom font colors.
+.has-custom-font-color {
+
+	p {
+		color: unset;
+	} // p
+} // .has-custom-font-color
 
 // Ensure sidebar fields span 100% width.
 .components-base-control {
