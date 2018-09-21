@@ -73,7 +73,7 @@ class PostRenderer extends Component {
 	}
 
 	render() {
-		const selectedResults = this.props.selectedResultsJSONAlt.data;
+		const selectedResults = JSON.parse( this.props.posts );
 
 		return (
 			( undefined !== selectedResults && 0 < selectedResults.length ) ? (
