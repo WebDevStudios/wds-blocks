@@ -20,8 +20,8 @@ const {
 	Spinner,
 	ToggleControl,
 	Toolbar,
-	withAPIData,
 } = wp.components;
+const { withSelect } = wp.data;
 const { __ } = wp.i18n;
 const { decodeEntities } = wp.htmlEntities;
 
@@ -286,7 +286,7 @@ class RecentPostsBlock extends Component {
 	}
 }
 
-export default withAPIData( ( props ) => {
+export default withSelect( ( props ) => {
 	const { postsToShow, order, orderby, taxonomies } = props.attributes;
 	const decodedTaxonomies = taxonomies ? JSON.parse( taxonomies ) : {};
 
