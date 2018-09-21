@@ -75,10 +75,10 @@ class PostRenderer extends Component {
 	}
 
 	render() {
-		const selectedResults = JSON.parse( this.props.posts );
+		const selectedResults = this.props.selectedResults;
 
 		return (
-			( undefined !== selectedResults && 0 < selectedResults.length ) ? (
+			( null !== selectedResults ) ? (
 				selectedResults.map( post =>
 					this.displayResultMarkup( post )
 				)
