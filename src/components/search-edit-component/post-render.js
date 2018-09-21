@@ -2,8 +2,8 @@
  * WordPress dependencies
 */
 const {
-	withAPIData,
-} = wp.components;
+	withSelect,
+} = wp.data;
 
 const { Component } = wp.element;
 
@@ -87,7 +87,7 @@ class PostRenderer extends Component {
 	}
 }
 
-export default withAPIData( ( props ) => {
+export default withSelect( ( props ) => {
 	const { posts } = props;
 
 	if ( undefined !== posts && '[]' !== posts ) {
