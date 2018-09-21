@@ -78,7 +78,7 @@ class PostRenderer extends Component {
 		const selectedResults = this.props.selectedResults;
 
 		return (
-			( null !== selectedResults ) ? (
+			( undefined !== selectedResults && null !== selectedResults ) ? (
 				selectedResults.map( post =>
 					this.displayResultMarkup( post )
 				)
