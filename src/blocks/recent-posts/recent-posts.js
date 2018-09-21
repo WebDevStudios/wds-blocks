@@ -285,22 +285,26 @@ class RecentPostsBlock extends Component {
 	}
 }
 
-export default withSelect( ( props ) => {
+export default withSelect( ( select, props ) => {
 	const { postsToShow, order, orderby, taxonomies } = props.attributes;
+	const { getEntityRecords } = select( 'core' );
+
 	const decodedTaxonomies = taxonomies ? JSON.parse( taxonomies ) : {};
 
 	// This can be made to be much more flexible and allow for custom taxonomies and the like. Phase 2!
 	const tags = decodedTaxonomies.post_tag && 0 < decodedTaxonomies.post_tag.length ? decodedTaxonomies.post_tag.map( tag => tag.id ) : undefined;
 	const categories = decodedTaxonomies.category && 0 < decodedTaxonomies.category.length ? decodedTaxonomies.category.map( category => category.id ) : undefined;
-	const latestPostsQuery = stringify( _pickBy( {
+
+	const latestPostsQuery = pickBy( {
 		_embed: 'embed',
 		orderby,
 		order,
 		tags,
 		categories,
 		per_page: postsToShow, // eslint-disable-line
-	}, value => ! _isUndefined( value ) ) );
+	}, ( value ) => ! isUndefined( value ) );
+
 	return {
-		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`,
+		latestPosts: getEntityRecords( 'postType', 'post', latestPostsQuery ),
 	};
 } )( RecentPostsBlock );
