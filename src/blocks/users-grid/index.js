@@ -51,7 +51,7 @@ export default registerBlockType( 'wds/users-grid', { // Namespaced with 'wds/',
 	// Description: Write a quick description.
 	description: __( 'A block to display users in a grid. Note: Only users with published posts will be displayed.' ),
 	// Category options: common, formatting, layout, widgets, embed.
-	category: 'common',
+	category: 'wds-blocks',
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
 	icon: 'admin-users',
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.

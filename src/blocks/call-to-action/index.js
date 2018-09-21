@@ -62,7 +62,7 @@ export default registerBlockType(
 		// Description: Write a quick description.
 		description: __( 'A block to display a call to action area which will encourage a user to take action.' ),
 		// Category options: common, formatting, layout, widgets, embed.
-		category: 'common',
+		category: 'wds-blocks',
 		// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
 		icon: 'admin-comments',
 		// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.

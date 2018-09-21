@@ -33,7 +33,7 @@ registerBlockType( 'wds/gihub-gist', {
 	title: __( 'GitHub Gist Block (WDS)' ),
 	description: __( 'A block to embed a Gist via URL.' ),
 	icon,
-	category: 'embed',
+	category: 'wds-blocks',
 	supportHTML: false,
 	attributes: {
 		url: {
@@ -53,7 +53,7 @@ registerBlockType( 'wds/gihub-gist', {
 			};
 		}
 
-		componentWillMount() {
+		componentDidMount() {
 			if ( this.props.attributes.url ) {
 				this.fetchGistAndSetState();
 			}

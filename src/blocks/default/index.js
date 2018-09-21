@@ -51,7 +51,7 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 	// Description: Write a quick description.
 	description: __( 'Optional description.' ),
 	// Category options: common, formatting, layout, widgets, embed.
-	category: 'common',
+	category: 'wds-blocks',
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
 	icon: 'sos',
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
