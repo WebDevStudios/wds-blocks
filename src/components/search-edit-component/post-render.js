@@ -103,10 +103,12 @@ export default withSelect( ( select, props ) => {
 				_embed: 'embed',
 				orderby: 'include',
 				include: selectedResultsQuery,
-			} );
+			}, ( value ) => ! isUndefined( value ) );
+
+			const queryType = props.attributes.queryFor.slice( 0, -1 );
 
 			return {
-				selectedResults: getEntityRecords( 'postType', 'post', postQuery ),
+				selectedResults: getEntityRecords( 'postType', queryType, postQuery ),
 			};
 		}
 	}
