@@ -1,6 +1,8 @@
 /**
  * WordPress dependencies
 */
+import { isUndefined, pickBy } from 'lodash';
+
 const {
 	withSelect,
 } = wp.data;
@@ -87,19 +89,24 @@ class PostRenderer extends Component {
 	}
 }
 
-export default withSelect( ( props ) => {
+export default withSelect( ( select, props ) => {
 	const { posts } = props;
+	const { getEntityRecords } = select( 'core' );
 
 	if ( undefined !== posts && '[]' !== posts ) {
 		const selectedResultsQuery = JSON.parse( posts ).map( item => {
-			return `include[]=${ item.id }&orderby=include`;
+			return item.id;
 		} );
 
 		if ( 0 < selectedResultsQuery.length ) {
-			const selectedResultsFilter = selectedResultsQuery.join( '&' );
+			const postQuery = pickBy( {
+				_embed: 'embed',
+				orderby: 'include',
+				include: selectedResultsQuery,
+			} );
 
 			return {
-				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`,
+				selectedResults: getEntityRecords( 'postType', 'post', postQuery ),
 			};
 		}
 	}
