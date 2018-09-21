@@ -84,7 +84,7 @@ class RecentPostsBlock extends Component {
 	render() {
 		const maxItems = DEFAULT_MAX_ITEMS;
 		const minItems = DEFAULT_MIN_ITEMS;
-		const latestPosts = this.props.latestPosts.data;
+		const latestPosts = this.props.latestPosts;
 		const { attributes, setAttributes } = this.props;
 		const { displayPostDate, align, postLayout, columns, order, orderby, postsToShow } = attributes;
 
