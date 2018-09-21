@@ -58,3 +58,28 @@ add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_edit
 // Recursively load all PHP files within the /src/ directory.
 require_once plugin_dir_path( __DIR__ ) . 'vendor/autoload/autoload.php';
 \AaronHolbrook\Autoload\autoload( plugin_dir_path( __DIR__ ) . 'src' );
+
+/**
+ * Adds custom category for use in block
+ *
+ * @url https://wordpress.org/gutenberg/handbook/extensibility/extending-blocks/#managing-block-categories
+ *
+ * @param [array]  $categories block categories.
+ * @param [string] $post post type.
+ * @return void updated array of $categories.
+ */
+function add_block_categories( $categories, $post ) {
+
+	// Otherwise update list of categories.
+	return array_merge(
+		$categories,
+		array(
+			array(
+				'slug'  => 'wds-blocks',
+				'title' => __( 'WDS Blocks', 'wds-blocks' ),
+			),
+		)
+	);
+}
+add_filter( 'block_categories', __NAMESPACE__ . '\\add_block_categories', 10, 2 );
+
