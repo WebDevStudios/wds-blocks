@@ -5,7 +5,6 @@ import { isUndefined, pickBy } from 'lodash';
 
 import moment from 'moment';
 import classnames from 'classnames';
-import { stringify } from 'querystringify';
 
 /**
  * WordPress dependencies
