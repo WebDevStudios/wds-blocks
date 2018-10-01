@@ -31,7 +31,7 @@ You must have the [Gutenberg](https://wordpress.org/plugins/gutenberg/) plugin i
 
 Head on over to a post or page, and start inserting WDS Blocks!
 
-<img src="https://dl.dropbox.com/s/we5phkd1mpsnnms/Screenshot%202018-04-27%2012.45.27.png?dl=0" width="350">
+<img src="https://dl.dropbox.com/s/we5phkd1mpsnnms/Screenshot%202018-04-27%2012.45.27.png?dl=0" width="450">
 
 ## Documentation
 
