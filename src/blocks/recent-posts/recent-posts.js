@@ -19,16 +19,15 @@ const {
 	Spinner,
 	ToggleControl,
 	Toolbar,
-	withAPIData,
 } = wp.components;
 const { __ } = wp.i18n;
 const { decodeEntities } = wp.htmlEntities;
-
 const {
 	InspectorControls,
 	BlockControls,
 	BlockAlignmentToolbar,
 } = wp.editor;
+const { withSelect } = wp.data;
 
 /**
  * Internal dependencies
@@ -84,8 +83,7 @@ class RecentPostsBlock extends Component {
 	render() {
 		const maxItems = DEFAULT_MAX_ITEMS;
 		const minItems = DEFAULT_MIN_ITEMS;
-		const latestPosts = this.props.latestPosts.data;
-		const { attributes, setAttributes } = this.props;
+		const { attributes, setAttributes, latestPosts } = this.props;
 		const { displayPostDate, align, postLayout, columns, order, orderby, postsToShow } = attributes;
 
 		const inspectorControls = !! this.props.isSelected && (
@@ -286,22 +284,25 @@ class RecentPostsBlock extends Component {
 	}
 }
 
-export default withAPIData( ( props ) => {
+export default withSelect( ( select, props ) => {
 	const { postsToShow, order, orderby, taxonomies } = props.attributes;
 	const decodedTaxonomies = taxonomies ? JSON.parse( taxonomies ) : {};
 
 	// This can be made to be much more flexible and allow for custom taxonomies and the like. Phase 2!
 	const tags = decodedTaxonomies.post_tag && 0 < decodedTaxonomies.post_tag.length ? decodedTaxonomies.post_tag.map( tag => tag.id ) : undefined;
 	const categories = decodedTaxonomies.category && 0 < decodedTaxonomies.category.length ? decodedTaxonomies.category.map( category => category.id ) : undefined;
-	const latestPostsQuery = stringify( _pickBy( {
+
+	const { getEntityRecords } = select( 'core' );
+	const latestPostsQuery = pickBy( {
 		_embed: 'embed',
 		orderby,
 		order,
 		tags,
 		categories,
 		per_page: postsToShow, // eslint-disable-line
-	}, value => ! _isUndefined( value ) ) );
+	}, ( value ) => ! isUndefined( value ) );
+
 	return {
-		latestPosts: `/wp/v2/posts?${ latestPostsQuery }`,
+		latestPosts: getEntityRecords( 'postType', 'post', latestPostsQuery ),
 	};
 } )( RecentPostsBlock );
