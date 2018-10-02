@@ -1,4 +1,4 @@
-# WDS Blocks v1.0.4
+# WDS Blocks v1.0.6
 
 WebDevStudios library of Gutenberg blocks.
 
@@ -17,8 +17,8 @@ WebDevStudios library of Gutenberg blocks.
 WDS Blocks also come with a robust set of options: background image, video, and color support. Plus, text color, custom CSS classes, and [Animate.css](https://daneden.github.io/animate.css/) support. These blocks have been tested with our starter theme, [wd_s](https://github.com/WebDevStudios/wd_s).
 
 ## Tested Up To
-- [WordPress](https://wordpress.org/) v4.9.6
-- [Gutenberg](https://wordpress.org/plugins/gutenberg/) v2.9.2
+- [WordPress](https://wordpress.org/) v4.9.7
+- [Gutenberg](https://wordpress.org/plugins/gutenberg/) v3.4.0
 
 ## Usage
 

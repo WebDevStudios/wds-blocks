@@ -23,7 +23,7 @@ const {
 	withAPIData,
 } = wp.components;
 const { __ } = wp.i18n;
-const { decodeEntities } = wp.utils;
+const { decodeEntities } = wp.htmlEntities;
 
 const {
 	InspectorControls,
@@ -50,7 +50,7 @@ import MultiSelect from '../../components/multiselect';
 import BackgroundOptions, { BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import TextOptions, { TextOptionsInlineStyles } from '../../components/text-options';
+import TextOptions, { TextOptionsInlineStyles, TextOptionsClasses } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsClasses } from '../../components/other-options';
@@ -229,6 +229,7 @@ class RecentPostsBlock extends Component {
 					this.props.className,
 					...BackgroundOptionsClasses( this.props ),
 					...OtherOptionsClasses( this.props ),
+					...TextOptionsClasses( this.props ),
 				) }
 				style={ {
 					...BackgroundOptionsInlineStyles( this.props ),

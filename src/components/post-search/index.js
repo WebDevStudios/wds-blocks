@@ -7,7 +7,7 @@ export { PostSearchAttributes };
 /**
  * Internal block libraries
  */
-const { UrlInput } = wp.editor;
+const { URLInput } = wp.editor;
 
 const { Dashicon } = wp.components;
 
@@ -20,8 +20,8 @@ const { Dashicon } = wp.components;
  */
 function PostSearch( props ) {
 	const onChangeButtonURL = value => {
- props.setAttributes( { buttonUrl: value } ); 
-};
+		props.setAttributes( { buttonUrl: value } );
+	};
 
 	return (
 		<div>
@@ -31,7 +31,7 @@ function PostSearch( props ) {
 				onSubmit={ event => event.preventDefault() }
 			>
 				<Dashicon icon="admin-links" />
-				<UrlInput
+				<URLInput
 					value={ props.attributes.buttonUrl }
 					onChange={ onChangeButtonURL }
 				/>
