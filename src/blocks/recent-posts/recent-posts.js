@@ -1,11 +1,10 @@
 /**
  * External dependencies
  */
-import _isUndefined from 'lodash/isUndefined';
-import _pickBy from 'lodash/pickBy';
+import isUndefined from 'lodash/isUndefined';
+import pickBy from 'lodash/pickBy';
 import moment from 'moment';
 import classnames from 'classnames';
-import { stringify } from 'querystringify';
 
 /**
  * WordPress dependencies
