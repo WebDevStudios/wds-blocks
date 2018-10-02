@@ -16,15 +16,17 @@
  */
 const { __ } = wp.i18n;
 const {
-	InspectorControls,
 	registerBlockType,
-	RichText,
 } = wp.blocks;
+
+const {
+	InspectorControls,
+	RichText,
+} = wp.editor;
 
 /**
  * Internal dependencies
  */
-import './style.scss';
 import classnames from 'classnames';
 
 // Import our Block Title component.
@@ -34,7 +36,7 @@ import BlockTitle, { BlockTitleAttributes, BlockTitleOutput } from '../../compon
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles, TextOptionsClasses } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
@@ -56,9 +58,9 @@ export default registerBlockType(
 	'wds/call-to-action',
 	{
 		// Localize title using wp.i18n.__()
-		title: __( 'WDS Call To Action' ),
+		title: __( 'Call To Action Block (WDS)' ),
 		// Description: Write a quick description.
-		description: __( 'Create a call to action area which will encourage a user to take action.' ),
+		description: __( 'A block to display a call to action area which will encourage a user to take action.' ),
 		// Category options: common, formatting, layout, widgets, embed.
 		category: 'common',
 		// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
@@ -92,7 +94,7 @@ export default registerBlockType(
 
 			// Return the markup displayed in the editor, including a core Editable field.
 			return [
-				!! props.focus && (
+				!! props.isSelected && (
 					<InspectorControls key="inspector">
 						<BackgroundOptions
 							{ ...props }
@@ -111,6 +113,7 @@ export default registerBlockType(
 						props.className,
 						...BackgroundOptionsClasses( props ),
 						...OtherOptionsClasses( props ),
+						...TextOptionsClasses( props ),
 					) }
 					style={ {
 						...BackgroundOptionsInlineStyles( props ),
@@ -128,15 +131,13 @@ export default registerBlockType(
 						tagName="div"
 						multiline="p"
 						className="content-block"
-						placeholder={ __( 'To customize this block, click on "Show Advanced Settings"' ) }
+						placeholder={ __( 'Click here to add paragraph text. To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
-						focus={ props.focus }
-						onFocus={ props.setFocus }
 					/>
 
 					<ButtonLink
-						placeholder={ __( 'Click Here' ) }
+						placeholder={ __( 'Add Button Text Here' ) }
 						{ ...props }
 					/>
 				</section>,
@@ -222,8 +223,8 @@ export default registerBlockType(
 
 						</section>
 					);
-				}
-			}
-		]
+				},
+			},
+		],
 	},
 );

@@ -1,43 +1,129 @@
 <?php
+
 /**
- * Displays the Related Posts block.
+ * Server-side rendering of the `wds/related-posts` block.
  *
- * @package WDS_Gutenberg
- * @since NEXT
+ * @package WDS_Blocks
  */
 
-namespace WDS_Gutenberg\Src\Related_Posts;
+namespace WDS\Blocks\block\related_posts;
 
 /**
- * Render block: Related Posts.
+ * Renders the `wds/related-posts` block on server.
  *
- * @param array $attributes The attributes passed in from the Related Post block settings.
- * @return string The block markup.
+ * @param array $attributes The block attributes.
  *
- * @since NEXT
+ * @return string Returns the post content with related posts added.
  */
 function render_block( $attributes ) {
 
-	ob_start(); ?>
+	// Get ids.
+	$post_id_array = json_decode( $attributes['selectedResultsJSON'] );
+
+	// Set a post limit if no posts are manually selected.
+	$posts_per_page = $post_id_array ? null : 3;
+
+	$args = array(
+		'post_type'      => array( 'post' ),
+		'orderby'        => 'post__in',
+		'include'        => $post_id_array,
+		'numberposts'    => $posts_per_page,
+	);
+
+	$attributes['class'] = 'wp-block-wds-related-posts wds-search-component-container';
+
+	$related_posts = get_posts( $args );
+
+	ob_start();
+	?>
 
 	<!-- wp:wds/related-posts -->
-	<?php \WDS_Gutenberg\Src\Block_Options\display_block_options( $attributes ); ?>
+	<?php \WDS\Blocks\template_tags\block_container_options\display_block_options( $attributes ); ?>
 
-		<?php \WDS_Gutenberg\Src\Component\display_block_title( $attributes ); ?>
+		<?php \WDS\Blocks\components\block_title\display_block_title( $attributes ); ?>
 
-		<p>This is the block content. I'm adding a lot so we can see how the block lays out with background elements.</p>
+		<ul class="search-selected-container">
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Oratio me istius philosophi non offendit; Cupit enim dícere nihil posse ad beatam vitam deesse sapienti. Quis enim potest ea, quae probabilia videantur ei, non probare? Primum cur ista res digna odio est, nisi quod est turpis? Te enim iudicem aequum puto, modo quae dicat ille bene noris. Duo Reges: constructio interrete. </p>
+			<?php
+			foreach ( $related_posts as $related ) :
+				$post_id = $related->ID;
 
-		<p>Vos autem cum perspicuis dubia debeatis illustrare, dubiis perspicua conamini tollere. An quod ita callida est, ut optime possit architectari voluptates? Quid de Platone aut de Democrito loquar? Cupit enim dícere nihil posse ad beatam vitam deesse sapienti. Aperiendum est igitur, quid sit voluptas; Etenim nec iustitia nec amicitia esse omnino poterunt, nisi ipsae per se expetuntur. Recte, inquit, intellegis. Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; </p>
+				// Get post thumbnail id.
+				$post_thumb_id = get_post_thumbnail_id( $post_id );
+				?>
+				<li <?php post_class( 'column' ); ?> tabindex="0">
 
-		<p>Traditur, inquit, ab Epicuro ratio neglegendi doloris. Ego vero volo in virtute vim esse quam maximam; Roges enim Aristonem, bonane ei videantur haec: vacuitas doloris, divitiae, valitudo; Cur deinde Metrodori liberos commendas? Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Dici enim nihil potest verius. Sed vos squalidius, illorum vides quam niteat oratio. Cave putes quicquam esse verius. Nam Pyrrho, Aristo, Erillus iam diu abiecti. Cum id fugiunt, re eadem defendunt, quae Peripatetici, verba. </p>
+					<?php if ( has_post_thumbnail( $related ) ) : ?>
+						<?php echo wp_get_attachment_image( $post_thumb_id, 'medium_large' ); ?>
+					<?php endif; ?>
 
-		<p>Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; Quae similitudo in genere etiam humano apparet. Fatebuntur Stoici haec omnia dicta esse praeclare, neque eam causam Zenoni desciscendi fuisse. Quae est igitur causa istarum angustiarum? Coniunctio autem cum honestate vel voluptatis vel non dolendi id ipsum honestum, quod amplecti vult, id efficit turpe. Quodsi ipsam honestatem undique pertectam atque absolutam. Nos cum te, M. Primum divisit ineleganter; Si alia sentit, inquam, alia loquitur, numquam intellegam quid sentiat; Nihilne te delectat umquam -video, quicum loquar-, te igitur, Torquate, ipsum per se nihil delectat? Itaque haec cum illis est dissensio, cum Peripateticis nulla sane. Atque hoc loco similitudines eas, quibus illi uti solent, dissimillimas proferebas. </p>
+					<h3 class="h1">
+						<a href="<?php echo get_the_permalink( $post_id ); ?>">
+							<?php echo get_the_title( $post_id ); ?>
+						</a>
+					</h3>
+
+					<div class="entry-content">
+						<?php echo \WDS\Blocks\template_tags\block_helpers\block_get_excerpt( $related ); ?>
+					</div>
+				</li>
+			<?php endforeach; ?>
+		</ul>
 	</section>
 	<!-- /wp:wds/related-posts -->
-	<?php
 
+	<?php
 	return ob_get_clean();
 }
-register_block_type( 'wds/related-posts', [ 'render_callback' => __NAMESPACE__ . '\\render_block' ] );
+
+/**
+ * Registers the `wds/related-posts` block on server.
+ */
+function register_block() {
+
+	// Required to render output in editor.
+	register_block_type( 'wds/related-posts', array(
+		'attributes'      => array(
+			'className'           => array(
+				'type'     => 'string',
+				'defautlt' => 'wp-block-wds-related-posts',
+			),
+			'selectedResultsJSON' => array(
+				'type' => 'string',
+			),
+			'selectedResults'     => array(
+				'type'     => 'array',
+				'source'   => 'children',
+				'selector' => '.search-right-column',
+			),
+			'queryFor'            => array(
+				'type'    => 'string',
+				'default' => 'posts',
+			),
+			'blockTitle'          => array(
+				'type' => 'string',
+			),
+			'backgroundType'      => array(
+				'type' => 'string',
+			),
+			'backgroundImage'     => array(
+				'type' => 'object',
+			),
+			'backgroundVideo'     => array(
+				'type' => 'object',
+			),
+			'backgroundColor'     => array(
+				'type' => 'string',
+			),
+			'animationType'       => array(
+				'type' => 'string',
+			),
+			'textColor'           => array(
+				'type' => 'string',
+			),
+		),
+		'render_callback' => __NAMESPACE__ . '\\render_block',
+	));
+}
+
+add_action( 'init', __NAMESPACE__ . '\\register_block' );

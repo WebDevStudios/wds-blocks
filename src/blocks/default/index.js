@@ -15,21 +15,23 @@ import classnames from 'classnames'; // Import NPM libraries here.
  */
 const { __ } = wp.i18n;
 const {
-	InspectorControls,
 	registerBlockType,
-	RichText,
 } = wp.blocks;
+
+const {
+	InspectorControls,
+	RichText,
+} = wp.editor;
 
 /**
  * Internal dependencies
  */
-import './style.scss';
 
 // Import all of our Background Options requirements.
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles, TextOptionsClasses } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
@@ -45,7 +47,7 @@ import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../..
  */
 export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lowercase, hyphenated.
 	// Localize title using wp.i18n.__()
-	title: __( 'WDS Default Block: Duplicate Me' ),
+	title: __( 'Default Block: Duplicate Me (WDS)' ),
 	// Description: Write a quick description.
 	description: __( 'Optional description.' ),
 	// Category options: common, formatting, layout, widgets, embed.
@@ -79,7 +81,7 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 		};
 		// Return the markup displayed in the editor, including a core Editable field.
 		return [
-			!! props.focus && (
+			!! props.isSelected && (
 				<InspectorControls key="inspector">
 					{ BackgroundOptions( props ) }
 					{ TextOptions( props ) }
@@ -92,6 +94,7 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 					props.className,
 					...BackgroundOptionsClasses( props ),
 					...OtherOptionsClasses( props ),
+					...TextOptionsClasses( props ),
 				) }
 				style={ {
 					...BackgroundOptionsInlineStyles( props ),
@@ -118,8 +121,6 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 					placeholder={ __( 'To customize this block, click on "Show Advanced Settings"' ) }
 					onChange={ setMessageAttribute }
 					value={ props.attributes.message }
-					focus={ props.focus }
-					onFocus={ props.setFocus }
 				/>
 			</section>,
 		];

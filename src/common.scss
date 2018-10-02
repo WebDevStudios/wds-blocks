@@ -1,18 +1,14 @@
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
+//--------------------------------------------------------------
+// Common Styles SCSS
+// Imoported from sass folder parials.
+//--------------------------------------------------------------
+@import 'sass/breakpoints.scss';
+@import 'sass/colors.scss';
+@import 'sass/fonts.scss';
+@import 'sass/full-width.scss';
+@import 'sass/global-blocks.scss';
 
-// Fonts & basics
-$default-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-$default-font-size: 13px;
 
-// Colors.
-$light-gray-100: #f8f9f9;
-$black: rgb(41, 41, 41);
-$white: #f4f4f4;
-$gray: #dedede;
-$green: #bada55;
-$red: orangered;
+
+
+

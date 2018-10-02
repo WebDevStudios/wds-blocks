@@ -1,0 +1,41 @@
+//--------------------------------------------------------------
+// Block Styles
+//
+// Default styles for this block.
+// Appears on both front and back-end.
+//--------------------------------------------------------------
+.wp-block-wds-recent-posts {
+
+	ul {
+		&.alignleft {
+			margin-right: 2em;
+		}
+
+		&.aligncenter {
+			text-align: center;
+		}
+
+		&.alignright {
+			margin-left: 2em;
+		}
+
+		&.is-grid {
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			padding: 0;
+
+			li {
+				margin: 0 16px 16px 0;
+				width: 100%;
+			}
+		}
+
+		@for $i from 2 through 6 {
+			&.columns-#{ $i } li {
+				width: calc( ( 100% / #{ $i } ) - 16px );
+			}
+		}
+	}
+}
+

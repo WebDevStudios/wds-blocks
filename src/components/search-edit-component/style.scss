@@ -1,0 +1,48 @@
+//--------------------------------------------------------------
+// Results Grid Layout Styles
+//
+// Default styles for this block.
+// Appears on both front and back-end.
+//--------------------------------------------------------------
+
+.wds-search-component-container {
+
+	.search-container-list > .search-selected-container {
+		padding: 0.625rem 0.625rem 0;
+	} // .search-container-list > .search-selected-container
+
+	.search-selected-container {
+		display: flex;
+		flex-flow: row wrap;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+
+		li {
+			flex: 0 0 31.333%;
+			list-style: none;
+			margin-bottom: 1.5625rem;
+			margin-right: 3%;
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+
+			h3 {
+				line-height: 1.125;
+				margin-top: 0;
+			} // h3
+
+			p {
+				font-size: 0.875rem;
+				line-height: 1.5;
+				margin-bottom: 0;
+			} // p
+
+			a {
+				color: inherit;
+			} // a
+		} // li
+	} // .search-selected-container
+} // .wds-search-component-container
