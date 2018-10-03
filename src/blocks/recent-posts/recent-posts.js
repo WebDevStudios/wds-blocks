@@ -10,7 +10,6 @@ import classnames from 'classnames';
  * WordPress dependencies
  */
 const { Component } = wp.element;
-
 const {
 	PanelBody,
 	Placeholder,
