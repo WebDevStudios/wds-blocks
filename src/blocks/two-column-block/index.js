@@ -306,6 +306,15 @@ export default registerBlockType( 'wds/two-column', { // Namespaced with 'wds/',
 					displayLeftContent(),
 					displayRightContent(),
 				];
+			} else if ('image-image' === props.attributes.layout || ! props.attributes.layout ) {
+				if ( props.attributes.columnOrder ) {
+					return [
+						displayRightContent(),
+						displayLeftContent(),
+					];
+				}
+
+				return false;
 			}
 		}
 
