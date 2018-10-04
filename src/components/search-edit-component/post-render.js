@@ -1,14 +1,11 @@
+// Import all of our Text Options requirements.
+import { TextOptionsInlineStyles } from '../../components/text-options';
+
 /**
  * WordPress dependencies
 */
-const {
-	withAPIData,
-} = wp.components;
-
 const { Component } = wp.element;
-
-// Import all of our Text Options requirements.
-import { TextOptionsInlineStyles } from '../../components/text-options';
+const { withSelect } = wp.data;
 
 class PostRenderer extends Component {
 	constructor( props ) {
@@ -73,7 +70,7 @@ class PostRenderer extends Component {
 	}
 
 	render() {
-		const selectedResults = this.props.selectedResultsJSONAlt.data;
+		const selectedResults = JSON.parse( this.props.posts );
 
 		return (
 			( undefined !== selectedResults && 0 < selectedResults.length ) ? (
@@ -87,11 +84,12 @@ class PostRenderer extends Component {
 	}
 }
 
-export default withAPIData( ( props ) => {
-	const { posts } = props;
+export default withSelect( ( select, props ) => {
+	const { posts } = props,
+		postsArray = JSON.parse( posts );
 
-	if ( undefined !== posts && '[]' !== posts ) {
-		const selectedResultsQuery = JSON.parse( posts ).map( item => {
+	if ( undefined !== postsArray && '[]' !== postsArray ) {
+		const selectedResultsQuery = postsArray.map( item => {
 			return `include[]=${ item.id }&orderby=include`;
 		} );
 
@@ -99,7 +97,7 @@ export default withAPIData( ( props ) => {
 			const selectedResultsFilter = selectedResultsQuery.join( '&' );
 
 			return {
-				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`,
+				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`
 			};
 		}
 	}
