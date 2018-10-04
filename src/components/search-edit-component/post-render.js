@@ -1,16 +1,11 @@
+// Import all of our Text Options requirements.
+import { TextOptionsInlineStyles } from '../../components/text-options';
+
 /**
  * WordPress dependencies
 */
-import { isUndefined, pickBy } from 'lodash';
-
-const {
-	withSelect,
-} = wp.data;
-
 const { Component } = wp.element;
-
-// Import all of our Text Options requirements.
-import { TextOptionsInlineStyles } from '../../components/text-options';
+const { withSelect } = wp.data;
 
 class PostRenderer extends Component {
 	constructor( props ) {
@@ -75,10 +70,10 @@ class PostRenderer extends Component {
 	}
 
 	render() {
-		const selectedResults = this.props.selectedResults;
+		const selectedResults = JSON.parse( this.props.posts );
 
 		return (
-			( undefined !== selectedResults && null !== selectedResults ) ? (
+			( undefined !== selectedResults && 0 < selectedResults.length ) ? (
 				selectedResults.map( post =>
 					this.displayResultMarkup( post )
 				)
@@ -90,25 +85,19 @@ class PostRenderer extends Component {
 }
 
 export default withSelect( ( select, props ) => {
-	const { posts } = props;
-	const { getEntityRecords } = select( 'core' );
+	const { posts } = props,
+		postsArray = JSON.parse( posts );
 
-	if ( undefined !== posts && '[]' !== posts ) {
-		const selectedResultsQuery = JSON.parse( posts ).map( item => {
-			return item.id;
+	if ( undefined !== postsArray && '[]' !== postsArray ) {
+		const selectedResultsQuery = postsArray.map( item => {
+			return `include[]=${ item.id }&orderby=include`;
 		} );
 
 		if ( 0 < selectedResultsQuery.length ) {
-			const postQuery = pickBy( {
-				_embed: 'embed',
-				orderby: 'include',
-				include: selectedResultsQuery,
-			}, ( value ) => ! isUndefined( value ) );
-
-			const queryType = props.attributes.queryFor.slice( 0, -1 );
+			const selectedResultsFilter = selectedResultsQuery.join( '&' );
 
 			return {
-				selectedResults: getEntityRecords( 'postType', queryType, postQuery ),
+				selectedResultsJSONAlt: `/wp/v2/${ props.attributes.queryFor }?_embed&${ selectedResultsFilter }&orderby=include`,
 			};
 		}
 	}

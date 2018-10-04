@@ -1,8 +1,8 @@
 /**
  * External dependencies
  */
-import { isUndefined, pickBy } from 'lodash';
-
+import isUndefined from 'lodash/isUndefined';
+import pickBy from 'lodash/pickBy';
 import moment from 'moment';
 import classnames from 'classnames';
 
@@ -10,7 +10,6 @@ import classnames from 'classnames';
  * WordPress dependencies
  */
 const { Component } = wp.element;
-
 const {
 	PanelBody,
 	Placeholder,
@@ -20,15 +19,14 @@ const {
 	ToggleControl,
 	Toolbar,
 } = wp.components;
-const { withSelect } = wp.data;
 const { __ } = wp.i18n;
 const { decodeEntities } = wp.htmlEntities;
-
 const {
 	InspectorControls,
 	BlockControls,
 	BlockAlignmentToolbar,
 } = wp.editor;
+const { withSelect } = wp.data;
 
 /**
  * Internal dependencies
@@ -49,7 +47,7 @@ import MultiSelect from '../../components/multiselect';
 import BackgroundOptions, { BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import TextOptions, { TextOptionsInlineStyles } from '../../components/text-options';
+import TextOptions, { TextOptionsInlineStyles, TextOptionsClasses } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsClasses } from '../../components/other-options';
@@ -84,8 +82,7 @@ class RecentPostsBlock extends Component {
 	render() {
 		const maxItems = DEFAULT_MAX_ITEMS;
 		const minItems = DEFAULT_MIN_ITEMS;
-		const latestPosts = this.props.latestPosts;
-		const { attributes, setAttributes } = this.props;
+		const { attributes, setAttributes, latestPosts } = this.props;
 		const { displayPostDate, align, postLayout, columns, order, orderby, postsToShow } = attributes;
 
 		const inspectorControls = !! this.props.isSelected && (
@@ -228,6 +225,7 @@ class RecentPostsBlock extends Component {
 					this.props.className,
 					...BackgroundOptionsClasses( this.props ),
 					...OtherOptionsClasses( this.props ),
+					...TextOptionsClasses( this.props ),
 				) }
 				style={ {
 					...BackgroundOptionsInlineStyles( this.props ),
@@ -287,14 +285,13 @@ class RecentPostsBlock extends Component {
 
 export default withSelect( ( select, props ) => {
 	const { postsToShow, order, orderby, taxonomies } = props.attributes;
-	const { getEntityRecords } = select( 'core' );
-
 	const decodedTaxonomies = taxonomies ? JSON.parse( taxonomies ) : {};
 
 	// This can be made to be much more flexible and allow for custom taxonomies and the like. Phase 2!
 	const tags = decodedTaxonomies.post_tag && 0 < decodedTaxonomies.post_tag.length ? decodedTaxonomies.post_tag.map( tag => tag.id ) : undefined;
 	const categories = decodedTaxonomies.category && 0 < decodedTaxonomies.category.length ? decodedTaxonomies.category.map( category => category.id ) : undefined;
 
+	const { getEntityRecords } = select( 'core' );
 	const latestPostsQuery = pickBy( {
 		_embed: 'embed',
 		orderby,

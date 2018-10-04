@@ -26,7 +26,7 @@ import BlockTitle from '../../components/block-title';
 import BackgroundOptions, { BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import TextOptions, { TextOptionsInlineStyles } from '../../components/text-options';
+import TextOptions, { TextOptionsInlineStyles, TextOptionsClasses } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsClasses } from '../../components/other-options';
@@ -213,6 +213,7 @@ class SearchEditComponent extends Component {
 					'wds-search-component-container',
 					...BackgroundOptionsClasses( this.props ),
 					...OtherOptionsClasses( this.props ),
+					...TextOptionsClasses( this.props ),
 				) }
 				style={ ! this.props.isSelected && JSON.parse( this.state.selectedResultsJSON ).length > 0 ? {
 					...BackgroundOptionsInlineStyles( this.props ),

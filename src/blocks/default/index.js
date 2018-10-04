@@ -31,7 +31,7 @@ const {
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles, TextOptionsClasses } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
@@ -94,6 +94,7 @@ export default registerBlockType( 'wds/default', { // Namespaced with 'wds/', lo
 					props.className,
 					...BackgroundOptionsClasses( props ),
 					...OtherOptionsClasses( props ),
+					...TextOptionsClasses( props ),
 				) }
 				style={ {
 					...BackgroundOptionsInlineStyles( props ),

@@ -63,6 +63,7 @@ function display_block_options( $attributes ) {
 	// Set the custom font color.
 	if ( $attributes['textColor'] ) {
 		$inline_style .= 'color: ' . $attributes['textColor'] . '; ';
+		$attributes['class'] .= ' has-custom-font-color';
 	}
 
 	// Set the custom css class.
