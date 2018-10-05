@@ -35,7 +35,7 @@ function TextOptions( props ) {
 		>
 			<PanelRow>
 				<div className="wds-text-option">
-					<p>
+					<div>
 						<PanelColor
 							title={ __( 'Text Color' ) }
 							colorValue={ props.attributes.textColor }
@@ -45,10 +45,10 @@ function TextOptions( props ) {
 								onChange={ setTextColor }
 							/>
 						</PanelColor>
-					</p>
-					<p>
+					</div>
+					<div>
 						{ __( 'Change the text color of this block.' ) }
-					</p>
+					</div>
 				</div>
 			</PanelRow>
 		</PanelBody>
