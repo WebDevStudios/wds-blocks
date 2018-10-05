@@ -12,10 +12,15 @@ class DropDown extends Component {
 		};
 	}
 
-	componentWillReceiveProps( nextProps ) {
+	static getDerivedStateFromProps( nextProps, prevState ) {
+
 		if ( nextProps.selectedItems !== undefined ) {
-			this.setState( { selectedItems: nextProps.selectedItems } );
+			return {
+				selectedItems: nextProps.selectedItems
+			};
 		}
+
+		return null;
 	}
 
 	render() {
