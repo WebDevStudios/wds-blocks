@@ -33,7 +33,7 @@ function OtherOptions( props ) {
 		>
 			<PanelRow>
 				<div className="wds-animation-type">
-					<p>
+					<div>
 						<SelectControl
 							key="animation-type"
 							label={ __( 'Animation Type' ) }
@@ -351,10 +351,10 @@ function OtherOptions( props ) {
 							] }
 							onChange={ setAnimationType }
 						/>
-					</p>
-					<p>
+					</div>
+					<div>
 						{ __( 'Select the animation for this block. Animations can only be applied to the entire block, not to individual elements.' ) }
-					</p>
+					</div>
 				</div>
 			</PanelRow>
 
