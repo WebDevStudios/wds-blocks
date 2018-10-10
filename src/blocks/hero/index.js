@@ -9,12 +9,15 @@
  */
 const { __ } = wp.i18n;
 const {
+	registerBlockType,
+} = wp.blocks;
+
+const {
 	AlignmentToolbar,
 	BlockControls,
 	InspectorControls,
-	registerBlockType,
 	RichText,
-} = wp.blocks;
+} = wp.editor;
 
 /**
  * Internal dependencies
@@ -30,7 +33,7 @@ import BlockTitle, { BlockTitleAttributes, BlockTitleOutput } from '../../compon
 import BackgroundOptions, { BackgroundOptionsAttributes, BackgroundOptionsClasses, BackgroundOptionsInlineStyles, BackgroundOptionsVideoOutput } from '../../components/background-options';
 
 // Import all of our Text Options requirements.
-import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles } from '../../components/text-options';
+import TextOptions, { TextOptionsAttributes, TextOptionsInlineStyles, TextOptionsClasses } from '../../components/text-options';
 
 // Import all of our Other Options requirements.
 import OtherOptions, { OtherOptionsAttributes, OtherOptionsClasses } from '../../components/other-options';
@@ -52,11 +55,11 @@ export default registerBlockType(
 	'wds/hero',
 	{
 		// Localize title using wp.i18n.__()
-		title: __( 'WDS Hero Block' ),
+		title: __( 'Hero Block (WDS)' ),
 		// Description: Write a quick description.
-		description: __( 'A full-width hero with a video, image, or color background.' ),
+		description: __( 'A block to display a full-width hero with a video, image, or color background.' ),
 		// Category options: common, formatting, layout, widgets, embed.
-		category: 'common',
+		category: 'wds-blocks',
 		// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
 		icon: 'format-image',
 		// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.
@@ -122,6 +125,7 @@ export default registerBlockType(
 						props.className,
 						...BackgroundOptionsClasses( props ),
 						...OtherOptionsClasses( props ),
+						...TextOptionsClasses( props ),
 					) }
 					style={ {
 						...BackgroundOptionsInlineStyles( props ),
@@ -142,8 +146,6 @@ export default registerBlockType(
 						placeholder={ __( 'Click here to add paragraph text. To customize this block, click on "Show Advanced Settings"' ) }
 						onChange={ onChangeMessage }
 						value={ props.attributes.message }
-						focus={ props.isSelected }
-						onFocus={ props.setFocus }
 						style={ {
 							textAlign: props.attributes.alignment,
 						} }

@@ -15,7 +15,7 @@ import { BlockTitleOutput } from './title';
  */
 export {
 	BlockTitleAttributes,
-	BlockTitleOutput,
+	BlockTitleOutput
 };
 
 /**
@@ -26,8 +26,8 @@ const { __ } = wp.i18n;
 const { Component } = wp.element;
 
 const {
-	PlainText,
-} = wp.blocks;
+	PlainText
+} = wp.editor;
 
 export default class BlockTitle extends Component {
 	onChangeBlockTitle = value => {
@@ -40,7 +40,7 @@ export default class BlockTitle extends Component {
 			<header className="content-block-header">
 				<h2
 					style={ {
-						color: this.props.attributes.textColor ? this.props.attributes.textColor : null,
+						color: this.props.attributes.textColor ? this.props.attributes.textColor : null
 					} }
 				>
 					<PlainText
@@ -53,6 +53,7 @@ export default class BlockTitle extends Component {
 						placeholder={ this.props.placeholder ? this.props.placeholder : __( 'Block Title (optional)' ) }
 						style={ {
 							textAlign: this.props.attributes.alignment,
+							color: this.props.attributes.textColor ? this.props.attributes.textColor : null
 						} }
 					/>
 				</h2>

@@ -4,7 +4,9 @@ class Search extends Component {
 	constructor( props ) {
 		super( props );
 
-		this.apiQueryURL = ( query ) => wpApiSettings.root + `wp/v2/posts?search=${ query }&filter[posts_per_page]=-1`;
+		const queryFor = props.queryFor ? props.queryFor : 'posts';
+
+		this.apiQueryURL = ( query ) => wpApiSettings.root + `wp/v2/${ queryFor }?search=${ query }&filter[posts_per_page]=-1`;
 
 		this.setQuery = this.setQuery.bind( this );
 		this.debounce = this.debounce.bind( this );

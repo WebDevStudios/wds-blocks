@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { ColorPalette } = wp.blocks;
+const { ColorPalette } = wp.editor;
 const {
 	PanelBody,
 	PanelColor,
@@ -14,12 +14,14 @@ const {
  */
 import TextOptionsAttributes from './attributes';
 import TextOptionsInlineStyles from './inline-styles';
+import TextOptionsClasses from './classes';
 import './editor.scss';
 
 // Export for ease of importing in individual blocks.
 export {
 	TextOptionsAttributes,
 	TextOptionsInlineStyles,
+	TextOptionsClasses
 };
 
 function TextOptions( props ) {
@@ -33,7 +35,7 @@ function TextOptions( props ) {
 		>
 			<PanelRow>
 				<div className="wds-text-option">
-					<p>
+					<div>
 						<PanelColor
 							title={ __( 'Text Color' ) }
 							colorValue={ props.attributes.textColor }
@@ -43,10 +45,10 @@ function TextOptions( props ) {
 								onChange={ setTextColor }
 							/>
 						</PanelColor>
-					</p>
-					<p>
+					</div>
+					<div>
 						{ __( 'Change the text color of this block.' ) }
-					</p>
+					</div>
 				</div>
 			</PanelRow>
 		</PanelBody>

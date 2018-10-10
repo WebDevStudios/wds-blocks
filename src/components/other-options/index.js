@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { description } = wp.blocks;
+
 const {
 	PanelBody,
 	PanelRow,
@@ -33,7 +33,7 @@ function OtherOptions( props ) {
 		>
 			<PanelRow>
 				<div className="wds-animation-type">
-					<p>
+					<div>
 						<SelectControl
 							key="animation-type"
 							label={ __( 'Animation Type' ) }
@@ -351,12 +351,10 @@ function OtherOptions( props ) {
 							] }
 							onChange={ setAnimationType }
 						/>
-					</p>
-					<p>
-						<description>
-							{ __( 'Select the animation for this block. Animations can only be applied to the entire block, not to individual elements.' ) }
-						</description>
-					</p>
+					</div>
+					<div>
+						{ __( 'Select the animation for this block. Animations can only be applied to the entire block, not to individual elements.' ) }
+					</div>
 				</div>
 			</PanelRow>
 

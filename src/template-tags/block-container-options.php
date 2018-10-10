@@ -2,11 +2,10 @@
 /**
  * Helper functions for rendering dynamic blocks.
  *
- * @package WDS_Gutenberg
- * @since NEXT
+ * @package WDS_Blocks
  */
 
-namespace WDS\Gutenberg\template_tags\block_container_options;
+namespace WDS\Blocks\template_tags\block_container_options;
 
 /**
  * Displays the opening tag for a custom block.
@@ -64,6 +63,7 @@ function display_block_options( $attributes ) {
 	// Set the custom font color.
 	if ( $attributes['textColor'] ) {
 		$inline_style .= 'color: ' . $attributes['textColor'] . '; ';
+		$attributes['class'] .= ' has-custom-font-color';
 	}
 
 	// Set the custom css class.

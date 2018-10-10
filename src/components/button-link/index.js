@@ -14,9 +14,9 @@ const { __ } = wp.i18n;
 
 const { Component } = wp.element;
 
-const { PlainText, UrlInput } = wp.blocks;
+const { PlainText, URLInput } = wp.editor;
 
-const { Button, IconButton, Dashicon } = wp.components;
+const { IconButton, Dashicon } = wp.components;
 
 /**
  * Create a button component
@@ -36,7 +36,9 @@ export default class ButtonLink extends Component {
 
 	render() {
 		return (
-			<Button className={ 'button wds-button-component button-large' }>
+			<div
+				className={ 'button wds-button-component button-large' }
+			>
 				<PlainText
 					value={ this.props.attributes.buttonText }
 					placeholder={
@@ -51,13 +53,13 @@ export default class ButtonLink extends Component {
 					onSubmit={ event => event.preventDefault() }
 				>
 					<Dashicon icon="admin-links" />
-					<UrlInput
+					<URLInput
 						value={ this.props.attributes.buttonUrl }
 						onChange={ this.onChangeButtonURL }
 					/>
 					<IconButton icon="editor-break" label={ __( 'Apply' ) } type="submit" />
 				</form>
-			</Button>
+			</div>
 		);
 	}
 }

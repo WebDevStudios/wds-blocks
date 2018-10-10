@@ -4,16 +4,26 @@
 // Additional styles necessary to assist the editor.
 //--------------------------------------------------------------
 
-.gist-block-controls {
-	padding: 2px;
+.wp-block-wds-gihub-gist {
+	display: block;
+	margin: 0 0 1.875rem 0;
+	overflow: hidden;
+} // .wp-block-wds-gihub-gist
 
-	input[type="url"] {
+.editor-block-contextual-toolbar .editor-block-toolbar {
+	width: 100%;
+} // .editor-block-contextual-toolbar .editor-block-toolbar
+
+.gist-block-controls {
+	padding: 0.125rem;
+
+	input[type='url'] {
 		min-width: 300px;
 
 		@include media($tablet-portrait) {
-			min-width: 350px;
+			min-width: 450px;
 		}
-	} // input[type="url"]
+	} // input[type='url']
 
 	.button {
 		font-family: $default-font;

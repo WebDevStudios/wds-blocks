@@ -9,7 +9,8 @@ import jsonp from 'jsonp';
 const { __ } = wp.i18n;
 const { Component } = wp.element;
 const { Button, Spinner } = wp.components;
-const { registerBlockType, BlockControls } = wp.blocks;
+const { registerBlockType } = wp.blocks;
+const { BlockControls } = wp.editor;
 
 /**
  * Internal dependencies
@@ -29,9 +30,10 @@ import './editor.scss';
  *                             registered; otherwise `undefined`.
  */
 registerBlockType( 'wds/gihub-gist', {
-	title: __( 'GitHub Gist' ),
+	title: __( 'GitHub Gist Block (WDS)' ),
+	description: __( 'A block to embed a Gist via URL.' ),
 	icon,
-	category: 'embed',
+	category: 'wds-blocks',
 	supportHTML: false,
 	attributes: {
 		url: {
@@ -51,7 +53,7 @@ registerBlockType( 'wds/gihub-gist', {
 			};
 		}
 
-		componentWillMount() {
+		componentDidMount() {
 			if ( this.props.attributes.url ) {
 				this.fetchGistAndSetState();
 			}

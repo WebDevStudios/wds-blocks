@@ -1,6 +1,21 @@
 //--------------------------------------------------------------
-// Editor Styles for Related Posts
+// Editor Styles
 //
 // Additional styles necessary to assist the editor.
 // Enqueued after style.scss.
 //--------------------------------------------------------------
+.wp-block-wds-recent-posts {
+
+	ul {
+
+		li {
+			list-style: none;
+		}
+
+		@for $i from 2 through 6 {
+			&.columns-#{ $i } li {
+				width: calc( ( 100% / #{ $i } ) - 16px );
+			}
+		}
+	}
+}
