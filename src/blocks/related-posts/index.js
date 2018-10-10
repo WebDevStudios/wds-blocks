@@ -51,7 +51,7 @@ export default registerBlockType( 'wds/related-posts', { // Namespaced with 'wds
 	// Description: Write a quick description.
 	description: __( 'A block to display manually selected related posts.' ),
 	// Category options: common, formatting, layout, widgets, embed.
-	category: 'widgets',
+	category: 'wds-blocks',
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
 	icon: 'admin-post',
 	// Limit to 3 keywords/phrases. Users will see your block when they search using these keywords.

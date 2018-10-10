@@ -5,7 +5,7 @@
  * Description: WebDevStudios library of Gutenberg blocks.
  * Author:      WebDevStudios
  * Author URI:  https://webdevstudios.com/
- * Version:     1.0.6
+ * Version:     1.0.7
  * License:     GPL3+
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */

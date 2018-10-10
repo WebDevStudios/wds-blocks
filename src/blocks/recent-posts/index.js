@@ -32,7 +32,7 @@ export default registerBlockType( 'wds/recent-posts', { // Namespaced with 'wds/
 	description: __( 'A block to display your site\'s most recent posts.' ),
 
 	// Category options: common, formatting, layout, widgets, embed.
-	category: 'widgets',
+	category: 'wds-blocks',
 
 	// Can use a Dashicon (see https://developer.wordpress.org/resource/dashicons/) or an imported SVG.
 	icon: 'clock',
