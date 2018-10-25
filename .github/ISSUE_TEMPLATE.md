@@ -1,8 +1,8 @@
-### Expected behaivor ###
+### Expected behavior ###
 
-### Actual behaivor ###
+### Actual behavior ###
 
-### Steps to repoduce error ###
+### Steps to reproduce error ###
 
 ### Screenshots of error ###
 
