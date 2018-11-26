@@ -42,7 +42,7 @@ function enqueue_block_editor_assets() {
 	wp_enqueue_script(
 		'wds-blocks-editor-js',
 		plugins_url( 'dist/blocks.build.js', __DIR__ ),
-		[ 'wp-blocks', 'wp-i18n', 'wp-element' ], // Dependencies, defined above.
+		[ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' ], // Dependencies, defined above.
 		filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' )
 	);
 
