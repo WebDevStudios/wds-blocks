@@ -1,17 +1,23 @@
-Closes #__
+Closes #[Link to Github issue]
 
-### DESCRIPTION ###
-- What did you do? Give us some context...
+### Link
 
-### SCREENSHOTS ###
-![screenshot](http://link.to.png/)
+Do you have a link to what you built?
 
-### OTHER ###
-- [ ] Is this issue accessible? (Section 508/WCAG 2.0AA)
-- [ ] Does this issue pass linting? (ESLint)
+### Description
 
-### STEPS TO VERIFY ###
-How do we test this?
+What did you do? Give some context...
 
-### DOCUMENTATION ###
-Will this pull request require updating the WDS Blocks [wiki](https://github.com/WebDevStudios/wds-blocks/wiki)?
+### Screenshot
+
+![screenshot](https://link.to.png/)
+
+### Steps to verify the solution
+
+How will a stakeholder test this? Please list the steps.
+
+### Other
+
+- [ ] Is this issue accessible? (Section 508/WCAG 2.1AA)
+- [ ] Does this pass CrossBrowserTesting.com? (Edge, Safari, Chrome, Firefox)
+- [ ] Will this pull request require [updating the wiki?](https://github.com/WebDevStudios/wds-block-starter/wiki)
