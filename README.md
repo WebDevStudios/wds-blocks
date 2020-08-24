@@ -1,6 +1,6 @@
 # WDS Blocks
 
-[![buddy pipeline](https://app.buddy.works/webdevstudios/wds-blocks/pipelines/pipeline/145265/badge.svg?token=2471ae60766a1e9a657f772e493188dde748aa18c236d0b1c325e80be13a2ac6 "buddy pipeline")](https://app.buddy.works/webdevstudios/wds-blocks/pipelines/pipeline/145265)
+[![buddy pipeline](https://app.buddy.works/webdevstudios/wds-blocks/pipelines/pipeline/145265/badge.svg?token=2471ae60766a1e9a657f772e493188dde748aa18c236d0b1c325e80be13a2ac6 'buddy pipeline')](https://app.buddy.works/webdevstudios/wds-blocks/pipelines/pipeline/145265)
 
 WebDevStudios library of Gutenberg blocks.
 

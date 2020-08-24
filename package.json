@@ -23,35 +23,6 @@
 		"@wordpress/scripts": "^12.1.1",
 		"ignore-emit-webpack-plugin": "^2.0.3"
 	},
-	"eslintConfig": {
-		"extends": [
-			"plugin:@wordpress/eslint-plugin/esnext",
-			"plugin:@wordpress/eslint-plugin/react",
-			"@webdevstudios/js-coding-standards"
-		],
-		"ignorePatterns": [
-			"build/**",
-			"vendor/**"
-		]
-	},
-	"prettier": {
-		"extends": "@wordpress/prettier-config"
-	},
-	"stylelint": {
-		"extends": "stylelint-config-wordpress/scss",
-		"ignoreFiles": [
-			"build/**",
-			"vendor/**"
-		],
-		"rules": {
-			"block-no-empty": null,
-			"font-family-no-duplicate-names": null,
-			"font-family-no-missing-generic-family-keyword": null,
-			"max-line-length": null,
-			"no-descending-specificity": null,
-			"no-duplicate-selectors": null
-		}
-	},
 	"scripts": {
 		"start": "wp-scripts start",
 		"dev": "wp-scripts start",

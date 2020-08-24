@@ -1,4 +1,4 @@
-import { RichText } from "@wordpress/block-editor";
+import { RichText } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -7,18 +7,22 @@ import { RichText } from "@wordpress/block-editor";
  *
  * @author WebDevStudios
  * @since 2.0.0
- * @link https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
  *
  * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement} Element to render.
  */
-export default function Save(props) {
+export default function Save( props ) {
 	const {
 		attributes: { content },
 		className,
 	} = props;
 
 	return (
-		<RichText.Content className={className} tagName="p" value={content} />
+		<RichText.Content
+			className={ className }
+			tagName="p"
+			value={ content }
+		/>
 	);
 }

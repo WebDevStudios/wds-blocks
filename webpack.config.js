@@ -6,8 +6,7 @@
  * conditionally included and is not a requirement. It is safe to
  * delete this file.
  *
- * @link https://developer.wordpress.org/block-editor/packages/packages-scripts/#provide-your-own-webpack-config
- * @package WebDevStudios\BlockStarter
+ * @see https://developer.wordpress.org/block-editor/packages/packages-scripts/#provide-your-own-webpack-config
  */
 
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
@@ -31,8 +30,6 @@ module.exports = {
 	entry,
 	plugins: [
 		...defaultConfig.plugins,
-		new IgnoreEmitPlugin( [
-			'frontend.asset.php',
-		] ),
+		new IgnoreEmitPlugin( [ 'frontend.asset.php' ] ),
 	],
 };

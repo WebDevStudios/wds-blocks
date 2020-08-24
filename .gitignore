@@ -6,4 +6,3 @@ vendor/
 # Directories/files that may appear in your environment
 .DS_Store
 *.log
-.vscode/snipsnap.code-snippets
