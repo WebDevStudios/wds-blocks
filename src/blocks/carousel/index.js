@@ -15,7 +15,7 @@ registerBlockType('wdsblocks/carousel', {
     title: __('Carousel Block', 'wdsblocks'),
     icon: 'slides',
     category: 'wds-blocks',
-    keywords: [__('carousel', 'slider', 'wdsblocks')],
+    keywords: [__('carousel, slider', 'wdsblocks')],
     attributes: {},
     edit,
     save,
