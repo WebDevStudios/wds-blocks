@@ -37,8 +37,8 @@ export default function Edit( props ) {
 	};
 
 	return (
-		<div className={className}>
-			<InnerBlocks {...innerBlocksProps} />
+		<div className={ className }>
+			<InnerBlocks { ...innerBlocksProps } />
 		</div>
 	);
 }
