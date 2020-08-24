@@ -1,8 +1,8 @@
-# WDS Block Starter
+# WDS Blocks
 
-[![buddy pipeline](https://app.buddy.works/webdevstudios/wds-block-starter/pipelines/pipeline/240874/badge.svg?token=2471ae60766a1e9a657f772e493188dde748aa18c236d0b1c325e80be13a2ac6 "buddy pipeline")](https://app.buddy.works/webdevstudios/wds-block-starter/pipelines/pipeline/240874)
+[![buddy pipeline](https://app.buddy.works/webdevstudios/wds-blocks/pipelines/pipeline/145265/badge.svg?token=2471ae60766a1e9a657f772e493188dde748aa18c236d0b1c325e80be13a2ac6 "buddy pipeline")](https://app.buddy.works/webdevstudios/wds-blocks/pipelines/pipeline/145265)
 
-A Gutenberg block starter for WebDevStudios projects. For more info on the WordPress Block API, check out the [Gutenberg Handbook](https://developer.wordpress.org/block-editor/).
+WebDevStudios library of Gutenberg blocks.
 
 <a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. Your Success is Our Mission."></a>
 
@@ -15,21 +15,7 @@ _We highly recommend [NVM](https://github.com/nvm-sh/nvm) so you can easily swit
 
 ---
 
-## Setup
-
-### Automatic Installation
-
-Easily scaffold a block via CLI:
-
-```bash
-npx @webdevstudios/block WebDevStudios/TodoList
-cd todo-list
-npm run start
-```
-
-See [@webdevstudios/create-block](https://github.com/WebDevStudios/create-block) for more information and options.
-
-### Manual Installation
+## Installation
 
 Install dependencies:
 
