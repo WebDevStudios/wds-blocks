@@ -16,13 +16,7 @@ registerBlockType('wdsblocks/carousel', {
     icon: 'slides',
     category: 'wds-blocks',
     keywords: [__('carousel', 'slider', 'wdsblocks')],
-    attributes: {
-        content: {
-            type: 'array',
-            source: 'children',
-            selector: 'p',
-        },
-    },
+    attributes: {},
     edit,
     save,
 });
