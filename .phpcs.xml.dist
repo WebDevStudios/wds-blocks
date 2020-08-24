@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset name="WDSBlockStarter">
+	<!-- Set a description for this ruleset. -->
+	<description>A custom ruleset to take in account both WordPress and WebDevStudios code standards.</description>
+	<!-- Include the WordPress-Extra ruleset, with some WDS exclusions. -->
+	<rule ref="WebDevStudios">
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+	</rule>
+</ruleset>

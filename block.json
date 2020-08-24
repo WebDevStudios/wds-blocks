@@ -1,0 +1,14 @@
+{
+	"name": "wds-blocks",
+	"title": "WDS Blocks",
+	"category": "text",
+	"icon": "edit",
+	"description": "WebDevStudios library of Gutenberg blocks.",
+	"textdomain": "wdsblocks",
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}

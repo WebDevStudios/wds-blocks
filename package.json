@@ -1,19 +1,66 @@
 {
-	"name": "wds-blocks-cgb-guten-block",
-	"version": "1.0.7",
-	"private": true,
-	"scripts": {
-		"start": "cgb-scripts start",
-		"build": "cgb-scripts build",
-		"eject": "cgb-scripts eject"
+	"name": "wds-blocks",
+	"version": "2.0.0",
+	"description": "A block starter for WebDevStudios projects.",
+	"author": "WebDevStudios",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/WebDevStudios/WDS-Blocks/issues"
 	},
-	"dependencies": {
-		"cgb-scripts": "^1.9.7",
-		"classnames": "^2.2.5",
-		"jsonp": "^0.2.1",
-		"lodash": "^4.17.5",
-		"moment": "^2.22.1",
-		"prettier": "^1.11.1",
-		"querystringify": "^1.0.0"
+	"homepage": "https://github.com/WebDevStudios/WDS-Blocks#readme",
+	"main": "src/index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/WebDevStudios/WDS-Blocks"
+	},
+	"keywords": [
+		"Gutenberg"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"@webdevstudios/css-coding-standards": "^1.0.1",
+		"@webdevstudios/js-coding-standards": "^1.1.1",
+		"@wordpress/scripts": "^12.1.1",
+		"ignore-emit-webpack-plugin": "^2.0.3"
+	},
+	"eslintConfig": {
+		"extends": [
+			"plugin:@wordpress/eslint-plugin/esnext",
+			"plugin:@wordpress/eslint-plugin/react",
+			"@webdevstudios/js-coding-standards"
+		],
+		"ignorePatterns": [
+			"build/**",
+			"vendor/**"
+		]
+	},
+	"prettier": {
+		"extends": "@wordpress/prettier-config"
+	},
+	"stylelint": {
+		"extends": "stylelint-config-wordpress/scss",
+		"ignoreFiles": [
+			"build/**",
+			"vendor/**"
+		],
+		"rules": {
+			"block-no-empty": null,
+			"font-family-no-duplicate-names": null,
+			"font-family-no-missing-generic-family-keyword": null,
+			"max-line-length": null,
+			"no-descending-specificity": null,
+			"no-duplicate-selectors": null
+		}
+	},
+	"scripts": {
+		"start": "wp-scripts start",
+		"dev": "wp-scripts start",
+		"watch": "wp-scripts start",
+		"build": "wp-scripts build",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"lint:php": "composer run lint",
+		"packages-update": "wp-scripts packages-update",
+		"postinstall": "wp-scripts build && composer install"
 	}
 }

@@ -1,0 +1,24 @@
+{
+	"name": "webdevstudios/blocks",
+	"description": "WebDevStudios library of Gutenberg blocks.",
+	"type": "wordpress-plugin",
+	"license": "GPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "WebDevStudios",
+			"email": "contact@webdevstudios.com"
+		}
+	],
+	"minimum-stability": "stable",
+	"require": {},
+	"require-dev": {
+		"webdevstudios/php-coding-standards": "^1.0",
+		"phpcompatibility/php-compatibility": "^9.3"
+	},
+	"scripts": {
+		"lint": "composer run compat && composer run lint:php",
+		"format": "./vendor/bin/phpcbf -p -v . --standard=.phpcs.xml.dist --extensions=php --report-summary --report-source --ignore='*/node_modules/*,*/vendor/*,*/build/*'",
+		"lint:php": "./vendor/bin/phpcs -p -s -n . --standard=.phpcs.xml.dist --extensions=php -n --colors --ignore='*/node_modules/*,*/vendor/*,*/build/*'",
+		"compat": "./vendor/bin/phpcs -p . --standard=PHPCompatibility --extensions=php --runtime-set testVersion 7.4 --ignore='.github/*,vendor/*' --warning-severity=8 -d memory_limit=4096M || true || exit"
+	}
+}

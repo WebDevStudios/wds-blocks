@@ -1,51 +1,92 @@
 <?php
 /**
  * Plugin Name: WDS Blocks
- * Plugin URI:  https://github.com/WebDevStudios/WDS-Blocks
+ * Plugin URI:  https://github.com/WebDevStudios/WDS-Blocks/
  * Description: WebDevStudios library of Gutenberg blocks.
- * Author:      WebDevStudios
- * Author URI:  https://webdevstudios.com/
- * Version:     1.0.7
- * License:     GPL3+
- * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Author: WebDevStudios
+ * Author URI: https://webdevstudios.com
+ * Version:     2.0.0
+ * License:     GPLv3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain: wdsblocks
+ * Domain Path: /languages
+ *
+ * @package WebDevStudios\Blocks
+ * @since 2.0.0
  */
 
-namespace WDS\Blocks;
+namespace WebDevStudios\Blocks;
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
- * If Gutenberg is not active, display an admin error message
- * and deactivate this plugin.
+ * Register the block with WordPress.
+ *
+ * @author WebDevStudios
+ * @since 2.0.0
  */
-function require_gutenberg() {
-	?>
-	<div class="error"><p><?php esc_html_e( 'WDS Blocks requires that the WordPress Gutenberg plugin is activated.', 'wds-blocks' ); ?></p></div>
-	<?php
+function register_block() {
 
-	deactivate_plugins( plugin_basename( __FILE__ ) );
-}
+	// Define our assets.
+	$editor_script   = 'build/index.js';
+	$editor_style    = 'build/index.css';
+	$frontend_style  = 'build/style-index.css';
+	$frontend_script = 'build/frontend.js';
 
-/**
- * Initializes plugin on plugins_loaded to
- * properly call function_exists.
- */
-function init_gutenberg() {
-
-	// @todo: When Gutenberg is rolled into WP core, change this to
-	// a version_compare() and update the error message.
-	if ( ! function_exists( 'register_block_type' ) ) {
-		add_action( 'admin_notices', __NAMESPACE__ . '\\require_gutenberg' );
-		return;
+	// Verify we have an editor script.
+	if ( ! file_exists( plugin_dir_path( __FILE__ ) . $editor_script ) ) {
+		wp_die( esc_html__( 'Whoops! You need to run `npm run build` for the WDS Block Starter first.', 'wdsblocks' ) );
 	}
 
-	/**
-	 * Initialize plugin.
-	 */
-	require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
+	// Autoload dependencies and version.
+	$asset_file = require plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
 
+	// Register editor script.
+	wp_register_script(
+		'wdsblocks-editor-script',
+		plugins_url( $editor_script, __FILE__ ),
+		$asset_file['dependencies'],
+		$asset_file['version'],
+		true
+	);
+
+	// Register editor style.
+	if ( file_exists( plugin_dir_path( __FILE__ ) . $editor_style ) ) {
+		wp_register_style(
+			'wdsblocks-editor-style',
+			plugins_url( $editor_style, __FILE__ ),
+			[ 'wp-edit-blocks' ],
+			filemtime( plugin_dir_path( __FILE__ ) . $editor_style )
+		);
+	}
+
+	// Register frontend style.
+	if ( file_exists( plugin_dir_path( __FILE__ ) . $frontend_style ) ) {
+		wp_register_style(
+			'wdsblocks-style',
+			plugins_url( $frontend_style, __FILE__ ),
+			[],
+			filemtime( plugin_dir_path( __FILE__ ) . $frontend_style )
+		);
+	}
+
+	// Register block with WordPress.
+	register_block_type( 'wdsblocks/rich-text-demo', array(
+		'editor_script' => 'wdsblocks-editor-script',
+		'editor_style'  => 'wdsblocks-editor-style',
+		'style'         => 'wdsblocks-style',
+	) );
+
+	// Register frontend script.
+	if ( file_exists( plugin_dir_path( __FILE__ ) . $frontend_script ) ) {
+		wp_enqueue_script(
+			'wdsblocks-frontend-script',
+			plugins_url( $frontend_script, __FILE__ ),
+			$asset_file['dependencies'],
+			$asset_file['version'],
+			true
+		);
+	}
 }
-add_action( 'plugins_loaded', __NAMESPACE__ . '\\init_gutenberg' );
+add_action( 'init', __NAMESPACE__ . '\register_block' );
