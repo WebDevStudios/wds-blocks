@@ -4,7 +4,7 @@ import './editor.scss';
 
 // Set up props for InnerBlocks component.
 const innerBlocksProps = {
-	// allowedBlocks: ['wdsblocks/carousel-slide'],
+	allowedBlocks: [ 'core/heading', 'core/paragraph', 'core/button', 'core/buttons' ],
 };
 
 /**
