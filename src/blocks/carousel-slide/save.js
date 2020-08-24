@@ -1,4 +1,4 @@
-import { RichText } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -14,15 +14,13 @@ import { RichText } from '@wordpress/block-editor';
  */
 export default function Save( props ) {
 	const {
-		attributes: { content },
+		attributes,
 		className,
 	} = props;
 
 	return (
-		<RichText.Content
-			className={ className }
-			tagName="p"
-			value={ content }
-		/>
+		<div className={ className }>
+			<InnerBlocks.Content />
+		</div>
 	);
 }
