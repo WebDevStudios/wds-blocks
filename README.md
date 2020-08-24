@@ -10,10 +10,39 @@ WebDevStudios library of Gutenberg blocks.
 
 -   [Node LTS](https://nodejs.org/en/)
 -   [Composer](https://getcomposer.org/)
-
-_We highly recommend [NVM](https://github.com/nvm-sh/nvm) so you can easily switch between Node versions._
+-   [WordPress 5.0+](https://wordpress.org)
 
 ---
+
+## Development
+
+Your [contributions](https://github.com/WebDevStudios/WDS-Blocks/blob/master/.github/CONTRIBUTING.md) are welcome. Here's a quick start guide to developing with WDS Blocks.
+
+### Quick Start
+
+There is a "Rich Text Block" which is intended to be a jumping off point.
+
+### File structure
+
+-   Blocks are stored in the `/src/blocks/` directory. These are the blocks that users can insert into posts in the wp-admin.
+
+Please use the following file naming convention for all blocks for consistency:
+
+    my-block
+        ├── edit.js       (describes the structure of your block in the context of the editor)
+        ├── editor.scss   (styles for the backend only)
+        ├── index.js      (required to register the block)
+        ├── save.js       (defines the way in which the different attributes should be combined)
+        └── style.scss    (styles for both frontend & backend)
+
+`index.js` is the only file that is required, since that's where the block is registered. Beyond any listed above, your block can also include additional files, as needed - just give them names that make sense.
+
+### How to add a new block
+
+1. Inside of `/src/blocks/`, duplicate the `rich-text` block and rename it.
+1. Inside of that new directory, open the `index.js` file. This is where the call to `registerBlockType()` to register the block needs to be.
+1. Inside of `/src/blocks.js`, add a line like the following to import your new block: `import './blocks/my-block';`. This will ensure that you're new block is included in the webpack build process.
+1. Namespace any PHP files using the name of your block, such as: `namespace WebDevStudios\Blocks\block\my_block;`.
 
 ## Installation
 
@@ -70,30 +99,3 @@ The optional `webpack.config.js` file includes the `@wordpress/scripts` defaults
 ## Contributing and Support
 
 Your contributions and [support tickets](https://github.com/WebDevStudios/wds-block-starter/issues) are welcome. Please see our [guidelines](https://github.com/WebDevStudios/wds-block-starter/blob/master/.github/CONTRIBUTING.md) before submitting a pull request.
-
----
-
-## Changelog
-
-### 1.1.1
-
--   Fix stylesheet enqueue
-
-### 1.1.0
-
--   Add support for Prettier
--   Add support for Stylelint
--   Add `block.json`
--   Improve alignment with Gutenberg's use of `@wordpress/scripts`
--   Improve PHP linting via Composer
--   Mention that `webpack.config.js` is optional
-
-### 1.0.0
-
--   Add support for @wordpress/scripts `12.1.1`
--   Update webpack config
--   Add import statements for SCSS files
-
-### 0.0.1
-
--   Initial block starter setup.
