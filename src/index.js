@@ -10,3 +10,4 @@
  */
 
 import './blocks/rich-text';
+import './blocks/carousel';
