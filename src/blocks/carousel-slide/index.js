@@ -12,17 +12,11 @@ import './style.scss';
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 registerBlockType('wdsblocks/carousel-slide', {
-    title: __('Carousel Slide Block', 'wdsblocks'),
+    title: __('Slide', 'wdsblocks'),
     icon: 'cover-image',
     category: 'wds-blocks',
     keywords: [__('carousel', 'slider', 'wdsblocks')],
-    attributes: {
-        content: {
-            type: 'array',
-            source: 'children',
-            selector: 'p',
-        },
-    },
+    attributes: {},
     edit,
     save,
 });

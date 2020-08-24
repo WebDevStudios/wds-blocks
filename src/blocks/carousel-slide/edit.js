@@ -1,6 +1,11 @@
-import { RichText } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
+
+// Set up props for InnerBlocks component.
+const innerBlocksProps = {
+	// allowedBlocks: ['wdsblocks/carousel-slide'],
+};
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -14,7 +19,7 @@ import './editor.scss';
  */
 export default function Edit( props ) {
 	const {
-		attributes: { content },
+		attributes,
 		className,
 		setAttributes,
 	} = props;
@@ -25,12 +30,8 @@ export default function Edit( props ) {
 	};
 
 	return (
-		<RichText
-			tagName="p"
-			className={ className }
-			onChange={ onChangeContent }
-			value={ content }
-			placeholder={ __( 'WDS Carousel', 'wdsblocks' ) }
-		/>
+		<div className={className}>
+			<InnerBlocks {...innerBlocksProps} />
+		</div>
 	);
 }
