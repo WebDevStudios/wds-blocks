@@ -11,3 +11,4 @@
 
 import './blocks/rich-text';
 import './blocks/carousel';
+import './blocks/carousel-slide';
