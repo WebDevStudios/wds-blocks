@@ -16,7 +16,9 @@
 	"keywords": [
 		"Gutenberg"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"pure-react-carousel": "^1.27.1"
+	},
 	"devDependencies": {
 		"@webdevstudios/css-coding-standards": "^1.0.1",
 		"@webdevstudios/js-coding-standards": "^1.1.1",
