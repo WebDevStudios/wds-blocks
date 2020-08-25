@@ -11,10 +11,7 @@ import { ToolbarGroup, ToolbarButton } from '@wordpress/components';
  * @return {WPElement}      Element to render.
  */
 export default function PreviewToggle( props ) {
-	const {
-		showPreview = true,
-		togglePreview,
-	} = props;
+	const { showPreview = true, togglePreview } = props;
 
 	return (
 		<BlockControls>
