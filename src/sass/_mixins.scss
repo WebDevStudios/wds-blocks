@@ -4,7 +4,7 @@
 @mixin edit-mode($selector: "&.edit-mode") {
 
 	#{$selector} {
-		border: 1px dashed $color-gray;
+		border: 1px dashed $color-grey;
 		padding: 2rem;
 	}
 }
