@@ -16,7 +16,9 @@
 	"keywords": [
 		"Gutenberg"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"classnames": "^2.2.6"
+	},
 	"devDependencies": {
 		"@webdevstudios/css-coding-standards": "^1.0.1",
 		"@webdevstudios/js-coding-standards": "^1.1.1",

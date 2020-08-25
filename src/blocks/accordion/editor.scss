@@ -1,0 +1,25 @@
+.editor-styles-wrapper {
+	.wdsblocks-accordion {
+		&__title {
+			position: relative;
+			width: 100%;
+			display: block;
+			text-align: left;
+			border: none;
+			margin: 0;
+		}
+		&__content {
+			display: block !important;
+		}
+	}
+}
+
+.wp-block {
+	&.is-selected,
+	&.has-child-selected {
+		.wdsblocks-accordion {
+			border: 1px dashed #ccc;
+			padding: 10px;
+		}
+	}
+}
