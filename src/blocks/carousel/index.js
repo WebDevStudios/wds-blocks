@@ -17,6 +17,10 @@ registerBlockType('wdsblocks/carousel', {
     category: 'wds-blocks',
     keywords: [__('carousel, slider', 'wdsblocks')],
     attributes: {},
+    supports: {
+        align: [ 'wide', 'full' ],
+        default: 'wide',
+    },
     edit,
     save,
 });
