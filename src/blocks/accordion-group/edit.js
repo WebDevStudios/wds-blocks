@@ -1,7 +1,19 @@
-import { BlockControls, RichText, InnerBlocks } from '@wordpress/block-editor';
+import {
+	BlockControls,
+	InspectorControls,
+	RichText,
+	InnerBlocks,
+} from '@wordpress/block-editor';
+import {
+	PanelBody,
+	PanelRow,
+	Toolbar,
+	ColorPalette,
+} from '@wordpress/components';
+
 import { __ } from '@wordpress/i18n';
 import classNames from 'classnames';
-import { PREFIX } from '../../utils/constants';
+import { PREFIX, THEME_BKG_PALETTE } from '../../utils/constants';
 import { ALLOWED_BLOCKS } from './utils/constants';
 import './editor.scss';
 
@@ -17,10 +29,11 @@ import './editor.scss';
  */
 export default function Edit(props) {
 	const {
-		attributes: { title, desc },
+		attributes: { title, desc, bkgColor },
 		setAttributes,
-		clientId,
 	} = props;
+
+	console.log(bkgColor);
 
 	const BLOCK_TEMPLATE = [
 		[
@@ -32,7 +45,10 @@ export default function Edit(props) {
 				[
 					'core/paragraph',
 					{
-						placeholder: 'Enter WDS Accordion Content...',
+						placeholder: __(
+							'Enter WDS Accordion Content...',
+							'wdsblocks'
+						),
 					},
 				],
 			],
@@ -43,7 +59,6 @@ export default function Edit(props) {
 	const onTitleContent = (newTitle) => {
 		setAttributes({
 			title: newTitle,
-			clientId: clientId,
 		});
 	};
 
@@ -51,34 +66,56 @@ export default function Edit(props) {
 	const onDescContent = (newDesc) => {
 		setAttributes({
 			desc: newDesc,
-			clientId: clientId,
 		});
 	};
 
 	return (
-		<div className={classNames(`${PREFIX}-accordion-group`)}>
-			<RichText
-				tagName="h2"
-				type="button"
-				className={`${PREFIX}-accordion-group__title`}
-				onChange={onTitleContent}
-				value={title ? title : ''}
-				placeholder={__('WDS Accordion Group Title', 'wdsblocks')}
-				allowedFormats={['core/bold', 'core/italic']}
-			/>
-			<RichText
-				tagName="p"
-				className={`${PREFIX}-accordion-group__desc`}
-				onChange={onDescContent}
-				value={desc ? desc : ''}
-				placeholder={__('WDS Accordion Group Description', 'wdsblocks')}
-			/>
-			<div className={`${PREFIX}-accordion-group__content`}>
-				<InnerBlocks
-					template={BLOCK_TEMPLATE}
-					allowedBlocks={ALLOWED_BLOCKS}
+		<>
+			<InspectorControls>
+				<PanelBody title={__('Background Color', 'wdsblocks')}>
+					<PanelRow>
+						<ColorPalette
+							colors={THEME_BKG_PALETTE}
+							value={bkgColor}
+							onChange={(value) =>
+								setAttributes({
+									bkgColor: value,
+								})
+							}
+						/>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls>
+			<div
+				className={classNames(`${PREFIX}-accordion-group`)}
+				style={{ backgroundColor: bkgColor }}
+			>
+				<RichText
+					tagName="h2"
+					type="button"
+					className={`${PREFIX}-accordion-group__title`}
+					onChange={onTitleContent}
+					value={title ? title : ''}
+					placeholder={__('WDS Accordion Group Title', 'wdsblocks')}
+					allowedFormats={['core/bold', 'core/italic']}
 				/>
+				<RichText
+					tagName="p"
+					className={`${PREFIX}-accordion-group__desc`}
+					onChange={onDescContent}
+					value={desc ? desc : ''}
+					placeholder={__(
+						'WDS Accordion Group Description',
+						'wdsblocks'
+					)}
+				/>
+				<div className={`${PREFIX}-accordion-group__content`}>
+					<InnerBlocks
+						template={BLOCK_TEMPLATE}
+						allowedBlocks={ALLOWED_BLOCKS}
+					/>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }

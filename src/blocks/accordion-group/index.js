@@ -32,9 +32,9 @@ registerBlockType('wdsblocks/accordion-group', {
 			source: 'children',
 			selector: `.${PREFIX}-accordion-group__desc`,
 		},
-		clientId: {
+		bkgColor: {
 			type: 'string',
-			default: `${PREFIX}-accordion-group-item`,
+			default: 'transparent',
 		},
 	},
 	edit,

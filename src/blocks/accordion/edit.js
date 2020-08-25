@@ -22,8 +22,6 @@ export default function Edit(props) {
 		clientId,
 	} = props;
 
-	console.log('edit-props', props);
-
 	// Update `title` field content on change.
 	const onTitleContent = (newTitle) => {
 		setAttributes({

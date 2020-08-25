@@ -17,11 +17,14 @@ import { ALLOWED_BLOCKS } from './utils/constants';
  */
 export default function Save(props) {
 	const {
-		attributes: { title, desc, clientId },
+		attributes: { title, desc, bkgColor },
 	} = props;
 
 	return (
-		<div className={classNames(`${PREFIX}-accordion-group`)}>
+		<div
+			className={classNames(`${PREFIX}-accordion-group`)}
+			style={{ backgroundColor: bkgColor }}
+		>
 			<RichText.Content
 				tagName="h2"
 				className={`${PREFIX}-accordion-group__title`}
