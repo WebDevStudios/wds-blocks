@@ -13,9 +13,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function Save( props ) {
-	const {
-		className,
-	} = props;
+	const { className } = props;
 
 	return (
 		<div className={ className }>

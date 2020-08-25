@@ -11,16 +11,16 @@ import './frontend/style.scss';
  * @since  2.0.0
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType('wdsblocks/carousel', {
-    title: __('Carousel Block', 'wdsblocks'),
-    icon: 'slides',
-    category: 'wds-blocks',
-    keywords: [__('carousel, slider', 'wdsblocks')],
-    attributes: {},
-    supports: {
-        align: [ 'wide', 'full' ],
-        default: 'wide',
-    },
-    edit,
-    save,
-});
+registerBlockType( 'wdsblocks/carousel', {
+	title: __( 'Carousel Block', 'wdsblocks' ),
+	icon: 'slides',
+	category: 'wds-blocks',
+	keywords: [ __( 'carousel, slider', 'wdsblocks' ) ],
+	attributes: {},
+	supports: {
+		align: [ 'wide', 'full' ],
+		default: 'wide',
+	},
+	edit,
+	save,
+} );

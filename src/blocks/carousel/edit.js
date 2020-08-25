@@ -18,9 +18,7 @@ const innerBlocksProps = {
  * @return {WPElement} Element to render.
  */
 export default function Edit( props ) {
-	const {
-		className,
-	} = props;
+	const { className } = props;
 
 	return (
 		<div className={ className }>

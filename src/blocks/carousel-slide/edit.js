@@ -6,11 +6,26 @@ import './editor.scss';
 const innerBlocksProps = {
 	allowedBlocks: [ 'core/heading', 'core/paragraph', 'core/buttons' ],
 	template: [
-		[ 'core/heading', { placeholder: __( 'Slide Title', 'wdsblocks' ), level: '4', align: 'center' } ],
-		[ 'core/paragraph', { placeholder: __( 'Slide Content', 'wdsblocks' ), align: 'center' } ],
-		[ 'core/buttons', { align: 'center' }, [
-			[ 'core/button', { text: __( 'Read More', 'wdsblocks' ) } ],
-		] ],
+		[
+			'core/heading',
+			{
+				placeholder: __( 'Slide Title', 'wdsblocks' ),
+				level: '4',
+				align: 'center',
+			},
+		],
+		[
+			'core/paragraph',
+			{
+				placeholder: __( 'Slide Content', 'wdsblocks' ),
+				align: 'center',
+			},
+		],
+		[
+			'core/buttons',
+			{ align: 'center' },
+			[ [ 'core/button', { text: __( 'Read More', 'wdsblocks' ) } ] ],
+		],
 	],
 };
 
@@ -26,11 +41,7 @@ const innerBlocksProps = {
  * @return {WPElement} Element to render.
  */
 export default function Edit( props ) {
-	const {
-		attributes,
-		className,
-		setAttributes,
-	} = props;
+	const { attributes, className, setAttributes } = props;
 
 	// Update field content on change.
 	const onChangeContent = ( newContent ) => {
