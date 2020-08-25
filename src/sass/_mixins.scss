@@ -1,7 +1,7 @@
-@import './variables';
+@import "./variables";
 
 // Admin styling for blocks in edit mode.
-@mixin edit-mode($selector: '&.edit-mode') {
+@mixin edit-mode($selector: "&.edit-mode") {
 
 	#{$selector} {
 		border: 1px dashed $color-gray;
