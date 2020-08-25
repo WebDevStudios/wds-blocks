@@ -8,8 +8,8 @@ import './frontend/style.scss';
  * Register block type definition.
  *
  * @author WebDevStudios
- * @since 2.0.0
- * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
+ * @since  2.0.0
+ * @see    https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 registerBlockType('wdsblocks/carousel', {
     title: __('Carousel Block', 'wdsblocks'),
