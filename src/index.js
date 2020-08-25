@@ -9,4 +9,5 @@
  * Webpack is compiling as the input file.
  */
 
+import './blocks/accordion-group';
 import './blocks/accordion';

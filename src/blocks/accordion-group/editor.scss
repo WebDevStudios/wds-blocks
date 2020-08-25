@@ -1,0 +1,23 @@
+.editor-styles-wrapper {
+	.wdsblocks-accordion-group {
+		&__title {
+			width: 100%;
+			display: block;
+			text-align: left;
+			margin: 0;
+		}
+		p {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.wp-block {
+	&.is-selected,
+	&.has-child-selected {
+		.wdsblocks-accordion-group {
+			border: 2px dashed #efefef;
+			padding: 10px 15px;
+		}
+	}
+}

@@ -17,12 +17,27 @@ import './editor.scss';
  */
 export default function Edit(props) {
 	const {
-		attributes: { title },
+		attributes: { title, desc },
 		setAttributes,
 		clientId,
 	} = props;
 
-	console.log('edit-props', props);
+	const BLOCK_TEMPLATE = [
+		[
+			'wdsblocks/accordion',
+			{
+				title: __('WDS Accordion Title', 'wdsblocks'),
+			},
+			[
+				[
+					'core/paragraph',
+					{
+						placeholder: 'Enter WDS Accordion Content...',
+					},
+				],
+			],
+		],
+	];
 
 	// Update `title` field content on change.
 	const onTitleContent = (newTitle) => {
@@ -32,28 +47,37 @@ export default function Edit(props) {
 		});
 	};
 
+	// Update `desc` field content on change.
+	const onDescContent = (newDesc) => {
+		setAttributes({
+			desc: newDesc,
+			clientId: clientId,
+		});
+	};
+
 	return (
-		<div className={classNames(`${PREFIX}-accordion`)}>
+		<div className={classNames(`${PREFIX}-accordion-group`)}>
 			<RichText
-				tagName="h3"
+				tagName="h2"
 				type="button"
-				className={`${PREFIX}-accordion__title`}
+				className={`${PREFIX}-accordion-group__title`}
 				onChange={onTitleContent}
 				value={title ? title : ''}
-				placeholder={__('WDS Accordion Title', 'wdsblocks')}
-				aria-expanded="false"
-				aria-controls={`${PREFIX}-${clientId}`}
+				placeholder={__('WDS Accordion Group Title', 'wdsblocks')}
 				allowedFormats={['core/bold', 'core/italic']}
 			/>
-			<div
-				className={`${PREFIX}-accordion__content`}
-				aria-hidden="true"
-				tabindex="-1"
-				id={`${PREFIX}-${clientId}`}
-			>
-				<div className={`${PREFIX}-accordion__content--inner`}>
-					<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
-				</div>
+			<RichText
+				tagName="p"
+				className={`${PREFIX}-accordion-group__desc`}
+				onChange={onDescContent}
+				value={desc ? desc : ''}
+				placeholder={__('WDS Accordion Group Description', 'wdsblocks')}
+			/>
+			<div className={`${PREFIX}-accordion-group__content`}>
+				<InnerBlocks
+					template={BLOCK_TEMPLATE}
+					allowedBlocks={ALLOWED_BLOCKS}
+				/>
 			</div>
 		</div>
 	);

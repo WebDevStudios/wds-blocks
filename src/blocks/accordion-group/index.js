@@ -13,9 +13,9 @@ import './frontend/style.scss';
  * @since 2.0.0
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType('wdsblocks/accordion', {
-	title: __('Accordion (wds)', 'wdsblocks'),
-	icon: 'sort',
+registerBlockType('wdsblocks/accordion-group', {
+	title: __('Accordion Group (wds)', 'wdsblocks'),
+	icon: 'list-view',
 	category: 'common',
 	keywords: [__('accordion', 'wdsblocks')],
 	supports: {
@@ -25,11 +25,16 @@ registerBlockType('wdsblocks/accordion', {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: `.${PREFIX}-accordion__title`,
+			selector: `.${PREFIX}-accordion-group__title`,
+		},
+		desc: {
+			type: 'array',
+			source: 'children',
+			selector: `.${PREFIX}-accordion-group__desc`,
 		},
 		clientId: {
 			type: 'string',
-			default: `${PREFIX}-accordion-item`,
+			default: `${PREFIX}-accordion-group-item`,
 		},
 	},
 	edit,

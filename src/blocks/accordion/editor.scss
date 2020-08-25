@@ -7,9 +7,12 @@
 			text-align: left;
 			border: none;
 			margin: 0;
+			cursor: text;
+			font-size: 22px;
 		}
 		&__content {
 			display: block !important;
+			height: auto !important;
 		}
 	}
 }

@@ -17,28 +17,23 @@ import { ALLOWED_BLOCKS } from './utils/constants';
  */
 export default function Save(props) {
 	const {
-		attributes: { title, clientId },
+		attributes: { title, desc, clientId },
 	} = props;
 
 	return (
-		<div className={classNames(`${PREFIX}-accordion`)}>
+		<div className={classNames(`${PREFIX}-accordion-group`)}>
 			<RichText.Content
-				tagName="button"
-				type="button"
-				className={`${PREFIX}-accordion__title`}
+				tagName="h2"
+				className={`${PREFIX}-accordion-group__title`}
 				value={title}
-				aria-expanded="false"
-				aria-controls={`${PREFIX}-${clientId}`}
 			/>
-			<div
-				className={`${PREFIX}-accordion__content`}
-				aria-hidden="true"
-				tabindex="-1"
-				id={`${PREFIX}-${clientId}`}
-			>
-				<div className={`${PREFIX}-accordion__content--inner`}>
-					<InnerBlocks.Content allowedBlocks={ALLOWED_BLOCKS} />
-				</div>
+			<RichText.Content
+				tagName="p"
+				className={`${PREFIX}-accordion-group__desc`}
+				value={desc}
+			/>
+			<div className={`${PREFIX}-accordion-group__content`}>
+				<InnerBlocks.Content allowedBlocks={ALLOWED_BLOCKS} />
 			</div>
 		</div>
 	);
