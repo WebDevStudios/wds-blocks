@@ -1,13 +1,6 @@
 // WordPress editor styles.
-$color-gallery: #eee;
-$color-gray: #808080;
+$color-blue: rgb(33, 175, 194);
 
 .wp-block-wdsblocks-carousel-slide {
-
-	.is-selected &,
-	.has-child-selected & {
-		background: $color-gallery;
-		border: 1px dashed $color-gray;
-		padding: 2rem;
-	}
+	color: $color-blue;
 }
