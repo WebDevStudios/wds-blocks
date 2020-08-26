@@ -1,6 +1,5 @@
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
-import { PREFIX } from '../../utils/constants';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -29,13 +28,13 @@ export default function Save(props) {
 				className={`${className}__title`}
 				value={title}
 				aria-expanded="false"
-				aria-controls={`${PREFIX}-${clientId}`}
+				aria-controls={clientId}
 			/>
 			<div
 				className={`${className}__content`}
 				aria-hidden="true"
 				tabindex="-1"
-				id={`${PREFIX}-${clientId}`}
+				id={clientId}
 			>
 				<div className={`${className}__content--inner`}>
 					<InnerBlocks.Content />

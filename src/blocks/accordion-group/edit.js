@@ -15,7 +15,7 @@ import { __ } from '@wordpress/i18n';
 import { PREFIX, THEME_BKG_PALETTE } from '../../utils/constants';
 import './editor.scss';
 
-// Allowed blocks for `InnerBlocks` component
+// Block types that cann be added to `InnerBlocks` component
 const ALLOWED_BLOCKS = applyFilters(
 	`${PREFIX}.accordion_group_allowed_blocks`,
 	['wdsblocks/accordion'] // Default value.
@@ -61,9 +61,10 @@ export default function Edit(props) {
 		attributes: { title, desc, bkgColor },
 		setAttributes,
 		className,
+		containerClass,
 	} = props;
 
-	//console.log(className);
+	console.log(props);
 
 	// Update `title` field content on change.
 	const onTitleContent = (newTitle) => {
@@ -97,7 +98,7 @@ export default function Edit(props) {
 				</PanelBody>
 			</InspectorControls>
 			<div className={className} style={{ backgroundColor: bkgColor }}>
-				<div className="wrap">
+				<div className={containerClass}>
 					<RichText
 						tagName="h2"
 						type="button"

@@ -1,6 +1,5 @@
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
-import { PREFIX } from '../../utils/constants';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -16,15 +15,14 @@ import { PREFIX } from '../../utils/constants';
  */
 export default function Save(props) {
 	const {
-		attributes: { title, desc, bkgColor },
+		attributes: { title, desc, bkgColor, containerClass },
 	} = props;
 
 	const className = getBlockDefaultClassName('wdsblocks/accordion-group');
-	console.log(className);
 
 	return (
 		<div className={className} style={{ backgroundColor: bkgColor }}>
-			<div className="wrap">
+			<div className={containerClass}>
 				<RichText.Content
 					tagName="h2"
 					className={`${className}__title`}

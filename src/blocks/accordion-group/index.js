@@ -2,10 +2,11 @@ import edit from './edit';
 import save from './save';
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { PREFIX } from '../../utils/constants';
+import { applyFilters } from '@wordpress/hooks';
+import { PREFIX, CONTAINER_CLASS } from '../../utils/constants';
 import './frontend/style.scss';
 
-const blockname = 'accordion-group';
+const BLOCKNAME = 'accordion-group';
 
 /**
  * Register block type definition.
@@ -14,9 +15,12 @@ const blockname = 'accordion-group';
  * @since 2.0.0
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType(`wdsblocks/${blockname}`, {
+registerBlockType(`wdsblocks/${BLOCKNAME}`, {
 	title: __('Accordion Group (wds)', 'wdsblocks'),
-	description: __('Adds a section of expand/collapse blocks.', 'wdsblocks'),
+	description: __(
+		'Adds a group of expand/collapse blocks with headline and description.',
+		'wdsblocks'
+	),
 	icon: 'list-view',
 	category: 'common',
 	keywords: [__('accordion', 'wdsblocks')],
@@ -27,16 +31,20 @@ registerBlockType(`wdsblocks/${blockname}`, {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: `.wp-block-${PREFIX}-${blockname}__title`,
+			selector: `.wp-block-${PREFIX}-${BLOCKNAME}__title`,
 		},
 		desc: {
 			type: 'array',
 			source: 'children',
-			selector: `.wp-block-${PREFIX}-${blockname}__desc`,
+			selector: `.wp-block-${PREFIX}-${BLOCKNAME}__desc`,
 		},
 		bkgColor: {
 			type: 'string',
 			default: 'transparent',
+		},
+		containerClass: {
+			type: 'string',
+			default: CONTAINER_CLASS,
 		},
 	},
 	edit,

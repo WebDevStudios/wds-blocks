@@ -25,7 +25,7 @@
 			&:before {
 				width: 16px;
 				height: 4px;
-				background-color: #114aa5;
+				background-color: #333;
 				display: block;
 				content: '';
 				position: absolute;
@@ -47,12 +47,12 @@
 			}
 		}
 		&.is-expanded {
-			.wdsblocks-accordion__title {
+			.wp-block-wdsblocks-accordion__title {
 				&:after {
 					transform: rotate(0);
 				}
 			}
-			.wdsblocks-accordion__content {
+			.wp-block-wdsblocks-accordion__content {
 				display: block;
 			}
 		}

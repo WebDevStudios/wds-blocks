@@ -5,7 +5,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import { PREFIX } from '../../utils/constants';
 import './frontend/style.scss';
 
-const blockname = 'accordion';
+const BLOCKNAME = 'accordion';
 
 /**
  * Register block type definition.
@@ -14,7 +14,7 @@ const blockname = 'accordion';
  * @since 2.0.0
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType(`wdsblocks/${blockname}`, {
+registerBlockType(`wdsblocks/${BLOCKNAME}`, {
 	title: __('Accordion (wds)', 'wdsblocks'),
 	description: __(
 		'An expand/collaspe editible content section.',
@@ -30,11 +30,11 @@ registerBlockType(`wdsblocks/${blockname}`, {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: `.wp-block-${PREFIX}-${blockname}__title`,
+			selector: `.wp-block-${PREFIX}-${BLOCKNAME}__title`,
 		},
 		clientId: {
 			type: 'string',
-			default: `wp-block-${PREFIX}-${blockname}-item`,
+			default: `${BLOCKNAME}-item`,
 		},
 	},
 	edit,

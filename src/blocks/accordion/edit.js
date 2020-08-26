@@ -4,6 +4,7 @@ import { __ } from '@wordpress/i18n';
 import { PREFIX } from '../../utils/constants';
 import './editor.scss';
 
+// Block types that cann be added to
 const ALLOWED_BLOCKS = applyFilters(
 	`${PREFIX}.accordion_allowed_blocks`,
 	['core/image', 'core/heading', 'core/paragraph'] // Default value.
