@@ -22,7 +22,6 @@ registerBlockType( 'wdsblocks/carousel-slide', {
 			default: '',
 		}
 	},
-	usesContext: [ 'wdsblocks/carousel/showPreview' ],
 	supports: {
 		html: false,
 	},

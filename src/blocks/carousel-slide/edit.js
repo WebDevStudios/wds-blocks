@@ -41,15 +41,12 @@ const innerBlocksProps = {
  * @return {WPElement}      Element to render.
  */
 export default function Edit( props ) {
-	const { attributes: { fontColor }, className, setAttributes, context: { 'wdsblocks/carousel/showPreview': showPreview = true } } = props;
+	const { attributes: { fontColor }, className, setAttributes } = props;
 
 	// Update field content on change.
 	const onChangeAttributes = ( attribute, value ) => {
 		setAttributes( { [ attribute ]: value } );
 	};
-
-	// Prevent editing block content in preview mode.
-	innerBlocksProps.templateLock = showPreview ? 'all' : false;
 
 	return (
 		<>

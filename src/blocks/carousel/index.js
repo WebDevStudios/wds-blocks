@@ -16,15 +16,7 @@ registerBlockType( 'wdsblocks/carousel', {
 	icon: 'slides',
 	category: 'wds-blocks',
 	keywords: [ __( 'carousel, slider', 'wdsblocks' ) ],
-	attributes: {
-		showPreview: {
-			type: 'boolean',
-			default: true,
-		},
-	},
-	providesContext: {
-		'wdsblocks/carousel/showPreview': 'showPreview',
-	},
+	attributes: {},
 	supports: {
 		align: [ 'wide', 'full' ],
 		default: 'wide',
