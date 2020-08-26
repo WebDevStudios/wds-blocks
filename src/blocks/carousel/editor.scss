@@ -1,6 +1,7 @@
 // WordPress editor styles.
-$color-blue: rgb(33, 175, 194);
+@import '../../sass/mixins';
 
 .wp-block-wdsblocks-carousel {
-	color: $color-blue;
+
+	@include edit-mode;
 }

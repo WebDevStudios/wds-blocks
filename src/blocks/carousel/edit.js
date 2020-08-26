@@ -1,4 +1,6 @@
 import { InnerBlocks } from '@wordpress/block-editor';
+import PreviewToggle from "../../utils/preview-toggle/PreviewToggle";
+import usePreviewToggle from "../../utils/preview-toggle/usePreviewToggle";
 import './editor.scss';
 
 // Set up props for InnerBlocks component.
@@ -19,10 +21,17 @@ const innerBlocksProps = {
  */
 export default function Edit( props ) {
 	const { className } = props;
+	const { showPreview, togglePreview } = usePreviewToggle();
 
 	return (
-		<div className={ className }>
-			<InnerBlocks { ...innerBlocksProps } />
-		</div>
+		<>
+			<PreviewToggle
+				showPreview={ showPreview }
+				togglePreview={ togglePreview }
+			/>
+			<div className={ `${ className } ${ showPreview ? 'preview-mode' : 'edit-mode' }` }>
+				<InnerBlocks { ...innerBlocksProps } />
+			</div>
+		</>
 	);
 }
