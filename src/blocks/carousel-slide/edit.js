@@ -1,4 +1,4 @@
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
@@ -41,19 +41,31 @@ const innerBlocksProps = {
  * @return {WPElement}      Element to render.
  */
 export default function Edit( props ) {
-	const { attributes, className, setAttributes, context: { 'wdsblocks/carousel/showPreview': showPreview = true } } = props;
+	const { attributes: { fontColor }, className, setAttributes, context: { 'wdsblocks/carousel/showPreview': showPreview = true } } = props;
 
 	// Update field content on change.
-	const onChangeContent = ( newContent ) => {
-		setAttributes( { content: newContent } );
+	const onChangeAttributes = ( attribute, value ) => {
+		setAttributes( { [ attribute ]: value } );
 	};
 
 	// Prevent editing block content in preview mode.
 	innerBlocksProps.templateLock = showPreview ? 'all' : false;
 
 	return (
-		<div className={ className }>
-			<InnerBlocks { ...innerBlocksProps } />
-		</div>
+		<>
+			<InspectorControls>
+				<PanelColorSettings
+					title={ __( 'Color settings', 'wdsblocks' ) }
+					colorSettings={ [ {
+						value: fontColor,
+						onChange: ( value ) => onChangeAttributes( 'fontColor', value ),
+						label: __( 'Text Color', 'wdsblocks' ),
+					} ] }
+				/>
+			</InspectorControls>
+			<div className={ className }>
+				<InnerBlocks { ...innerBlocksProps } />
+			</div>
+		</>
 	);
 }

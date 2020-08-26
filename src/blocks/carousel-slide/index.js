@@ -16,7 +16,12 @@ registerBlockType( 'wdsblocks/carousel-slide', {
 	icon: 'cover-image',
 	category: 'wds-blocks',
 	keywords: [ __( 'carousel, slide', 'wdsblocks' ) ],
-	attributes: {},
+	attributes: {
+		fontColor: {
+			type: 'string',
+			default: '',
+		}
+	},
 	usesContext: [ 'wdsblocks/carousel/showPreview' ],
 	supports: {
 		html: false,
