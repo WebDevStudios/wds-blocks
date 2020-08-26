@@ -20,6 +20,7 @@ registerBlockType( 'wdsblocks/carousel', {
 	supports: {
 		align: [ 'wide', 'full' ],
 		default: 'wide',
+		html: false,
 	},
 	edit,
 	save,

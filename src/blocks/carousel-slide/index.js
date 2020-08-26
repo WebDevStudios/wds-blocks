@@ -17,6 +17,9 @@ registerBlockType( 'wdsblocks/carousel-slide', {
 	category: 'wds-blocks',
 	keywords: [ __( 'carousel, slide', 'wdsblocks' ) ],
 	attributes: {},
+	supports: {
+		html: false,
+	},
 	edit,
 	save,
 } );
