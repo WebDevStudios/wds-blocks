@@ -10,7 +10,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
  *
  * @param  {Object} [props] Properties passed from the editor.
- * @return {WPElement} Element to render.
+ * @return {WPElement}      Element to render.
  */
 export default function Save( props ) {
 	const { attributes, className } = props;
