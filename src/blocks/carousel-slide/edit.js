@@ -84,7 +84,10 @@ function Edit( props ) {
 					] }
 				/>
 			</InspectorControls>
-			<div className={ classes.filter( Boolean ).join( ' ' ) } style={ styles }>
+			<div
+				className={ classes.filter( Boolean ).join( ' ' ) }
+				style={ styles }
+			>
 				<InnerBlocks { ...innerBlocksProps } />
 			</div>
 		</>

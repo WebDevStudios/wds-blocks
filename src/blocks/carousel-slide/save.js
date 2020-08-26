@@ -13,7 +13,10 @@ import { getColorClassName, InnerBlocks } from '@wordpress/block-editor';
  * @return {WPElement}      Element to render.
  */
 export default function Save( props ) {
-	const { attributes: { fontColor, customFontColor }, className } = props;
+	const {
+		attributes: { fontColor, customFontColor },
+		className,
+	} = props;
 
 	const classes = [ className ],
 		styles = {};
@@ -26,7 +29,10 @@ export default function Save( props ) {
 	styles.color = customFontColor ? customFontColor : undefined;
 
 	return (
-		<div className={ classes.filter( Boolean ).join( ' ' ) } style={ styles }>
+		<div
+			className={ classes.filter( Boolean ).join( ' ' ) }
+			style={ styles }
+		>
 			<InnerBlocks.Content />
 		</div>
 	);
