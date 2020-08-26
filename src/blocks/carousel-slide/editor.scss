@@ -1,7 +1,7 @@
 // WordPress editor styles.
-@import '../../sass/mixins';
+@import "../../sass/mixins";
 
 .wp-block-wdsblocks-carousel-slide {
 
-	@include edit-mode('.edit-mode &');
+	@include edit-mode(".edit-mode &");
 }
