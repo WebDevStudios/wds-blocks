@@ -32,10 +32,8 @@ const BLOCK_TEMPLATE = [
 			[
 				'core/paragraph',
 				{
-					placeholder: __(
-						'Enter WDS Accordion Content...',
-						'wdsblocks'
-					),
+					content: __('Enter Accordion Content...', 'wdsblocks'),
+					placeholder: __('Enter some content...', 'wdsblocks'),
 				},
 			],
 		],
@@ -65,7 +63,7 @@ export default function Edit(props) {
 		className,
 	} = props;
 
-	console.log(bkgColor);
+	//console.log(className);
 
 	// Update `title` field content on change.
 	const onTitleContent = (newTitle) => {
@@ -103,7 +101,7 @@ export default function Edit(props) {
 					<RichText
 						tagName="h2"
 						type="button"
-						className={`wp-block-${className}__title`}
+						className={`${className}__title`}
 						onChange={onTitleContent}
 						value={title ? title : ''}
 						placeholder={__(
@@ -114,7 +112,7 @@ export default function Edit(props) {
 					/>
 					<RichText
 						tagName="p"
-						className={`wp-block-${className}__desc`}
+						className={`${className}__desc`}
 						onChange={onDescContent}
 						value={desc ? desc : ''}
 						placeholder={__(
@@ -122,7 +120,7 @@ export default function Edit(props) {
 							'wdsblocks'
 						)}
 					/>
-					<div className={`wp-block-${className}__content`}>
+					<div className={`${className}__content`}>
 						<InnerBlocks {...innerBlocksProps} />
 					</div>
 				</div>

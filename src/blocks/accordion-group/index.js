@@ -32,7 +32,7 @@ registerBlockType(`wdsblocks/${blockname}`, {
 		desc: {
 			type: 'array',
 			source: 'children',
-			selector: `.wp-block-${PREFIX}-${blockname}-__desc`,
+			selector: `.wp-block-${PREFIX}-${blockname}__desc`,
 		},
 		bkgColor: {
 			type: 'string',
