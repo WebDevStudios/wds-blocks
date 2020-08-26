@@ -25,9 +25,7 @@ export default function Edit( props ) {
 	const { showPreview, togglePreview } = usePreviewToggle();
 
 	// Prevent editing block content in preview mode.
-	if ( showPreview ) {
-		innerBlocksProps.templateLock = 'all';
-	}
+	innerBlocksProps.templateLock = showPreview ? 'all' : false;
 
 	// Update showPreview attribute on state change.
 	useEffect( () => {
