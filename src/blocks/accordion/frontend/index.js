@@ -6,7 +6,7 @@ const wdsBlocksAccordion = {
 			container: button.parentNode,
 			button: button,
 			content: button.parentNode.querySelector(
-				'.wdsblocks-accordion__content'
+				'.wp-block-wdsblocks-accordion__content'
 			),
 		};
 		if (props.container.classList.contains('is-expanded')) {
@@ -44,10 +44,12 @@ const wdsBlocksAccordion = {
 };
 
 // Get all accordions
-const accordions = document.querySelectorAll('.wdsblocks-accordion');
+const accordions = document.querySelectorAll('.wp-block-wdsblocks-accordion');
 if (accordions) {
 	[...accordions].forEach((accordion, index) => {
-		let button = accordion.querySelector('.wdsblocks-accordion__title');
+		let button = accordion.querySelector(
+			'.wp-block-wdsblocks-accordion__title'
+		);
 		if (button) {
 			button.addEventListener('click', wdsBlocksAccordion.click);
 		}

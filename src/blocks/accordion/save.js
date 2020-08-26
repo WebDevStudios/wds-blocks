@@ -1,7 +1,6 @@
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
-import classNames from 'classnames';
+import { getBlockDefaultClassName } from '@wordpress/blocks';
 import { PREFIX } from '../../utils/constants';
-import { ALLOWED_BLOCKS } from './utils/constants';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -20,24 +19,26 @@ export default function Save(props) {
 		attributes: { title, clientId },
 	} = props;
 
+	const className = getBlockDefaultClassName('wdsblocks/accordion');
+
 	return (
-		<div className={classNames(`${PREFIX}-accordion`)}>
+		<div className={className}>
 			<RichText.Content
 				tagName="button"
 				type="button"
-				className={`${PREFIX}-accordion__title`}
+				className={`${className}__title`}
 				value={title}
 				aria-expanded="false"
 				aria-controls={`${PREFIX}-${clientId}`}
 			/>
 			<div
-				className={`${PREFIX}-accordion__content`}
+				className={`${className}__content`}
 				aria-hidden="true"
 				tabindex="-1"
 				id={`${PREFIX}-${clientId}`}
 			>
-				<div className={`${PREFIX}-accordion__content--inner`}>
-					<InnerBlocks.Content allowedBlocks={ALLOWED_BLOCKS} />
+				<div className={`${className}__content--inner`}>
+					<InnerBlocks.Content />
 				</div>
 			</div>
 		</div>

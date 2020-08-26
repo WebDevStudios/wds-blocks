@@ -1,5 +1,5 @@
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
-import classNames from 'classnames';
+import { getBlockDefaultClassName } from '@wordpress/blocks';
 import { PREFIX } from '../../utils/constants';
 import { ALLOWED_BLOCKS } from './utils/constants';
 
@@ -20,23 +20,27 @@ export default function Save(props) {
 		attributes: { title, desc, bkgColor },
 	} = props;
 
+	const className = getBlockDefaultClassName('wdsblocks/accordion-group');
+
 	return (
 		<div
-			className={classNames(`${PREFIX}-accordion-group`)}
+			className={`${PREFIX}-accordion-group`}
 			style={{ backgroundColor: bkgColor }}
 		>
-			<RichText.Content
-				tagName="h2"
-				className={`${PREFIX}-accordion-group__title`}
-				value={title}
-			/>
-			<RichText.Content
-				tagName="p"
-				className={`${PREFIX}-accordion-group__desc`}
-				value={desc}
-			/>
-			<div className={`${PREFIX}-accordion-group__content`}>
-				<InnerBlocks.Content allowedBlocks={ALLOWED_BLOCKS} />
+			<div className="wrap">
+				<RichText.Content
+					tagName="h2"
+					className={`wp-block-${PREFIX}-accordion-group__title`}
+					value={title}
+				/>
+				<RichText.Content
+					tagName="p"
+					className={`wp-block-${PREFIX}-accordion-group__desc`}
+					value={desc}
+				/>
+				<div className={`wp-block-${PREFIX}-accordion-group__content`}>
+					<InnerBlocks.Content allowedBlocks={ALLOWED_BLOCKS} />
+				</div>
 			</div>
 		</div>
 	);

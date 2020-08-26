@@ -1,9 +1,18 @@
-import { BlockControls, RichText, InnerBlocks } from '@wordpress/block-editor';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
-import classNames from 'classnames';
 import { PREFIX } from '../../utils/constants';
-import { ALLOWED_BLOCKS } from './utils/constants';
 import './editor.scss';
+
+const ALLOWED_BLOCKS = applyFilters(
+	`${PREFIX}.accordion_allowed_blocks`,
+	['core/image', 'core/heading', 'core/paragraph'] // Default value.
+);
+
+// Set up props for InnerBlocks component.
+const innerBlocksProps = {
+	allowedBlocks: ALLOWED_BLOCKS,
+};
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -19,8 +28,11 @@ export default function Edit(props) {
 	const {
 		attributes: { title },
 		setAttributes,
+		className,
 		clientId,
 	} = props;
+
+	console.log(props);
 
 	// Update `title` field content on change.
 	const onTitleContent = (newTitle) => {
@@ -31,11 +43,11 @@ export default function Edit(props) {
 	};
 
 	return (
-		<div className={classNames(`${PREFIX}-accordion`)}>
+		<div className={className}>
 			<RichText
 				tagName="h3"
 				type="button"
-				className={`${PREFIX}-accordion__title`}
+				className={`${className}__title`}
 				onChange={onTitleContent}
 				value={title ? title : ''}
 				placeholder={__('WDS Accordion Title', 'wdsblocks')}
@@ -44,13 +56,13 @@ export default function Edit(props) {
 				allowedFormats={['core/bold', 'core/italic']}
 			/>
 			<div
-				className={`${PREFIX}-accordion__content`}
+				className={`${className}__content`}
 				aria-hidden="true"
 				tabindex="-1"
 				id={`${PREFIX}-${clientId}`}
 			>
-				<div className={`${PREFIX}-accordion__content--inner`}>
-					<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
+				<div className={`${className}__content--inner`}>
+					<InnerBlocks {...innerBlocksProps} />
 				</div>
 			</div>
 		</div>

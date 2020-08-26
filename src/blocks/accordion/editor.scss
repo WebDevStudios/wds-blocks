@@ -1,5 +1,5 @@
 .editor-styles-wrapper {
-	.wdsblocks-accordion {
+	.wp-block-wdsblocks-accordion {
 		&__title {
 			position: relative;
 			width: 100%;
@@ -20,7 +20,7 @@
 .wp-block {
 	&.is-selected,
 	&.has-child-selected {
-		.wdsblocks-accordion {
+		.wp-block-wdsblocks-accordion {
 			border: 1px dashed #ccc;
 			padding: 10px;
 		}

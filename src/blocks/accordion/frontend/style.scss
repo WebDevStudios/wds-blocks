@@ -1,58 +1,60 @@
 // Front-end styles.
 
-.wdsblocks-accordion {
-	padding: 10px 15px;
-	border: 1px solid #efefef;
-	+ .wdsblocks-accordion {
-		border-top: none;
-	}
-	&__title {
-		position: relative;
-		width: 100%;
-		display: block;
-		text-align: left;
-		margin: 0;
-		padding: 10px 50px 10px 0;
-		font-size: 20px;
-		line-height: 1.5;
-		background: transparent;
-		color: #000 !important;
-		font-weight: 700;
-		white-space: normal !important;
-		cursor: pointer;
-		&:after,
-		&:before {
-			width: 16px;
-			height: 4px;
-			background-color: #114aa5;
+.wp-block-wdsblocks {
+	&-accordion {
+		padding: 10px 15px;
+		border: 1px solid #efefef;
+		+ .wp-block-wdsblocks-accordion {
+			border-top: none;
+		}
+		&__title {
+			position: relative;
+			width: 100%;
 			display: block;
-			content: '';
-			position: absolute;
-			top: 23px;
-			right: 10px;
-			transition: all 0.2s ease;
-		}
-		&:after {
-			transform: rotate(-90deg);
-		}
-	}
-	&__content {
-		outline: none;
-		transition: all 0.2s ease;
-		overflow: hidden;
-		height: 0;
-		&--inner {
-			padding: 10px 50px 15px 0;
-		}
-	}
-	&.is-expanded {
-		.wdsblocks-accordion__title {
+			text-align: left;
+			margin: 0;
+			padding: 10px 50px 10px 0;
+			font-size: 20px;
+			line-height: 1.5;
+			background: transparent;
+			color: #000 !important;
+			font-weight: 700;
+			white-space: normal !important;
+			cursor: pointer;
+			&:after,
+			&:before {
+				width: 16px;
+				height: 4px;
+				background-color: #114aa5;
+				display: block;
+				content: '';
+				position: absolute;
+				top: 23px;
+				right: 10px;
+				transition: all 0.2s ease;
+			}
 			&:after {
-				transform: rotate(0);
+				transform: rotate(-90deg);
 			}
 		}
-		.wdsblocks-accordion__content {
-			display: block;
+		&__content {
+			outline: none;
+			transition: all 0.2s ease;
+			overflow: hidden;
+			height: 0;
+			&--inner {
+				padding: 10px 50px 15px 0;
+			}
+		}
+		&.is-expanded {
+			.wdsblocks-accordion__title {
+				&:after {
+					transform: rotate(0);
+				}
+			}
+			.wdsblocks-accordion__content {
+				display: block;
+			}
 		}
 	}
 }
