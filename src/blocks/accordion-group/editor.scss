@@ -1,3 +1,9 @@
+@import '../../sass/mixins';
+
+.wp-block-wdsblocks-accordion-group {
+	@include edit-mode;
+}
+
 .editor-styles-wrapper {
 	.wp-block-wdsblocks-accordion-group {
 		&__title {
@@ -8,16 +14,6 @@
 		}
 		p {
 			margin-bottom: 0;
-		}
-	}
-}
-
-.wp-block {
-	&.is-selected,
-	&.has-child-selected {
-		.wp-block-wdsblocks-accordion-group {
-			border: 2px dashed #efefef;
-			padding: 10px 15px;
 		}
 	}
 }

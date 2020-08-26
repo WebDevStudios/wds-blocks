@@ -15,13 +15,17 @@ import { getBlockDefaultClassName } from '@wordpress/blocks';
  */
 export default function Save(props) {
 	const {
-		attributes: { title, desc, bkgColor, containerClass },
+		attributes: { title, desc, bkgColor, openFirst, containerClass },
 	} = props;
 
 	const className = getBlockDefaultClassName('wdsblocks/accordion-group');
 
 	return (
-		<div className={className} style={{ backgroundColor: bkgColor }}>
+		<div
+			className={className}
+			style={{ backgroundColor: bkgColor }}
+			data-open-first={openFirst}
+		>
 			<div className={containerClass}>
 				<RichText.Content
 					tagName="h2"

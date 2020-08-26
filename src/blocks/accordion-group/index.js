@@ -42,6 +42,10 @@ registerBlockType(`wdsblocks/${BLOCKNAME}`, {
 			type: 'string',
 			default: 'transparent',
 		},
+		openFirst: {
+			type: 'boolean',
+			default: false,
+		},
 		containerClass: {
 			type: 'string',
 			default: CONTAINER_CLASS,
