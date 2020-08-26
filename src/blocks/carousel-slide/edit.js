@@ -1,4 +1,8 @@
-import { InnerBlocks, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	InspectorControls,
+	PanelColorSettings,
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
@@ -41,7 +45,11 @@ const innerBlocksProps = {
  * @return {WPElement}      Element to render.
  */
 export default function Edit( props ) {
-	const { attributes: { fontColor }, className, setAttributes } = props;
+	const {
+		attributes: { fontColor },
+		className,
+		setAttributes,
+	} = props;
 
 	// Update field content on change.
 	const onChangeAttributes = ( attribute, value ) => {
@@ -53,11 +61,14 @@ export default function Edit( props ) {
 			<InspectorControls>
 				<PanelColorSettings
 					title={ __( 'Color settings', 'wdsblocks' ) }
-					colorSettings={ [ {
-						value: fontColor,
-						onChange: ( value ) => onChangeAttributes( 'fontColor', value ),
-						label: __( 'Text Color', 'wdsblocks' ),
-					} ] }
+					colorSettings={ [
+						{
+							value: fontColor,
+							onChange: ( value ) =>
+								onChangeAttributes( 'fontColor', value ),
+							label: __( 'Text Color', 'wdsblocks' ),
+						},
+					] }
 				/>
 			</InspectorControls>
 			<div className={ className }>

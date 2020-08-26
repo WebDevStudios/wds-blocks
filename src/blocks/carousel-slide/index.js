@@ -20,7 +20,7 @@ registerBlockType( 'wdsblocks/carousel-slide', {
 		fontColor: {
 			type: 'string',
 			default: '',
-		}
+		},
 	},
 	supports: {
 		html: false,
