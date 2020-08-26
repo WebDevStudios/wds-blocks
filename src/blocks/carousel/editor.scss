@@ -4,4 +4,17 @@
 .wp-block-wdsblocks-carousel {
 
 	@include edit-mode;
+
+	&.preview-mode {
+		position: relative;
+
+		&::before {
+			content: "";
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+			z-index: 1;
+		}
+	}
 }
