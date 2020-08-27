@@ -15,7 +15,7 @@ const innerBlocksProps = {
 		[
 			'core/heading',
 			{
-				placeholder: __( 'Slide Title', 'wdsblocks' ),
+				content: __( 'Slide Title', 'wdsblocks' ),
 				level: '4',
 				align: 'center',
 			},
@@ -23,7 +23,7 @@ const innerBlocksProps = {
 		[
 			'core/paragraph',
 			{
-				placeholder: __( 'Slide Content', 'wdsblocks' ),
+				content: __( 'Slide Content', 'wdsblocks' ),
 				align: 'center',
 			},
 		],
