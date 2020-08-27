@@ -25,6 +25,7 @@ registerBlockType( 'wdsblocks/carousel-slide', {
 	supports: {
 		html: false,
 	},
+	parent: [ 'wdsblocks/carousel' ],
 	edit,
 	save,
 } );
