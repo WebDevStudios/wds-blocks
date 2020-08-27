@@ -16,7 +16,7 @@ import {
 import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
-import { PREFIX, THEME_BKG_PALETTE } from '../../utils/constants';
+import { PREFIX, CONTAINER_CLASS, THEME_BKG_PALETTE } from '../../utils/config';
 import './editor.scss';
 
 // Block types that cann be added to `InnerBlocks` component
@@ -65,7 +65,6 @@ export default function Edit(props) {
 		attributes: { title, desc, bkgColor, openFirst, toggle },
 		setAttributes,
 		className,
-		containerClass,
 	} = props;
 
 	console.log(props);
@@ -142,7 +141,7 @@ export default function Edit(props) {
 				data-open-first={openFirst}
 				data-toggle={toggle}
 			>
-				<div className={containerClass}>
+				<div className={CONTAINER_CLASS}>
 					<RichText
 						tagName="h2"
 						type="button"

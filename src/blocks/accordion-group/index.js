@@ -2,8 +2,7 @@ import edit from './edit';
 import save from './save';
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { applyFilters } from '@wordpress/hooks';
-import { PREFIX, CONTAINER_CLASS } from '../../utils/constants';
+import { PREFIX } from '../../utils/config';
 import './frontend/style.scss';
 
 const BLOCKNAME = 'accordion-group';
@@ -49,10 +48,6 @@ registerBlockType(`wdsblocks/${BLOCKNAME}`, {
 		toggle: {
 			type: 'boolean',
 			default: false,
-		},
-		containerClass: {
-			type: 'string',
-			default: CONTAINER_CLASS,
 		},
 	},
 	edit,

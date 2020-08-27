@@ -1,7 +1,7 @@
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
-import { PREFIX } from '../../utils/constants';
+import { PREFIX } from '../../utils/config';
 import './editor.scss';
 
 // Block types that cann be added to

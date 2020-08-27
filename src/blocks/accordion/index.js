@@ -2,7 +2,7 @@ import edit from './edit';
 import save from './save';
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { PREFIX } from '../../utils/constants';
+import { PREFIX } from '../../utils/config';
 import './frontend/style.scss';
 
 const BLOCKNAME = 'accordion';

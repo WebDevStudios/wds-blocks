@@ -7,15 +7,42 @@ const wdsBlocksAccordion = {
 	 * Initial Accordion Setup.
 	 */
 	init: () => {
-		const accordions = document.querySelectorAll(`.${accordionClass}`); // Get all accordions.
+		// Get all accordions.
+		const accordions = document.querySelectorAll(`.${accordionClass}`);
 		if (!accordions) {
-			return false;
+			return false; // Exit.
 		}
 		// Loop all accordions.
 		[...accordions].forEach((accordion) => {
 			let button = accordion.querySelector(`.${accordionClass}__title`);
 			if (button) {
 				button.addEventListener('click', wdsBlocksAccordion.click);
+			}
+		});
+
+		// Get all accordion groups.
+		const accordionGroups = document.querySelectorAll(
+			`.${accordionClass}-group`
+		);
+		if (!accordionGroups) {
+			return false; // Exit.
+		}
+		// Loop all accordion groups.
+		[...accordionGroups].forEach((group) => {
+			const openFirst = group.dataset.openFirst
+				? group.dataset.openFirst
+				: false;
+			const toggle = group.dataset.toggle ? group.dataset.toggle : false;
+
+			// If toggle true.
+			if ('true' === toggle) {
+				wdsBlocksAccordion.setupToggles(group, buttonClass);
+			}
+
+			// Open first section.
+			if ('true' === openFirst) {
+				const first = group.querySelector(`.${buttonClass}`);
+				first.click();
 			}
 		});
 	},
@@ -38,8 +65,8 @@ const wdsBlocksAccordion = {
 		if (props.container.classList.contains(expandedClass)) {
 			wdsBlocksAccordion.collapse(props);
 		} else {
-			// Close open accordion when `will-toggle` class is active.
-			if (button.classList.contains('will-toggle')) {
+			// Close open accordion when `will-collapse` class is active.
+			if (button.classList.contains('will-collapse')) {
 				wdsBlocksAccordion.closeActive(props.container);
 			}
 			wdsBlocksAccordion.expand(props);
@@ -75,6 +102,16 @@ const wdsBlocksAccordion = {
 	},
 
 	/**
+	 * Add class to accordions that should collaspe when another accordion is open
+	 */
+	setupToggles: (group, buttonClass) => {
+		const buttons = group.querySelectorAll(`.${buttonClass}`);
+		[...buttons].forEach((button) => {
+			button.classList.add('will-collapse');
+		});
+	},
+
+	/**
 	 * Close currently active accordion.
 	 */
 	closeActive: (container = '') => {
@@ -85,30 +122,3 @@ const wdsBlocksAccordion = {
 	},
 };
 export default wdsBlocksAccordion;
-
-// Get Accordion Groups
-const accordionGroups = document.querySelectorAll(`.${accordionClass}-group`);
-if (accordionGroups) {
-	[...accordionGroups].forEach((group) => {
-		const openFirst = group.dataset.openFirst
-			? group.dataset.openFirst
-			: false;
-		const toggle = group.dataset.toggle ? group.dataset.toggle : false;
-		if ('true' === toggle) {
-			setupToggle(group, buttonClass);
-		}
-
-		// Open first section
-		if ('true' === openFirst) {
-			const first = group.querySelector(`.${buttonClass}`);
-			first.click();
-		}
-	});
-}
-
-function setupToggle(group, buttonClass) {
-	const buttons = group.querySelectorAll(`.${buttonClass}`);
-	[...buttons].forEach((button) => {
-		button.classList.add('will-toggle');
-	});
-}

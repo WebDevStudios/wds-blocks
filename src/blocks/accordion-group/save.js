@@ -1,6 +1,7 @@
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import classnames from 'classnames';
+import { CONTAINER_CLASS } from '../../utils/config';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -16,14 +17,7 @@ import classnames from 'classnames';
  */
 export default function Save(props) {
 	const {
-		attributes: {
-			title,
-			desc,
-			bkgColor,
-			openFirst,
-			toggle,
-			containerClass,
-		},
+		attributes: { title, desc, bkgColor, openFirst, toggle },
 	} = props;
 
 	const className = getBlockDefaultClassName('wdsblocks/accordion-group');
@@ -35,7 +29,7 @@ export default function Save(props) {
 			data-open-first={openFirst}
 			data-toggle={toggle}
 		>
-			<div className={containerClass}>
+			<div className={CONTAINER_CLASS}>
 				<RichText.Content
 					tagName="h2"
 					className={`${className}__title`}
