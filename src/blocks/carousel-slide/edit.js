@@ -16,7 +16,7 @@ const innerBlocksProps = {
 			'core/heading',
 			{
 				content: __( 'Slide Title', 'wdsblocks' ),
-				level: '4',
+				level: 4,
 				align: 'center',
 			},
 		],
