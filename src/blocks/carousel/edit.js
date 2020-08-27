@@ -1,12 +1,13 @@
 import { InnerBlocks } from '@wordpress/block-editor';
+import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
 import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
 import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
 import './editor.scss';
 
 // Set up props for InnerBlocks component.
 const innerBlocksProps = {
-	allowedBlocks: [ 'wdsblocks/carousel-slide' ],
-	template: [ [ 'wdsblocks/carousel-slide', {} ] ],
+	allowedBlocks: [ `${ PREFIX }/carousel-slide` ],
+	template: [ [ `${ PREFIX }/carousel-slide`, {} ] ],
 };
 
 /**
@@ -35,7 +36,9 @@ export default function Edit( props ) {
 					showPreview ? 'preview-mode' : 'edit-mode'
 				}` }
 			>
-				<InnerBlocks { ...innerBlocksProps } />
+				<div className={ CONTAINER_CLASS }>
+					<InnerBlocks { ...innerBlocksProps } />
+				</div>
 			</div>
 		</>
 	);
