@@ -46,6 +46,10 @@ registerBlockType(`wdsblocks/${BLOCKNAME}`, {
 			type: 'boolean',
 			default: false,
 		},
+		toggle: {
+			type: 'boolean',
+			default: false,
+		},
 		containerClass: {
 			type: 'string',
 			default: CONTAINER_CLASS,

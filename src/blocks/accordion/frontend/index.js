@@ -1,4 +1,30 @@
+const accordionClass = 'wp-block-wdsblocks-accordion';
+const buttonClass = `${accordionClass} button.${accordionClass}__title`;
+const expandedClass = 'is-expanded';
+
 const wdsBlocksAccordion = {
+	/**
+	 * Initial Accordion Setup.
+	 */
+	init: () => {
+		const accordions = document.querySelectorAll(`.${accordionClass}`); // Get all accordions.
+		if (!accordions) {
+			return false;
+		}
+		// Loop all accordions.
+		[...accordions].forEach((accordion) => {
+			let button = accordion.querySelector(`.${accordionClass}__title`);
+			if (button) {
+				button.addEventListener('click', wdsBlocksAccordion.click);
+			}
+		});
+	},
+
+	/**
+	 * Accordion click event.
+	 *
+	 * @param {HTMLElement}
+	 */
 	click: (e) => {
 		e.preventDefault();
 		let button = e.currentTarget;
@@ -6,20 +32,25 @@ const wdsBlocksAccordion = {
 			container: button.parentNode,
 			button: button,
 			content: button.parentNode.querySelector(
-				'.wp-block-wdsblocks-accordion__content'
+				`.${accordionClass}__content`
 			),
 		};
-		if (props.container.classList.contains('is-expanded')) {
+		if (props.container.classList.contains(expandedClass)) {
 			wdsBlocksAccordion.collapse(props);
 		} else {
+			// Close open accordion when `will-toggle` class is active.
+			if (button.classList.contains('will-toggle')) {
+				wdsBlocksAccordion.closeActive(props.container);
+			}
 			wdsBlocksAccordion.expand(props);
 		}
 	},
+
 	/**
-	 * Expand accordion
+	 * Expand accordion.
 	 */
 	expand: (props) => {
-		props.container.classList.add('is-expanded');
+		props.container.classList.add(expandedClass);
 		props.button.setAttribute('aria-expanded', true);
 		props.content.setAttribute('aria-hidden', false);
 
@@ -32,26 +63,52 @@ const wdsBlocksAccordion = {
 			props.content.focus();
 		}, 200);
 	},
+
 	/**
-	 * Collapse accordion
+	 * Collapse accordion.
 	 */
 	collapse: (props) => {
-		props.container.classList.remove('is-expanded');
+		props.container.classList.remove(expandedClass);
 		props.button.setAttribute('aria-expanded', false);
 		props.content.setAttribute('aria-hidden', true);
 		props.content.style.height = '0px';
 	},
-};
 
-// Get all accordions
-const accordions = document.querySelectorAll('.wp-block-wdsblocks-accordion');
-if (accordions) {
-	[...accordions].forEach((accordion, index) => {
-		let button = accordion.querySelector(
-			'.wp-block-wdsblocks-accordion__title'
-		);
-		if (button) {
-			button.addEventListener('click', wdsBlocksAccordion.click);
+	/**
+	 * Close currently active accordion.
+	 */
+	closeActive: (container = '') => {
+		let active = container.parentNode.querySelector(`.${expandedClass}`); // Get active accordion from container parent.
+		if (active) {
+			active.querySelector(`.${buttonClass}`).click(); // Trigger click on button.
 		}
+	},
+};
+export default wdsBlocksAccordion;
+
+// Get Accordion Groups
+const accordionGroups = document.querySelectorAll(`.${accordionClass}-group`);
+if (accordionGroups) {
+	[...accordionGroups].forEach((group) => {
+		const openFirst = group.dataset.openFirst
+			? group.dataset.openFirst
+			: false;
+		const toggle = group.dataset.toggle ? group.dataset.toggle : false;
+		if ('true' === toggle) {
+			setupToggle(group, buttonClass);
+		}
+
+		// Open first section
+		if ('true' === openFirst) {
+			const first = group.querySelector(`.${buttonClass}`);
+			first.click();
+		}
+	});
+}
+
+function setupToggle(group, buttonClass) {
+	const buttons = group.querySelectorAll(`.${buttonClass}`);
+	[...buttons].forEach((button) => {
+		button.classList.add('will-toggle');
 	});
 }

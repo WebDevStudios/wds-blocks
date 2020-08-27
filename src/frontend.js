@@ -1,1 +1,4 @@
-require('./blocks/accordion/frontend/index');
+import wdsBlocksAccordion from './blocks/accordion/frontend';
+
+// Accordion
+wdsBlocksAccordion.init();

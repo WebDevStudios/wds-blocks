@@ -8,11 +8,14 @@ import {
 	PanelBody,
 	PanelRow,
 	Toolbar,
+	BaseControl,
 	ToggleControl,
+	ColorIndicator,
 	ColorPalette,
 } from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
+import classnames from 'classnames';
 import { PREFIX, THEME_BKG_PALETTE } from '../../utils/constants';
 import './editor.scss';
 
@@ -59,7 +62,7 @@ const innerBlocksProps = {
  */
 export default function Edit(props) {
 	const {
-		attributes: { title, desc, bkgColor, openFirst },
+		attributes: { title, desc, bkgColor, openFirst, toggle },
 		setAttributes,
 		className,
 		containerClass,
@@ -85,6 +88,11 @@ export default function Edit(props) {
 		<>
 			<InspectorControls>
 				<PanelBody title={__('Background Color', 'wdsblocks')}>
+					<PanelRow>
+						<BaseControl label="Selected Color">
+							<ColorIndicator colorValue={bkgColor} />
+						</BaseControl>
+					</PanelRow>
 					<PanelRow>
 						<ColorPalette
 							colors={THEME_BKG_PALETTE}
@@ -112,11 +120,27 @@ export default function Edit(props) {
 						/>
 					</PanelRow>
 				</PanelBody>
+				<PanelBody title={__('Toggle Others', 'wdsblocks')}>
+					<PanelRow>
+						<ToggleControl
+							label={__('Yes', 'accordion-blocks')}
+							help={__(
+								'Collaspe other accordions when expanding a new accordion.',
+								'wdsblocks'
+							)}
+							checked={toggle}
+							onChange={(value) =>
+								setAttributes({ toggle: value })
+							}
+						/>
+					</PanelRow>
+				</PanelBody>
 			</InspectorControls>
 			<div
-				className={className}
+				className={classnames('alignfull', className)}
 				style={{ backgroundColor: bkgColor }}
 				data-open-first={openFirst}
+				data-toggle={toggle}
 			>
 				<div className={containerClass}>
 					<RichText
@@ -141,7 +165,7 @@ export default function Edit(props) {
 							'wdsblocks'
 						)}
 					/>
-					<div className={`${className}__content`}>
+					<div className={`${className}__content has-accordions`}>
 						<InnerBlocks {...innerBlocksProps} />
 					</div>
 				</div>
