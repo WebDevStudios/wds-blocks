@@ -14,6 +14,7 @@ import './frontend/style.scss';
  */
 registerBlockType( `${ PREFIX }/carousel`, {
 	title: __( 'Carousel Block', 'wdsblocks' ),
+	description: __( 'A carousel with a call to action for each slide.', 'wdsblocks' ),
 	icon: 'slides',
 	category: 'wds-blocks',
 	keywords: [ __( 'carousel, slider', 'wdsblocks' ) ],

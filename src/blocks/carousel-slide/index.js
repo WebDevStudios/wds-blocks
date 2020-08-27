@@ -14,6 +14,7 @@ import './frontend/style.scss';
  */
 registerBlockType( `${ PREFIX }/carousel-slide`, {
 	title: __( 'Slide', 'wdsblocks' ),
+	description: __( 'An individual carousel slide with optional title, content, and CTA button(s).', 'wdsblocks' ),
 	icon: 'cover-image',
 	category: 'wds-blocks',
 	keywords: [ __( 'carousel, slide', 'wdsblocks' ) ],
