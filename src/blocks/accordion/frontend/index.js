@@ -1,5 +1,5 @@
 const accordionClass = 'wp-block-wdsblocks-accordion';
-const buttonClass = `${accordionClass} button.${accordionClass}__title`;
+const buttonClass = `${accordionClass}__title`;
 const expandedClass = 'is-expanded';
 
 const wdsBlocksAccordion = {
@@ -14,7 +14,7 @@ const wdsBlocksAccordion = {
 		}
 		// Loop all accordions.
 		[...accordions].forEach((accordion) => {
-			let button = accordion.querySelector(`.${accordionClass}__title`);
+			let button = accordion.querySelector(`.${buttonClass}`);
 			if (button) {
 				button.addEventListener('click', wdsBlocksAccordion.click);
 			}
@@ -36,7 +36,7 @@ const wdsBlocksAccordion = {
 
 			// If toggle true.
 			if ('true' === toggle) {
-				wdsBlocksAccordion.setupToggles(group, buttonClass);
+				wdsBlocksAccordion.setupToggles(group);
 			}
 
 			// Open first section.
@@ -104,7 +104,7 @@ const wdsBlocksAccordion = {
 	/**
 	 * Add class to accordions that should collaspe when another accordion is open
 	 */
-	setupToggles: (group, buttonClass) => {
+	setupToggles: (group) => {
 		const buttons = group.querySelectorAll(`.${buttonClass}`);
 		[...buttons].forEach((button) => {
 			button.classList.add('will-collapse');
@@ -115,10 +115,15 @@ const wdsBlocksAccordion = {
 	 * Close currently active accordion.
 	 */
 	closeActive: (container = '') => {
-		let active = container.parentNode.querySelector(`.${expandedClass}`); // Get active accordion from container parent.
-		if (active) {
-			active.querySelector(`.${buttonClass}`).click(); // Trigger click on button.
+		const active = container.parentNode.querySelector(`.${expandedClass}`); // Get active accordion from container parent.
+		if (!active) {
+			return false;
 		}
+		const button = active.querySelector(`.${buttonClass}`);
+		if (!button) {
+			return false;
+		}
+		button.click(); // Trigger click on button.
 	},
 };
 export default wdsBlocksAccordion;

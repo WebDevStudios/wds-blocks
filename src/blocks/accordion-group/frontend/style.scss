@@ -1,3 +1,7 @@
 .wp-block-wdsblocks-accordion-group {
 	padding: 3rem 0;
+	&:not(.alignfull) {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
 }

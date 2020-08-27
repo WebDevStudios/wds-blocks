@@ -2,19 +2,49 @@
 
 .wp-block-wdsblocks-accordion-group {
 	@include edit-mode;
+	.wp-block-wdsblocks-accordion {
+		@include edit-mode;
+	}
 }
 
 .editor-styles-wrapper {
 	.wp-block-wdsblocks-accordion-group {
 		padding: 1rem;
+		position: relative;
+		&:hover {
+			&:after {
+				display: block;
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				z-index: 10px;
+				background-color: #ff0000;
+				width: 40px;
+				height: 40px;
+			}
+		}
 		&__title {
 			width: 100%;
 			display: block;
 			text-align: left;
 			margin: 0;
 		}
+		.wp-block {
+			max-width: unset;
+		}
 		p {
 			margin-bottom: 0;
+		}
+		&.preview-mode {
+			.wp-block-wdsblocks-accordion__content--inner {
+				display: none;
+			}
+		}
+		&.edit-mode {
+			.wp-block-wdsblocks-accordion__content--inner {
+				display: block;
+			}
 		}
 	}
 }

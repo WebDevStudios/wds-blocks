@@ -17,6 +17,8 @@ import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 import { PREFIX, CONTAINER_CLASS, THEME_BKG_PALETTE } from '../../utils/config';
+import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
+import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
 import './editor.scss';
 
 // Block types that cann be added to `InnerBlocks` component
@@ -67,7 +69,10 @@ export default function Edit(props) {
 		className,
 	} = props;
 
-	console.log(props);
+	const { showPreview, togglePreview } = usePreviewToggle();
+
+	// Prevent editing block content in preview mode.
+	innerBlocksProps.templateLock = showPreview ? 'all' : false;
 
 	// Update `title` field content on change.
 	const onTitleContent = (newTitle) => {
@@ -136,7 +141,10 @@ export default function Edit(props) {
 				</PanelBody>
 			</InspectorControls>
 			<div
-				className={classnames('alignfull', className)}
+				className={classnames(
+					className,
+					showPreview ? 'preview-mode' : 'edit-mode'
+				)}
 				style={{ backgroundColor: bkgColor }}
 				data-open-first={openFirst}
 				data-toggle={toggle}
@@ -164,7 +172,11 @@ export default function Edit(props) {
 							'wdsblocks'
 						)}
 					/>
-					<div className={`${className}__content has-accordions`}>
+					<div className={`${className}__content`}>
+						<PreviewToggle
+							showPreview={showPreview}
+							togglePreview={togglePreview}
+						/>
 						<InnerBlocks {...innerBlocksProps} />
 					</div>
 				</div>

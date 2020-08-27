@@ -24,7 +24,7 @@ export default function Save(props) {
 
 	return (
 		<div
-			className={classnames('alignfull', className)}
+			className={classnames(className)}
 			style={{ backgroundColor: bkgColor }}
 			data-open-first={openFirst}
 			data-toggle={toggle}
@@ -40,7 +40,7 @@ export default function Save(props) {
 					className={`${className}__desc`}
 					value={desc}
 				/>
-				<div className={`${className}__content has-accordions`}>
+				<div className={`${className}__content`}>
 					<InnerBlocks.Content />
 				</div>
 			</div>

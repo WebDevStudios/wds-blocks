@@ -21,9 +21,10 @@ registerBlockType(`wdsblocks/${BLOCKNAME}`, {
 		'wdsblocks'
 	),
 	icon: 'sort',
-	category: 'common',
+	category: 'wds-blocks',
 	keywords: [__('accordion', 'wdsblocks')],
 	supports: {
+		html: false,
 		anchor: true,
 	},
 	attributes: {
