@@ -23,9 +23,6 @@ export default function Edit( props ) {
 	const { className } = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
 
-	// Prevent editing block content in preview mode.
-	innerBlocksProps.templateLock = showPreview ? 'all' : false;
-
 	return (
 		<>
 			<PreviewToggle
