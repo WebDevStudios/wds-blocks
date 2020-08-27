@@ -14,7 +14,12 @@ import { getColorClassName, InnerBlocks } from '@wordpress/block-editor';
  */
 export default function Save( props ) {
 	const {
-		attributes: { fontColor, customFontColor },
+		attributes: {
+			fontColor,
+			customFontColor,
+			backgroundColor,
+			customBackgroundColor,
+		},
 		className,
 	} = props;
 
@@ -24,9 +29,20 @@ export default function Save( props ) {
 	// Add custom color classes.
 	classes.push( fontColor || customFontColor ? 'has-text-color' : null );
 	classes.push( fontColor ? getColorClassName( 'color', fontColor ) : null );
+	classes.push(
+		backgroundColor || customBackgroundColor ? 'has-background' : null
+	);
+	classes.push(
+		backgroundColor
+			? getColorClassName( 'background-color', backgroundColor )
+			: null
+	);
 
 	// Add custom color styles.
 	styles.color = customFontColor ? customFontColor : undefined;
+	styles.backgroundColor = customBackgroundColor
+		? customBackgroundColor
+		: undefined;
 
 	return (
 		<div

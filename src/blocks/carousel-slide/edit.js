@@ -53,6 +53,8 @@ function Edit( props ) {
 		setAttributes,
 		fontColor,
 		setFontColor,
+		backgroundColor,
+		setBackgroundColor,
 	} = props;
 
 	// Update field content on change.
@@ -66,9 +68,13 @@ function Edit( props ) {
 	// Add custom color classes.
 	classes.push( fontColor.color ? 'has-text-color' : null );
 	classes.push( fontColor.class ? fontColor.class : null );
+	classes.push( backgroundColor.class ? backgroundColor.class : null );
 
 	// Add custom color styles.
 	styles.color = fontColor.color ? fontColor.color : undefined;
+	styles.backgroundColor = backgroundColor.color
+		? backgroundColor.color
+		: undefined;
 
 	return (
 		<>
@@ -80,6 +86,11 @@ function Edit( props ) {
 							value: fontColor.color,
 							onChange: setFontColor,
 							label: __( 'Text Color', 'wdsblocks' ),
+						},
+						{
+							value: backgroundColor.color,
+							onChange: setBackgroundColor,
+							label: __( 'Background Color', 'wdsblocks' ),
 						},
 					] }
 				/>
@@ -94,4 +105,6 @@ function Edit( props ) {
 	);
 }
 
-export default compose( [ withColors( { fontColor: 'color' } ) ] )( Edit );
+export default compose( [
+	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
+] )( Edit );
