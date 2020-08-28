@@ -20,5 +20,10 @@
 		.block-list-appender {
 			display: none;
 		}
+
+		.wp-block[data-type="wdsblocks/carousel-slide"] {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
 	}
 }
