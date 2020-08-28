@@ -24,11 +24,19 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 	attributes: {
 		fontColor: {
 			type: 'string',
-			default: '',
+			default: undefined,
+		},
+		customFontColor: {
+			type: 'string',
+			default: undefined,
 		},
 		backgroundColor: {
 			type: 'string',
-			default: '',
+			default: undefined,
+		},
+		customBackgroundColor: {
+			type: 'string',
+			default: undefined,
 		},
 	},
 	supports: {
