@@ -302,9 +302,10 @@ function Edit( props ) {
 														}
 													>
 														<video
-															autoplay=""
+															autoPlay
 															muted
 															loop
+															aria-hidden="true"
 														>
 															<source
 																src={
@@ -347,6 +348,22 @@ function Edit( props ) {
 				className={ classes.filter( Boolean ).join( ' ' ) }
 				style={ styles }
 			>
+				{ 'video' === backgroundType &&
+					backgroundVideoID &&
+					backgroundVideo && (
+						<video
+							autoPlay
+							muted
+							loop
+							aria-hidden="true"
+							className="wp-block-cover__video-background"
+						>
+							<source
+								src={ backgroundVideoURL }
+								type={ backgroundVideo.media_details.mime_type }
+							/>
+						</video>
+					) }
 				<InnerBlocks { ...innerBlocksProps } />
 			</div>
 		</>
