@@ -77,13 +77,25 @@ function Edit( props ) {
 	// Add custom color classes.
 	classes.push( fontColor.color ? 'has-text-color' : null );
 	classes.push( fontColor.class ? fontColor.class : null );
-	classes.push( backgroundColor.class ? backgroundColor.class : null );
+	classes.push(
+		backgroundColor || customBackgroundColor ? 'has-background' : null
+	);
+	classes.push(
+		'color' === backgroundType && backgroundColor.class
+			? backgroundColor.class
+			: null
+	);
 
 	// Add custom color styles.
 	styles.color = fontColor.color ? fontColor.color : undefined;
-	styles.backgroundColor = backgroundColor.color
-		? backgroundColor.color
-		: undefined;
+	styles.backgroundColor =
+		'color' === backgroundType && backgroundColor.color
+			? backgroundColor.color
+			: undefined;
+	styles.backgroundImage =
+		'image' === backgroundType && backgroundImageURL
+			? `url(${ backgroundImageURL })`
+			: undefined;
 
 	return (
 		<>
