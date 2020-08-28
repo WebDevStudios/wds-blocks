@@ -21,6 +21,7 @@ export default function Save( props ) {
 			backgroundColor,
 			customBackgroundColor,
 			backgroundImageURL,
+			backgroundVideoURL,
 		},
 		className,
 	} = props;
@@ -59,6 +60,17 @@ export default function Save( props ) {
 			className={ classes.filter( Boolean ).join( ' ' ) }
 			style={ styles }
 		>
+			{ 'video' === backgroundType && backgroundVideoURL && (
+				<video
+					autoPlay
+					muted
+					loop
+					aria-hidden="true"
+					className="wp-block-cover__video-background"
+				>
+					<source src={ backgroundVideoURL } />
+				</video>
+			) }
 			<InnerBlocks.Content />
 		</div>
 	);
