@@ -50,6 +50,14 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 			type: 'string',
 			default: undefined,
 		},
+		backgroundVideoID: {
+			type: 'number',
+			default: undefined,
+		},
+		backgroundVideoURL: {
+			type: 'string',
+			default: undefined,
+		},
 	},
 	supports: {
 		html: false,
