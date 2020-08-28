@@ -9,6 +9,7 @@ import {
 	BaseControl,
 	ColorIndicator,
 	PanelBody,
+	SelectControl,
 } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
@@ -54,7 +55,7 @@ const innerBlocksProps = {
  */
 function Edit( props ) {
 	const {
-		attributes,
+		attributes: { backgroundType },
 		className,
 		setAttributes,
 		fontColor,
@@ -106,39 +107,56 @@ function Edit( props ) {
 						(https://handbrake.fr/) prior to upload. For best
 						results, background media should be at least 1280x720.
 					</p>
-					<BaseControl>
-						<fieldset>
-							<legend>
-								<div className="block-editor-color-gradient-control__color-indicator">
-									<BaseControl.VisualLabel>
-										{
-											<>
-												{ __(
-													'Background Color',
-													'wdsblocks'
-												) }
-												{ !! backgroundColor.color && (
-													<ColorIndicator
-														colorValue={
-															backgroundColor.color
-														}
-														aria-label={ sprintf(
-															__( '(Color: %s)' ),
-															backgroundColor.color
-														) }
-													/>
-												) }
-											</>
-										}
-									</BaseControl.VisualLabel>
-								</div>
-							</legend>
-							<ColorPalette
-								value={ backgroundColor.color }
-								onChange={ setBackgroundColor }
-							/>
-						</fieldset>
-					</BaseControl>
+					<SelectControl
+						label={ __( 'Background type', 'wdsblocks' ) }
+						value={ backgroundType }
+						options={ [
+							{ label: 'None', value: 'none' },
+							{ label: 'Color', value: 'color' },
+							{ label: 'Image', value: 'image' },
+							{ label: 'Video', value: 'video' },
+						] }
+						onChange={ ( value ) =>
+							onChangeAttributes( 'backgroundType', value )
+						}
+					></SelectControl>
+					{ 'color' === backgroundType && (
+						<BaseControl>
+							<fieldset>
+								<legend>
+									<div className="block-editor-color-gradient-control__color-indicator">
+										<BaseControl.VisualLabel>
+											{
+												<>
+													{ __(
+														'Background Color',
+														'wdsblocks'
+													) }
+													{ !! backgroundColor.color && (
+														<ColorIndicator
+															colorValue={
+																backgroundColor.color
+															}
+															aria-label={ sprintf(
+																__(
+																	'(Color: %s)'
+																),
+																backgroundColor.color
+															) }
+														/>
+													) }
+												</>
+											}
+										</BaseControl.VisualLabel>
+									</div>
+								</legend>
+								<ColorPalette
+									value={ backgroundColor.color }
+									onChange={ setBackgroundColor }
+								/>
+							</fieldset>
+						</BaseControl>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			<div
