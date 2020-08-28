@@ -2,16 +2,22 @@ import {
 	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
 	PanelColorSettings,
 	withColors,
 } from '@wordpress/block-editor';
 import {
 	BaseControl,
+	Button,
 	ColorIndicator,
 	PanelBody,
+	ResponsiveWrapper,
 	SelectControl,
+	Spinner,
 } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
+import { withSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
@@ -55,13 +61,14 @@ const innerBlocksProps = {
  */
 function Edit( props ) {
 	const {
-		attributes: { backgroundType },
+		attributes: { backgroundType, backgroundImageID, backgroundImageURL },
 		className,
 		setAttributes,
 		fontColor,
 		setFontColor,
 		backgroundColor,
 		setBackgroundColor,
+		backgroundImage,
 	} = props;
 
 	const classes = [ className ],
@@ -152,6 +159,84 @@ function Edit( props ) {
 							</fieldset>
 						</BaseControl>
 					) }
+					{ 'image' === backgroundType && (
+						<>
+							<MediaUploadCheck>
+								<MediaUpload
+									title={ __(
+										'Background image',
+										'wdsblocks'
+									) }
+									onSelect={ ( value ) =>
+										setAttributes( {
+											backgroundImageID: value.id,
+											backgroundImageURL: value.url,
+										} )
+									}
+									allowedTypes={ [ 'image' ] }
+									value={ backgroundImageID }
+									render={ ( { open } ) => (
+										<Button
+											onClick={ open }
+											className={
+												! backgroundImageID
+													? 'editor-post-featured-image__toggle'
+													: 'editor-post-featured-image__preview'
+											}
+										>
+											{ ! backgroundImageID &&
+												__( 'Add image', 'wdsblocks' ) }
+											{ !! backgroundImageID &&
+												! backgroundImage && (
+													<Spinner />
+												) }
+											{ !! backgroundImageID &&
+												backgroundImage && (
+													<ResponsiveWrapper
+														naturalWidth={
+															backgroundImage
+																.media_details
+																.width
+														}
+														naturalHeight={
+															backgroundImage
+																.media_details
+																.height
+														}
+													>
+														<img
+															src={
+																backgroundImageURL
+															}
+															alt={ __(
+																'Background image',
+																'wdsblocks'
+															) }
+														/>
+													</ResponsiveWrapper>
+												) }
+										</Button>
+									) }
+								/>
+							</MediaUploadCheck>
+							{ !! backgroundImageID && (
+								<MediaUploadCheck>
+									<Button
+										onClick={ () =>
+											setAttributes( {
+												backgroundImageID: undefined,
+												backgroundImageURL: undefined,
+											} )
+										}
+										isLink
+										isDestructive
+									>
+										{ __( 'Remove image', 'wdsblocks' ) }
+									</Button>
+								</MediaUploadCheck>
+							) }
+						</>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			<div
@@ -166,4 +251,14 @@ function Edit( props ) {
 
 export default compose( [
 	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
+	withSelect( ( select, props ) => {
+		const { getMedia } = select( 'core' );
+		const { backgroundImageID } = props.attributes;
+
+		return {
+			backgroundImage: backgroundImageID
+				? getMedia( backgroundImageID )
+				: null,
+		};
+	} ),
 ] )( Edit );
