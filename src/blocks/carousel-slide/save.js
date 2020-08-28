@@ -17,8 +17,10 @@ export default function Save( props ) {
 		attributes: {
 			fontColor,
 			customFontColor,
+			backgroundType,
 			backgroundColor,
 			customBackgroundColor,
+			backgroundImageURL,
 		},
 		className,
 	} = props;
@@ -37,12 +39,20 @@ export default function Save( props ) {
 			? getColorClassName( 'background-color', backgroundColor )
 			: null
 	);
+	classes.push(
+		'color' === backgroundType && backgroundColor ? backgroundColor : null
+	);
 
 	// Add custom color styles.
 	styles.color = customFontColor ? customFontColor : undefined;
-	styles.backgroundColor = customBackgroundColor
-		? customBackgroundColor
-		: undefined;
+	styles.backgroundColor =
+		'color' === backgroundType && backgroundColor
+			? backgroundColor
+			: undefined;
+	styles.backgroundImage =
+		'image' === backgroundType && backgroundImageURL
+			? `url(${ backgroundImageURL })`
+			: undefined;
 
 	return (
 		<div
