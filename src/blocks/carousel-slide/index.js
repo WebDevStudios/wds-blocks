@@ -30,6 +30,10 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 			type: 'string',
 			default: undefined,
 		},
+		backgroundType: {
+			type: 'string',
+			default: 'none',
+		},
 		backgroundColor: {
 			type: 'string',
 			default: undefined,
