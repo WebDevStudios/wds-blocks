@@ -64,11 +64,6 @@ function Edit( props ) {
 		setBackgroundColor,
 	} = props;
 
-	// Update field content on change.
-	const onChangeAttributes = ( attribute, value ) => {
-		setAttributes( { [ attribute ]: value } );
-	};
-
 	const classes = [ className ],
 		styles = {};
 
@@ -117,7 +112,7 @@ function Edit( props ) {
 							{ label: 'Video', value: 'video' },
 						] }
 						onChange={ ( value ) =>
-							onChangeAttributes( 'backgroundType', value )
+							setAttributes( { backgroundType: value } )
 						}
 					></SelectControl>
 					{ 'color' === backgroundType && (
