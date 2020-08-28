@@ -99,6 +99,13 @@ function Edit( props ) {
 					title={ __( 'Background settings', 'wdsblocks' ) }
 					className="block-editor-panel-color-gradient-settings"
 				>
+					<p className="description">
+						Remember: image and video files should be compressed and
+						optimized with tools like ImageOptim
+						(https://imageoptim.com/online) and Handbrake
+						(https://handbrake.fr/) prior to upload. For best
+						results, background media should be at least 1280x720.
+					</p>
 					<BaseControl>
 						<fieldset>
 							<legend>
