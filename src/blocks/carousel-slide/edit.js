@@ -1,9 +1,15 @@
 import {
+	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
 	withColors,
 } from '@wordpress/block-editor';
+import {
+	BaseControl,
+	ColorIndicator,
+	PanelBody,
+} from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
@@ -87,13 +93,46 @@ function Edit( props ) {
 							onChange: setFontColor,
 							label: __( 'Text Color', 'wdsblocks' ),
 						},
-						{
-							value: backgroundColor.color,
-							onChange: setBackgroundColor,
-							label: __( 'Background Color', 'wdsblocks' ),
-						},
 					] }
 				/>
+				<PanelBody
+					title={ __( 'Background settings', 'wdsblocks' ) }
+					className="block-editor-panel-color-gradient-settings"
+				>
+					<BaseControl>
+						<fieldset>
+							<legend>
+								<div className="block-editor-color-gradient-control__color-indicator">
+									<BaseControl.VisualLabel>
+										{
+											<>
+												{ __(
+													'Background Color',
+													'wdsblocks'
+												) }
+												{ !! backgroundColor.color && (
+													<ColorIndicator
+														colorValue={
+															backgroundColor.color
+														}
+														aria-label={ sprintf(
+															__( '(Color: %s)' ),
+															backgroundColor.color
+														) }
+													/>
+												) }
+											</>
+										}
+									</BaseControl.VisualLabel>
+								</div>
+							</legend>
+							<ColorPalette
+								value={ backgroundColor.color }
+								onChange={ setBackgroundColor }
+							/>
+						</fieldset>
+					</BaseControl>
+				</PanelBody>
 			</InspectorControls>
 			<div
 				className={ classes.filter( Boolean ).join( ' ' ) }
