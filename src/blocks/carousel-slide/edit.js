@@ -61,7 +61,13 @@ const innerBlocksProps = {
  */
 function Edit( props ) {
 	const {
-		attributes: { backgroundType, backgroundImageID, backgroundImageURL },
+		attributes: {
+			backgroundType,
+			backgroundImageID,
+			backgroundImageURL,
+			backgroundVideoID,
+			backgroundVideoURL,
+		},
 		className,
 		setAttributes,
 		fontColor,
@@ -69,6 +75,7 @@ function Edit( props ) {
 		backgroundColor,
 		setBackgroundColor,
 		backgroundImage,
+		backgroundVideo,
 	} = props;
 
 	const classes = [ className ],
@@ -249,6 +256,91 @@ function Edit( props ) {
 							) }
 						</>
 					) }
+					{ 'video' === backgroundType && (
+						<>
+							<MediaUploadCheck>
+								<MediaUpload
+									title={ __(
+										'Background video',
+										'wdsblocks'
+									) }
+									onSelect={ ( value ) =>
+										setAttributes( {
+											backgroundVideoID: value.id,
+											backgroundVideoURL: value.url,
+										} )
+									}
+									allowedTypes={ [ 'video' ] }
+									value={ backgroundVideoID }
+									render={ ( { open } ) => (
+										<Button
+											onClick={ open }
+											className={
+												! backgroundVideoID
+													? 'editor-post-featured-image__toggle'
+													: 'editor-post-featured-image__preview'
+											}
+										>
+											{ ! backgroundVideoID &&
+												__( 'Add video', 'wdsblocks' ) }
+											{ !! backgroundVideoID &&
+												! backgroundVideo && (
+													<Spinner />
+												) }
+											{ !! backgroundVideoID &&
+												backgroundVideo && (
+													<ResponsiveWrapper
+														naturalWidth={
+															backgroundVideo
+																.media_details
+																.width
+														}
+														naturalHeight={
+															backgroundVideo
+																.media_details
+																.height
+														}
+													>
+														<video
+															autoplay=""
+															muted
+															loop
+														>
+															<source
+																src={
+																	backgroundVideoURL
+																}
+																type={
+																	backgroundVideo
+																		.media_details
+																		.mime_type
+																}
+															/>
+														</video>
+													</ResponsiveWrapper>
+												) }
+										</Button>
+									) }
+								/>
+							</MediaUploadCheck>
+							{ !! backgroundVideoID && (
+								<MediaUploadCheck>
+									<Button
+										onClick={ () =>
+											setAttributes( {
+												backgroundVideoID: undefined,
+												backgroundVideoURL: undefined,
+											} )
+										}
+										isLink
+										isDestructive
+									>
+										{ __( 'Remove video', 'wdsblocks' ) }
+									</Button>
+								</MediaUploadCheck>
+							) }
+						</>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			<div
@@ -265,11 +357,14 @@ export default compose( [
 	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
 	withSelect( ( select, props ) => {
 		const { getMedia } = select( 'core' );
-		const { backgroundImageID } = props.attributes;
+		const { backgroundImageID, backgroundVideoID } = props.attributes;
 
 		return {
 			backgroundImage: backgroundImageID
 				? getMedia( backgroundImageID )
+				: null,
+			backgroundVideo: backgroundVideoID
+				? getMedia( backgroundVideoID )
 				: null,
 		};
 	} ),
