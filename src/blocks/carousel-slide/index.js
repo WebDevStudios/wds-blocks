@@ -42,6 +42,14 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 			type: 'string',
 			default: undefined,
 		},
+		backgroundImageID: {
+			type: 'number',
+			default: undefined,
+		},
+		backgroundImageURL: {
+			type: 'string',
+			default: undefined,
+		},
 	},
 	supports: {
 		html: false,
