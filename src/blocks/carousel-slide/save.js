@@ -1,24 +1,7 @@
 import { getColorClassName, InnerBlocks } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
-import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
-import withBackgroundImage from '../../utils/withBackgroundImage';
-import withBackgroundVideo from '../../utils/withBackgroundVideo';
-
-/**
- * Display inner blocks content with wrapping container div.
- *
- * @author WebDevStudios
- * @since  2.0.0
- *
- * @return {WPElement} Element to render.
- */
-function InnerBlocksContent() {
-	return (
-		<div className={ CONTAINER_CLASS }>
-			<InnerBlocks.Content />
-		</div>
-	);
-}
+import Slide from './Components/Slide';
+import { PREFIX } from '../../utils/config';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -69,52 +52,17 @@ export default function Save( props ) {
 			? customBackgroundColor
 			: undefined;
 
-	/**
-	 * Display inner blocks content with wrapping container div.
-	 *
-	 * @author WebDevStudios
-	 * @since  2.0.0
-	 *
-	 * @return {WPElement} Element to render.
-	 */
-	const BlockContent = () => {
-		const wrapProps = {
-			className: classes.filter( Boolean ).join( ' ' ),
-			style: { ...styles },
-		};
-
-		switch ( backgroundType ) {
-			case 'video':
-				const BlockWithBackgroundVideo = withBackgroundVideo( 'div' );
-
-				return (
-					<BlockWithBackgroundVideo
-						backgroundVideo={ backgroundVideo }
-						{ ...wrapProps }
-					>
-						<InnerBlocksContent />
-					</BlockWithBackgroundVideo>
-				);
-
-			case 'image':
-				const BlockWithBackgroundImage = withBackgroundImage( 'div' );
-
-				return (
-					<BlockWithBackgroundImage
-						backgroundImage={ backgroundImage }
-						{ ...wrapProps }
-					>
-						<InnerBlocksContent />
-					</BlockWithBackgroundImage>
-				);
-		}
-
-		return (
-			<div { ...wrapProps }>
-				<InnerBlocksContent />
-			</div>
-		);
+	// Define props relating to block background settings.
+	const backgroundProps = {
+		backgroundType,
+		backgroundColor,
+		backgroundImage,
+		backgroundVideo,
 	};
 
-	return <BlockContent />;
+	return (
+		<Slide classes={ classes } styles={ styles } { ...backgroundProps }>
+			<InnerBlocks.Content />
+		</Slide>
+	);
 }
