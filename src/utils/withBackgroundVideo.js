@@ -4,8 +4,8 @@
  * @author WebDevStudios
  * @since  2.0.0
  *
- * @param  {ReactElement} WrappedComponent The wrapped component to display.
- * @return {Function}                      A function that accepts a single param, `props`, to display the wrapped component.
+ * @param  {WPElement} WrappedComponent The wrapped component to display.
+ * @return {Function}                   A function that accepts a single param, `props`, to display the wrapped component.
  */
 export default function withBackgroundVideo( WrappedComponent ) {
 	/**
