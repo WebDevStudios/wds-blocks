@@ -1,3 +1,4 @@
+const accordionsClass = 'wp-block-wdsblocks-accordions';
 const accordionClass = 'wp-block-wdsblocks-accordion';
 const buttonClass = `${ accordionClass }__title`;
 const expandedClass = 'is-expanded';
@@ -28,7 +29,7 @@ const wdsBlocksAccordion = {
 
 		// Get all accordion groups.
 		const accordionGroups = document.querySelectorAll(
-			`.${ accordionClass }-group`
+			`.${ accordionsClass }`
 		);
 		if ( ! accordionGroups ) {
 			return false; // Exit.
@@ -45,10 +46,17 @@ const wdsBlocksAccordion = {
 				wdsBlocksAccordion.setupToggles( group );
 			}
 
-			// Open first section.
+			// Expand first section (if required).
 			if ( 'true' === openFirst ) {
-				const first = group.querySelector( `.${ buttonClass }` );
-				first.click();
+				const firstButton = group.querySelector( `.${ buttonClass }` );
+				let props = {
+					container: firstButton.parentNode,
+					button: firstButton,
+					content: firstButton.parentNode.querySelector(
+						`.${ accordionClass }__content`
+					),
+				};
+				wdsBlocksAccordion.expand( props, false );
 			}
 		} );
 	},
@@ -75,14 +83,14 @@ const wdsBlocksAccordion = {
 			if ( button.classList.contains( 'will-collapse' ) ) {
 				wdsBlocksAccordion.closeActive( props.container );
 			}
-			wdsBlocksAccordion.expand( props );
+			wdsBlocksAccordion.expand( props, true );
 		}
 	},
 
 	/**
 	 * Expand accordion.
 	 */
-	expand: ( props ) => {
+	expand: ( props, moveFocus = true ) => {
 		props.container.classList.add( expandedClass );
 		props.button.setAttribute( 'aria-expanded', true );
 		props.content.setAttribute( 'aria-hidden', false );
@@ -93,7 +101,9 @@ const wdsBlocksAccordion = {
 		props.content.style.height = inner.clientHeight + 'px';
 		// Delay and add focus
 		setTimeout( function () {
-			props.content.focus();
+			if ( moveFocus ) {
+				props.content.focus();
+			}
 		}, 200 );
 	},
 

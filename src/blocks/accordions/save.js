@@ -15,32 +15,36 @@ import { CONTAINER_CLASS } from '../../utils/config';
  * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement} Element to render.
  */
-export default function Save(props) {
+export default function Save( props ) {
 	const {
 		attributes: { title, desc, bkgColor, openFirst, toggle },
 	} = props;
 
-	const className = getBlockDefaultClassName('wdsblocks/accordion-group');
+	const className = getBlockDefaultClassName( 'wdsblocks/accordions' );
 
 	return (
 		<div
-			className={classnames(className)}
-			style={{ backgroundColor: bkgColor }}
-			data-open-first={openFirst}
-			data-toggle={toggle}
+			className={ classnames( className ) }
+			style={ { backgroundColor: bkgColor } }
+			data-open-first={ openFirst }
+			data-toggle={ toggle }
 		>
-			<div className={CONTAINER_CLASS}>
-				<RichText.Content
-					tagName="h2"
-					className={`${className}__title`}
-					value={title}
-				/>
-				<RichText.Content
-					tagName="p"
-					className={`${className}__desc`}
-					value={desc}
-				/>
-				<div className={`${className}__content`}>
+			<div className={ CONTAINER_CLASS }>
+				{ title && title[ 0 ] && (
+					<RichText.Content
+						tagName="h2"
+						className={ `${ className }__title` }
+						value={ title }
+					/>
+				) }
+				{ desc && desc[ 0 ] && (
+					<RichText.Content
+						tagName="p"
+						className={ `${ className }__desc` }
+						value={ desc }
+					/>
+				) }
+				<div className={ `${ className }__content` }>
 					<InnerBlocks.Content />
 				</div>
 			</div>

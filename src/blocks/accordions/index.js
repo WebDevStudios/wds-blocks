@@ -5,7 +5,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import { PREFIX } from '../../utils/config';
 import './frontend/style.scss';
 
-const BLOCKNAME = 'accordion-group';
+const BLOCKNAME = 'accordions';
 
 /**
  * Register block type definition.
@@ -15,17 +15,17 @@ const BLOCKNAME = 'accordion-group';
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 registerBlockType( `wdsblocks/${ BLOCKNAME }`, {
-	title: __( 'Accordion Group (wds)', 'wdsblocks' ),
+	title: __( 'Accordions (WDS)', 'wdsblocks' ),
 	description: __(
-		'Adds a group of expand/collapse blocks with headline and description.',
+		'Adds a group of expand/collapse blocks with optional headline and description fields.',
 		'wdsblocks'
 	),
 	icon: 'list-view',
 	category: 'wds-blocks',
 	keywords: [ __( 'accordion', 'accordions', 'wdsblocks' ) ],
 	supports: {
-		align: [ 'wide', 'full' ],
-		default: 'wide',
+		align: [ 'full' ],
+		default: 'none',
 		html: false,
 		anchor: true,
 	},
@@ -34,11 +34,13 @@ registerBlockType( `wdsblocks/${ BLOCKNAME }`, {
 			type: 'array',
 			source: 'children',
 			selector: `.wp-block-${ PREFIX }-${ BLOCKNAME }__title`,
+			default: __( 'Enter an optional title', 'wdsblocks' ),
 		},
 		desc: {
 			type: 'array',
 			source: 'children',
 			selector: `.wp-block-${ PREFIX }-${ BLOCKNAME }__desc`,
+			default: __( 'Enter an optional description', 'wdsblocks' ),
 		},
 		bkgColor: {
 			type: 'string',
