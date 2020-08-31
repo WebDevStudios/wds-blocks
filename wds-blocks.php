@@ -90,3 +90,26 @@ function register_block() {
 	}
 }
 add_action( 'init', __NAMESPACE__ . '\register_block' );
+
+/**
+ * Adds a WDS Block category to the Gutenberg category list.
+ *
+ * @param array  $categories The existing categories.
+ * @param object $post The current post.
+ * @return array The updated array of categories.
+ * @author WebDevStudios
+ * @since 2.0.0
+ */
+function register_block_category( $categories, $post ) {
+
+	return array_merge(
+		$categories,
+		array(
+			array(
+				'slug'  => 'wds-blocks',
+				'title' => esc_html__( 'WDS Blocks', 'wdsblocks' ),
+			),
+		)
+	);
+}
+add_filter( 'block_categories', __NAMESPACE__ . '\register_block_category', 10, 2 );
