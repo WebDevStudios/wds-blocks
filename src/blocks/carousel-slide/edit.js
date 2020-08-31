@@ -3,6 +3,7 @@ import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
 import Settings from './Components/Settings';
 import { CONTAINER_CLASS } from '../../utils/config';
+import withBackgroundImage from '../../utils/withBackgroundImage';
 import withBackgroundVideo from '../../utils/withBackgroundVideo';
 import './editor.scss';
 
@@ -90,17 +91,53 @@ function Edit( props ) {
 		'color' === backgroundType && backgroundColor.color
 			? backgroundColor.color
 			: undefined;
-	if ( 'image' === backgroundType && backgroundImage ) {
-		styles.backgroundImage = `url(${ backgroundImage.url })`;
-		styles.backgroundSize = 'cover';
-		styles.backgroundPosition = 'center';
-	}
 
-	const BlockWithBackgroundVideo = withBackgroundVideo( 'div' ),
-		wrapProps = {
+	/**
+	 * Display inner blocks content with wrapping container div.
+	 *
+	 * @author WebDevStudios
+	 * @since  2.0.0
+	 *
+	 * @return {WPElement} Element to render.
+	 */
+	const BlockContent = () => {
+		const wrapProps = {
 			className: classes.filter( Boolean ).join( ' ' ),
 			style: { ...styles },
 		};
+
+		switch ( backgroundType ) {
+			case 'video':
+				const BlockWithBackgroundVideo = withBackgroundVideo( 'div' );
+
+				return (
+					<BlockWithBackgroundVideo
+						backgroundVideo={ backgroundVideo }
+						{ ...wrapProps }
+					>
+						<InnerBlocksContent />
+					</BlockWithBackgroundVideo>
+				);
+
+			case 'image':
+				const BlockWithBackgroundImage = withBackgroundImage( 'div' );
+
+				return (
+					<BlockWithBackgroundImage
+						backgroundImage={ backgroundImage }
+						{ ...wrapProps }
+					>
+						<InnerBlocksContent />
+					</BlockWithBackgroundImage>
+				);
+		}
+
+		return (
+			<div { ...wrapProps }>
+				<InnerBlocksContent />
+			</div>
+		);
+	};
 
 	return (
 		<>
@@ -114,18 +151,7 @@ function Edit( props ) {
 				backgroundVideo={ backgroundVideo }
 				setAttributes={ setAttributes }
 			/>
-			{ 'video' === backgroundType ? (
-				<BlockWithBackgroundVideo
-					{ ...wrapProps }
-					backgroundVideo={ backgroundVideo }
-				>
-					<InnerBlocksContent />
-				</BlockWithBackgroundVideo>
-			) : (
-				<div { ...wrapProps }>
-					<InnerBlocksContent />
-				</div>
-			) }
+			<BlockContent />
 		</>
 	);
 }

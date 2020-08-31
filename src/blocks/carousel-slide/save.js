@@ -1,6 +1,7 @@
 import { getColorClassName, InnerBlocks } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
+import withBackgroundImage from '../../utils/withBackgroundImage';
 import withBackgroundVideo from '../../utils/withBackgroundVideo';
 
 /**
@@ -67,32 +68,53 @@ export default function Save( props ) {
 		'color' === backgroundType && customBackgroundColor
 			? customBackgroundColor
 			: undefined;
-	if ( 'image' === backgroundType && backgroundImage ) {
-		styles.backgroundImage = `url(${ backgroundImage.url })`;
-		styles.backgroundSize = 'cover';
-		styles.backgroundPosition = 'center';
-	}
 
-	const BlockWithBackgroundVideo = withBackgroundVideo( 'div' ),
-		wrapProps = {
+	/**
+	 * Display inner blocks content with wrapping container div.
+	 *
+	 * @author WebDevStudios
+	 * @since  2.0.0
+	 *
+	 * @return {WPElement} Element to render.
+	 */
+	const BlockContent = () => {
+		const wrapProps = {
 			className: classes.filter( Boolean ).join( ' ' ),
 			style: { ...styles },
 		};
 
-	return (
-		<>
-			{ 'video' === backgroundType ? (
-				<BlockWithBackgroundVideo
-					{ ...wrapProps }
-					backgroundVideo={ backgroundVideo }
-				>
-					<InnerBlocksContent />
-				</BlockWithBackgroundVideo>
-			) : (
-				<div { ...wrapProps }>
-					<InnerBlocksContent />
-				</div>
-			) }
-		</>
-	);
+		switch ( backgroundType ) {
+			case 'video':
+				const BlockWithBackgroundVideo = withBackgroundVideo( 'div' );
+
+				return (
+					<BlockWithBackgroundVideo
+						backgroundVideo={ backgroundVideo }
+						{ ...wrapProps }
+					>
+						<InnerBlocksContent />
+					</BlockWithBackgroundVideo>
+				);
+
+			case 'image':
+				const BlockWithBackgroundImage = withBackgroundImage( 'div' );
+
+				return (
+					<BlockWithBackgroundImage
+						backgroundImage={ backgroundImage }
+						{ ...wrapProps }
+					>
+						<InnerBlocksContent />
+					</BlockWithBackgroundImage>
+				);
+		}
+
+		return (
+			<div { ...wrapProps }>
+				<InnerBlocksContent />
+			</div>
+		);
+	};
+
+	return <BlockContent />;
 }
