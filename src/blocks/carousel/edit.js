@@ -1,5 +1,5 @@
 import { InnerBlocks } from '@wordpress/block-editor';
-import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
+import { PREFIX } from '../../utils/config';
 import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
 import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
 import './editor.scss';
@@ -36,9 +36,7 @@ export default function Edit( props ) {
 					showPreview ? 'preview-mode' : 'edit-mode'
 				}` }
 			>
-				<div className={ CONTAINER_CLASS }>
-					<InnerBlocks { ...innerBlocksProps } />
-				</div>
+				<InnerBlocks { ...innerBlocksProps } />
 			</div>
 		</>
 	);

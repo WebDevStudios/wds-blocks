@@ -1,4 +1,5 @@
 import { getColorClassName, InnerBlocks } from '@wordpress/block-editor';
+import { CONTAINER_CLASS } from '../../utils/config';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -68,7 +69,9 @@ export default function Save( props ) {
 					<source src={ backgroundVideo.url } />
 				</video>
 			) }
-			<InnerBlocks.Content />
+			<div className={ CONTAINER_CLASS }>
+				<InnerBlocks.Content />
+			</div>
 		</div>
 	);
 }

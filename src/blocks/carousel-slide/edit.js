@@ -17,6 +17,7 @@ import {
 } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
+import { CONTAINER_CLASS } from '../../utils/config';
 import './editor.scss';
 
 // Set up props for InnerBlocks component.
@@ -328,7 +329,9 @@ function Edit( props ) {
 						/>
 					</video>
 				) }
-				<InnerBlocks { ...innerBlocksProps } />
+				<div className={ CONTAINER_CLASS }>
+					<InnerBlocks { ...innerBlocksProps } />
+				</div>
 			</div>
 		</>
 	);
