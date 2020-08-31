@@ -2,9 +2,7 @@ import { InnerBlocks, withColors } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
 import Settings from './Components/Settings';
-import { CONTAINER_CLASS } from '../../utils/config';
-import withBackgroundImage from '../../utils/withBackgroundImage';
-import withBackgroundVideo from '../../utils/withBackgroundVideo';
+import Slide from './Components/Slide';
 import './editor.scss';
 
 // Set up props for InnerBlocks component.
@@ -33,22 +31,6 @@ const innerBlocksProps = {
 		],
 	],
 };
-
-/**
- * Display inner blocks content with wrapping container div.
- *
- * @author WebDevStudios
- * @since  2.0.0
- *
- * @return {WPElement} Element to render.
- */
-function InnerBlocksContent() {
-	return (
-		<div className={ CONTAINER_CLASS }>
-			<InnerBlocks { ...innerBlocksProps } />
-		</div>
-	);
-}
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -92,51 +74,12 @@ function Edit( props ) {
 			? backgroundColor.color
 			: undefined;
 
-	/**
-	 * Display inner blocks content with wrapping container div.
-	 *
-	 * @author WebDevStudios
-	 * @since  2.0.0
-	 *
-	 * @return {WPElement} Element to render.
-	 */
-	const BlockContent = () => {
-		const wrapProps = {
-			className: classes.filter( Boolean ).join( ' ' ),
-			style: { ...styles },
-		};
-
-		switch ( backgroundType ) {
-			case 'video':
-				const BlockWithBackgroundVideo = withBackgroundVideo( 'div' );
-
-				return (
-					<BlockWithBackgroundVideo
-						backgroundVideo={ backgroundVideo }
-						{ ...wrapProps }
-					>
-						<InnerBlocksContent />
-					</BlockWithBackgroundVideo>
-				);
-
-			case 'image':
-				const BlockWithBackgroundImage = withBackgroundImage( 'div' );
-
-				return (
-					<BlockWithBackgroundImage
-						backgroundImage={ backgroundImage }
-						{ ...wrapProps }
-					>
-						<InnerBlocksContent />
-					</BlockWithBackgroundImage>
-				);
-		}
-
-		return (
-			<div { ...wrapProps }>
-				<InnerBlocksContent />
-			</div>
-		);
+	// Define props relating to block background settings.
+	const backgroundProps = {
+		backgroundType,
+		backgroundColor: backgroundColor.color,
+		backgroundImage,
+		backgroundVideo,
 	};
 
 	return (
@@ -144,14 +87,13 @@ function Edit( props ) {
 			<Settings
 				fontColor={ fontColor.color }
 				setFontColor={ setFontColor }
-				backgroundType={ backgroundType }
-				backgroundColor={ backgroundColor.color }
 				setBackgroundColor={ setBackgroundColor }
-				backgroundImage={ backgroundImage }
-				backgroundVideo={ backgroundVideo }
 				setAttributes={ setAttributes }
+				{ ...backgroundProps }
 			/>
-			<BlockContent />
+			<Slide classes={ classes } styles={ styles } { ...backgroundProps }>
+				<InnerBlocks { ...innerBlocksProps } />
+			</Slide>
 		</>
 	);
 }
