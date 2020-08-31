@@ -48,10 +48,11 @@ export default function Save( props ) {
 		'color' === backgroundType && customBackgroundColor
 			? customBackgroundColor
 			: undefined;
-	styles.backgroundImage =
-		'image' === backgroundType && backgroundImage
-			? `url(${ backgroundImage.url })`
-			: undefined;
+	if ( 'image' === backgroundType && backgroundImage ) {
+		styles.backgroundImage = `url(${ backgroundImage.url })`;
+		styles.backgroundSize = 'cover';
+		styles.backgroundPosition = 'center';
+	}
 
 	return (
 		<div

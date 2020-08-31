@@ -90,10 +90,11 @@ function Edit( props ) {
 		'color' === backgroundType && backgroundColor.color
 			? backgroundColor.color
 			: undefined;
-	styles.backgroundImage =
-		'image' === backgroundType && backgroundImage
-			? `url(${ backgroundImage.url })`
-			: undefined;
+	if ( 'image' === backgroundType && backgroundImage ) {
+		styles.backgroundImage = `url(${ backgroundImage.url })`;
+		styles.backgroundSize = 'cover';
+		styles.backgroundPosition = 'center';
+	}
 
 	return (
 		<>
