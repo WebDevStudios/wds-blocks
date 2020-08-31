@@ -14,7 +14,6 @@ import {
 	PanelBody,
 	ResponsiveWrapper,
 	SelectControl,
-	Spinner,
 } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
