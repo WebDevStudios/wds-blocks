@@ -60,9 +60,7 @@ function Edit( props ) {
 	// Add custom color classes.
 	classes.push( fontColor.color ? 'has-text-color' : null );
 	classes.push( fontColor.class ? fontColor.class : null );
-	classes.push(
-		backgroundColor || customBackgroundColor ? 'has-background' : null
-	);
+	classes.push( backgroundColor.color ? 'has-background' : null );
 	classes.push(
 		'color' === backgroundType && backgroundColor.class
 			? backgroundColor.class
