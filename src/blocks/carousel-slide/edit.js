@@ -3,6 +3,7 @@ import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
 import Settings from './Components/Settings';
 import { CONTAINER_CLASS } from '../../utils/config';
+import withBackgroundVideo from '../../utils/withBackgroundVideo';
 import './editor.scss';
 
 // Set up props for InnerBlocks component.
@@ -31,6 +32,22 @@ const innerBlocksProps = {
 		],
 	],
 };
+
+/**
+ * Display inner blocks content with wrapping container div.
+ *
+ * @author WebDevStudios
+ * @since  2.0.0
+ *
+ * @return {WPElement} Element to render.
+ */
+function InnerBlocksContent() {
+	return (
+		<div className={ CONTAINER_CLASS }>
+			<InnerBlocks { ...innerBlocksProps } />
+		</div>
+	);
+}
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -79,6 +96,12 @@ function Edit( props ) {
 		styles.backgroundPosition = 'center';
 	}
 
+	const BlockWithBackgroundVideo = withBackgroundVideo( 'div' ),
+		wrapProps = {
+			className: classes.filter( Boolean ).join( ' ' ),
+			style: { ...styles },
+		};
+
 	return (
 		<>
 			<Settings
@@ -91,28 +114,18 @@ function Edit( props ) {
 				backgroundVideo={ backgroundVideo }
 				setAttributes={ setAttributes }
 			/>
-			<div
-				className={ classes.filter( Boolean ).join( ' ' ) }
-				style={ styles }
-			>
-				{ 'video' === backgroundType && backgroundVideo && (
-					<video
-						autoPlay
-						muted
-						loop
-						aria-hidden="true"
-						className="wp-block-cover__video-background"
-					>
-						<source
-							src={ backgroundVideo.url }
-							type={ backgroundVideo.mime }
-						/>
-					</video>
-				) }
-				<div className={ CONTAINER_CLASS }>
-					<InnerBlocks { ...innerBlocksProps } />
+			{ 'video' === backgroundType ? (
+				<BlockWithBackgroundVideo
+					{ ...wrapProps }
+					backgroundVideo={ backgroundVideo }
+				>
+					<InnerBlocksContent />
+				</BlockWithBackgroundVideo>
+			) : (
+				<div { ...wrapProps }>
+					<InnerBlocksContent />
 				</div>
-			</div>
+			) }
 		</>
 	);
 }

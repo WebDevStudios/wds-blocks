@@ -1,5 +1,23 @@
 import { getColorClassName, InnerBlocks } from '@wordpress/block-editor';
-import { CONTAINER_CLASS } from '../../utils/config';
+import { getBlockDefaultClassName } from '@wordpress/blocks';
+import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
+import withBackgroundVideo from '../../utils/withBackgroundVideo';
+
+/**
+ * Display inner blocks content with wrapping container div.
+ *
+ * @author WebDevStudios
+ * @since  2.0.0
+ *
+ * @return {WPElement} Element to render.
+ */
+function InnerBlocksContent() {
+	return (
+		<div className={ CONTAINER_CLASS }>
+			<InnerBlocks.Content />
+		</div>
+	);
+}
 
 /**
  * The save function defines the way in which the different attributes should
@@ -24,10 +42,11 @@ export default function Save( props ) {
 			backgroundImage,
 			backgroundVideo,
 		},
-		className,
 	} = props;
 
-	const classes = [ className ],
+	const classes = [
+			getBlockDefaultClassName( `${ PREFIX }/carousel-slide` ),
+		],
 		styles = {};
 
 	// Add custom color classes.
@@ -54,25 +73,26 @@ export default function Save( props ) {
 		styles.backgroundPosition = 'center';
 	}
 
+	const BlockWithBackgroundVideo = withBackgroundVideo( 'div' ),
+		wrapProps = {
+			className: classes.filter( Boolean ).join( ' ' ),
+			style: { ...styles },
+		};
+
 	return (
-		<div
-			className={ classes.filter( Boolean ).join( ' ' ) }
-			style={ styles }
-		>
-			{ 'video' === backgroundType && backgroundVideo && (
-				<video
-					autoPlay
-					muted
-					loop
-					aria-hidden="true"
-					className="wp-block-cover__video-background"
+		<>
+			{ 'video' === backgroundType ? (
+				<BlockWithBackgroundVideo
+					{ ...wrapProps }
+					backgroundVideo={ backgroundVideo }
 				>
-					<source src={ backgroundVideo.url } />
-				</video>
+					<InnerBlocksContent />
+				</BlockWithBackgroundVideo>
+			) : (
+				<div { ...wrapProps }>
+					<InnerBlocksContent />
+				</div>
 			) }
-			<div className={ CONTAINER_CLASS }>
-				<InnerBlocks.Content />
-			</div>
-		</div>
+		</>
 	);
 }
