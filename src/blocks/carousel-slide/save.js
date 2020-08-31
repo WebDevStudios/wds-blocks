@@ -44,8 +44,8 @@ export default function Save( props ) {
 	// Add custom color styles.
 	styles.color = customFontColor ? customFontColor : undefined;
 	styles.backgroundColor =
-		'color' === backgroundType && backgroundColor
-			? backgroundColor
+		'color' === backgroundType && customBackgroundColor
+			? customBackgroundColor
 			: undefined;
 	styles.backgroundImage =
 		'image' === backgroundType && backgroundImage
