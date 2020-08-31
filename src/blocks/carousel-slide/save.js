@@ -36,12 +36,9 @@ export default function Save( props ) {
 		backgroundColor || customBackgroundColor ? 'has-background' : null
 	);
 	classes.push(
-		backgroundColor
+		'color' === backgroundType && backgroundColor
 			? getColorClassName( 'background-color', backgroundColor )
 			: null
-	);
-	classes.push(
-		'color' === backgroundType && backgroundColor ? backgroundColor : null
 	);
 
 	// Add custom color styles.
