@@ -20,8 +20,8 @@ export default function Save( props ) {
 			backgroundType,
 			backgroundColor,
 			customBackgroundColor,
-			backgroundImageURL,
-			backgroundVideoURL,
+			backgroundImage,
+			backgroundVideo,
 		},
 		className,
 	} = props;
@@ -48,8 +48,8 @@ export default function Save( props ) {
 			? backgroundColor
 			: undefined;
 	styles.backgroundImage =
-		'image' === backgroundType && backgroundImageURL
-			? `url(${ backgroundImageURL })`
+		'image' === backgroundType && backgroundImage
+			? `url(${ backgroundImage.url })`
 			: undefined;
 
 	return (
@@ -57,7 +57,7 @@ export default function Save( props ) {
 			className={ classes.filter( Boolean ).join( ' ' ) }
 			style={ styles }
 		>
-			{ 'video' === backgroundType && backgroundVideoURL && (
+			{ 'video' === backgroundType && backgroundVideo && (
 				<video
 					autoPlay
 					muted
@@ -65,7 +65,7 @@ export default function Save( props ) {
 					aria-hidden="true"
 					className="wp-block-cover__video-background"
 				>
-					<source src={ backgroundVideoURL } />
+					<source src={ backgroundVideo.url } />
 				</video>
 			) }
 			<InnerBlocks.Content />

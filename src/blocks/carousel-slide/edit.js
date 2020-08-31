@@ -17,7 +17,6 @@ import {
 	Spinner,
 } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
-import { withSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import './editor.scss';
 
@@ -61,21 +60,13 @@ const innerBlocksProps = {
  */
 function Edit( props ) {
 	const {
-		attributes: {
-			backgroundType,
-			backgroundImageID,
-			backgroundImageURL,
-			backgroundVideoID,
-			backgroundVideoURL,
-		},
+		attributes: { backgroundType, backgroundImage, backgroundVideo },
 		className,
 		setAttributes,
 		fontColor,
 		setFontColor,
 		backgroundColor,
 		setBackgroundColor,
-		backgroundImage,
-		backgroundVideo,
 	} = props;
 
 	const classes = [ className ],
@@ -100,8 +91,8 @@ function Edit( props ) {
 			? backgroundColor.color
 			: undefined;
 	styles.backgroundImage =
-		'image' === backgroundType && backgroundImageURL
-			? `url(${ backgroundImageURL })`
+		'image' === backgroundType && backgroundImage
+			? `url(${ backgroundImage.url })`
 			: undefined;
 
 	return (
@@ -188,63 +179,52 @@ function Edit( props ) {
 									) }
 									onSelect={ ( value ) =>
 										setAttributes( {
-											backgroundImageID: value.id,
-											backgroundImageURL: value.url,
+											backgroundImage: value,
 										} )
 									}
 									allowedTypes={ [ 'image' ] }
-									value={ backgroundImageID }
+									value={ backgroundImage }
 									render={ ( { open } ) => (
 										<Button
 											onClick={ open }
 											className={
-												! backgroundImageID
+												! backgroundImage
 													? 'editor-post-featured-image__toggle'
 													: 'editor-post-featured-image__preview'
 											}
 										>
-											{ ! backgroundImageID &&
+											{ ! backgroundImage &&
 												__( 'Add image', 'wdsblocks' ) }
-											{ !! backgroundImageID &&
-												! backgroundImage && (
-													<Spinner />
-												) }
-											{ !! backgroundImageID &&
-												backgroundImage && (
-													<ResponsiveWrapper
-														naturalWidth={
-															backgroundImage
-																.media_details
-																.width
+											{ !! backgroundImage && (
+												<ResponsiveWrapper
+													naturalWidth={
+														backgroundImage.width
+													}
+													naturalHeight={
+														backgroundImage.height
+													}
+												>
+													<img
+														src={
+															backgroundImage.url
 														}
-														naturalHeight={
-															backgroundImage
-																.media_details
-																.height
-														}
-													>
-														<img
-															src={
-																backgroundImageURL
-															}
-															alt={ __(
-																'Background image',
-																'wdsblocks'
-															) }
-														/>
-													</ResponsiveWrapper>
-												) }
+														alt={ __(
+															'Background image',
+															'wdsblocks'
+														) }
+													/>
+												</ResponsiveWrapper>
+											) }
 										</Button>
 									) }
 								/>
 							</MediaUploadCheck>
-							{ !! backgroundImageID && (
+							{ !! backgroundImage && (
 								<MediaUploadCheck>
 									<Button
 										onClick={ () =>
 											setAttributes( {
-												backgroundImageID: undefined,
-												backgroundImageURL: undefined,
+												backgroundImage: undefined,
 											} )
 										}
 										isLink
@@ -266,71 +246,58 @@ function Edit( props ) {
 									) }
 									onSelect={ ( value ) =>
 										setAttributes( {
-											backgroundVideoID: value.id,
-											backgroundVideoURL: value.url,
+											backgroundVideo: value,
 										} )
 									}
 									allowedTypes={ [ 'video' ] }
-									value={ backgroundVideoID }
+									value={ backgroundVideo }
 									render={ ( { open } ) => (
 										<Button
 											onClick={ open }
 											className={
-												! backgroundVideoID
+												! backgroundVideo
 													? 'editor-post-featured-image__toggle'
 													: 'editor-post-featured-image__preview'
 											}
 										>
-											{ ! backgroundVideoID &&
+											{ ! backgroundVideo &&
 												__( 'Add video', 'wdsblocks' ) }
-											{ !! backgroundVideoID &&
-												! backgroundVideo && (
-													<Spinner />
-												) }
-											{ !! backgroundVideoID &&
-												backgroundVideo && (
-													<ResponsiveWrapper
-														naturalWidth={
-															backgroundVideo
-																.media_details
-																.width
-														}
-														naturalHeight={
-															backgroundVideo
-																.media_details
-																.height
-														}
+											{ !! backgroundVideo && (
+												<ResponsiveWrapper
+													naturalWidth={
+														backgroundVideo.width
+													}
+													naturalHeight={
+														backgroundVideo.height
+													}
+												>
+													<video
+														autoPlay
+														muted
+														loop
+														aria-hidden="true"
 													>
-														<video
-															autoPlay
-															muted
-															loop
-															aria-hidden="true"
-														>
-															<source
-																src={
-																	backgroundVideoURL
-																}
-																type={
-																	backgroundVideo
-																		.media_details
-																		.mime_type
-																}
-															/>
-														</video>
-													</ResponsiveWrapper>
-												) }
+														<source
+															src={
+																backgroundVideo.url
+															}
+															type={
+																backgroundVideo.mime
+															}
+														/>
+													</video>
+												</ResponsiveWrapper>
+											) }
 										</Button>
 									) }
 								/>
 							</MediaUploadCheck>
-							{ !! backgroundVideoID && (
+							{ !! backgroundVideo && (
 								<MediaUploadCheck>
 									<Button
 										onClick={ () =>
 											setAttributes( {
-												backgroundVideoID: undefined,
-												backgroundVideoURL: undefined,
+												backgroundVideo: undefined,
 											} )
 										}
 										isLink
@@ -348,22 +315,20 @@ function Edit( props ) {
 				className={ classes.filter( Boolean ).join( ' ' ) }
 				style={ styles }
 			>
-				{ 'video' === backgroundType &&
-					backgroundVideoID &&
-					backgroundVideo && (
-						<video
-							autoPlay
-							muted
-							loop
-							aria-hidden="true"
-							className="wp-block-cover__video-background"
-						>
-							<source
-								src={ backgroundVideoURL }
-								type={ backgroundVideo.media_details.mime_type }
-							/>
-						</video>
-					) }
+				{ 'video' === backgroundType && backgroundVideo && (
+					<video
+						autoPlay
+						muted
+						loop
+						aria-hidden="true"
+						className="wp-block-cover__video-background"
+					>
+						<source
+							src={ backgroundVideo.url }
+							type={ backgroundVideo.mime }
+						/>
+					</video>
+				) }
 				<InnerBlocks { ...innerBlocksProps } />
 			</div>
 		</>
@@ -372,17 +337,4 @@ function Edit( props ) {
 
 export default compose( [
 	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
-	withSelect( ( select, props ) => {
-		const { getMedia } = select( 'core' );
-		const { backgroundImageID, backgroundVideoID } = props.attributes;
-
-		return {
-			backgroundImage: backgroundImageID
-				? getMedia( backgroundImageID )
-				: null,
-			backgroundVideo: backgroundVideoID
-				? getMedia( backgroundVideoID )
-				: null,
-		};
-	} ),
 ] )( Edit );
