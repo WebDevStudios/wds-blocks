@@ -13,30 +13,31 @@ import { getBlockDefaultClassName } from '@wordpress/blocks';
  * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement} Element to render.
  */
-export default function Save(props) {
+export default function Save( props ) {
 	const {
 		attributes: { title, clientId },
 	} = props;
 
-	const className = getBlockDefaultClassName('wdsblocks/accordion');
+	const className = getBlockDefaultClassName( 'wdsblocks/accordion' );
 
 	return (
-		<div className={className}>
+		<div className={ className }>
 			<RichText.Content
-				tagName="button"
-				type="button"
-				className={`${className}__title`}
-				value={title}
+				tagName="h3"
+				role="button"
+				tabindex="0"
+				className={ `${ className }__title` }
+				value={ title }
 				aria-expanded="false"
-				aria-controls={clientId}
+				aria-controls={ clientId }
 			/>
 			<div
-				className={`${className}__content`}
+				className={ `${ className }__content` }
 				aria-hidden="true"
 				tabindex="-1"
-				id={clientId}
+				id={ clientId }
 			>
-				<div className={`${className}__content--inner`}>
+				<div className={ `${ className }__content--inner` }>
 					<InnerBlocks.Content />
 				</div>
 			</div>

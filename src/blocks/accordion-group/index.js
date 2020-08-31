@@ -14,17 +14,17 @@ const BLOCKNAME = 'accordion-group';
  * @since 2.0.0
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType(`wdsblocks/${BLOCKNAME}`, {
-	title: __('Accordion Group (wds)', 'wdsblocks'),
+registerBlockType( `wdsblocks/${ BLOCKNAME }`, {
+	title: __( 'Accordion Group (wds)', 'wdsblocks' ),
 	description: __(
 		'Adds a group of expand/collapse blocks with headline and description.',
 		'wdsblocks'
 	),
 	icon: 'list-view',
 	category: 'wds-blocks',
-	keywords: [__('accordion', 'accordions', 'wdsblocks')],
+	keywords: [ __( 'accordion', 'accordions', 'wdsblocks' ) ],
 	supports: {
-		align: ['wide', 'full'],
+		align: [ 'wide', 'full' ],
 		default: 'wide',
 		html: false,
 		anchor: true,
@@ -33,12 +33,12 @@ registerBlockType(`wdsblocks/${BLOCKNAME}`, {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: `.wp-block-${PREFIX}-${BLOCKNAME}__title`,
+			selector: `.wp-block-${ PREFIX }-${ BLOCKNAME }__title`,
 		},
 		desc: {
 			type: 'array',
 			source: 'children',
-			selector: `.wp-block-${PREFIX}-${BLOCKNAME}__desc`,
+			selector: `.wp-block-${ PREFIX }-${ BLOCKNAME }__desc`,
 		},
 		bkgColor: {
 			type: 'string',
@@ -53,6 +53,18 @@ registerBlockType(`wdsblocks/${BLOCKNAME}`, {
 			default: false,
 		},
 	},
+	example: {
+		innerBlocks: [
+			{
+				name: 'core/paragraph',
+				attributes: {
+					content: __(
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros eu felis.'
+					),
+				},
+			},
+		],
+	},
 	edit,
 	save,
-});
+} );

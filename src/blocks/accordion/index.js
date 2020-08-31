@@ -14,30 +14,43 @@ const BLOCKNAME = 'accordion';
  * @since 2.0.0
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType(`wdsblocks/${BLOCKNAME}`, {
-	title: __('Accordion (wds)', 'wdsblocks'),
+registerBlockType( `wdsblocks/${ BLOCKNAME }`, {
+	title: __( 'Accordion (wds)', 'wdsblocks' ),
 	description: __(
 		'An expand/collaspe editible content section.',
 		'wdsblocks'
 	),
 	icon: 'sort',
 	category: 'wds-blocks',
-	keywords: [__('accordion', 'wdsblocks')],
+	keywords: [ __( 'accordion', 'wdsblocks' ) ],
 	supports: {
 		html: false,
 		anchor: true,
 	},
+	parent: [ 'wdsblocks/accordion-group' ],
 	attributes: {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: `.wp-block-${PREFIX}-${BLOCKNAME}__title`,
+			selector: `.wp-block-${ PREFIX }-${ BLOCKNAME }__title`,
 		},
 		clientId: {
 			type: 'string',
-			default: `${BLOCKNAME}-item`,
+			default: `${ BLOCKNAME }-item`,
 		},
+	},
+	example: {
+		innerBlocks: [
+			{
+				name: 'core/paragraph',
+				attributes: {
+					content: __(
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros eu felis.'
+					),
+				},
+			},
+		],
 	},
 	edit,
 	save,
-});
+} );

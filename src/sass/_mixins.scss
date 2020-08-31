@@ -1,9 +1,26 @@
 @import './variables';
 
 // Admin styling for blocks in edit mode.
-@mixin edit-mode($selector: '&.edit-mode') {
+@mixin edit-mode( $selector: '&.edit-mode' ) {
 	#{$selector} {
 		border: 1px dashed $color-grey;
-		padding: 3rem;
+		padding: 2rem;
+	}
+}
+
+@mixin preview-styles() {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.block-list-appender {
+		display: none;
 	}
 }

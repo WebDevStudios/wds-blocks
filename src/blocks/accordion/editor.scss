@@ -1,10 +1,7 @@
 @import '../../sass/mixins';
 
-.edit-mode {
-	.wp-block-wdsblocks-accordion {
-		border: 1px dashed $color-grey;
-		padding: 3rem;
-	}
+.wp-block-wdsblocks-accordion {
+	@include edit-mode('.edit-mode &');
 }
 
 .editor-styles-wrapper {

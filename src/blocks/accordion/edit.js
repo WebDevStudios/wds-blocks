@@ -6,8 +6,8 @@ import './editor.scss';
 
 // Block types that cann be added to
 const ALLOWED_BLOCKS = applyFilters(
-	`${PREFIX}.accordion_allowed_blocks`,
-	['core/image', 'core/heading', 'core/paragraph'] // Default value.
+	`${ PREFIX }.accordion_allowed_blocks`,
+	[ 'core/image', 'core/heading', 'core/paragraph' ] // Default value.
 );
 
 // Set up props for InnerBlocks component.
@@ -25,7 +25,7 @@ const innerBlocksProps = {
  * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement} Element to render.
  */
-export default function Edit(props) {
+export default function Edit( props ) {
 	const {
 		attributes: { title },
 		setAttributes,
@@ -34,34 +34,35 @@ export default function Edit(props) {
 	} = props;
 
 	// Update `title` field content on change.
-	const onTitleContent = (newTitle) => {
-		setAttributes({
+	const onTitleContent = ( newTitle ) => {
+		setAttributes( {
 			title: newTitle,
 			clientId: clientId,
-		});
+		} );
 	};
 
 	return (
-		<div className={className}>
+		<div className={ className }>
 			<RichText
 				tagName="h3"
-				type="button"
-				className={`${className}__title`}
-				onChange={onTitleContent}
-				value={title ? title : ''}
-				placeholder={__('WDS Accordion Title', 'wdsblocks')}
+				role="button"
+				tabIndex="0"
+				className={ `${ className }__title` }
+				onChange={ onTitleContent }
+				value={ title ? title : '' }
+				placeholder={ __( 'WDS Accordion Title', 'wdsblocks' ) }
 				aria-expanded="false"
-				aria-controls={`${PREFIX}-${clientId}`}
-				allowedFormats={['core/bold', 'core/italic']}
+				aria-controls={ `${ PREFIX }-${ clientId }` }
+				allowedFormats={ [ 'core/bold', 'core/italic' ] }
 			/>
 			<div
-				className={`${className}__content`}
+				className={ `${ className }__content` }
 				aria-hidden="true"
 				tabindex="-1"
-				id={`${PREFIX}-${clientId}`}
+				id={ `${ PREFIX }-${ clientId }` }
 			>
-				<div className={`${className}__content--inner`}>
-					<InnerBlocks {...innerBlocksProps} />
+				<div className={ `${ className }__content--inner` }>
+					<InnerBlocks { ...innerBlocksProps } />
 				</div>
 			</div>
 		</div>

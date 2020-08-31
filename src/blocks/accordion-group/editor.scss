@@ -1,29 +1,10 @@
+@import '../../sass/variables';
 @import '../../sass/mixins';
-
-.wp-block-wdsblocks-accordion-group {
-	@include edit-mode;
-	.wp-block-wdsblocks-accordion {
-		@include edit-mode;
-	}
-}
 
 .editor-styles-wrapper {
 	.wp-block-wdsblocks-accordion-group {
-		padding: 1rem;
-		position: relative;
-		&:hover {
-			&:after {
-				display: block;
-				content: '';
-				position: absolute;
-				right: 0;
-				top: 0;
-				z-index: 10px;
-				background-color: #ff0000;
-				width: 40px;
-				height: 40px;
-			}
-		}
+		padding: 3rem 1rem;
+		@include edit-mode;
 		&__title {
 			width: 100%;
 			display: block;
@@ -37,6 +18,7 @@
 			margin-bottom: 0;
 		}
 		&.preview-mode {
+			@include preview-styles;
 			.wp-block-wdsblocks-accordion__content--inner {
 				display: none;
 			}

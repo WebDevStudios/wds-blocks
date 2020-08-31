@@ -1,4 +1,4 @@
 import wdsBlocksAccordion from './blocks/accordion/frontend';
 
-// Accordions
+// Accordion
 wdsBlocksAccordion.init();
