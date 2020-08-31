@@ -13,7 +13,7 @@ import {
 	ResponsiveWrapper,
 	SelectControl,
 } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 
 /**
  * The Settings component displays settings for the Slide block via Inspector Controls.
@@ -90,6 +90,7 @@ export default function Settings( props ) {
 															backgroundColor
 														}
 														aria-label={ sprintf(
+															/* translators: current color value name */
 															__( '(Color: %s)' ),
 															backgroundColor
 														) }
