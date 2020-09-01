@@ -5,6 +5,10 @@
 
 	@include edit-mode;
 
+	.wp-block[data-type="wdsblocks/carousel-slide"] {
+		max-width: none;
+	}
+
 	&.preview-mode {
 		position: relative;
 
