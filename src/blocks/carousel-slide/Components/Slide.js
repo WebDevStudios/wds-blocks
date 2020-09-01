@@ -2,6 +2,7 @@ import { compose } from '@wordpress/compose';
 import { CONTAINER_CLASS } from '../../../utils/config';
 import withBackgroundImage from '../../../utils/withBackgroundImage';
 import withBackgroundVideo from '../../../utils/withBackgroundVideo';
+import withFontColor from '../../../utils/withFontColor';
 
 /**
  * The Slide component displays an individual carousel slide.
@@ -16,6 +17,8 @@ export default function Slide( props ) {
 	const {
 		classes,
 		styles,
+		fontColor,
+		customFontColor,
 		backgroundType,
 		backgroundImage,
 		backgroundVideo,
@@ -42,6 +45,13 @@ export default function Slide( props ) {
 
 	// Define HOCs to be composed.
 	const composeHOCs = [];
+
+	// Display slide with custom font color.
+	if ( fontColor || customFontColor ) {
+		composeHOCs.push( withFontColor );
+		wrapProps.fontColor = fontColor;
+		wrapProps.customFontColor = customFontColor;
+	}
 
 	// Determine HOC and extra props according to background type.
 	switch ( backgroundType ) {
