@@ -108,7 +108,7 @@ function register_block_category( $categories, $post ) {
 		array(
 			array(
 				'slug'  => 'wds-blocks',
-				'title' => __( 'WDS Blocks', 'wdsblocks' ),
+				'title' => esc_html__( 'WDS Blocks', 'wdsblocks' ),
 			),
 		)
 	);
