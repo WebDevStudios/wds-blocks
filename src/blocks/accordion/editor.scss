@@ -1,7 +1,7 @@
 @import '../../sass/mixins';
 
 .wp-block-wdsblocks-accordion {
-	@include edit-mode('.edit-mode &');
+	@include edit-mode( '.edit-mode &' );
 }
 
 .editor-styles-wrapper {

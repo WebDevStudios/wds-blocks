@@ -21,8 +21,8 @@
 			font-weight: 700;
 			white-space: normal !important;
 			cursor: pointer;
-			&:after,
-			&:before {
+			&::after,
+			&::before {
 				content: '';
 				position: absolute;
 				top: 22px;
@@ -34,7 +34,7 @@
 				padding: 3px;
 				transform: rotate( 45deg );
 			}
-			&:before {
+			&::before {
 				top: 26px;
 				opacity: 0;
 				visibility: hidden;
@@ -52,11 +52,11 @@
 		}
 		&.is-expanded {
 			.wp-block-wdsblocks-accordion__title {
-				&:after {
+				&::after {
 					opacity: 0;
 					visibility: hidden;
 				}
-				&:before {
+				&::before {
 					opacity: 1;
 					visibility: visible;
 				}
