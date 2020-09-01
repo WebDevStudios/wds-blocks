@@ -1,3 +1,4 @@
+import { compose } from '@wordpress/compose';
 import { CONTAINER_CLASS } from '../../../utils/config';
 import withBackgroundImage from '../../../utils/withBackgroundImage';
 import withBackgroundVideo from '../../../utils/withBackgroundVideo';
@@ -39,38 +40,29 @@ export default function Slide( props ) {
 		style: { ...styles },
 	};
 
-	// Display slide with image background.
-	if ( 'image' === backgroundType ) {
-		const BlockWithBackgroundImage = withBackgroundImage( 'div' );
+	// Define HOCs to be composed.
+	const composeHOCs = [];
 
-		return (
-			<BlockWithBackgroundImage
-				backgroundImage={ backgroundImage }
-				{ ...wrapProps }
-			>
-				<SlideContent />
-			</BlockWithBackgroundImage>
-		);
+	// Determine HOC and extra props according to background type.
+	switch ( backgroundType ) {
+		// Display slide with image background.
+		case 'image':
+			composeHOCs.push( withBackgroundImage );
+			wrapProps.backgroundImage = backgroundImage;
+			break;
+
+		// Display slide with video background.
+		case 'video':
+			composeHOCs.push( withBackgroundVideo );
+			wrapProps.backgroundVideo = backgroundVideo;
 	}
 
-	// Display slide with video background.
-	if ( 'video' === backgroundType ) {
-		const BlockWithBackgroundVideo = withBackgroundVideo( 'div' );
-
-		return (
-			<BlockWithBackgroundVideo
-				backgroundVideo={ backgroundVideo }
-				{ ...wrapProps }
-			>
-				<SlideContent />
-			</BlockWithBackgroundVideo>
-		);
-	}
+	const SlideComponent = compose( composeHOCs )( 'div' );
 
 	// Display default slide.
 	return (
-		<div { ...wrapProps }>
+		<SlideComponent { ...wrapProps }>
 			<SlideContent />
-		</div>
+		</SlideComponent>
 	);
 }
