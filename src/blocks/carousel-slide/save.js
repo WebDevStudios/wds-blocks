@@ -16,28 +16,12 @@ import { PREFIX } from '../../utils/config';
  * @return {WPElement}      Element to render.
  */
 export default function Save( props ) {
-	const {
-		attributes: {
-			fontColor,
-			customFontColor,
-			backgroundType,
-			backgroundColor,
-			customBackgroundColor,
-			backgroundImage,
-			backgroundVideo,
-		},
-	} = props;
+	const { attributes } = props;
 
 	// Define props relating to slide settings.
 	const slideProps = {
+		...attributes,
 		className: getBlockDefaultClassName( `${ PREFIX }/carousel-slide` ),
-		fontColor,
-		customFontColor,
-		backgroundType,
-		backgroundColor,
-		customBackgroundColor,
-		backgroundImage,
-		backgroundVideo,
 	};
 
 	return (

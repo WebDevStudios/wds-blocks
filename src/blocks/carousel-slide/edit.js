@@ -45,7 +45,7 @@ const innerBlocksProps = {
  */
 function Edit( props ) {
 	const {
-		attributes: { backgroundType, backgroundImage, backgroundVideo },
+		attributes,
 		className,
 		setAttributes,
 		fontColor,
@@ -56,10 +56,8 @@ function Edit( props ) {
 
 	// Define props relating to block background settings.
 	const backgroundProps = {
-		backgroundType,
+		...attributes,
 		backgroundColor: backgroundColor.color,
-		backgroundImage,
-		backgroundVideo,
 	};
 
 	// Define props relating to slide settings.
@@ -79,11 +77,11 @@ function Edit( props ) {
 	return (
 		<>
 			<Settings
+				{ ...backgroundProps }
 				fontColor={ fontColor.color }
 				setFontColor={ setFontColor }
 				setBackgroundColor={ setBackgroundColor }
 				setAttributes={ setAttributes }
-				{ ...backgroundProps }
 			/>
 			<Slide { ...slideProps }>
 				<InnerBlocks { ...innerBlocksProps } />
