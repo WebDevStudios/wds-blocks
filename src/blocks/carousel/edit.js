@@ -1,4 +1,5 @@
 import { InnerBlocks } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
 import { PREFIX } from '../../utils/config';
 import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
 import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
@@ -22,8 +23,15 @@ const innerBlocksProps = {
  * @return {WPElement}      Element to render.
  */
 export default function Edit( props ) {
-	const { className } = props;
+	const { className, setAttributes } = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
+
+	// Update showPreview attribute on state change.
+	useEffect( () => {
+		setAttributes( {
+			showPreview,
+		} );
+	}, [ showPreview ] );
 
 	return (
 		<>

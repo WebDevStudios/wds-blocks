@@ -51,6 +51,7 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 			default: undefined,
 		},
 	},
+	usesContext: [ `${ PREFIX }/carousel/showPreview` ],
 	supports: {
 		html: false,
 	},

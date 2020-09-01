@@ -3,6 +3,7 @@ import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
 import Settings from './Components/Settings';
 import Slide from './Components/Slide';
+import { PREFIX } from '../../utils/config';
 import './editor.scss';
 
 // Set up props for InnerBlocks component.
@@ -48,6 +49,7 @@ function Edit( props ) {
 		attributes,
 		className,
 		setAttributes,
+		context: { [ `${ PREFIX }/carousel/showPreview` ]: showPreview = true },
 		fontColor,
 		setFontColor,
 		backgroundColor,
