@@ -1,5 +1,6 @@
 import { compose } from '@wordpress/compose';
 import { CONTAINER_CLASS } from '../../../utils/config';
+import withBackgroundColor from '../../../utils/withBackgroundColor';
 import withBackgroundImage from '../../../utils/withBackgroundImage';
 import withBackgroundVideo from '../../../utils/withBackgroundVideo';
 import withFontColor from '../../../utils/withFontColor';
@@ -20,6 +21,8 @@ export default function Slide( props ) {
 		fontColor,
 		customFontColor,
 		backgroundType,
+		backgroundColor,
+		customBackgroundColor,
 		backgroundImage,
 		backgroundVideo,
 		children,
@@ -55,6 +58,13 @@ export default function Slide( props ) {
 
 	// Determine HOC and extra props according to background type.
 	switch ( backgroundType ) {
+		// Display slide with color background.
+		case 'color':
+			composeHOCs.push( withBackgroundColor );
+			wrapProps.backgroundColor = backgroundColor;
+			wrapProps.customBackgroundColor = customBackgroundColor;
+			break;
+
 		// Display slide with image background.
 		case 'image':
 			composeHOCs.push( withBackgroundImage );
