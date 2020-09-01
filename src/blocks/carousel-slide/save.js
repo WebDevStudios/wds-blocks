@@ -33,22 +33,6 @@ export default function Save( props ) {
 		],
 		styles = {};
 
-	// Add custom color classes.
-	classes.push(
-		backgroundColor || customBackgroundColor ? 'has-background' : null
-	);
-	classes.push(
-		'color' === backgroundType && backgroundColor
-			? getColorClassName( 'background-color', backgroundColor )
-			: null
-	);
-
-	// Add custom color styles.
-	styles.backgroundColor =
-		'color' === backgroundType && customBackgroundColor
-			? customBackgroundColor
-			: undefined;
-
 	// Define props relating to slide settings.
 	const slideProps = {
 		className: classes.filter( Boolean ).join( ' ' ),
@@ -57,6 +41,7 @@ export default function Save( props ) {
 		customFontColor,
 		backgroundType,
 		backgroundColor,
+		customBackgroundColor,
 		backgroundImage,
 		backgroundVideo,
 	};

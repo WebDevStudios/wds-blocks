@@ -57,20 +57,6 @@ function Edit( props ) {
 	const classes = [ className ],
 		styles = {};
 
-	// Add custom color classes.
-	classes.push( backgroundColor.color ? 'has-background' : null );
-	classes.push(
-		'color' === backgroundType && backgroundColor.class
-			? backgroundColor.class
-			: null
-	);
-
-	// Add custom color styles.
-	styles.backgroundColor =
-		'color' === backgroundType && backgroundColor.color
-			? backgroundColor.color
-			: undefined;
-
 	// Define props relating to block background settings.
 	const backgroundProps = {
 		backgroundType,
@@ -88,6 +74,10 @@ function Edit( props ) {
 			? fontColor.slug
 			: undefined,
 		customFontColor: fontColor.color,
+		backgroundColor: backgroundColor.hasOwnProperty( 'slug' )
+			? backgroundColor.slug
+			: undefined,
+		customBackgroundColor: backgroundColor.color,
 	};
 
 	return (
