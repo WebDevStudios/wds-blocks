@@ -1,4 +1,4 @@
-import { getColorClassName, InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import Slide from './Components/Slide';
 import { PREFIX } from '../../utils/config';
