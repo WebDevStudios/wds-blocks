@@ -82,8 +82,8 @@ function Edit( props ) {
 	// Define props relating to slide settings.
 	const slideProps = {
 		...backgroundProps,
-		classes,
-		styles,
+		className: classes.filter( Boolean ).join( ' ' ),
+		style: styles,
 		fontColor: fontColor.hasOwnProperty( 'slug' )
 			? fontColor.slug
 			: undefined,

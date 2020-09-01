@@ -15,8 +15,8 @@ import withFontColor from '../../../utils/withFontColor';
  */
 export default function Slide( props ) {
 	const {
-		classes,
-		styles,
+		className,
+		style,
 		fontColor,
 		customFontColor,
 		backgroundType,
@@ -39,8 +39,8 @@ export default function Slide( props ) {
 
 	// Define props for wrapping component.
 	const wrapProps = {
-		className: classes.filter( Boolean ).join( ' ' ),
-		style: { ...styles },
+		className,
+		style,
 	};
 
 	// Define HOCs to be composed.

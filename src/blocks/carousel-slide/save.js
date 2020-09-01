@@ -51,8 +51,8 @@ export default function Save( props ) {
 
 	// Define props relating to slide settings.
 	const slideProps = {
-		classes,
-		styles,
+		className: classes.filter( Boolean ).join( ' ' ),
+		style: styles,
 		fontColor,
 		customFontColor,
 		backgroundType,
