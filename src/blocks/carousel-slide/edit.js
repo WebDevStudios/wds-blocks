@@ -54,9 +54,6 @@ function Edit( props ) {
 		setBackgroundColor,
 	} = props;
 
-	const classes = [ className ],
-		styles = {};
-
 	// Define props relating to block background settings.
 	const backgroundProps = {
 		backgroundType,
@@ -68,8 +65,7 @@ function Edit( props ) {
 	// Define props relating to slide settings.
 	const slideProps = {
 		...backgroundProps,
-		className: classes.filter( Boolean ).join( ' ' ),
-		style: styles,
+		className,
 		fontColor: fontColor.hasOwnProperty( 'slug' )
 			? fontColor.slug
 			: undefined,

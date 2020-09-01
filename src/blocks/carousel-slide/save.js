@@ -28,15 +28,9 @@ export default function Save( props ) {
 		},
 	} = props;
 
-	const classes = [
-			getBlockDefaultClassName( `${ PREFIX }/carousel-slide` ),
-		],
-		styles = {};
-
 	// Define props relating to slide settings.
 	const slideProps = {
-		className: classes.filter( Boolean ).join( ' ' ),
-		style: styles,
+		className: getBlockDefaultClassName( `${ PREFIX }/carousel-slide` ),
 		fontColor,
 		customFontColor,
 		backgroundType,
