@@ -1,5 +1,4 @@
 import {
-	BlockControls,
 	InspectorControls,
 	RichText,
 	InnerBlocks,
@@ -7,7 +6,6 @@ import {
 import {
 	PanelBody,
 	PanelRow,
-	Toolbar,
 	BaseControl,
 	ToggleControl,
 	ColorIndicator,
@@ -32,14 +30,17 @@ const BLOCK_TEMPLATE = [
 	[
 		'wdsblocks/accordion',
 		{
-			title: __( 'WDS Accordion Title', 'wdsblocks' ),
+			title: __( 'Enter Accordion Title', 'wdsblocks' ),
 		},
 		[
 			[
 				'core/paragraph',
 				{
-					content: __( 'Enter Accordion Content...', 'wdsblocks' ),
-					placeholder: __( 'Enter some content...', 'wdsblocks' ),
+					content: __( 'Enter accordion content here…', 'wdsblocks' ),
+					placeholder: __(
+						'Enter accordion content here…',
+						'wdsblocks'
+					),
 				},
 			],
 		],
@@ -93,7 +94,10 @@ export default function Edit( props ) {
 			<InspectorControls>
 				<PanelBody title={ __( 'Background Color', 'wdsblocks' ) }>
 					<PanelRow>
-						<BaseControl label="Selected Color">
+						<BaseControl
+							label="Selected Color"
+							id="wds-selected-color"
+						>
 							<ColorIndicator colorValue={ bkgColor } />
 						</BaseControl>
 					</PanelRow>
@@ -112,6 +116,7 @@ export default function Edit( props ) {
 				<PanelBody title={ __( 'Settings', 'wdsblocks' ) }>
 					<BaseControl
 						label={ __( 'Expand First Accordion', 'wdsblocks' ) }
+						id="wds-expand-first"
 						help="Automatically expand the first accordion in this group on initial page load."
 					></BaseControl>
 					<PanelRow>
@@ -131,7 +136,8 @@ export default function Edit( props ) {
 
 					<BaseControl
 						label={ __( 'Toggle Others', 'wdsblocks' ) }
-						help="Collaspe other accordions when expanding a new accordion."
+						id="wds-toggle-others"
+						help="Collaspe open accordions when expanding a new accordion."
 					></BaseControl>
 					<PanelRow>
 						<ToggleControl

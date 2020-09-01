@@ -37,7 +37,7 @@ export default function Edit( props ) {
 	const onTitleContent = ( newTitle ) => {
 		setAttributes( {
 			title: newTitle,
-			clientId: clientId,
+			clientId,
 		} );
 	};
 
@@ -58,7 +58,7 @@ export default function Edit( props ) {
 			<div
 				className={ `${ className }__content` }
 				aria-hidden="true"
-				tabindex="-1"
+				tabIndex="-1"
 				id={ `${ PREFIX }-${ clientId }` }
 			>
 				<div className={ `${ className }__content--inner` }>

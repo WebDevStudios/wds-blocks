@@ -25,7 +25,7 @@ export default function Save( props ) {
 			<RichText.Content
 				tagName="h3"
 				role="button"
-				tabindex="0"
+				tabIndex="0"
 				className={ `${ className }__title` }
 				value={ title }
 				aria-expanded="false"
@@ -34,7 +34,7 @@ export default function Save( props ) {
 			<div
 				className={ `${ className }__content` }
 				aria-hidden="true"
-				tabindex="-1"
+				tabIndex="-1"
 				id={ clientId }
 			>
 				<div className={ `${ className }__content--inner` }>

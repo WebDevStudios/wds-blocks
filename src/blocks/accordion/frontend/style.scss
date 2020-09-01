@@ -1,4 +1,5 @@
 // Front-end styles.
+@import '../../../sass/variables';
 
 .wp-block-wdsblocks {
 	&-accordion {
@@ -26,23 +27,23 @@
 				position: absolute;
 				top: 22px;
 				right: 22px;
-				transition: all 0.2s ease;
+				transition: all $speed/2 ease;
 				border: solid black;
 				border-width: 0 3px 3px 0;
 				display: inline-block;
 				padding: 3px;
-				transform: rotate(45deg);
+				transform: rotate( 45deg );
 			}
 			&:before {
 				top: 26px;
 				opacity: 0;
 				visibility: hidden;
-				transform: rotate(-135deg);
+				transform: rotate( -135deg );
 			}
 		}
 		&__content {
 			outline: none;
-			transition: all 0.2s ease;
+			transition: all $speed ease;
 			overflow: hidden;
 			height: 0;
 			&--inner {
