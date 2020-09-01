@@ -94,11 +94,12 @@ add_action( 'init', __NAMESPACE__ . '\register_block' );
 /**
  * Adds a WDS Block category to the Gutenberg category list.
  *
+ * @author WebDevStudios
+ * @since 2.0.0
+ *
  * @param array  $categories The existing categories.
  * @param object $post The current post.
  * @return array The updated array of categories.
- * @author WebDevStudios
- * @since 2.0.0
  */
 function register_block_category( $categories, $post ) {
 
