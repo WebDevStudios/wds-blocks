@@ -58,8 +58,6 @@ function Edit( props ) {
 		styles = {};
 
 	// Add custom color classes.
-	classes.push( fontColor.color ? 'has-text-color' : null );
-	classes.push( fontColor.class ? fontColor.class : null );
 	classes.push( backgroundColor.color ? 'has-background' : null );
 	classes.push(
 		'color' === backgroundType && backgroundColor.class
@@ -68,7 +66,6 @@ function Edit( props ) {
 	);
 
 	// Add custom color styles.
-	styles.color = fontColor.color ? fontColor.color : undefined;
 	styles.backgroundColor =
 		'color' === backgroundType && backgroundColor.color
 			? backgroundColor.color
@@ -82,6 +79,17 @@ function Edit( props ) {
 		backgroundVideo,
 	};
 
+	// Define props relating to slide settings.
+	const slideProps = {
+		...backgroundProps,
+		classes,
+		styles,
+		fontColor: fontColor.hasOwnProperty( 'slug' )
+			? fontColor.slug
+			: undefined,
+		customFontColor: fontColor.color,
+	};
+
 	return (
 		<>
 			<Settings
@@ -91,7 +99,7 @@ function Edit( props ) {
 				setAttributes={ setAttributes }
 				{ ...backgroundProps }
 			/>
-			<Slide classes={ classes } styles={ styles } { ...backgroundProps }>
+			<Slide { ...slideProps }>
 				<InnerBlocks { ...innerBlocksProps } />
 			</Slide>
 		</>

@@ -34,8 +34,6 @@ export default function Save( props ) {
 		styles = {};
 
 	// Add custom color classes.
-	classes.push( fontColor || customFontColor ? 'has-text-color' : null );
-	classes.push( fontColor ? getColorClassName( 'color', fontColor ) : null );
 	classes.push(
 		backgroundColor || customBackgroundColor ? 'has-background' : null
 	);
@@ -46,14 +44,17 @@ export default function Save( props ) {
 	);
 
 	// Add custom color styles.
-	styles.color = customFontColor ? customFontColor : undefined;
 	styles.backgroundColor =
 		'color' === backgroundType && customBackgroundColor
 			? customBackgroundColor
 			: undefined;
 
-	// Define props relating to block background settings.
-	const backgroundProps = {
+	// Define props relating to slide settings.
+	const slideProps = {
+		classes,
+		styles,
+		fontColor,
+		customFontColor,
 		backgroundType,
 		backgroundColor,
 		backgroundImage,
@@ -61,7 +62,7 @@ export default function Save( props ) {
 	};
 
 	return (
-		<Slide classes={ classes } styles={ styles } { ...backgroundProps }>
+		<Slide { ...slideProps }>
 			<InnerBlocks.Content />
 		</Slide>
 	);
