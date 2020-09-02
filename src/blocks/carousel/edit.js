@@ -46,9 +46,9 @@ export default function Edit( props ) {
 			>
 				<InnerBlocks
 					{ ...innerBlocksProps }
-					__experimentalTagName={ 'div' }
+					__experimentalTagName={ 'ul' }
 					__experimentalPassedProps={ {
-						className: 'carousel-slider',
+						className: 'glide__slides',
 					} }
 				/>
 			</div>
