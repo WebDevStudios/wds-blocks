@@ -62,7 +62,7 @@ function Edit( props ) {
 							{ ...innerBlocksProps }
 							__experimentalTagName={ 'ul' }
 							__experimentalPassedProps={ {
-								className: 'glide__slides',
+								className: 'glide__slides slider-slides',
 							} }
 							renderAppender={ false }
 						/>
