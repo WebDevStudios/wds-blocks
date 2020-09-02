@@ -40,17 +40,19 @@ export default function Edit( props ) {
 				togglePreview={ togglePreview }
 			/>
 			<div
-				className={ `${ className } ${
+				className={ `${ className } glide ${
 					showPreview ? 'preview-mode' : 'edit-mode'
 				}` }
 			>
-				<InnerBlocks
-					{ ...innerBlocksProps }
-					__experimentalTagName={ 'ul' }
-					__experimentalPassedProps={ {
-						className: 'glide__slides',
-					} }
-				/>
+				<div className="glide__track">
+					<InnerBlocks
+						{ ...innerBlocksProps }
+						__experimentalTagName={ 'ul' }
+						__experimentalPassedProps={ {
+							className: 'glide__slides',
+						} }
+					/>
+				</div>
 			</div>
 		</>
 	);
