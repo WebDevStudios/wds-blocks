@@ -1,5 +1,7 @@
 import Glide from '@glidejs/glide';
 import { InnerBlocks } from '@wordpress/block-editor';
+import { compose } from '@wordpress/compose';
+import { withSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import Slider from './Components/Slider';
 import { PREFIX } from '../../utils/config';
@@ -24,8 +26,8 @@ const innerBlocksProps = {
  * @param  {Object} [props] Properties passed from the editor.
  * @return {WPElement}      Element to render.
  */
-export default function Edit( props ) {
-	const { className, setAttributes } = props;
+function Edit( props ) {
+	const { className, setAttributes, slideIds } = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
 	const slider = new Glide( '.glide' );
 
@@ -71,3 +73,16 @@ export default function Edit( props ) {
 		</>
 	);
 }
+
+export default compose( [
+	withSelect( ( select, props ) => {
+		const { clientId } = props;
+
+		// Get current child block (slide) clientId values.
+		const slideIds = select( 'core/block-editor' ).getBlockOrder(
+			clientId
+		);
+
+		return { slideIds };
+	} ),
+] )( Edit );
