@@ -29,5 +29,38 @@
 			margin-bottom: 0;
 			margin-top: 0;
 		}
+
+		.slider-arrow,
+		.slider-dot {
+			z-index: 10;
+		}
+
+		.slider-arrows {
+			position: absolute;
+			top: 45%;
+			width: 100%;
+		}
+
+		.slider-arrow {
+			position: absolute;
+
+			&-left {
+				left: 0;
+			}
+
+			&-right {
+				right: 0;
+			}
+		}
+
+		.slider-dots {
+			text-align: center;
+		}
+
+		.slider-dot {
+			display: inline-block;
+			height: 1rem;
+			position: relative;
+		}
 	}
 }
