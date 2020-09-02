@@ -5,6 +5,7 @@
 	.wp-block-wdsblocks-accordions {
 		padding: 3rem 1rem;
 		@include edit-mode;
+		@include preview-mode;
 		&__title {
 			width: 100%;
 			display: block;
@@ -23,8 +24,9 @@
 				margin-bottom: 1.5rem;
 			}
 		}
+
+		// Custom `preview-mode` styles.
 		&.preview-mode {
-			@include preview-styles;
 			.wp-block-wdsblocks-accordion__content--inner {
 				display: none;
 			}
@@ -32,6 +34,7 @@
 				position: relative;
 				z-index: 2;
 			}
+
 			// Open first item
 			&[data-open-first='true'] {
 				.wp-block:first-of-type {

@@ -4,25 +4,28 @@
 
 @mixin edit-mode( $selector: '&.edit-mode' ) {
 	#{$selector} {
+		box-shadow: 0 0 0 7px rgba( $color-grey, 0.05 );
 		border: 1px dashed $color-grey;
 		padding: 2rem;
 	}
 }
 
-@mixin preview-styles() {
-	position: relative;
+@mixin preview-mode( $selector: '&.preview-mode' ) {
+	#{$selector} {
+		position: relative;
 
-	&::before {
-		content: '';
-		display: block;
-		height: 100%;
-		position: absolute;
-		width: 100%;
-		z-index: 1;
-	}
+		&::before {
+			content: '';
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+			z-index: 1;
+		}
 
-	.block-list-appender,
-	.input-hidden {
-		display: none;
+		.block-list-appender,
+		.input-hidden {
+			display: none;
+		}
 	}
 }

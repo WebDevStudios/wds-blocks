@@ -30,17 +30,14 @@ const BLOCK_TEMPLATE = [
 	[
 		'wdsblocks/accordion',
 		{
-			title: __( 'Enter Accordion Title', 'wdsblocks' ),
+			title: __( 'Accordion Title', 'wdsblocks' ),
 		},
 		[
 			[
 				'core/paragraph',
 				{
-					content: __( 'Enter accordion content here…', 'wdsblocks' ),
-					placeholder: __(
-						'Enter accordion content here…',
-						'wdsblocks'
-					),
+					content: __( 'Accordion content here…', 'wdsblocks' ),
+					placeholder: __( 'Accordion content here…', 'wdsblocks' ),
 				},
 			],
 		],
@@ -74,20 +71,6 @@ export default function Edit( props ) {
 
 	const showTitle = title && title[ 0 ] !== undefined ? true : false;
 	const showDesc = desc && desc[ 0 ] !== undefined ? true : false;
-
-	// Update `title` field content on change.
-	const onTitleContent = ( newTitle ) => {
-		setAttributes( {
-			title: newTitle,
-		} );
-	};
-
-	// Update `desc` field content on change.
-	const onDescContent = ( newDesc ) => {
-		setAttributes( {
-			desc: newDesc,
-		} );
-	};
 
 	return (
 		<>
@@ -137,12 +120,12 @@ export default function Edit( props ) {
 					<BaseControl
 						label={ __( 'Toggle Others', 'wdsblocks' ) }
 						id="wds-toggle-others"
-						help="Collaspe open accordions when expanding a new accordion."
+						help="Collaspe open accordions when expanding another."
 					></BaseControl>
 					<PanelRow>
 						<ToggleControl
 							label={ __(
-								'Yes - Toggle Other',
+								'Yes - Toggle Others',
 								'accordion-blocks'
 							) }
 							checked={ toggle }
@@ -163,6 +146,12 @@ export default function Edit( props ) {
 				data-toggle={ toggle }
 			>
 				<div className={ CONTAINER_CLASS }>
+					<div
+						class="field-label"
+						style={ { fontSize: '12px', opacity: '0.5' } }
+					>
+						Accordion Title
+					</div>
 					<RichText
 						tagName="h2"
 						type="button"
@@ -170,7 +159,9 @@ export default function Edit( props ) {
 							`${ className }__title`,
 							! showTitle ? 'input-hidden' : ''
 						) }
-						onChange={ onTitleContent }
+						onChange={ ( value ) =>
+							setAttributes( { title: value } )
+						}
 						value={ title ? title : '' }
 						placeholder={ __(
 							'Enter an optional title',
@@ -178,16 +169,24 @@ export default function Edit( props ) {
 						) }
 						allowedFormats={ [ 'core/bold', 'core/italic' ] }
 					/>
+					<div
+						class="field-label"
+						style={ { fontSize: '12px', opacity: '0.5' } }
+					>
+						Accordion Description
+					</div>
 					<RichText
 						tagName="p"
 						className={ classnames(
 							`${ className }__desc`,
 							! showDesc ? 'input-hidden' : ''
 						) }
-						onChange={ onDescContent }
+						onChange={ ( value ) =>
+							setAttributes( { desc: value } )
+						}
 						value={ desc ? desc : '' }
 						placeholder={ __(
-							'Enter an optional description',
+							'Enter an optional short description',
 							'wdsblocks'
 						) }
 					/>

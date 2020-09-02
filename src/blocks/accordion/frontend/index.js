@@ -36,24 +36,8 @@ const wdsBlocksAccordion = {
 		}
 		// Loop all accordion groups.
 		[ ...accordionGroups ].forEach( ( group ) => {
-			const openFirst = group.dataset.openFirst
-				? group.dataset.openFirst
-				: false;
-
-			wdsBlocksAccordion.setupToggles( group );
-
-			// Expand first section (if required).
-			if ( 'true' === openFirst ) {
-				const firstButton = group.querySelector( `.${ buttonClass }` );
-				const props = {
-					container: firstButton.parentNode,
-					button: firstButton,
-					content: firstButton.parentNode.querySelector(
-						`.${ accordionClass }__content`
-					),
-				};
-				wdsBlocksAccordion.expand( props, false );
-			}
+			wdsBlocksAccordion.setToggles( group );
+			wdsBlocksAccordion.openFirst( group );
 		} );
 	},
 
@@ -120,11 +104,38 @@ const wdsBlocksAccordion = {
 	},
 
 	/**
-	 * Set up accordion toggles.
+	 * Expand first accordion is set in block editor.
 	 *
 	 * @param {HTMLElement} group
 	 */
-	setupToggles: ( group ) => {
+	openFirst: ( group ) => {
+		if ( ! group ) {
+			return false;
+		}
+
+		// Get data attribute.
+		const openFirst = group.dataset.openFirst
+			? group.dataset.openFirst
+			: false;
+		if ( 'true' === openFirst ) {
+			const firstButton = group.querySelector( `.${ buttonClass }` );
+			const props = {
+				container: firstButton.parentNode,
+				button: firstButton,
+				content: firstButton.parentNode.querySelector(
+					`.${ accordionClass }__content`
+				),
+			};
+			wdsBlocksAccordion.expand( props, false );
+		}
+	},
+
+	/**
+	 * Set up accordion toggle functionality.
+	 *
+	 * @param {HTMLElement} group
+	 */
+	setToggles: ( group ) => {
 		if ( ! group ) {
 			return false;
 		}

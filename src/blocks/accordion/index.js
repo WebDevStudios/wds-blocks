@@ -15,9 +15,9 @@ const BLOCKNAME = 'accordion';
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 registerBlockType( `wdsblocks/${ BLOCKNAME }`, {
-	title: __( 'Accordion (wds)', 'wdsblocks' ),
+	title: __( 'Accordion', 'wdsblocks' ),
 	description: __(
-		'An expand/collaspe editible content section.',
+		'An expand and collaspe editible content section.',
 		'wdsblocks'
 	),
 	icon: 'sort',

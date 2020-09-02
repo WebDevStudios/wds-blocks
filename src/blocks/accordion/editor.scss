@@ -2,6 +2,14 @@
 
 .wp-block-wdsblocks-accordion {
 	@include edit-mode( '.edit-mode &' );
+	&.edit-mode {
+		.wp-block-wdsblocks-accordion__title {
+			background-color: #ff0000;
+			&::after {
+				display: none;
+			}
+		}
+	}
 }
 
 .editor-styles-wrapper {
