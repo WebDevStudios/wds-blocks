@@ -86,7 +86,13 @@ function Edit( props ) {
 				setAttributes={ setAttributes }
 			/>
 			<Slide { ...slideProps }>
-				<InnerBlocks { ...innerBlocksProps } />
+				<InnerBlocks
+					{ ...innerBlocksProps }
+					__experimentalTagName={ 'div' }
+					__experimentalPassedProps={ {
+						className: 'slide-content',
+					} }
+				/>
 			</Slide>
 		</>
 	);
