@@ -11,6 +11,18 @@ import { __ } from '@wordpress/i18n';
  */
 export default function Slider( props ) {
 	const { slideCount, children } = props;
+	const dots = [];
+
+	// Generate dot buttons per slide count.
+	for ( let i = 0; i < slideCount; i++ ) {
+		dots.push(
+			<button
+				className="glide__bullet slider-dot"
+				data-glide-dir={ `=${ i }` }
+				key={ i }
+			></button>
+		);
+	}
 
 	return (
 		<>
@@ -38,18 +50,7 @@ export default function Slider( props ) {
 				className="glide__bullets slider-dots"
 				data-glide-el="controls[nav]"
 			>
-				<button
-					className="glide__bullet slider-dot"
-					data-glide-dir="=0"
-				></button>
-				<button
-					className="glide__bullet slider-dot"
-					data-glide-dir="=1"
-				></button>
-				<button
-					className="glide__bullet slider-dot"
-					data-glide-dir="=2"
-				></button>
+				{ dots }
 			</div>
 		</>
 	);
