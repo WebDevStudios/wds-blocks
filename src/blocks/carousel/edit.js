@@ -57,7 +57,7 @@ function Edit( props ) {
 				}` }
 			>
 				{ showPreview ? (
-					<Slider>
+					<Slider slideCount={ slideIds.length }>
 						<InnerBlocks
 							{ ...innerBlocksProps }
 							__experimentalTagName={ 'ul' }

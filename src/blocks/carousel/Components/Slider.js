@@ -10,7 +10,7 @@ import { __ } from '@wordpress/i18n';
  * @return {Element}        Element to render.
  */
 export default function Slider( props ) {
-	const { children } = props;
+	const { slideCount, children } = props;
 
 	return (
 		<>
