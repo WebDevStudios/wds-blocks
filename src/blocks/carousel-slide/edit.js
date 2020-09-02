@@ -1,8 +1,8 @@
 import { InnerBlocks, withColors } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
-import Settings from './Components/Settings';
-import Slide from './Components/Slide';
+import Settings from './components/Settings';
+import Slide from './components/Slide';
 import { PREFIX } from '../../utils/config';
 import './editor.scss';
 

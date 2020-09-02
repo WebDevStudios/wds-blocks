@@ -3,7 +3,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
 import { withSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
-import Slider from './Components/Slider';
+import Slider from './components/Slider';
 import { PREFIX } from '../../utils/config';
 import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
 import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
