@@ -44,7 +44,13 @@ export default function Edit( props ) {
 					showPreview ? 'preview-mode' : 'edit-mode'
 				}` }
 			>
-				<InnerBlocks { ...innerBlocksProps } />
+				<InnerBlocks
+					{ ...innerBlocksProps }
+					__experimentalTagName={ 'div' }
+					__experimentalPassedProps={ {
+						className: 'carousel-slider',
+					} }
+				/>
 			</div>
 		</>
 	);
