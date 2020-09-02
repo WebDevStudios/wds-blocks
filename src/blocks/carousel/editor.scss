@@ -30,15 +30,19 @@
 			margin-top: 0;
 		}
 
+		.slider-arrows,
+		.slider-dots {
+			position: absolute;
+			width: 100%;
+		}
+
 		.slider-arrow,
 		.slider-dot {
 			z-index: 10;
 		}
 
 		.slider-arrows {
-			position: absolute;
 			top: 45%;
-			width: 100%;
 		}
 
 		.slider-arrow {
@@ -54,6 +58,7 @@
 		}
 
 		.slider-dots {
+			bottom: 0;
 			text-align: center;
 		}
 
