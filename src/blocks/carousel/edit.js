@@ -1,5 +1,7 @@
+import Glide from '@glidejs/glide';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { useEffect } from '@wordpress/element';
+import Slider from './Components/Slider';
 import { PREFIX } from '../../utils/config';
 import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
 import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
@@ -25,9 +27,17 @@ const innerBlocksProps = {
 export default function Edit( props ) {
 	const { className, setAttributes } = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
+	const slider = new Glide( '.glide' );
 
-	// Update showPreview attribute on state change.
 	useEffect( () => {
+		// Mount or unmount glide functionality.
+		if ( showPreview ) {
+			slider.mount();
+		} else {
+			slider.destroy();
+		}
+
+		// Update showPreview attribute on state change.
 		setAttributes( {
 			showPreview,
 		} );
@@ -44,15 +54,19 @@ export default function Edit( props ) {
 					showPreview ? 'preview-mode' : 'edit-mode'
 				}` }
 			>
-				<div className="glide__track">
-					<InnerBlocks
-						{ ...innerBlocksProps }
-						__experimentalTagName={ 'ul' }
-						__experimentalPassedProps={ {
-							className: 'glide__slides',
-						} }
-					/>
-				</div>
+				{ showPreview ? (
+					<Slider>
+						<InnerBlocks
+							{ ...innerBlocksProps }
+							__experimentalTagName={ 'ul' }
+							__experimentalPassedProps={ {
+								className: 'glide__slides',
+							} }
+						/>
+					</Slider>
+				) : (
+					<InnerBlocks { ...innerBlocksProps } />
+				) }
 			</div>
 		</>
 	);
