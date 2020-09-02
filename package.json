@@ -17,8 +17,7 @@
 		"Gutenberg"
 	],
 	"dependencies": {
-		"@glidejs/glide": "^3.4.1",
-		"pure-react-carousel": "^1.27.1"
+		"@glidejs/glide": "^3.4.1"
 	},
 	"devDependencies": {
 		"@webdevstudios/css-coding-standards": "^1.0.1",
