@@ -64,6 +64,7 @@ function Edit( props ) {
 							__experimentalPassedProps={ {
 								className: 'glide__slides',
 							} }
+							renderAppender={ false }
 						/>
 					</Slider>
 				) : (
