@@ -29,7 +29,12 @@ const innerBlocksProps = {
 function Edit( props ) {
 	const { className, setAttributes, slideIds } = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
-	const slider = new Glide( '.glide' );
+	const slider = new Glide( '.glide', {
+		autoplay: 5000,
+		focusAt: 'center',
+		gap: 0,
+		type: 'carousel',
+	} );
 
 	useEffect( () => {
 		// Mount or unmount glide functionality.
