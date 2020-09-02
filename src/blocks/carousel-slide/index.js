@@ -56,6 +56,11 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 		html: false,
 	},
 	parent: [ `${ PREFIX }/carousel` ],
+	getEditWrapperProps() {
+		return {
+			className: 'glide__slide',
+		};
+	},
 	edit,
 	save,
 } );
