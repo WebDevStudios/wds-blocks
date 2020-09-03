@@ -1,4 +1,7 @@
 import { InnerBlocks } from '@wordpress/block-editor';
+import { getBlockDefaultClassName } from '@wordpress/blocks';
+import Slider from './components/Slider';
+import { PREFIX } from '../../utils/config';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -13,11 +16,24 @@ import { InnerBlocks } from '@wordpress/block-editor';
  * @return {WPElement}      Element to render.
  */
 export default function Save( props ) {
-	const { className } = props;
+	const {
+		attributes: { slideIds },
+	} = props;
+
+	// Define props relating to slider settings.
+	const sliderProps = {
+		slideCount: slideIds.length,
+	};
+
+	const className = getBlockDefaultClassName( `${ PREFIX }/carousel` );
 
 	return (
-		<div className={ className }>
-			<InnerBlocks.Content />
+		<div className={ `${ className } glide` }>
+			<Slider { ...sliderProps }>
+				<ul className="glide__slides slider-slides">
+					<InnerBlocks.Content />
+				</ul>
+			</Slider>
 		</div>
 	);
 }
