@@ -21,12 +21,16 @@ export default function Save( props ) {
 	// Define props relating to slide settings.
 	const slideProps = {
 		...attributes,
-		className: getBlockDefaultClassName( `${ PREFIX }/carousel-slide` ),
+		className: `${ getBlockDefaultClassName(
+			`${ PREFIX }/carousel-slide`
+		) } glide__slide`,
 	};
 
 	return (
 		<Slide { ...slideProps }>
-			<InnerBlocks.Content />
+			<div className="slide-content">
+				<InnerBlocks.Content />
+			</div>
 		</Slide>
 	);
 }
