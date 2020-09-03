@@ -6,5 +6,56 @@
 	#{$selector} {
 		border: 1px dashed $color-grey;
 		padding: 2rem;
+
+		// Fake input label.
+		.input-label {
+			font-size: 12px;
+			opacity: 0.75;
+			padding: 0 0 5px;
+
+			span.req {
+				color: $color-red;
+				display: inline-block;
+			}
+
+			&::after {
+				display: block;
+				content: "";
+				width: 15px;
+				height: 1px;
+				margin-top: 5px;
+				background-color: $color-light-grey;
+			}
+		}
+
+		[role="textbox"] {
+
+			+ .input-label {
+				padding-top: 15px;
+			}
+		}
+	}
+}
+
+// Admin styling for blocks in preview mode.
+@mixin preview-mode($selector: "&.preview-mode") {
+
+	#{$selector} {
+		position: relative;
+
+		&::before {
+			content: "";
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+			z-index: 1;
+		}
+
+		.block-list-appender,
+		.input-hidden,
+		.input-label {
+			display: none;
+		}
 	}
 }
