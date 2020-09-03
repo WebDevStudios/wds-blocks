@@ -35,7 +35,7 @@ function Edit( props ) {
 		slideCount,
 	} = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
-	const slider = new Glide( '.glide', {
+	const slider = new Glide( `.${ className }`, {
 		autoplay: 5000,
 		focusAt: 'center',
 		gap: 0,
@@ -79,7 +79,7 @@ function Edit( props ) {
 				togglePreview={ togglePreview }
 			/>
 			<div
-				className={ `${ className } glide ${
+				className={ `${ className } ${
 					showPreview ? 'preview-mode' : 'edit-mode'
 				}` }
 			>
