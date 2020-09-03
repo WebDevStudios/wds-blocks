@@ -75,11 +75,12 @@ export default function Edit( props ) {
 	const showDesc = desc && desc[ 0 ] !== undefined ? true : false;
 
 	useEffect( () => {
-		// Mount or unmount glide functionality.
+		// Trigger accordions.init on state update.
+		console.log( showPreview );
 		if ( showPreview ) {
 			wdsBlocksAccordion.init();
 		}
-	}, [ showPreview ] );
+	}, [ showPreview, openFirst, toggle ] );
 
 	return (
 		<>

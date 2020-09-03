@@ -4,7 +4,7 @@
 
 @mixin edit-mode( $selector: '&.edit-mode' ) {
 	#{$selector} {
-		box-shadow: 0 0 0 7px rgba( $color-grey, 0.075 );
+		//box-shadow: 0 0 0 7px rgba( $color-grey, 0.075 );
 		border: 1px dashed $color-grey;
 		padding: 2rem;
 		// Fake input label.

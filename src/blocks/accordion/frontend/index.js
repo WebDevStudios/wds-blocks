@@ -2,6 +2,7 @@ const accordionsClass = 'wp-block-wdsblocks-accordions';
 const accordionClass = 'wp-block-wdsblocks-accordion';
 const buttonClass = `${ accordionClass }__title`;
 const expandedClass = 'is-expanded';
+const collapseClass = 'will-collapse';
 
 const wdsBlocksAccordion = {
 	/**
@@ -56,11 +57,14 @@ const wdsBlocksAccordion = {
 				`.${ accordionClass }__content`
 			),
 		};
-		if ( props.container.classList.contains( expandedClass ) ) {
+		if (
+			props.container.classList.contains( expandedClass ) ||
+			props.container.parentNode.classList.contains( expandedClass )
+		) {
 			wdsBlocksAccordion.collapse( props );
 		} else {
 			// Close open accordion when `will-collapse` class is active.
-			if ( button.classList.contains( 'will-collapse' ) ) {
+			if ( button.classList.contains( collapseClass ) ) {
 				wdsBlocksAccordion.closeActive( props.container );
 			}
 			wdsBlocksAccordion.expand( props, true );
@@ -117,16 +121,23 @@ const wdsBlocksAccordion = {
 		const openFirst = group.dataset.openFirst
 			? group.dataset.openFirst
 			: false;
+
+		const firstButton = group.querySelector( `.${ buttonClass }` );
+		if ( ! firstButton ) {
+			return false;
+		}
+		const props = {
+			container: firstButton.parentNode,
+			button: firstButton,
+			content: firstButton.parentNode.querySelector(
+				`.${ accordionClass }__content`
+			),
+		};
 		if ( 'true' === openFirst ) {
-			const firstButton = group.querySelector( `.${ buttonClass }` );
-			const props = {
-				container: firstButton.parentNode,
-				button: firstButton,
-				content: firstButton.parentNode.querySelector(
-					`.${ accordionClass }__content`
-				),
-			};
 			wdsBlocksAccordion.expand( props, false );
+		} else {
+			// Used in the Block Editor only.
+			wdsBlocksAccordion.collapse( props, false );
 		}
 	},
 
@@ -140,12 +151,18 @@ const wdsBlocksAccordion = {
 			return false;
 		}
 		const toggle = group.dataset.toggle ? group.dataset.toggle : false;
-		if ( 'true' === toggle ) {
-			const buttons = group.querySelectorAll( `.${ buttonClass }` );
-			[ ...buttons ].forEach( ( button ) => {
-				button.classList.add( 'will-collapse' );
-			} );
+		const buttons = group.querySelectorAll( `.${ buttonClass }` );
+		if ( ! buttons ) {
+			return false;
 		}
+		[ ...buttons ].forEach( ( button ) => {
+			// Need to conditional if/else here for Block Editor integration.
+			if ( 'true' === toggle ) {
+				button.classList.add( collapseClass );
+			} else {
+				button.classList.remove( collapseClass );
+			}
+		} );
 	},
 
 	/**
@@ -157,14 +174,17 @@ const wdsBlocksAccordion = {
 		if ( ! container ) {
 			return false;
 		}
-		const active = container.parentNode.querySelector(
-			`.${ expandedClass }`
-		); // Get active accordion from container parent.
+		console.log( container.parentNode );
+		// Get active accordion from container parent or parent parent (Block editor integration).
+		const active =
+			container.parentNode.querySelector( `.${ expandedClass }` ) ||
+			container.parentNode.parentNode.querySelector(
+				`.${ expandedClass }`
+			);
 		if ( ! active ) {
 			return false;
 		}
 		const button = active.querySelector( `.${ buttonClass }` );
-		console.log( accordions );
 		if ( ! button ) {
 			return false;
 		}
