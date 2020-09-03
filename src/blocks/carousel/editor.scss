@@ -4,22 +4,13 @@
 .wp-block-wdsblocks-carousel {
 
 	@include edit-mode;
+	@include preview-mode;
 
 	.wp-block[data-type="wdsblocks/carousel-slide"] {
 		max-width: none;
 	}
 
 	&.preview-mode {
-		position: relative;
-
-		&::before {
-			content: "";
-			display: block;
-			height: 100%;
-			position: absolute;
-			width: 100%;
-			z-index: 1;
-		}
 
 		.block-list-appender {
 			display: none;
