@@ -13,7 +13,7 @@ import './frontend/style.scss';
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 registerBlockType( `${ PREFIX }/carousel`, {
-	title: __( 'Carousel Block', 'wdsblocks' ),
+	title: __( 'Carousel', 'wdsblocks' ),
 	description: __(
 		'A carousel with a call to action for each slide.',
 		'wdsblocks'
