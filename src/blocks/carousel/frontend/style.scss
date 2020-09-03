@@ -1,8 +1,48 @@
 // Front-end styles.
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 
-$color-red: rgb(206, 70, 70);
-
 .wp-block-wdsblocks-carousel {
-	color: $color-red;
+
+	.slider-arrows,
+	.slider-dots {
+		position: absolute;
+		width: 100%;
+	}
+
+	.slider-arrow,
+	.slider-dot {
+		z-index: 10;
+	}
+
+	.slider-arrows {
+		top: 45%;
+	}
+
+	.slider-arrow {
+		position: absolute;
+
+		&-left {
+			left: 0;
+		}
+
+		&-right {
+			right: 0;
+		}
+	}
+
+	.slider-dots {
+		bottom: 0;
+		text-align: center;
+	}
+
+	.slider-dot {
+		display: inline-block;
+		height: 1rem;
+		position: relative;
+	}
+
+	.slider-slides {
+		margin: 0;
+		padding: 0;
+	}
 }
