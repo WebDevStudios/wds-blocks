@@ -64,6 +64,15 @@ function Edit( props ) {
 
 		setAttributes( { slideIds } );
 	}, [ slideIds ] );
+
+	// Check if this is a new block.
+	const isNewBlock = ! slideIdsAttr || 0 === slideIdsAttr.length;
+
+	// If new/empty block, switch to edit mode.
+	if ( isNewBlock && showPreview ) {
+		togglePreview();
+	}
+
 	return (
 		<>
 			<PreviewToggle
