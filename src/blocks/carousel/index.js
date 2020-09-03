@@ -26,6 +26,10 @@ registerBlockType( `${ PREFIX }/carousel`, {
 			type: 'boolean',
 			default: true,
 		},
+		slideIds: {
+			type: 'array',
+			default: [],
+		},
 	},
 	providesContext: {
 		[ `${ PREFIX }/carousel/showPreview` ]: 'showPreview',
