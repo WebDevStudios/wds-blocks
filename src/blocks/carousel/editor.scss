@@ -10,6 +10,16 @@
 		max-width: none;
 	}
 
+	&.edit-mode {
+
+		.wp-block[data-type="wdsblocks/carousel-slide"] {
+
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+	}
+
 	&.preview-mode {
 
 		.block-list-appender {
