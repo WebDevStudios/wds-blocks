@@ -20,7 +20,7 @@ const wdsBlocksBackgroundVideo = {
 		const videos = document.querySelectorAll( `video.${ videoClass }` );
 
 		// Exit if no videos found.
-		if ( 0 === videos.length ) {
+		if ( ! videos.length ) {
 			return false;
 		}
 
