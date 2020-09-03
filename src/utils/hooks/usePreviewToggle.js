@@ -21,8 +21,21 @@ export default function usePreviewToggle() {
 		setPreview( ! showPreview );
 	};
 
+	/**
+	 * Toggle block to "edit" mode on double click.
+	 *
+	 * @author WebDevStudios
+	 * @since  2.0.0
+	 */
+	const doubleClick = () => {
+		if ( showPreview ) {
+			togglePreview();
+		}
+	};
+
 	return {
 		showPreview,
 		togglePreview,
+		doubleClick,
 	};
 }
