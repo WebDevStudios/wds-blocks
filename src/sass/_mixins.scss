@@ -36,5 +36,26 @@
 		}
 	}
 }
+
+// Admin styling for blocks in preview mode.
+@mixin preview-mode($selector: "&.preview-mode") {
+
+	#{$selector} {
+		position: relative;
+
+		&::before {
+			content: "";
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+			z-index: 1;
+		}
+
+		.block-list-appender,
+		.input-hidden,
+		.input-label {
+			display: none;
+		}
 	}
 }
