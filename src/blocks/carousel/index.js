@@ -26,9 +26,9 @@ registerBlockType( `${ PREFIX }/carousel`, {
 			type: 'boolean',
 			default: true,
 		},
-		slideIds: {
-			type: 'array',
-			default: [],
+		slideCount: {
+			type: 'number',
+			default: 0,
 		},
 	},
 	providesContext: {

@@ -17,12 +17,12 @@ import { PREFIX } from '../../utils/config';
  */
 export default function Save( props ) {
 	const {
-		attributes: { slideIds },
+		attributes: { slideCount },
 	} = props;
 
 	// Define props relating to slider settings.
 	const sliderProps = {
-		slideCount: slideIds.length,
+		slideCount,
 	};
 
 	const className = getBlockDefaultClassName( `${ PREFIX }/carousel` );

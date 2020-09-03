@@ -29,10 +29,10 @@ const innerBlocksProps = {
  */
 function Edit( props ) {
 	const {
-		attributes: { slideIds: slideIdsAttr },
+		attributes: { slideCount: slideCountAttr },
 		className,
 		setAttributes,
-		slideIds,
+		slideCount,
 	} = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
 	const slider = new Glide( '.glide', {
@@ -59,18 +59,13 @@ function Edit( props ) {
 		} );
 	}, [ showPreview ] );
 
-	// Compare current inner block (slide) IDs to saved values, update if different.
+	// Update slide count attr on prop change.
 	useEffect( () => {
-		// Skip if current values match saved attr values.
-		if ( JSON.stringify( slideIds ) === JSON.stringify( slideIdsAttr ) ) {
-			return;
-		}
-
-		setAttributes( { slideIds } );
-	}, [ slideIds ] );
+		setAttributes( { slideCount } );
+	}, [ slideCount ] );
 
 	// Check if this is a new block.
-	const isNewBlock = ! slideIdsAttr || 0 === slideIdsAttr.length;
+	const isNewBlock = ! slideCountAttr;
 
 	// If new/empty block, switch to edit mode.
 	if ( isNewBlock && showPreview ) {
@@ -89,7 +84,7 @@ function Edit( props ) {
 				}` }
 			>
 				{ showPreview ? (
-					<Slider slideCount={ slideIds.length }>
+					<Slider slideCount={ slideCount }>
 						<InnerBlocks
 							{ ...innerBlocksProps }
 							__experimentalTagName={ 'ul' }
@@ -112,10 +107,10 @@ export default compose( [
 		const { clientId } = props;
 
 		// Get current child block (slide) clientId values.
-		const slideIds = select( 'core/block-editor' ).getBlockOrder(
+		const slideCount = select( 'core/block-editor' ).getBlockOrder(
 			clientId
-		);
+		).length;
 
-		return { slideIds };
+		return { slideCount };
 	} ),
 ] )( Edit );
