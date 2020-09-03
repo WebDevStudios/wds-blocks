@@ -4,9 +4,32 @@
 
 @mixin edit-mode( $selector: '&.edit-mode' ) {
 	#{$selector} {
-		box-shadow: 0 0 0 7px rgba( $color-grey, 0.05 );
+		box-shadow: 0 0 0 7px rgba( $color-grey, 0.075 );
 		border: 1px dashed $color-grey;
 		padding: 2rem;
+		// Fake input label.
+		.input-label {
+			font-size: 12px;
+			opacity: 0.75;
+			padding: 0 0 5px;
+			span.req {
+				color: $color-red;
+				display: inline-block;
+			}
+			&::after {
+				display: block;
+				content: '';
+				width: 15px;
+				height: 1px;
+				margin-top: 5px;
+				background-color: $color-light-grey;
+			}
+		}
+		[role='textbox'] + {
+			.input-label {
+				padding-top: 15px;
+			}
+		}
 	}
 }
 
@@ -24,7 +47,8 @@
 		}
 
 		.block-list-appender,
-		.input-hidden {
+		.input-hidden,
+		.input-label {
 			display: none;
 		}
 	}

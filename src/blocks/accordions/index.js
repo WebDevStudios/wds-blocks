@@ -34,13 +34,13 @@ registerBlockType( `wdsblocks/${ BLOCKNAME }`, {
 			type: 'array',
 			source: 'children',
 			selector: `.wp-block-${ PREFIX }-${ BLOCKNAME }__title`,
-			default: __( 'Enter an optional title', 'wdsblocks' ),
+			default: __( 'Enter a title...', 'wdsblocks' ),
 		},
 		desc: {
 			type: 'array',
 			source: 'children',
 			selector: `.wp-block-${ PREFIX }-${ BLOCKNAME }__desc`,
-			default: __( 'Enter an optional short description.', 'wdsblocks' ),
+			default: __( 'Enter a short description...', 'wdsblocks' ),
 		},
 		bkgColor: {
 			type: 'string',

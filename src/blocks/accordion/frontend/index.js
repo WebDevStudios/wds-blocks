@@ -164,6 +164,7 @@ const wdsBlocksAccordion = {
 			return false;
 		}
 		const button = active.querySelector( `.${ buttonClass }` );
+		console.log( accordions );
 		if ( ! button ) {
 			return false;
 		}

@@ -33,28 +33,28 @@ export default function Edit( props ) {
 		clientId,
 	} = props;
 
-	// Update `title` field content on change.
-	const onTitleContent = ( newTitle ) => {
-		setAttributes( {
-			title: newTitle,
-			clientId,
-		} );
-	};
-
 	return (
 		<div className={ className }>
+			<div class="input-label">
+				{ __( 'Section Title ', 'wdsblocks' ) }
+				<span className="req">*</span>
+			</div>
 			<RichText
 				tagName="h3"
 				role="button"
 				tabIndex="0"
 				className={ `${ className }__title` }
-				onChange={ onTitleContent }
+				onChange={ ( value ) => setAttributes( { title: value } ) }
 				value={ title ? title : '' }
 				placeholder={ __( 'WDS Accordion Title', 'wdsblocks' ) }
 				aria-expanded="false"
 				aria-controls={ `${ PREFIX }-${ clientId }` }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
 			/>
+			<div class="input-label">
+				{ __( 'Section Content ', 'wdsblocks' ) }
+				<span className="req">*</span>
+			</div>
 			<div
 				className={ `${ className }__content` }
 				aria-hidden="true"

@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import {
 	InspectorControls,
 	RichText,
@@ -18,6 +20,7 @@ import { PREFIX, CONTAINER_CLASS, THEME_BKG_PALETTE } from '../../utils/config';
 import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
 import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
 import './editor.scss';
+import wdsBlocksAccordion from '../accordion/frontend/';
 
 // Block types that cann be added to `InnerBlocks` component
 const ALLOWED_BLOCKS = applyFilters(
@@ -67,10 +70,16 @@ export default function Edit( props ) {
 		className,
 	} = props;
 
-	const { showPreview, togglePreview } = usePreviewToggle();
-
+	const { showPreview, togglePreview, doubleClick } = usePreviewToggle();
 	const showTitle = title && title[ 0 ] !== undefined ? true : false;
 	const showDesc = desc && desc[ 0 ] !== undefined ? true : false;
+
+	useEffect( () => {
+		// Mount or unmount glide functionality.
+		if ( showPreview ) {
+			wdsBlocksAccordion.init();
+		}
+	}, [ showPreview ] );
 
 	return (
 		<>
@@ -144,13 +153,11 @@ export default function Edit( props ) {
 				style={ { backgroundColor: bkgColor } }
 				data-open-first={ openFirst }
 				data-toggle={ toggle }
+				onDoubleClick={ doubleClick }
 			>
 				<div className={ CONTAINER_CLASS }>
-					<div
-						class="field-label"
-						style={ { fontSize: '12px', opacity: '0.5' } }
-					>
-						Accordion Title
+					<div class="input-label">
+						{ __( 'Title (optional)', 'wdsblocks' ) }
 					</div>
 					<RichText
 						tagName="h2"
@@ -163,17 +170,11 @@ export default function Edit( props ) {
 							setAttributes( { title: value } )
 						}
 						value={ title ? title : '' }
-						placeholder={ __(
-							'Enter an optional title',
-							'wdsblocks'
-						) }
+						placeholder={ __( 'Enter a title...', 'wdsblocks' ) }
 						allowedFormats={ [ 'core/bold', 'core/italic' ] }
 					/>
-					<div
-						class="field-label"
-						style={ { fontSize: '12px', opacity: '0.5' } }
-					>
-						Accordion Description
+					<div class="input-label">
+						{ __( 'Short Description (optional)', 'wdsblocks' ) }
 					</div>
 					<RichText
 						tagName="p"
@@ -186,7 +187,7 @@ export default function Edit( props ) {
 						}
 						value={ desc ? desc : '' }
 						placeholder={ __(
-							'Enter an optional short description',
+							'Enter a short description...',
 							'wdsblocks'
 						) }
 					/>
