@@ -6,8 +6,8 @@ import { useEffect } from '@wordpress/element';
 import Slider from './components/Slider';
 import { PREFIX } from '../../utils/config';
 import wdsBlocksBackgroundVideo from '../../utils/modules/backgroundVideo';
-import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
-import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
+import PreviewToggle from '../../utils/components/PreviewToggle';
+import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
 import './editor.scss';
 
 // Set up props for InnerBlocks component.

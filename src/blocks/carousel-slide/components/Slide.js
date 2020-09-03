@@ -1,9 +1,9 @@
 import { compose } from '@wordpress/compose';
 import { CONTAINER_CLASS } from '../../../utils/config';
-import withBackgroundColor from '../../../utils/withBackgroundColor';
-import withBackgroundImage from '../../../utils/withBackgroundImage';
-import withBackgroundVideo from '../../../utils/withBackgroundVideo';
-import withFontColor from '../../../utils/withFontColor';
+import withBackgroundColor from '../../../utils/components/withBackgroundColor';
+import withBackgroundImage from '../../../utils/components/withBackgroundImage';
+import withBackgroundVideo from '../../../utils/components/withBackgroundVideo';
+import withFontColor from '../../../utils/components/withFontColor';
 
 /**
  * The Slide component displays an individual carousel slide.
