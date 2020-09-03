@@ -17,8 +17,8 @@ import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 import { PREFIX, CONTAINER_CLASS, THEME_BKG_PALETTE } from '../../utils/config';
-import PreviewToggle from '../../utils/preview-toggle/PreviewToggle';
-import usePreviewToggle from '../../utils/preview-toggle/usePreviewToggle';
+import PreviewToggle from '../../utils/components/PreviewToggle';
+import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
 import './editor.scss';
 import wdsBlocksAccordion from '../accordion/frontend/';
 
