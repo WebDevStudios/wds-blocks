@@ -66,13 +66,9 @@ function Edit( props ) {
 	const slideProps = {
 		...backgroundProps,
 		className,
-		fontColor: fontColor.hasOwnProperty( 'slug' )
-			? fontColor.slug
-			: undefined,
+		fontColor: fontColor?.slug,
 		customFontColor: fontColor.color,
-		backgroundColor: backgroundColor.hasOwnProperty( 'slug' )
-			? backgroundColor.slug
-			: undefined,
+		backgroundColor: backgroundColor?.slug,
 		customBackgroundColor: backgroundColor.color,
 	};
 
