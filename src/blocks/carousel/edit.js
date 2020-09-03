@@ -31,11 +31,12 @@ function Edit( props ) {
 	const {
 		attributes: { slideCount: slideCountAttr },
 		className,
+		clientId,
 		setAttributes,
 		slideCount,
 	} = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
-	const slider = new Glide( `.${ className }`, {
+	const slider = new Glide( `#block-${ clientId }`, {
 		autoplay: 5000,
 		focusAt: 'center',
 		gap: 0,
