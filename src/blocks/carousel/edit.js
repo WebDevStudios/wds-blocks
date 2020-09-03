@@ -27,7 +27,12 @@ const innerBlocksProps = {
  * @return {WPElement}      Element to render.
  */
 function Edit( props ) {
-	const { className, setAttributes, slideIds } = props;
+	const {
+		attributes: { slideIds: slideIdsAttr },
+		className,
+		setAttributes,
+		slideIds,
+	} = props;
 	const { showPreview, togglePreview } = usePreviewToggle();
 	const slider = new Glide( '.glide', {
 		autoplay: 5000,
@@ -50,6 +55,15 @@ function Edit( props ) {
 		} );
 	}, [ showPreview ] );
 
+	// Compare current inner block (slide) IDs to saved values, update if different.
+	useEffect( () => {
+		// Skip if current values match saved attr values.
+		if ( JSON.stringify( slideIds ) === JSON.stringify( slideIdsAttr ) ) {
+			return;
+		}
+
+		setAttributes( { slideIds } );
+	}, [ slideIds ] );
 	return (
 		<>
 			<PreviewToggle
