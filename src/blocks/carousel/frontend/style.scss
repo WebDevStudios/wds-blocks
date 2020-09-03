@@ -1,5 +1,6 @@
 // Front-end styles.
-@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "@glidejs/glide/src/assets/sass/glide.core";
+@import "../../../sass/variables";
 
 .wp-block-wdsblocks-carousel {
 
@@ -36,9 +37,22 @@
 	}
 
 	.slider-dot {
+		background-color: $color-white;
+		border: none;
+		border-radius: 50%;
+		box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1);
+		cursor: pointer;
 		display: inline-block;
 		height: 1rem;
+		margin: 0.25rem;
+		opacity: 0.5;
+		padding: 0;
 		position: relative;
+		width: 1rem;
+
+		&[class*="--active"] {
+			opacity: 1;
+		}
 	}
 
 	.slider-slides {
