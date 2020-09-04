@@ -12,20 +12,18 @@ import {
 	PanelRow,
 	BaseControl,
 	ToggleControl,
-	ColorIndicator,
-	ColorPalette,
 } from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
-import { PREFIX, CONTAINER_CLASS, THEME_BKG_PALETTE } from '../../utils/config';
+import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
 import PreviewToggle from '../../utils/components/PreviewToggle';
 import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
 import withBackgroundColor from '../../utils/components/withBackgroundColor';
 import withFontColor from '../../utils/components/withFontColor';
 import './editor.scss';
 import InputLabel from './components/InputLabel';
-import wdsBlocksAccordion from '../accordion/frontend/';
+import wdsBlocksAccordion from '../accordions/frontend/';
 
 // Block types that cann be added to `InnerBlocks` component
 const ALLOWED_BLOCKS = applyFilters(
@@ -70,7 +68,7 @@ const innerBlocksProps = {
  */
 function Edit( props ) {
 	const {
-		attributes: { title, desc, bkgColor, openFirst, toggle },
+		attributes: { title, desc, openFirst, toggle },
 		setAttributes,
 		className,
 		fontColor,
@@ -118,7 +116,7 @@ function Edit( props ) {
 		<>
 			<InspectorControls>
 				<PanelColorSettings
-					title={ __( 'Color settings', 'wdsblocks' ) }
+					title={ __( 'Color Settings', 'wdsblocks' ) }
 					colorSettings={ [
 						{
 							value: fontColor.color,
@@ -132,27 +130,6 @@ function Edit( props ) {
 						},
 					] }
 				/>
-				<PanelBody title={ __( 'Background Color', 'wdsblocks' ) }>
-					<PanelRow>
-						<BaseControl
-							label="Selected Color"
-							id="wds-selected-color"
-						>
-							<ColorIndicator colorValue={ bkgColor } />
-						</BaseControl>
-					</PanelRow>
-					<PanelRow>
-						<ColorPalette
-							colors={ THEME_BKG_PALETTE }
-							value={ bkgColor }
-							onChange={ ( value ) =>
-								setAttributes( {
-									bkgColor: value,
-								} )
-							}
-						/>
-					</PanelRow>
-				</PanelBody>
 				<PanelBody title={ __( 'Settings', 'wdsblocks' ) }>
 					<BaseControl
 						label={ __( 'Expand First Accordion', 'wdsblocks' ) }

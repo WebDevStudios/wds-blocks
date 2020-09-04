@@ -42,10 +42,6 @@ registerBlockType( `wdsblocks/${ BLOCKNAME }`, {
 			selector: `.wp-block-${ PREFIX }-${ BLOCKNAME }__desc`,
 			default: __( 'Enter a short description...', 'wdsblocks' ),
 		},
-		bkgColor: {
-			type: 'string',
-			default: 'transparent',
-		},
 		openFirst: {
 			type: 'boolean',
 			default: false,

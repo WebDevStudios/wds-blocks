@@ -27,8 +27,6 @@ export default function Save( props ) {
 		},
 	} = props;
 
-	console.log( props );
-
 	const className = getBlockDefaultClassName( `${ PREFIX }/accordions` );
 
 	return (
