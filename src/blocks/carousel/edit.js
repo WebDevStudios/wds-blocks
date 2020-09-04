@@ -4,18 +4,11 @@ import { compose } from '@wordpress/compose';
 import { withSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import Slider from './components/Slider';
-import { GLIDE_SETTINGS } from './utils/config';
-import { PREFIX } from '../../utils/config';
+import { GLIDE_SETTINGS, INNER_BLOCKS_PROPS } from './utils/config';
 import wdsBlocksBackgroundVideo from '../../utils/modules/backgroundVideo';
 import PreviewToggle from '../../utils/components/PreviewToggle';
 import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
 import './editor.scss';
-
-// Set up props for InnerBlocks component.
-const innerBlocksProps = {
-	allowedBlocks: [ `${ PREFIX }/carousel-slide` ],
-	template: [ [ `${ PREFIX }/carousel-slide`, {} ] ],
-};
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -84,7 +77,7 @@ function Edit( props ) {
 				{ showPreview ? (
 					<Slider slideCount={ slideCount } isAdmin={ true }>
 						<InnerBlocks
-							{ ...innerBlocksProps }
+							{ ...INNER_BLOCKS_PROPS }
 							__experimentalTagName={ 'ul' }
 							__experimentalPassedProps={ {
 								className: 'glide__slides slider-slides',
@@ -93,7 +86,7 @@ function Edit( props ) {
 						/>
 					</Slider>
 				) : (
-					<InnerBlocks { ...innerBlocksProps } />
+					<InnerBlocks { ...INNER_BLOCKS_PROPS } />
 				) }
 			</div>
 		</>
