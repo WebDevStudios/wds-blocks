@@ -34,7 +34,7 @@ export default function Save( props ) {
 			className={ classnames( className ) }
 			style={ {
 				color: fontColor,
-				backgroundColor: backgroundColor,
+				backgroundColor,
 			} }
 			data-open-first={ openFirst }
 			data-toggle={ toggle }

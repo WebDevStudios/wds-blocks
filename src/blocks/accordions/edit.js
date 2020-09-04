@@ -1,8 +1,6 @@
 import { useEffect } from '@wordpress/element';
-import { compose } from '@wordpress/compose';
 import {
 	InnerBlocks,
-	withColors,
 	PanelColorSettings,
 	InspectorControls,
 	RichText,
@@ -162,7 +160,7 @@ export default function Edit( props ) {
 					className,
 					showPreview ? 'preview-mode' : 'edit-mode'
 				) }
-				style={ { color: fontColor, backgroundColor: backgroundColor } }
+				style={ { color: fontColor, backgroundColor } }
 				data-open-first={ openFirst }
 				data-toggle={ toggle }
 				onDoubleClick={ doubleClick }
@@ -184,7 +182,7 @@ export default function Edit( props ) {
 							} )
 						}
 						value={ title ? title : '' }
-						placeholder={ __( 'Enter a title...', 'wdsblocks' ) }
+						placeholder={ __( 'Enter a title…', 'wdsblocks' ) }
 						allowedFormats={ [ 'core/bold', 'core/italic' ] }
 					/>
 					<InputLabel
@@ -206,7 +204,7 @@ export default function Edit( props ) {
 						}
 						value={ desc ? desc : '' }
 						placeholder={ __(
-							'Enter a short description...',
+							'Enter a short description…',
 							'wdsblocks'
 						) }
 					/>

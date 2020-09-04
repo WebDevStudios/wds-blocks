@@ -2,6 +2,7 @@ import { RichText, InnerBlocks } from '@wordpress/block-editor';
 import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 import { PREFIX } from '../../utils/config';
+import InputLabel from '../accordions/components/InputLabel';
 import './editor.scss';
 
 // Block types that cann be added to
@@ -35,10 +36,10 @@ export default function Edit( props ) {
 
 	return (
 		<div className={ className }>
-			<div class="input-label">
-				{ __( 'Section Title ', 'wdsblocks' ) }
-				<span className="req">*</span>
-			</div>
+			<InputLabel
+				label={ __( 'Section Title ', 'wdsblocks' ) }
+				req="true"
+			/>
 			<RichText
 				tagName="h3"
 				role="button"
@@ -51,10 +52,10 @@ export default function Edit( props ) {
 				aria-controls={ `${ PREFIX }-${ clientId }` }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
 			/>
-			<div class="input-label">
-				{ __( 'Section Content ', 'wdsblocks' ) }
-				<span className="req">*</span>
-			</div>
+			<InputLabel
+				label={ __( 'Section Content ', 'wdsblocks' ) }
+				req="true"
+			/>
 			<div
 				className={ `${ className }__content` }
 				aria-hidden="true"

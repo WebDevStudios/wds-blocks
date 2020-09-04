@@ -1,4 +1,9 @@
 const InputLabel = ( props ) => {
-	return <div class="input-label">{ props.label }</div>;
+	return (
+		<div className="input-label">
+			{ props.label }
+			{ props.req && <span className="req">*</span> }
+		</div>
+	);
 };
 export default InputLabel;
