@@ -1,4 +1,6 @@
+import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
+import { PREFIX } from '../../../utils/config';
 
 /**
  * The Slider component displays a carousel slider wrapper.
@@ -24,6 +26,32 @@ export default function Slider( props ) {
 		);
 	}
 
+	/**
+	 * Filter previous slide button text.
+	 *
+	 * @author WebDevStudios
+	 * @since  2.0.0
+	 *
+	 * @param  {Array} [buttonText] Previous slide button text.
+	 */
+	const previousButtonText = applyFilters(
+		`${ PREFIX }.carouselSlide.previousSlideButtonText`,
+		__( 'Previous', 'wdsblocks' )
+	);
+
+	/**
+	 * Filter next slide button text.
+	 *
+	 * @author WebDevStudios
+	 * @since  2.0.0
+	 *
+	 * @param  {Array} [buttonText] Next slide button text.
+	 */
+	const nextButtonText = applyFilters(
+		`${ PREFIX }.carouselSlide.nextSlideButtonText`,
+		__( 'Next', 'wdsblocks' )
+	);
+
 	return (
 		<>
 			<div className="glide__track slider-track" data-glide-el="track">
@@ -39,7 +67,7 @@ export default function Slider( props ) {
 					}` }
 					data-glide-dir="<"
 				>
-					{ __( 'Previous', 'wdsblocks' ) }
+					{ previousButtonText }
 				</button>
 				<button
 					className={ `glide__arrow glide__arrow--right slider-arrow slider-arrow-right ${
@@ -47,7 +75,7 @@ export default function Slider( props ) {
 					}` }
 					data-glide-dir=">"
 				>
-					{ __( 'Next', 'wdsblocks' ) }
+					{ nextButtonText }
 				</button>
 			</div>
 			<div
