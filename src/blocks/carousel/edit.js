@@ -36,7 +36,7 @@ function Edit( props ) {
 		setAttributes,
 		slideCount,
 	} = props;
-	const { showPreview, togglePreview } = usePreviewToggle();
+	const { showPreview, togglePreview, doubleClick } = usePreviewToggle();
 	const slider = new Glide( `#block-${ clientId }`, GLIDE_SETTINGS );
 
 	useEffect( () => {
@@ -79,6 +79,7 @@ function Edit( props ) {
 				className={ `${ className } ${
 					showPreview ? 'preview-mode' : 'edit-mode'
 				}` }
+				onDoubleClick={ doubleClick }
 			>
 				{ showPreview ? (
 					<Slider slideCount={ slideCount }>
