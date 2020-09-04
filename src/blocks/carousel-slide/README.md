@@ -37,7 +37,7 @@ Add `Carousel` block then add any number of `Slide` blocks within. For each `Sli
 #### Text Color ###
 Controls the base `font-color` for the current `Slide` block, which can be overwritten on a per-block basis from child blocks. Color palette is derived from the current theme settings. Selection is saved to `fontColor` and `customFontColor` attributes.
 
-## Background Settings ###
+### Background Settings ###
 
 #### Background Type ####
 Controls the type of background displayed for the current `Slide` block. Options are `none`, `color`, `image`, or `video`. If an option other than `none` is selected, the appropriate setting is displayed. Selection is saved to `backgroundType` attribute.
