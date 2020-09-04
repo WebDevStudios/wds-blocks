@@ -10,4 +10,4 @@
  */
 
 import './blocks/accordions';
-import './blocks/accordion';
+import './blocks/accordion-item';

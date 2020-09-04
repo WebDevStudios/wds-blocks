@@ -98,7 +98,6 @@ export default function Edit( props ) {
 						{
 							value: fontColor?.color,
 							onChange: ( colorValue ) => {
-								console.log( colorValue );
 								setAttributes( { fontColor: colorValue } );
 							},
 							label: __( 'Text Color', 'wdsblocks' ),
