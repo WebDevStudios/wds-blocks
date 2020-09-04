@@ -9,6 +9,5 @@
  * Webpack is compiling as the input file.
  */
 
-import './blocks/rich-text';
 import './blocks/carousel';
 import './blocks/carousel-slide';
