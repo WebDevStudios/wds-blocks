@@ -1,36 +1,9 @@
 import { InnerBlocks, withColors } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
-import { __ } from '@wordpress/i18n';
 import Settings from './components/Settings';
 import Slide from './components/Slide';
+import { INNER_BLOCKS_PROPS } from './utils/config';
 import './editor.scss';
-
-// Set up props for InnerBlocks component.
-const innerBlocksProps = {
-	allowedBlocks: [ 'core/heading', 'core/paragraph', 'core/buttons' ],
-	template: [
-		[
-			'core/heading',
-			{
-				content: __( 'Slide Title', 'wdsblocks' ),
-				level: 4,
-				align: 'center',
-			},
-		],
-		[
-			'core/paragraph',
-			{
-				content: __( 'Slide Content', 'wdsblocks' ),
-				align: 'center',
-			},
-		],
-		[
-			'core/buttons',
-			{ align: 'center' },
-			[ [ 'core/button', { text: __( 'Read More', 'wdsblocks' ) } ] ],
-		],
-	],
-};
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -81,7 +54,7 @@ function Edit( props ) {
 			/>
 			<Slide { ...slideProps }>
 				<InnerBlocks
-					{ ...innerBlocksProps }
+					{ ...INNER_BLOCKS_PROPS }
 					__experimentalTagName={ 'div' }
 					__experimentalPassedProps={ {
 						className: 'slide-content',
