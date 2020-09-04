@@ -20,8 +20,8 @@ export default function Save( props ) {
 		attributes: {
 			title,
 			desc,
-			customFontColor,
-			customBackgroundColor,
+			fontColor,
+			backgroundColor,
 			openFirst,
 			toggle,
 		},
@@ -33,8 +33,8 @@ export default function Save( props ) {
 		<div
 			className={ classnames( className ) }
 			style={ {
-				color: customFontColor,
-				backgroundColor: customBackgroundColor,
+				color: fontColor,
+				backgroundColor: backgroundColor,
 			} }
 			data-open-first={ openFirst }
 			data-toggle={ toggle }

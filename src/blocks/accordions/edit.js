@@ -19,8 +19,6 @@ import classnames from 'classnames';
 import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
 import PreviewToggle from '../../utils/components/PreviewToggle';
 import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
-import withBackgroundColor from '../../utils/components/withBackgroundColor';
-import withFontColor from '../../utils/components/withFontColor';
 import './editor.scss';
 import InputLabel from './components/InputLabel';
 import wdsBlocksAccordion from '../accordions/frontend/';
@@ -66,15 +64,18 @@ const innerBlocksProps = {
  * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement} Element to render.
  */
-function Edit( props ) {
+export default function Edit( props ) {
 	const {
-		attributes: { title, desc, openFirst, toggle },
+		attributes: {
+			title,
+			desc,
+			openFirst,
+			toggle,
+			fontColor,
+			backgroundColor,
+		},
 		setAttributes,
 		className,
-		fontColor,
-		setFontColor,
-		backgroundColor,
-		setBackgroundColor,
 	} = props;
 
 	const { showPreview, togglePreview, doubleClick } = usePreviewToggle();
@@ -88,30 +89,6 @@ function Edit( props ) {
 		}
 	}, [ showPreview, openFirst, toggle ] );
 
-	const wrapProps = {
-		className: classnames(
-			className,
-			showPreview ? 'preview-mode' : 'edit-mode'
-		),
-	};
-	// Define HOCs to be composed.
-	const composeHOCs = [];
-
-	// Display with font color.
-	if ( fontColor ) {
-		composeHOCs.push( withFontColor );
-		wrapProps.fontColor = fontColor?.slug;
-		wrapProps.customFontColor = fontColor.color;
-	}
-	// Display with  ackground color.
-	if ( backgroundColor ) {
-		composeHOCs.push( withBackgroundColor );
-		wrapProps.backgroundColor = backgroundColor?.slug;
-		wrapProps.customBackgroundColor = backgroundColor.color;
-	}
-
-	const AccordionComponent = compose( composeHOCs )( 'div' );
-
 	return (
 		<>
 			<InspectorControls>
@@ -119,13 +96,19 @@ function Edit( props ) {
 					title={ __( 'Color Settings', 'wdsblocks' ) }
 					colorSettings={ [
 						{
-							value: fontColor.color,
-							onChange: setFontColor,
+							value: fontColor?.color,
+							onChange: ( colorValue ) => {
+								console.log( colorValue );
+								setAttributes( { fontColor: colorValue } );
+							},
 							label: __( 'Text Color', 'wdsblocks' ),
 						},
 						{
-							value: backgroundColor.color,
-							onChange: setBackgroundColor,
+							value: backgroundColor?.color,
+							onChange: ( colorValue ) =>
+								setAttributes( {
+									backgroundColor: colorValue,
+								} ),
 							label: __( 'Background Color', 'wdsblocks' ),
 						},
 					] }
@@ -175,9 +158,12 @@ function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<AccordionComponent
-				{ ...wrapProps }
-				//style={ { backgroundColor: bkgColor } }
+			<div
+				className={ classnames(
+					className,
+					showPreview ? 'preview-mode' : 'edit-mode'
+				) }
+				style={ { color: fontColor, backgroundColor: backgroundColor } }
 				data-open-first={ openFirst }
 				data-toggle={ toggle }
 				onDoubleClick={ doubleClick }
@@ -233,11 +219,7 @@ function Edit( props ) {
 						<InnerBlocks { ...innerBlocksProps } />
 					</div>
 				</div>
-			</AccordionComponent>
+			</div>
 		</>
 	);
 }
-
-export default compose( [
-	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
-] )( Edit );
