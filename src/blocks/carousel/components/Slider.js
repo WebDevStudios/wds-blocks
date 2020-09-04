@@ -34,13 +34,17 @@ export default function Slider( props ) {
 				data-glide-el="controls"
 			>
 				<button
-					className="glide__arrow glide__arrow--left slider-arrow slider-arrow-left"
+					className={ `glide__arrow glide__arrow--left slider-arrow slider-arrow-left ${
+						isAdmin ? 'wp-block-button__link' : ''
+					}` }
 					data-glide-dir="<"
 				>
 					{ __( 'Previous', 'wdsblocks' ) }
 				</button>
 				<button
-					className="glide__arrow glide__arrow--right slider-arrow slider-arrow-right"
+					className={ `glide__arrow glide__arrow--right slider-arrow slider-arrow-right ${
+						isAdmin ? 'wp-block-button__link' : ''
+					}` }
 					data-glide-dir=">"
 				>
 					{ __( 'Next', 'wdsblocks' ) }
