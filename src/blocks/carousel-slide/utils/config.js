@@ -16,7 +16,16 @@ export const INNER_BLOCKS_PROPS = {
 		`${ PREFIX }.carouselSlide.innerBlocksAllowedBlocks`,
 		[ 'core/heading', 'core/paragraph', 'core/buttons' ]
 	),
-	template: [
+
+	/**
+	 * Filter template for slide InnerBlocks.
+	 *
+	 * @author WebDevStudios
+	 * @since  2.0.0
+	 *
+	 * @param  {Array} [template] Template for slide InnerBlocks.
+	 */
+	template: applyFilters( `${ PREFIX }.carouselSlide.innerBlocksTemplate`, [
 		[
 			'core/heading',
 			{
@@ -37,5 +46,5 @@ export const INNER_BLOCKS_PROPS = {
 			{ align: 'center' },
 			[ [ 'core/button', { text: __( 'Read More', 'wdsblocks' ) } ] ],
 		],
-	],
+	] ),
 };
