@@ -19,8 +19,18 @@ export const GLIDE_SETTINGS = applyFilters(
 	}
 );
 
-// Carousel InnerBlocks props.
-export const INNER_BLOCKS_PROPS = {
-	allowedBlocks: [ `${ PREFIX }/carousel-slide` ],
-	template: [ [ `${ PREFIX }/carousel-slide`, {} ] ],
-};
+/**
+ * Filter props for carousel InnerBlocks.
+ *
+ * @author WebDevStudios
+ * @since  2.0.0
+ *
+ * @param  {Object} [props] InnerBlocks props.
+ */
+export const INNER_BLOCKS_PROPS = applyFilters(
+	`${ PREFIX }.carousel.innerBlocksProps`,
+	{
+		allowedBlocks: [ `${ PREFIX }/carousel-slide` ],
+		template: [ [ `${ PREFIX }/carousel-slide`, {} ] ],
+	}
+);
