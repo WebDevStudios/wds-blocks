@@ -1,8 +1,21 @@
+import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
+import { PREFIX } from '../../../utils/config';
 
 // Slide InnerBlocks props.
 export const INNER_BLOCKS_PROPS = {
-	allowedBlocks: [ 'core/heading', 'core/paragraph', 'core/buttons' ],
+	/**
+	 * Filter allowed blocks for slide InnerBlocks.
+	 *
+	 * @author WebDevStudios
+	 * @since  2.0.0
+	 *
+	 * @param  {Array} [allowedBlocks] Allowed blocks for slide InnerBlocks.
+	 */
+	allowedBlocks: applyFilters(
+		`${ PREFIX }.carouselSlide.innerBlocksAllowedBlocks`,
+		[ 'core/heading', 'core/paragraph', 'core/buttons' ]
+	),
 	template: [
 		[
 			'core/heading',
