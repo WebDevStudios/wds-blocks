@@ -71,8 +71,13 @@ function register_block() {
 		);
 	}
 
-	// Register block with WordPress.
-	register_block_type( 'wdsblocks/rich-text-demo', array(
+	// Register blocks with WordPress.
+	register_block_type( 'wdsblocks/carousel', array(
+		'editor_script' => 'wdsblocks-editor-script',
+		'editor_style'  => 'wdsblocks-editor-style',
+		'style'         => 'wdsblocks-style',
+	) );
+	register_block_type( 'wdsblocks/carousel-slide', array(
 		'editor_script' => 'wdsblocks-editor-script',
 		'editor_style'  => 'wdsblocks-editor-style',
 		'style'         => 'wdsblocks-style',
