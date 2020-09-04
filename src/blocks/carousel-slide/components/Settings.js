@@ -63,10 +63,10 @@ export default function Settings( props ) {
 					label={ __( 'Background type', 'wdsblocks' ) }
 					value={ backgroundType }
 					options={ [
-						{ label: 'None', value: 'none' },
-						{ label: 'Color', value: 'color' },
-						{ label: 'Image', value: 'image' },
-						{ label: 'Video', value: 'video' },
+						{ label: __( 'None', 'wdsblocks' ), value: 'none' },
+						{ label: __( 'Color', 'wdsblocks' ), value: 'color' },
+						{ label: __( 'Image', 'wdsblocks' ), value: 'image' },
+						{ label: __( 'Video', 'wdsblocks' ), value: 'video' },
 					] }
 					onChange={ ( value ) =>
 						setAttributes( { backgroundType: value } )
