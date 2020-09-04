@@ -21,4 +21,12 @@ Add `Carousel` block then add any number of `Slide` blocks within. For each `Sli
 *Default: `wide`.* Switch between `wide` (width of post content ) and `full` (width of full page).
 
 ### Mode ###
-*Default: `preview`.* Switch between `preview` (fully-functional carousel) and `edit` (standard block editor).
+*Default: `preview`.* Switch between `preview` (fully-functional carousel) and `edit` (standard block editor). Can also be toggled from `preview` to `edit` mode by double-clicking on the block.
+
+## Screenshots ##
+
+### Editor: Edit Mode ###
+![Editor: Edit Mode](../../../assets/carousel/screenshot-1.png)
+
+### Editor: Preview Mode ###
+![Editor: Preview Mode](../../../assets/carousel/screenshot-2.png)
