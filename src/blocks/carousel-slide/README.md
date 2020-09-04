@@ -50,3 +50,9 @@ Controls the type of background displayed for the current `Slide` block. Options
 
 #### Background Video ####
 *Only displays when `backgroundType` is set to `video`.* Controls the `background-video` for the current `Slide` block via file upload or Media Library. Selection is saved to `backgroundVideo` attribute.
+
+## Screenshots ##
+
+### Editor: `Slide` with Settings Panel ###
+![Editor: `Slide` with Settings Panel](../../../assets/carousel-slide/screenshot-1.png)
+
