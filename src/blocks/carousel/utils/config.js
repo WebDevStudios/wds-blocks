@@ -10,7 +10,7 @@ import { PREFIX } from '../../../utils/config';
  * @param  {Object} [settings] Carousel settings.
  */
 export const GLIDE_SETTINGS = applyFilters(
-	`${ PREFIX }.carouselSlide.carouselSettings`,
+	`${ PREFIX }.carousel.glideSettings`,
 	{
 		autoplay: 5000,
 		focusAt: 'center',
