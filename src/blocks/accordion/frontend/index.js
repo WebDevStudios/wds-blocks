@@ -174,7 +174,6 @@ const wdsBlocksAccordion = {
 		if ( ! container ) {
 			return false;
 		}
-		console.log( container.parentNode );
 		// Get active accordion from container parent or parent parent (Block editor integration).
 		const active =
 			container.parentNode.querySelector( `.${ expandedClass }` ) ||

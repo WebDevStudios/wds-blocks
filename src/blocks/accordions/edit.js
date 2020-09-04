@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
-
+import { useEffect } from '@wordpress/element';
+import { compose } from '@wordpress/compose';
 import {
+	InnerBlocks,
+	withColors,
+	PanelColorSettings,
 	InspectorControls,
 	RichText,
-	InnerBlocks,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -19,7 +21,10 @@ import classnames from 'classnames';
 import { PREFIX, CONTAINER_CLASS, THEME_BKG_PALETTE } from '../../utils/config';
 import PreviewToggle from '../../utils/components/PreviewToggle';
 import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
+import withBackgroundColor from '../../utils/components/withBackgroundColor';
+import withFontColor from '../../utils/components/withFontColor';
 import './editor.scss';
+import InputLabel from './components/InputLabel';
 import wdsBlocksAccordion from '../accordion/frontend/';
 
 // Block types that cann be added to `InnerBlocks` component
@@ -63,11 +68,15 @@ const innerBlocksProps = {
  * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement} Element to render.
  */
-export default function Edit( props ) {
+function Edit( props ) {
 	const {
 		attributes: { title, desc, bkgColor, openFirst, toggle },
 		setAttributes,
 		className,
+		fontColor,
+		setFontColor,
+		backgroundColor,
+		setBackgroundColor,
 	} = props;
 
 	const { showPreview, togglePreview, doubleClick } = usePreviewToggle();
@@ -75,16 +84,54 @@ export default function Edit( props ) {
 	const showDesc = desc && desc[ 0 ] !== undefined ? true : false;
 
 	useEffect( () => {
-		// Trigger accordions.init on state update.
-		console.log( showPreview );
+		// Trigger `init` on state update.
 		if ( showPreview ) {
 			wdsBlocksAccordion.init();
 		}
 	}, [ showPreview, openFirst, toggle ] );
 
+	const wrapProps = {
+		className: classnames(
+			className,
+			showPreview ? 'preview-mode' : 'edit-mode'
+		),
+	};
+	// Define HOCs to be composed.
+	const composeHOCs = [];
+
+	// Display with font color.
+	if ( fontColor ) {
+		composeHOCs.push( withFontColor );
+		wrapProps.fontColor = fontColor?.slug;
+		wrapProps.customFontColor = fontColor.color;
+	}
+	// Display with  ackground color.
+	if ( backgroundColor ) {
+		composeHOCs.push( withBackgroundColor );
+		wrapProps.backgroundColor = backgroundColor?.slug;
+		wrapProps.customBackgroundColor = backgroundColor.color;
+	}
+
+	const AccordionComponent = compose( composeHOCs )( 'div' );
+
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorSettings
+					title={ __( 'Color settings', 'wdsblocks' ) }
+					colorSettings={ [
+						{
+							value: fontColor.color,
+							onChange: setFontColor,
+							label: __( 'Text Color', 'wdsblocks' ),
+						},
+						{
+							value: backgroundColor.color,
+							onChange: setBackgroundColor,
+							label: __( 'Background Color', 'wdsblocks' ),
+						},
+					] }
+				/>
 				<PanelBody title={ __( 'Background Color', 'wdsblocks' ) }>
 					<PanelRow>
 						<BaseControl
@@ -120,7 +167,9 @@ export default function Edit( props ) {
 							) }
 							checked={ openFirst }
 							onChange={ ( value ) =>
-								setAttributes( { openFirst: value } )
+								setAttributes( {
+									openFirst: value,
+								} )
 							}
 						/>
 					</PanelRow>
@@ -140,26 +189,26 @@ export default function Edit( props ) {
 							) }
 							checked={ toggle }
 							onChange={ ( value ) =>
-								setAttributes( { toggle: value } )
+								setAttributes( {
+									toggle: value,
+								} )
 							}
 						/>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
-			<div
-				className={ classnames(
-					className,
-					showPreview ? 'preview-mode' : 'edit-mode'
-				) }
-				style={ { backgroundColor: bkgColor } }
+
+			<AccordionComponent
+				{ ...wrapProps }
+				//style={ { backgroundColor: bkgColor } }
 				data-open-first={ openFirst }
 				data-toggle={ toggle }
 				onDoubleClick={ doubleClick }
 			>
 				<div className={ CONTAINER_CLASS }>
-					<div class="input-label">
-						{ __( 'Title (optional)', 'wdsblocks' ) }
-					</div>
+					<InputLabel
+						label={ __( 'Title (optional)', 'wdsblocks' ) }
+					/>
 					<RichText
 						tagName="h2"
 						type="button"
@@ -168,15 +217,20 @@ export default function Edit( props ) {
 							! showTitle ? 'input-hidden' : ''
 						) }
 						onChange={ ( value ) =>
-							setAttributes( { title: value } )
+							setAttributes( {
+								title: value,
+							} )
 						}
 						value={ title ? title : '' }
 						placeholder={ __( 'Enter a title...', 'wdsblocks' ) }
 						allowedFormats={ [ 'core/bold', 'core/italic' ] }
 					/>
-					<div class="input-label">
-						{ __( 'Short Description (optional)', 'wdsblocks' ) }
-					</div>
+					<InputLabel
+						label={ __(
+							'Short Description (optional)',
+							'wdsblocks'
+						) }
+					/>
 					<RichText
 						tagName="p"
 						className={ classnames(
@@ -184,7 +238,9 @@ export default function Edit( props ) {
 							! showDesc ? 'input-hidden' : ''
 						) }
 						onChange={ ( value ) =>
-							setAttributes( { desc: value } )
+							setAttributes( {
+								desc: value,
+							} )
 						}
 						value={ desc ? desc : '' }
 						placeholder={ __(
@@ -200,7 +256,11 @@ export default function Edit( props ) {
 						<InnerBlocks { ...innerBlocksProps } />
 					</div>
 				</div>
-			</div>
+			</AccordionComponent>
 		</>
 	);
 }
+
+export default compose( [
+	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
+] )( Edit );
