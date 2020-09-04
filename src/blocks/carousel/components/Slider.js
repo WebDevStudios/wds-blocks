@@ -35,7 +35,7 @@ export default function Slider( props ) {
 	 * @param  {Array} [buttonText] Previous slide button text.
 	 */
 	const previousButtonText = applyFilters(
-		`${ PREFIX }.carouselSlide.previousSlideButtonText`,
+		`${ PREFIX }.carousel.previousSlideButtonText`,
 		__( 'Previous', 'wdsblocks' )
 	);
 
@@ -48,7 +48,7 @@ export default function Slider( props ) {
 	 * @param  {Array} [buttonText] Next slide button text.
 	 */
 	const nextButtonText = applyFilters(
-		`${ PREFIX }.carouselSlide.nextSlideButtonText`,
+		`${ PREFIX }.carousel.nextSlideButtonText`,
 		__( 'Next', 'wdsblocks' )
 	);
 
