@@ -1,26 +1,33 @@
-@import '../../sass/variables';
-@import '../../sass/mixins';
+@import "../../sass/variables";
+@import "../../sass/mixins";
 
 .editor-styles-wrapper {
+
 	.wp-block-wdsblocks-accordions {
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
+
 		@include edit-mode;
 		@include preview-mode;
+
 		&__title {
 			width: 100%;
 			display: block;
 			text-align: left;
 			margin: 0;
 		}
+
 		.wp-block {
 			max-width: unset;
 		}
+
 		h2 + p {
 			margin-top: 15px;
 		}
+
 		p {
 			margin: 0;
+
 			&.wp-block-wdsblocks-accordions__desc {
 				margin-bottom: 1.5rem;
 			}
@@ -28,16 +35,19 @@
 
 		// Custom `preview-mode` styles.
 		&.preview-mode {
+
 			.wp-block-wdsblocks-accordion {
 				position: relative;
 				z-index: 2;
+
 				.wp-block-wdsblocks-accordion__title {
 					cursor: pointer;
 				}
 			}
 
 			// Open first item
-			&[data-open-first='true'] {
+			&[data-open-first="true"] {
+
 				.wp-block:first-of-type {
 					// get first .wp-block (InnerBlocks)
 					.wp-block-wdsblocks-accordion__content--inner {
@@ -55,6 +65,7 @@
 		}
 		// Custom `edit-mode` styles.
 		&.edit-mode {
+
 			.wp-block-wdsblocks-accordion__content--inner {
 				display: block;
 			}
