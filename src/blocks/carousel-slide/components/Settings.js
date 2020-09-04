@@ -1,19 +1,17 @@
 import {
-	ColorPalette,
 	InspectorControls,
 	MediaUpload,
 	MediaUploadCheck,
 	PanelColorSettings,
 } from '@wordpress/block-editor';
 import {
-	BaseControl,
 	Button,
-	ColorIndicator,
 	PanelBody,
 	ResponsiveWrapper,
 	SelectControl,
 } from '@wordpress/components';
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
+import ColorPaletteControl from '../../../utils/components/ColorPaletteControl';
 
 /**
  * The Settings component displays settings for the Slide block via Inspector Controls.
@@ -73,40 +71,11 @@ export default function Settings( props ) {
 					}
 				></SelectControl>
 				{ 'color' === backgroundType && (
-					<BaseControl>
-						<fieldset>
-							<legend>
-								<div className="block-editor-color-gradient-control__color-indicator">
-									<BaseControl.VisualLabel>
-										{
-											<>
-												{ __(
-													'Background Color',
-													'wdsblocks'
-												) }
-												{ !! backgroundColor && (
-													<ColorIndicator
-														colorValue={
-															backgroundColor
-														}
-														aria-label={ sprintf(
-															/* translators: current color value name */
-															__( '(Color: %s)' ),
-															backgroundColor
-														) }
-													/>
-												) }
-											</>
-										}
-									</BaseControl.VisualLabel>
-								</div>
-							</legend>
-							<ColorPalette
-								value={ backgroundColor }
-								onChange={ setBackgroundColor }
-							/>
-						</fieldset>
-					</BaseControl>
+					<ColorPaletteControl
+						color={ backgroundColor }
+						setColor={ setBackgroundColor }
+						label={ __( 'Background Color', 'wdsblocks' ) }
+					/>
 				) }
 				{ 'image' === backgroundType && (
 					<>
