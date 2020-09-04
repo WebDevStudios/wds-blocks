@@ -82,7 +82,7 @@ function Edit( props ) {
 				onDoubleClick={ doubleClick }
 			>
 				{ showPreview ? (
-					<Slider slideCount={ slideCount }>
+					<Slider slideCount={ slideCount } isAdmin={ true }>
 						<InnerBlocks
 							{ ...innerBlocksProps }
 							__experimentalTagName={ 'ul' }
