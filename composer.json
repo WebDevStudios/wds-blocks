@@ -1,5 +1,5 @@
 {
-	"name": "webdevstudios/blocks",
+	"name": "webdevstudios/wds-blocks",
 	"description": "WebDevStudios library of Gutenberg blocks.",
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
