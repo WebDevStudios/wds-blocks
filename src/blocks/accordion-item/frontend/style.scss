@@ -10,6 +10,7 @@
 			border-top: none;
 		}
 
+		/* stylelint-disable */
 		&__title {
 			position: relative;
 			width: 100%;
@@ -56,9 +57,10 @@
 				padding: 5px 50px 15px 15px;
 			}
 		}
+		/* stylelint-enable */
 
 		&.is-expanded {
-
+			/* stylelint-disable */
 			.wp-block-wdsblocks-accordion__title {
 
 				&::after {
@@ -75,6 +77,7 @@
 			.wp-block-wdsblocks-accordion__content {
 				display: block;
 			}
+			/* stylelint-enable */
 		}
 	}
 }

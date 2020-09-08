@@ -13,6 +13,7 @@
 		.wp-block-wdsblocks-accordion {
 			padding: 1.5rem;
 
+			/* stylelint-disable */
 			&__title {
 				padding: 0;
 
@@ -30,6 +31,7 @@
 					padding: 0;
 				}
 			}
+			/* stylelint-enable */
 		}
 	}
 }
