@@ -6,7 +6,7 @@ import {
 	SelectControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import ColorPaletteControl from './ColorPaletteControl';
+import ColorPaletteControl from '../color-palette-control';
 
 /**
  * The BackgroundSettingsPanel component displays a panel of controls to toggle between different background options.
