@@ -6,7 +6,7 @@ import { __, sprintf } from '@wordpress/i18n';
  * The ColorPaletteControl component displays a control with label for selecting a color.
  *
  * @author WebDevStudios
- * @since  2.0.0
+ * @since  2.1.0
  *
  * @param  {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.

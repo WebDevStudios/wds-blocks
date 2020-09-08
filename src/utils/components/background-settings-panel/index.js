@@ -12,7 +12,7 @@ import ColorPaletteControl from '../color-palette-control';
  * The BackgroundSettingsPanel component displays a panel of controls to toggle between different background options.
  *
  * @author WebDevStudios
- * @since  2.0.0
+ * @since  2.1.0
  *
  * @param  {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
