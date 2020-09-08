@@ -1,0 +1,62 @@
+// Front-end styles.
+@import "@glidejs/glide/src/assets/sass/glide.core";
+@import "../../../sass/variables";
+
+.wp-block-wdsblocks-carousel {
+
+	.slider-arrows,
+	.slider-dots {
+		position: absolute;
+		width: 100%;
+	}
+
+	.slider-arrow,
+	.slider-dot {
+		z-index: 10;
+	}
+
+	.slider-arrows {
+		top: 45%;
+	}
+
+	.slider-arrow {
+		position: absolute;
+
+		&-left {
+			left: 0;
+		}
+
+		&-right {
+			right: 0;
+		}
+	}
+
+	.slider-dots {
+		bottom: 0;
+		text-align: center;
+	}
+
+	.slider-dot {
+		background-color: $color-white;
+		border: none;
+		border-radius: 50%;
+		box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.25);
+		cursor: pointer;
+		display: inline-block;
+		height: 1rem;
+		margin: 0.25rem;
+		opacity: 0.5;
+		padding: 0;
+		position: relative;
+		width: 1rem;
+
+		&[class*="--active"] {
+			opacity: 1;
+		}
+	}
+
+	.slider-slides {
+		margin: 0;
+		padding: 0;
+	}
+}

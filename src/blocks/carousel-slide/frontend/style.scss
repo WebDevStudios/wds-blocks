@@ -1,0 +1,10 @@
+// Front-end styles.
+
+.wp-block-wdsblocks-carousel-slide {
+	padding: 3rem 0;
+	position: relative;
+
+	*:not(video) {
+		position: relative;
+	}
+}

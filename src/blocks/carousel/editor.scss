@@ -1,0 +1,35 @@
+// WordPress editor styles.
+@import "../../sass/mixins";
+
+.wp-block-wdsblocks-carousel {
+
+	@include edit-mode;
+	@include preview-mode;
+
+	.wp-block[data-type="wdsblocks/carousel-slide"] {
+		max-width: none;
+	}
+
+	&.edit-mode {
+
+		.wp-block[data-type="wdsblocks/carousel-slide"] {
+
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+	}
+
+	&.preview-mode {
+
+		.block-list-appender {
+			display: none;
+		}
+
+		.wp-block[data-type="wdsblocks/carousel-slide"] {
+			margin-bottom: 0;
+			margin-top: 0;
+			max-width: none;
+		}
+	}
+}
