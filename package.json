@@ -17,6 +17,7 @@
 		"Gutenberg"
 	],
 	"dependencies": {
+		"classnames": "^2.2.6",
 		"@glidejs/glide": "^3.4.1"
 	},
 	"devDependencies": {

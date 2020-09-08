@@ -1,0 +1,54 @@
+@import "../../sass/mixins";
+
+.wp-block-wdsblocks-accordion {
+
+	@include edit-mode( ".edit-mode &" );
+}
+
+// Edit mode styles for accordion children.
+.wp-block-wdsblocks-accordions {
+
+	&.edit-mode {
+
+		.wp-block-wdsblocks-accordion {
+			padding: 1.5rem;
+
+			/* stylelint-disable */
+			&__title {
+				padding: 0;
+
+				&::before,
+				&::after {
+					display: none;
+				}
+			}
+
+			&__content {
+				display: block !important;
+				height: auto !important;
+
+				&--inner {
+					padding: 0;
+				}
+			}
+			/* stylelint-enable */
+		}
+	}
+}
+
+.editor-styles-wrapper {
+
+	.wp-block-wdsblocks-accordion {
+
+		&__title {
+			position: relative;
+			width: 100%;
+			display: block;
+			text-align: left;
+			border: none;
+			margin: 0;
+			cursor: text;
+			font-size: 22px;
+		}
+	}
+}

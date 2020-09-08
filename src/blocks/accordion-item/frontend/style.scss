@@ -1,0 +1,83 @@
+// Front-end styles.
+@import "../../../sass/variables";
+
+.wp-block-wdsblocks {
+
+	&-accordion {
+		border: 1px solid #efefef;
+
+		+ .wp-block-wdsblocks-accordion {
+			border-top: none;
+		}
+
+		/* stylelint-disable */
+		&__title {
+			position: relative;
+			width: 100%;
+			display: block;
+			text-align: left;
+			margin: 0;
+			padding: 15px 50px 15px 15px;
+			font-size: 20px;
+			line-height: 1.5;
+			background: transparent;
+			font-weight: 700;
+			white-space: normal !important;
+			cursor: pointer;
+
+			&::after,
+			&::before {
+				content: "";
+				position: absolute;
+				top: 22px;
+				right: 22px;
+				transition: all $speed/2 ease;
+				border: solid $color-dark;
+				border-width: 0 3px 3px 0;
+				display: inline-block;
+				padding: 3px;
+				transform: rotate(45deg);
+			}
+
+			&::before {
+				top: 26px;
+				opacity: 0;
+				visibility: hidden;
+				transform: rotate(-135deg);
+			}
+		}
+
+		&__content {
+			outline: none;
+			transition: all $speed ease;
+			overflow: hidden;
+			height: 0;
+
+			&--inner {
+				padding: 5px 50px 15px 15px;
+			}
+		}
+		/* stylelint-enable */
+
+		&.is-expanded {
+			/* stylelint-disable */
+			.wp-block-wdsblocks-accordion__title {
+
+				&::after {
+					opacity: 0;
+					visibility: hidden;
+				}
+
+				&::before {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			.wp-block-wdsblocks-accordion__content {
+				display: block;
+			}
+			/* stylelint-enable */
+		}
+	}
+}
