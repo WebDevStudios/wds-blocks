@@ -1,6 +1,6 @@
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
-import BackgroundSettingsPanel from '../../../utils/components/BackgroundSettingsPanel';
+import BackgroundSettingsPanel from '../../../utils/components/background-settings-panel';
 
 /**
  * The Settings component displays settings for the Slide block via Inspector Controls.
