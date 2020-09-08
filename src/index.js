@@ -11,3 +11,5 @@
 
 import './blocks/accordions';
 import './blocks/accordion-item';
+import './blocks/carousel';
+import './blocks/carousel-slide';

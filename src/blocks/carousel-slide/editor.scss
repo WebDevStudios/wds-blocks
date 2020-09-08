@@ -1,0 +1,12 @@
+// WordPress editor styles.
+@import "../../sass/mixins";
+
+.wp-block-wdsblocks-carousel-slide {
+
+	@include edit-mode(".edit-mode &");
+
+	.wp-block[data-type="core/heading"] {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
