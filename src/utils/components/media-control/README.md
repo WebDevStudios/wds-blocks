@@ -1,6 +1,6 @@
 # `MediaControl` #
 
-Render a `MediaUpload` component with two `MediaUploadCheck` components to upload/select a media item and display a preview, wrapped in a `ResponsiveWrapper` component.
+Render a `BaseControl` component containing a `MediaUpload` component with two `MediaUploadCheck` components to upload/select a media item and display a preview wrapped in a `ResponsiveWrapper` component.
 
 ## Properties ##
 

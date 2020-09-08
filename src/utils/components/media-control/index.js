@@ -1,5 +1,5 @@
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { Button, ResponsiveWrapper } from '@wordpress/components';
+import { BaseControl, Button, ResponsiveWrapper } from '@wordpress/components';
 
 /**
  * Display media preview according to type.
@@ -57,49 +57,51 @@ export default function MediaControl( props ) {
 
 	return (
 		<>
-			<MediaUploadCheck>
-				<MediaUpload
-					title={ label }
-					onSelect={ ( value ) => setMedia( value ) }
-					allowedTypes={ allowedTypes }
-					value={ media }
-					render={ ( { open } ) => (
-						<Button
-							onClick={ open }
-							className={
-								! media
-									? 'editor-post-featured-image__toggle'
-									: 'editor-post-featured-image__preview'
-							}
-						>
-							{ ! media && addLabel }
-							{ !! media && (
-								<ResponsiveWrapper
-									naturalWidth={ media?.width }
-									naturalHeight={ media?.height }
-								>
-									<Preview
-										media={ media }
-										label={ label }
-										type={ type }
-									/>
-								</ResponsiveWrapper>
-							) }
-						</Button>
-					) }
-				/>
-			</MediaUploadCheck>
-			{ !! media && (
+			<BaseControl label={ label }>
 				<MediaUploadCheck>
-					<Button
-						onClick={ () => setMedia( undefined ) }
-						isLink
-						isDestructive
-					>
-						{ removeLabel }
-					</Button>
+					<MediaUpload
+						title={ label }
+						onSelect={ ( value ) => setMedia( value ) }
+						allowedTypes={ allowedTypes }
+						value={ media }
+						render={ ( { open } ) => (
+							<Button
+								onClick={ open }
+								className={
+									! media
+										? 'editor-post-featured-image__toggle'
+										: 'editor-post-featured-image__preview'
+								}
+							>
+								{ ! media && addLabel }
+								{ !! media && (
+									<ResponsiveWrapper
+										naturalWidth={ media?.width }
+										naturalHeight={ media?.height }
+									>
+										<Preview
+											media={ media }
+											label={ label }
+											type={ type }
+										/>
+									</ResponsiveWrapper>
+								) }
+							</Button>
+						) }
+					/>
 				</MediaUploadCheck>
-			) }
+				{ !! media && (
+					<MediaUploadCheck>
+						<Button
+							onClick={ () => setMedia( undefined ) }
+							isLink
+							isDestructive
+						>
+							{ removeLabel }
+						</Button>
+					</MediaUploadCheck>
+				) }
+			</BaseControl>
 		</>
 	);
 }
