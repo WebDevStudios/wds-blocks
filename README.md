@@ -25,6 +25,11 @@ A library of Gutenberg blocks.
 
 ## 🚀 Installation
 
+Clone the repo with Git:
+```bash
+git clone git@github.com:WebDevStudios/wds-blocks.git
+```
+
 Install dependencies:
 
 ```bash
