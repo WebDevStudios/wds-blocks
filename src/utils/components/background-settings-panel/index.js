@@ -7,6 +7,7 @@ import {
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import ColorPaletteControl from '../color-palette-control';
+import MediaControl from '../media-control';
 
 /**
  * The BackgroundSettingsPanel component displays a panel of controls to toggle between different background options.
@@ -58,12 +59,14 @@ export default function BackgroundSettingsPanel( props ) {
 			className="block-editor-panel-color-gradient-settings"
 		>
 			{ description && <p className="description">{ description }</p> }
+
 			<SelectControl
 				label={ __( 'Background type', 'wdsblocks' ) }
 				value={ backgroundType }
 				options={ options }
 				onChange={ setBackgroundType }
 			></SelectControl>
+
 			{ 'color' === backgroundType && (
 				<ColorPaletteControl
 					color={ backgroundColor }
@@ -71,127 +74,26 @@ export default function BackgroundSettingsPanel( props ) {
 					label={ __( 'Background Color', 'wdsblocks' ) }
 				/>
 			) }
+
 			{ 'image' === backgroundType && (
-				<>
-					<MediaUploadCheck>
-						<MediaUpload
-							title={ __( 'Background image', 'wdsblocks' ) }
-							onSelect={ ( value ) =>
-								setBackgroundImage( value )
-							}
-							allowedTypes={ [ 'image' ] }
-							value={ backgroundImage }
-							render={ ( { open } ) => (
-								<Button
-									onClick={ open }
-									className={
-										! backgroundImage
-											? 'editor-post-featured-image__toggle'
-											: 'editor-post-featured-image__preview'
-									}
-								>
-									{ ! backgroundImage &&
-										__( 'Add image', 'wdsblocks' ) }
-									{ !! backgroundImage && (
-										<ResponsiveWrapper
-											naturalWidth={
-												backgroundImage?.width
-											}
-											naturalHeight={
-												backgroundImage?.height
-											}
-										>
-											<img
-												src={ backgroundImage?.url }
-												alt={ __(
-													'Background image',
-													'wdsblocks'
-												) }
-											/>
-										</ResponsiveWrapper>
-									) }
-								</Button>
-							) }
-						/>
-					</MediaUploadCheck>
-					{ !! backgroundImage && (
-						<MediaUploadCheck>
-							<Button
-								onClick={ () =>
-									setBackgroundImage( undefined )
-								}
-								isLink
-								isDestructive
-							>
-								{ __( 'Remove image', 'wdsblocks' ) }
-							</Button>
-						</MediaUploadCheck>
-					) }
-				</>
+				<MediaControl
+					media={ backgroundImage }
+					setMedia={ setBackgroundImage }
+					label={ __( 'Background image', 'wdsblocks' ) }
+					addLabel={ __( 'Add image', 'wdsblocks' ) }
+					removeLabel={ __( 'Remove image', 'wdsblocks' ) }
+				/>
 			) }
+
 			{ 'video' === backgroundType && (
-				<>
-					<MediaUploadCheck>
-						<MediaUpload
-							title={ __( 'Background video', 'wdsblocks' ) }
-							onSelect={ ( value ) =>
-								setBackgroundVideo( value )
-							}
-							allowedTypes={ [ 'video' ] }
-							value={ backgroundVideo }
-							render={ ( { open } ) => (
-								<Button
-									onClick={ open }
-									className={
-										! backgroundVideo
-											? 'editor-post-featured-image__toggle'
-											: 'editor-post-featured-image__preview'
-									}
-								>
-									{ ! backgroundVideo &&
-										__( 'Add video', 'wdsblocks' ) }
-									{ !! backgroundVideo && (
-										<ResponsiveWrapper
-											naturalWidth={
-												backgroundVideo?.width
-											}
-											naturalHeight={
-												backgroundVideo?.height
-											}
-										>
-											<video
-												autoPlay
-												muted
-												loop
-												aria-hidden="true"
-											>
-												<source
-													src={ backgroundVideo?.url }
-													type={
-														backgroundVideo?.mime
-													}
-												/>
-											</video>
-										</ResponsiveWrapper>
-									) }
-								</Button>
-							) }
-						/>
-					</MediaUploadCheck>
-					{ !! backgroundVideo && (
-						<MediaUploadCheck>
-							<Button
-								onClick={ () =>
-									setBackgroundVideo( undefined )
-								}
-								isLink
-								isDestructive
-							>
-								{ __( 'Remove video', 'wdsblocks' ) }
-							</Button>
-						</MediaUploadCheck>
-					) }
-				</>
+				<MediaControl
+					media={ backgroundVideo }
+					setMedia={ setBackgroundVideo }
+					type="video"
+					label={ __( 'Background video', 'wdsblocks' ) }
+					addLabel={ __( 'Add video', 'wdsblocks' ) }
+					removeLabel={ __( 'Remove video', 'wdsblocks' ) }
+				/>
 			) }
 		</PanelBody>
 	);
