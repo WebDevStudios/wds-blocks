@@ -19,19 +19,19 @@ import ColorPaletteControl from '../color-palette-control';
  */
 export default function BackgroundSettingsPanel( props ) {
 	const {
-		backgroundOptions = [ 'color', 'image', 'video' ],
 		backgroundType,
 		setBackgroundType,
+		backgroundOptions = [ 'color', 'image', 'video' ],
+		description = __(
+			'Remember: image and video files should be compressed and optimized with tools like ImageOptim (https://imageoptim.com/online) and Handbrake (https://handbrake.fr/) prior to upload. For best results, background media should be at least 1280x720.',
+			'wdsblocks'
+		),
 		backgroundColor,
 		setBackgroundColor,
 		backgroundImage,
 		setBackgroundImage,
 		backgroundVideo,
 		setBackgroundVideo,
-		description = __(
-			'Remember: image and video files should be compressed and optimized with tools like ImageOptim (https://imageoptim.com/online) and Handbrake (https://handbrake.fr/) prior to upload. For best results, background media should be at least 1280x720.',
-			'wdsblocks'
-		),
 	} = props;
 
 	// Define background type options.
