@@ -1,10 +1,4 @@
-import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import {
-	Button,
-	PanelBody,
-	ResponsiveWrapper,
-	SelectControl,
-} from '@wordpress/components';
+import { PanelBody, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import ColorPaletteControl from '../color-palette-control';
 import MediaControl from '../media-control';
