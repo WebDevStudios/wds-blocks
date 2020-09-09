@@ -1,6 +1,5 @@
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
-import classnames from 'classnames';
 import { compose } from '@wordpress/compose';
 import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
 import withBackgroundColor from '../../utils/components/withBackgroundColor';
