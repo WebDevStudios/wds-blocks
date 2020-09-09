@@ -25,6 +25,8 @@ function Edit( props ) {
 		setFontColor,
 		backgroundColor,
 		setBackgroundColor,
+		overlayColor,
+		setOverlayColor,
 	} = props;
 
 	// Define props relating to block background settings.
@@ -66,5 +68,9 @@ function Edit( props ) {
 }
 
 export default compose( [
-	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
+	withColors( {
+		fontColor: 'color',
+		backgroundColor: 'background-color',
+		overlayColor: 'background-color',
+	} ),
 ] )( Edit );
