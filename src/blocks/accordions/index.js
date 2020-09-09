@@ -54,7 +54,15 @@ registerBlockType( `wdsblocks/${ BLOCKNAME }`, {
 			type: 'string',
 			default: undefined,
 		},
+		customFontColor: {
+			type: 'string',
+			default: undefined,
+		},
 		backgroundColor: {
+			type: 'string',
+			default: undefined,
+		},
+		customBackgroundColor: {
 			type: 'string',
 			default: undefined,
 		},
