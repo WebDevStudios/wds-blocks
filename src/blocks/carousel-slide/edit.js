@@ -33,6 +33,7 @@ function Edit( props ) {
 	const backgroundProps = {
 		...attributes,
 		backgroundColor: backgroundColor.color,
+		overlayColor: overlayColor.color,
 	};
 
 	// Define props relating to slide settings.
@@ -52,6 +53,7 @@ function Edit( props ) {
 				fontColor={ fontColor.color }
 				setFontColor={ setFontColor }
 				setBackgroundColor={ setBackgroundColor }
+				setOverlayColor={ setOverlayColor }
 				setAttributes={ setAttributes }
 			/>
 			<Slide { ...slideProps }>
