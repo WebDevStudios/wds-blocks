@@ -28,16 +28,34 @@ Render a `BaseControl` component containing a `MediaUpload` component with two `
 ## Usage ##
 
 ```jsx
-<InspectorControls>
-	<PanelBody>
-		<MediaControl
-			media={ video }
-			setMedia={ setVideo }
-			type="video"
-			label={ __( 'Video', 'wdsblocks' ) }
-			addLabel={ __( 'Add video', 'wdsblocks' ) }
-			removeLabel={ __( 'Remove video', 'wdsblocks' ) }
-		/>
-	</PanelBody>
-</InspectorControls>
+import { InspectorControls } from '@wordpress/block-editor';
+import { PanelBody } from '@wordpress/components';
+
+export default function Edit( props ) {
+	const {
+		attributes: { video },
+		setAttributes,
+	} = props;
+
+	const setVideo = ( value ) => {
+		setAttributes( {
+			video: value,
+		} );
+	};
+
+	return (
+		<InspectorControls>
+			<PanelBody>
+				<MediaControl
+					media={ video }
+					setMedia={ setVideo }
+					type="video"
+					label={ __( 'Video', 'wdsblocks' ) }
+					addLabel={ __( 'Add video', 'wdsblocks' ) }
+					removeLabel={ __( 'Remove video', 'wdsblocks' ) }
+				/>
+			</PanelBody>
+		</InspectorControls>
+	);
+}
 ```
