@@ -25,6 +25,8 @@ export default function Slide( props ) {
 		customBackgroundColor,
 		backgroundImage,
 		backgroundVideo,
+		overlayColor,
+		customOverlayColor,
 		children,
 	} = props;
 
@@ -75,6 +77,13 @@ export default function Slide( props ) {
 		case 'video':
 			composeHOCs.push( withBackgroundVideo );
 			wrapProps.backgroundVideo = backgroundVideo;
+	}
+
+	// Add overlay for image or video background.
+	if ( 'image' === backgroundType || 'video' === backgroundType ) {
+		composeHOCs.push( withBackgroundColor );
+		wrapProps.backgroundColor = overlayColor;
+		wrapProps.customBackgroundColor = customOverlayColor;
 	}
 
 	const SlideComponent = compose( composeHOCs )( 'div' );
