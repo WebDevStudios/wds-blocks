@@ -1,5 +1,5 @@
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { BaseControl, Button, ResponsiveWrapper } from '@wordpress/components';
+import { Button, ResponsiveWrapper } from '@wordpress/components';
 
 /**
  * Display media preview according to type.
@@ -57,7 +57,10 @@ export default function MediaControl( props ) {
 
 	return (
 		<>
-			<BaseControl label={ label }>
+			<div className="components-base-control">
+				<span className="components-base-control__label">
+					{ label }
+				</span>
 				<MediaUploadCheck>
 					<MediaUpload
 						title={ label }
@@ -101,7 +104,7 @@ export default function MediaControl( props ) {
 						</Button>
 					</MediaUploadCheck>
 				) }
-			</BaseControl>
+			</div>
 		</>
 	);
 }
