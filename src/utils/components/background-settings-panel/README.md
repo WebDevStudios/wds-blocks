@@ -46,10 +46,10 @@ function Edit( props ) {
 	const {
 		attributes: {
 			backgroundType,
-			backgroundColor,
 			backgroundImage,
 			backgroundVideo,
 		},
+		backgroundColor,
 		setBackgroundColor,
 		setAttributes,
 	} = props;
