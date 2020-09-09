@@ -1,4 +1,9 @@
-import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import {
+	ContrastChecker,
+	InspectorControls,
+	PanelColorSettings,
+} from '@wordpress/block-editor';
+import { Platform } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import BackgroundSettingsPanel from '../../../utils/components/background-settings-panel';
 
@@ -34,7 +39,14 @@ export default function Settings( props ) {
 						label: __( 'Text Color', 'wdsblocks' ),
 					},
 				] }
-			/>
+			>
+				{ 'web' === Platform.OS && 'color' === backgroundType && (
+					<ContrastChecker
+						backgroundColor={ backgroundColor }
+						textColor={ fontColor }
+					/>
+				) }
+			</PanelColorSettings>
 			<BackgroundSettingsPanel
 				backgroundType={ backgroundType }
 				setBackgroundType={ ( value ) =>
