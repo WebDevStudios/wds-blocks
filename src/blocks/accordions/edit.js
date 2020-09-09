@@ -1,5 +1,6 @@
-import { useEffect } from '@wordpress/element';
+import { useEffect, Platform } from '@wordpress/element';
 import {
+	ContrastChecker,
 	InnerBlocks,
 	PanelColorSettings,
 	InspectorControls,
@@ -103,7 +104,16 @@ function Edit( props ) {
 							label: __( 'Background Color', 'wdsblocks' ),
 						},
 					] }
-				/>
+				>
+					{ 'web' === Platform.OS &&
+						!! fontColor?.color &&
+						!! backgroundColor?.color && (
+							<ContrastChecker
+								backgroundColor={ backgroundColor.color }
+								textColor={ fontColor.color }
+							/>
+						) }
+				</PanelColorSettings>
 				<PanelBody title={ __( 'Settings', 'wdsblocks' ) }>
 					<BaseControl
 						label={ __( 'Expand First Accordion', 'wdsblocks' ) }
