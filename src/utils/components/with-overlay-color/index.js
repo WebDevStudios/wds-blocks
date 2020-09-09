@@ -50,7 +50,16 @@ export default function withOverlayColor( WrappedComponent ) {
 				{ hasOverlay && !! overlayOpacity && (
 					<div
 						className="background-overlay"
-						style={ { opacity: overlayOpacity / 100 } }
+						style={ {
+							opacity: overlayOpacity / 100,
+							backgroundColor: 'inherit',
+							height: '100%',
+							left: 0,
+							position: 'absolute',
+							top: 0,
+							width: '100%',
+							zIndex: 1,
+						} }
 					></div>
 				) }
 				{ children }
