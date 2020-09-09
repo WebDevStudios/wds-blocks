@@ -44,6 +44,8 @@ function Edit( props ) {
 		customFontColor: fontColor.color,
 		backgroundColor: backgroundColor?.slug,
 		customBackgroundColor: backgroundColor.color,
+		overlayColor: overlayColor?.slug,
+		customOverlayColor: overlayColor.color,
 	};
 
 	return (
