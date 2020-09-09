@@ -50,6 +50,10 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 			type: 'object',
 			default: undefined,
 		},
+		overlayColor: {
+			type: 'string',
+			default: undefined,
+		},
 		customOverlayColor: {
 			type: 'string',
 			default: undefined,
