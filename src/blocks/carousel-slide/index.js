@@ -50,6 +50,14 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 			type: 'object',
 			default: undefined,
 		},
+		customOverlayColor: {
+			type: 'string',
+			default: undefined,
+		},
+		overlayOpacity: {
+			type: 'number',
+			default: 40,
+		},
 	},
 	usesContext: [ `${ PREFIX }/carousel/showPreview` ],
 	supports: {
