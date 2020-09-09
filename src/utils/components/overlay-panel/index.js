@@ -21,7 +21,7 @@ export default function OverlayPanel( props ) {
 
 	return (
 		<PanelBody
-			title={ __( 'Overlay', 'wdsblocks' ) }
+			title={ __( 'Overlay settings', 'wdsblocks' ) }
 			className="block-editor-panel-color-gradient-settings"
 		>
 			<ColorPaletteControl
