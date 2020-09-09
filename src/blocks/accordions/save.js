@@ -1,7 +1,10 @@
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import classnames from 'classnames';
+import { compose } from '@wordpress/compose';
 import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
+import withBackgroundColor from '../../utils/components/withBackgroundColor';
+import withFontColor from '../../utils/components/withFontColor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -21,7 +24,9 @@ export default function Save( props ) {
 			title,
 			desc,
 			fontColor,
+			customFontColor,
 			backgroundColor,
+			customBackgroundColor,
 			openFirst,
 			toggle,
 		},
@@ -29,16 +34,34 @@ export default function Save( props ) {
 
 	const className = getBlockDefaultClassName( `${ PREFIX }/accordions` );
 
+	// Define props for wrapping component.
+	const wrapProps = {
+		className,
+		'data-open-first': openFirst,
+		'data-toggle': toggle,
+	};
+
+	// Define HOCs to be composed.
+	const composeHOCs = [];
+
+	// Display accordion with custom font color.
+	if ( fontColor || customFontColor ) {
+		composeHOCs.push( withFontColor );
+		wrapProps.fontColor = fontColor;
+		wrapProps.customFontColor = customFontColor;
+	}
+
+	// Display accordion with custom background color.
+	if ( backgroundColor || customBackgroundColor ) {
+		composeHOCs.push( withBackgroundColor );
+		wrapProps.backgroundColor = backgroundColor;
+		wrapProps.customBackgroundColor = customBackgroundColor;
+	}
+
+	const AccordionComponent = compose( composeHOCs )( 'div' );
+
 	return (
-		<div
-			className={ classnames( className ) }
-			style={ {
-				color: fontColor,
-				backgroundColor,
-			} }
-			data-open-first={ openFirst }
-			data-toggle={ toggle }
-		>
+		<AccordionComponent { ...wrapProps }>
 			<div className={ CONTAINER_CLASS }>
 				{ title && title[ 0 ] && (
 					<RichText.Content
@@ -58,6 +81,6 @@ export default function Save( props ) {
 					<InnerBlocks.Content />
 				</div>
 			</div>
-		</div>
+		</AccordionComponent>
 	);
 }
