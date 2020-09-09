@@ -4,6 +4,7 @@ import {
 	PanelColorSettings,
 	InspectorControls,
 	RichText,
+	withColors,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -11,6 +12,7 @@ import {
 	BaseControl,
 	ToggleControl,
 } from '@wordpress/components';
+import { compose } from '@wordpress/compose';
 import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
@@ -62,18 +64,15 @@ const innerBlocksProps = {
  * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement} Element to render.
  */
-export default function Edit( props ) {
+function Edit( props ) {
 	const {
-		attributes: {
-			title,
-			desc,
-			openFirst,
-			toggle,
-			fontColor,
-			backgroundColor,
-		},
+		attributes: { title, desc, openFirst, toggle },
 		setAttributes,
 		className,
+		fontColor,
+		setFontColor,
+		backgroundColor,
+		setBackgroundColor,
 	} = props;
 
 	const { showPreview, togglePreview, doubleClick } = usePreviewToggle();
@@ -95,17 +94,12 @@ export default function Edit( props ) {
 					colorSettings={ [
 						{
 							value: fontColor?.color,
-							onChange: ( colorValue ) => {
-								setAttributes( { fontColor: colorValue } );
-							},
+							onChange: setFontColor,
 							label: __( 'Text Color', 'wdsblocks' ),
 						},
 						{
 							value: backgroundColor?.color,
-							onChange: ( colorValue ) =>
-								setAttributes( {
-									backgroundColor: colorValue,
-								} ),
+							onChange: setBackgroundColor,
 							label: __( 'Background Color', 'wdsblocks' ),
 						},
 					] }
@@ -160,7 +154,10 @@ export default function Edit( props ) {
 					className,
 					showPreview ? 'preview-mode' : 'edit-mode'
 				) }
-				style={ { color: fontColor, backgroundColor } }
+				style={ {
+					color: fontColor?.color,
+					backgroundColor: backgroundColor?.color,
+				} }
 				data-open-first={ openFirst }
 				data-toggle={ toggle }
 				onDoubleClick={ doubleClick }
@@ -220,3 +217,7 @@ export default function Edit( props ) {
 		</>
 	);
 }
+
+export default compose( [
+	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
+] )( Edit );
