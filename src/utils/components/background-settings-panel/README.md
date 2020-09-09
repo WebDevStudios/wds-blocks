@@ -36,27 +36,51 @@ Render a `PanelBody` component containing inputs to toggle background type and c
 
 ## Usage ##
 
+*Note: `backgroundColor`/`setBackgroundColor` assumes usage of `withColors` higher-order component.*
+
 ```jsx
-<InspectorControls>
-	<BackgroundSettingsPanel
-		backgroundType={ backgroundType }
-		setBackgroundType={ ( value ) =>
-			setAttributes( { backgroundType: value } )
-		}
-		backgroundColor={ backgroundColor }
-		setBackgroundColor={ setBackgroundColor }
-		backgroundImage={ backgroundImage }
-		setBackgroundImage={ ( value ) =>
-			setAttributes( {
-				backgroundImage: value,
-			} )
-		}
-		backgroundVideo={ backgroundVideo }
-		setBackgroundVideo={ ( value ) =>
-			setAttributes( {
-				backgroundVideo: value,
-			} )
-		}
-	/>
-</InspectorControls>
+import { InspectorControls, withColors } from '@wordpress/block-editor';
+import { compose } from '@wordpress/compose';
+
+function Edit( props ) {
+	const {
+		attributes: {
+			backgroundType,
+			backgroundColor,
+			backgroundImage,
+			backgroundVideo,
+		},
+		setBackgroundColor,
+		setAttributes,
+	} = props;
+
+	return (
+		<InspectorControls>
+			<BackgroundSettingsPanel
+				backgroundType={ backgroundType }
+				setBackgroundType={ ( value ) =>
+					setAttributes( { backgroundType: value } )
+				}
+				backgroundColor={ backgroundColor }
+				setBackgroundColor={ setBackgroundColor }
+				backgroundImage={ backgroundImage }
+				setBackgroundImage={ ( value ) =>
+					setAttributes( {
+						backgroundImage: value,
+					} )
+				}
+				backgroundVideo={ backgroundVideo }
+				setBackgroundVideo={ ( value ) =>
+					setAttributes( {
+						backgroundVideo: value,
+					} )
+				}
+			/>
+		</InspectorControls>
+	);
+}
+
+export default compose( [
+	withColors( { backgroundColor: 'background-color' } ),
+] )( Edit );
 ```
