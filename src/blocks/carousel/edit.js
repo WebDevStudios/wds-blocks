@@ -7,7 +7,7 @@ import Slider from './components/Slider';
 import { GLIDE_SETTINGS, INNER_BLOCKS_PROPS } from './utils/config';
 import wdsBlocksBackgroundVideo from '../../utils/modules/backgroundVideo';
 import PreviewToggle from '../../utils/components/preview-toggle';
-import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
+import usePreviewToggle from '../../utils/hooks/use-preview-toggle';
 import './editor.scss';
 
 /**

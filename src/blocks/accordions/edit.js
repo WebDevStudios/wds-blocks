@@ -19,7 +19,7 @@ import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
 import PreviewToggle from '../../utils/components/preview-toggle';
-import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
+import usePreviewToggle from '../../utils/hooks/use-preview-toggle';
 import './editor.scss';
 import InputLabel from './components/InputLabel';
 import wdsBlocksAccordion from '../accordions/frontend/';
