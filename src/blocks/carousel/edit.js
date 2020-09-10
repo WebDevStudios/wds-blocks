@@ -6,7 +6,7 @@ import { useEffect } from '@wordpress/element';
 import Slider from './components/Slider';
 import { GLIDE_SETTINGS, INNER_BLOCKS_PROPS } from './utils/config';
 import wdsBlocksBackgroundVideo from '../../utils/modules/backgroundVideo';
-import PreviewToggle from '../../utils/components/PreviewToggle';
+import PreviewToggle from '../../utils/components/preview-toggle';
 import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
 import './editor.scss';
 

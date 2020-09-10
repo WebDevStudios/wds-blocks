@@ -18,7 +18,7 @@ import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
-import PreviewToggle from '../../utils/components/PreviewToggle';
+import PreviewToggle from '../../utils/components/preview-toggle';
 import usePreviewToggle from '../../utils/hooks/usePreviewToggle';
 import './editor.scss';
 import InputLabel from './components/InputLabel';
