@@ -25,6 +25,15 @@ A block that contains one or more child blocks and displays a carousel slide.
 ### `backgroundVideo: object` ###
 *Default: `undefined`.* Tracks object of video attributes for `background-video`.
 
+### `overlayColor: string` ###
+*Default: `undefined`.* Tracks color name for `background-color` as an overlay.
+
+### `customOverlayColor: string` ###
+*Default: `undefined`.* Tracks custom color code for `background-color` as an overlay.
+
+### `overlayOpacity: number` ###
+*Default: `undefined`.* Tracks value for `opacity` of overlay.
+
 ## Usage ##
 *Category: WDS Blocks*
 
