@@ -2,7 +2,7 @@ import { InnerBlocks, RichText } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import { compose } from '@wordpress/compose';
 import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
-import withBackgroundColor from '../../utils/components/withBackgroundColor';
+import withBackgroundColor from '../../utils/components/with-background-color';
 import withFontColor from '../../utils/components/withFontColor';
 
 /**

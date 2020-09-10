@@ -1,6 +1,6 @@
 import { compose } from '@wordpress/compose';
 import { CONTAINER_CLASS } from '../../../utils/config';
-import withBackgroundColor from '../../../utils/components/withBackgroundColor';
+import withBackgroundColor from '../../../utils/components/with-background-color';
 import withBackgroundImage from '../../../utils/components/withBackgroundImage';
 import withBackgroundVideo from '../../../utils/components/withBackgroundVideo';
 import withFontColor from '../../../utils/components/withFontColor';
