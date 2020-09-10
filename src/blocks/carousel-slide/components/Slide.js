@@ -2,7 +2,7 @@ import { compose } from '@wordpress/compose';
 import { CONTAINER_CLASS } from '../../../utils/config';
 import withBackgroundColor from '../../../utils/components/with-background-color';
 import withBackgroundImage from '../../../utils/components/with-background-image';
-import withBackgroundVideo from '../../../utils/components/withBackgroundVideo';
+import withBackgroundVideo from '../../../utils/components/with-background-video';
 import withFontColor from '../../../utils/components/withFontColor';
 import withOverlayColor from '../../../utils/components/with-overlay-color';
 
