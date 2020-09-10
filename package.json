@@ -17,8 +17,9 @@
 		"Gutenberg"
 	],
 	"dependencies": {
+		"@glidejs/glide": "^3.4.1",
 		"classnames": "^2.2.6",
-		"@glidejs/glide": "^3.4.1"
+		"fast-average-color": "^6.0.2"
 	},
 	"devDependencies": {
 		"@webdevstudios/css-coding-standards": "^1.0.1",
