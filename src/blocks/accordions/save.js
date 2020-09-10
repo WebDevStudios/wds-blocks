@@ -3,7 +3,7 @@ import { getBlockDefaultClassName } from '@wordpress/blocks';
 import { compose } from '@wordpress/compose';
 import { PREFIX, CONTAINER_CLASS } from '../../utils/config';
 import withBackgroundColor from '../../utils/components/with-background-color';
-import withFontColor from '../../utils/components/withFontColor';
+import withFontColor from '../../utils/components/with-font-color';
 
 /**
  * The save function defines the way in which the different attributes should

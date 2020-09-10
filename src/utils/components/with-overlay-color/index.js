@@ -1,4 +1,4 @@
-import withBackgroundColor from '../withBackgroundColor';
+import withBackgroundColor from '../with-background-color';
 
 /**
  * A HOC for displaying a component with a background overlay color.

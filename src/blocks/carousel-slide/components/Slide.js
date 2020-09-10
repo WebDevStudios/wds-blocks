@@ -3,8 +3,8 @@ import { CONTAINER_CLASS } from '../../../utils/config';
 import withBackgroundColor from '../../../utils/components/with-background-color';
 import withBackgroundImage from '../../../utils/components/with-background-image';
 import withBackgroundVideo from '../../../utils/components/with-background-video';
-import withFontColor from '../../../utils/components/withFontColor';
 import withOverlayColor from '../../../utils/components/with-overlay-color';
+import withFontColor from '../../../utils/components/with-font-color';
 
 /**
  * The Slide component displays an individual carousel slide.
