@@ -21,6 +21,7 @@ function Edit( props ) {
 		attributes,
 		className,
 		setAttributes,
+		isSelected,
 		fontColor,
 		setFontColor,
 		backgroundColor,
@@ -50,14 +51,16 @@ function Edit( props ) {
 
 	return (
 		<>
-			<Settings
-				{ ...backgroundProps }
-				fontColor={ fontColor.color }
-				setFontColor={ setFontColor }
-				setBackgroundColor={ setBackgroundColor }
-				setOverlayColor={ setOverlayColor }
-				setAttributes={ setAttributes }
-			/>
+			{ isSelected && (
+				<Settings
+					{ ...backgroundProps }
+					fontColor={ fontColor.color }
+					setFontColor={ setFontColor }
+					setBackgroundColor={ setBackgroundColor }
+					setOverlayColor={ setOverlayColor }
+					setAttributes={ setAttributes }
+				/>
+			) }
 			<Slide { ...slideProps }>
 				<InnerBlocks
 					{ ...INNER_BLOCKS_PROPS }
