@@ -37,11 +37,26 @@ export default function Settings( props ) {
 	const mediaElementRef = useRef();
 
 	// Average color of background media element.
-	const { color } = useMediaAverageColor( mediaElementRef?.current );
+	const { color: mediaColor } = useMediaAverageColor(
+		mediaElementRef?.current
+	);
 
 	// Whether media element is currently set as background.
 	const hasMediaBackground =
 		'image' === backgroundType || 'video' === backgroundType;
+
+	// Determine background color to contrast with `fontColor`.
+	let backgroundContrastColor = backgroundColor;
+
+	if ( hasMediaBackground && overlayOpacity && overlayOpacity > 50 ) {
+		// Use overlay color as background contrast if above 50% opacity.
+		backgroundContrastColor = overlayColor;
+	} else if ( hasMediaBackground ) {
+		// Use media average color if overlay is not set or opacity is <= 50%.
+		backgroundContrastColor = mediaColor?.hex
+			? mediaColor.hex
+			: backgroundContrastColor;
+	}
 
 	return (
 		<InspectorControls>
@@ -55,9 +70,9 @@ export default function Settings( props ) {
 					},
 				] }
 			>
-				{ 'web' === Platform.OS && 'color' === backgroundType && (
+				{ 'web' === Platform.OS && (
 					<ContrastChecker
-						backgroundColor={ backgroundColor }
+						backgroundColor={ backgroundContrastColor }
 						textColor={ fontColor }
 					/>
 				) }
