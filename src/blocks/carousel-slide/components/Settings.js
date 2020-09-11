@@ -7,6 +7,7 @@ import { Platform, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import BackgroundSettingsPanel from '../../../utils/components/background-settings-panel';
 import OverlayPanel from '../../../utils/components/overlay-panel';
+import useMediaAverageColor from '../../../utils/hooks/use-media-average-color';
 
 /**
  * The Settings component displays settings for the Slide block via Inspector Controls.
@@ -32,8 +33,13 @@ export default function Settings( props ) {
 		setAttributes,
 	} = props;
 
+	// `ref` to background media element.
 	const mediaElementRef = useRef();
 
+	// Average color of background media element.
+	const { color } = useMediaAverageColor( mediaElementRef?.current );
+
+	// Whether media element is currently set as background.
 	const hasMediaBackground =
 		'image' === backgroundType || 'video' === backgroundType;
 
