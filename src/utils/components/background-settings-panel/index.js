@@ -1,4 +1,5 @@
 import { PanelBody, SelectControl } from '@wordpress/components';
+import { forwardRef, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import ColorPaletteControl from '../color-palette-control';
 import MediaControl from '../media-control';
@@ -10,9 +11,10 @@ import MediaControl from '../media-control';
  * @since  2.1.0
  *
  * @param  {Object} [props] Properties passed to the component.
+ * @param  {Object} [ref]   `ref` to inner media background component.
  * @return {Element}        Element to render.
  */
-export default function BackgroundSettingsPanel( props ) {
+function BackgroundSettingsPanel( props, ref ) {
 	const {
 		backgroundType,
 		setBackgroundType,
@@ -28,6 +30,8 @@ export default function BackgroundSettingsPanel( props ) {
 		backgroundVideo,
 		setBackgroundVideo,
 	} = props;
+
+	const fallbackRef = useRef();
 
 	// Define background type options.
 	const options = [ { label: __( 'None', 'wdsblocks' ), value: 'none' } ];
@@ -76,6 +80,7 @@ export default function BackgroundSettingsPanel( props ) {
 					label={ __( 'Background image', 'wdsblocks' ) }
 					addLabel={ __( 'Add image', 'wdsblocks' ) }
 					removeLabel={ __( 'Remove image', 'wdsblocks' ) }
+					ref={ ref || fallbackRef }
 				/>
 			) }
 
@@ -87,8 +92,11 @@ export default function BackgroundSettingsPanel( props ) {
 					label={ __( 'Background video', 'wdsblocks' ) }
 					addLabel={ __( 'Add video', 'wdsblocks' ) }
 					removeLabel={ __( 'Remove video', 'wdsblocks' ) }
+					ref={ ref || fallbackRef }
 				/>
 			) }
 		</PanelBody>
 	);
 }
+
+export default forwardRef( BackgroundSettingsPanel );

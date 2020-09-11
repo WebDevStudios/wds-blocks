@@ -3,7 +3,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 } from '@wordpress/block-editor';
-import { Platform } from '@wordpress/element';
+import { Platform, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import BackgroundSettingsPanel from '../../../utils/components/background-settings-panel';
 import OverlayPanel from '../../../utils/components/overlay-panel';
@@ -31,6 +31,8 @@ export default function Settings( props ) {
 		overlayOpacity,
 		setAttributes,
 	} = props;
+
+	const mediaElementRef = useRef();
 
 	const hasMediaBackground =
 		'image' === backgroundType || 'video' === backgroundType;
@@ -73,6 +75,7 @@ export default function Settings( props ) {
 						backgroundVideo: value,
 					} )
 				}
+				ref={ mediaElementRef }
 			/>
 			{ hasMediaBackground && (
 				<OverlayPanel

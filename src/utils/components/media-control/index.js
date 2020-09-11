@@ -1,5 +1,6 @@
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { Button, ResponsiveWrapper } from '@wordpress/components';
+import { forwardRef, useRef } from '@wordpress/element';
 
 /**
  * Display media preview according to type.
@@ -8,9 +9,10 @@ import { Button, ResponsiveWrapper } from '@wordpress/components';
  * @since  2.1.0
  *
  * @param  {Object} [props] Properties passed to the component.
+ * @param  {Object} [ref]   `ref` to media component.
  * @return {Element} Media preview.
  */
-function Preview( props ) {
+const Preview = forwardRef( ( props, ref ) => {
 	const { type, media, label } = props;
 	const className = 'components-responsive-wrapper__content';
 
@@ -23,6 +25,7 @@ function Preview( props ) {
 					muted
 					loop
 					aria-hidden="true"
+					ref={ ref }
 				>
 					<source src={ media?.url } type={ media?.mime } />
 				</video>
@@ -30,10 +33,15 @@ function Preview( props ) {
 
 		default:
 			return (
-				<img className={ className } src={ media?.url } alt={ label } />
+				<img
+					className={ className }
+					src={ media?.url }
+					alt={ label }
+					ref={ ref }
+				/>
 			);
 	}
-}
+} );
 
 /**
  * The MediaControl component displays a control to select a media item and display a preview.
@@ -42,9 +50,10 @@ function Preview( props ) {
  * @since  2.1.0
  *
  * @param  {Object} [props] Properties passed to the component.
+ * @param  {Object} [ref]   `ref` to media component.
  * @return {Element}        Element to render.
  */
-export default function MediaControl( props ) {
+function MediaControl( props, ref ) {
 	const {
 		media,
 		setMedia,
@@ -54,6 +63,8 @@ export default function MediaControl( props ) {
 		addLabel,
 		removeLabel,
 	} = props;
+
+	const fallbackRef = useRef();
 
 	return (
 		<>
@@ -86,6 +97,7 @@ export default function MediaControl( props ) {
 											media={ media }
 											label={ label }
 											type={ type }
+											ref={ ref || fallbackRef }
 										/>
 									</ResponsiveWrapper>
 								) }
@@ -108,3 +120,5 @@ export default function MediaControl( props ) {
 		</>
 	);
 }
+
+export default forwardRef( MediaControl );
