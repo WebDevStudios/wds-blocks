@@ -25,12 +25,15 @@ function Edit( props ) {
 		setFontColor,
 		backgroundColor,
 		setBackgroundColor,
+		overlayColor,
+		setOverlayColor,
 	} = props;
 
 	// Define props relating to block background settings.
 	const backgroundProps = {
 		...attributes,
 		backgroundColor: backgroundColor.color,
+		overlayColor: overlayColor.color,
 	};
 
 	// Define props relating to slide settings.
@@ -41,6 +44,8 @@ function Edit( props ) {
 		customFontColor: fontColor.color,
 		backgroundColor: backgroundColor?.slug,
 		customBackgroundColor: backgroundColor.color,
+		overlayColor: overlayColor?.slug,
+		customOverlayColor: overlayColor.color,
 	};
 
 	return (
@@ -50,6 +55,7 @@ function Edit( props ) {
 				fontColor={ fontColor.color }
 				setFontColor={ setFontColor }
 				setBackgroundColor={ setBackgroundColor }
+				setOverlayColor={ setOverlayColor }
 				setAttributes={ setAttributes }
 			/>
 			<Slide { ...slideProps }>
@@ -66,5 +72,9 @@ function Edit( props ) {
 }
 
 export default compose( [
-	withColors( { fontColor: 'color', backgroundColor: 'background-color' } ),
+	withColors( {
+		fontColor: 'color',
+		backgroundColor: 'background-color',
+		overlayColor: 'background-color',
+	} ),
 ] )( Edit );

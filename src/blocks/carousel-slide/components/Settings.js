@@ -6,6 +6,7 @@ import {
 import { Platform } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import BackgroundSettingsPanel from '../../../utils/components/background-settings-panel';
+import OverlayPanel from '../../../utils/components/overlay-panel';
 
 /**
  * The Settings component displays settings for the Slide block via Inspector Controls.
@@ -25,8 +26,14 @@ export default function Settings( props ) {
 		setBackgroundColor,
 		backgroundImage,
 		backgroundVideo,
+		overlayColor,
+		setOverlayColor,
+		overlayOpacity,
 		setAttributes,
 	} = props;
+
+	const hasMediaBackground =
+		'image' === backgroundType || 'video' === backgroundType;
 
 	return (
 		<InspectorControls>
@@ -67,6 +74,16 @@ export default function Settings( props ) {
 					} )
 				}
 			/>
+			{ hasMediaBackground && (
+				<OverlayPanel
+					overlayColor={ overlayColor }
+					setOverlayColor={ setOverlayColor }
+					overlayOpacity={ overlayOpacity }
+					setOverlayOpacity={ ( value ) =>
+						setAttributes( { overlayOpacity: value } )
+					}
+				/>
+			) }
 		</InspectorControls>
 	);
 }

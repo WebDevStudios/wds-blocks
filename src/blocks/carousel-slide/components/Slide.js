@@ -4,6 +4,7 @@ import withBackgroundColor from '../../../utils/components/withBackgroundColor';
 import withBackgroundImage from '../../../utils/components/withBackgroundImage';
 import withBackgroundVideo from '../../../utils/components/withBackgroundVideo';
 import withFontColor from '../../../utils/components/withFontColor';
+import withOverlayColor from '../../../utils/components/with-overlay-color';
 
 /**
  * The Slide component displays an individual carousel slide.
@@ -25,6 +26,9 @@ export default function Slide( props ) {
 		customBackgroundColor,
 		backgroundImage,
 		backgroundVideo,
+		overlayColor,
+		customOverlayColor,
+		overlayOpacity,
 		children,
 	} = props;
 
@@ -75,6 +79,14 @@ export default function Slide( props ) {
 		case 'video':
 			composeHOCs.push( withBackgroundVideo );
 			wrapProps.backgroundVideo = backgroundVideo;
+	}
+
+	// Add overlay for image or video background.
+	if ( 'image' === backgroundType || 'video' === backgroundType ) {
+		composeHOCs.push( withOverlayColor );
+		wrapProps.overlayColor = overlayColor;
+		wrapProps.customOverlayColor = customOverlayColor;
+		wrapProps.overlayOpacity = overlayOpacity;
 	}
 
 	const SlideComponent = compose( composeHOCs )( 'div' );
