@@ -1,0 +1,24 @@
+//--------------------------------------------------------------
+// EDITOR STYLES
+// CSS for just Backend enqueued after style.scss
+//--------------------------------------------------------------
+@import "../../sass/mixins";
+
+[data-type='wdsblocks/starter'] {
+
+	@include edit-mode;
+	@include preview-mode;
+
+	&.edit-mode,
+	&.is-selected {
+		border: 1px dashed $color-grey;
+	} // &.edit-mode, &.is-selected
+
+	&.preview-mode {
+
+		.block-list-appender {
+			display: none;
+		}
+
+	}
+} // [data-type='wdsblocks/starter']
