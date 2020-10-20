@@ -22,12 +22,12 @@ export default function Save( props ) {
 	const className = getBlockDefaultClassName( `${ PREFIX }/starter` );
 
 	return (
-		<div className={ `${ className } starter` } style={backgroundStyle}>
+		<div className={ `${ className } starter` } style={ backgroundStyle }>
 			<RichText.Content
 				className="block-title"
-				style={contentStyle}
+				style={ contentStyle }
 				tagName="h2"
-				value={title}
+				value={ title }
 			/>
 			<InnerBlocks.Content />
 		</div>

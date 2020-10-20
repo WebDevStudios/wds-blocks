@@ -82,26 +82,26 @@ function Edit( props ) {
 		<>
 			<BlockControls>
 				<AlignmentToolbar
-					value={contentStyle.textAlign}
-					onChange={onChangeAlignment}
+					value={ contentStyle.textAlign }
+					onChange={ onChangeAlignment }
 				/>
 			</BlockControls>
 			<Fragment>
 				<InspectorControls>
-					<Panel className={className}>
+					<Panel className={ className }>
 						<PanelBody
-							title={__( 'Color Settings', 'wdsblocks' )}
-							initialOpen={true}
+							title={ __( 'Color Settings', 'wdsblocks' ) }
+							initialOpen={ true }
 						>
-							<PanelRow>{__('Choose a text color.', 'wdsblocks')}</PanelRow>
+							<PanelRow>{ __('Choose a text color.', 'wdsblocks') }</PanelRow>
 							<ColorPalette
-								value={contentStyle.color}
-								onChange={onChangeTextColor}
+								value={ contentStyle.color }
+								onChange={ onChangeTextColor }
 							/>
-							<PanelRow>{__('Choose a background color.', 'wdsblocks')}</PanelRow>
+							<PanelRow>{ __('Choose a background color.', 'wdsblocks') }</PanelRow>
 							<ColorPalette
-								value={backgroundStyle.backgroundColor}
-								onChange={onChangeBackgroundColor}
+								value={ backgroundStyle.backgroundColor }
+								onChange={ onChangeBackgroundColor }
 							/>
 						</PanelBody>
 
@@ -136,15 +136,15 @@ function Edit( props ) {
 						/>
 					</div>
 				) : (
-					<div className={ `${ className } starter` } style={backgroundStyle}>
+					<div className={ `${ className } starter` } style={ backgroundStyle }>
 						<RichText
-							className="block-title"
-							tagName="h2"
-							style={contentStyle}
-							onChange={onChangeTitle}
-							placeholder={__( 'Block Title', 'wdsblocks' )}
-							keepPlaceholderOnFocus={true}
-							value={title}
+							className='block-title'
+							tagName='h2'
+							style={ contentStyle }
+							onChange={ onChangeTitle }
+							placeholder={ __( 'Block Title', 'wdsblocks' ) }
+							keepPlaceholderOnFocus={ true }
+							value={ title }
 						/>
 						<InnerBlocks { ...INNER_BLOCKS_PROPS } />
 					</div>

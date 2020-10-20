@@ -15,7 +15,7 @@ import './frontend/style.scss';
 registerBlockType( `${ PREFIX }/starter`, {
 	title: __( 'Starter Block', 'wdsblocks' ),
 	description: __(
-		'A start block with a RichText heading and color options.'
+		'A start block with a RichText heading and color options.', 'wdsblocks'
 	),
 	icon: 'admin-network',
 	category: 'wds-blocks',
