@@ -49,7 +49,7 @@ registerBlockType( `${ PREFIX }/starter`, {
 		},
 	},
 	supports: {
-		align: [ 'wide', 'full' ],
+		align: [ 'full', 'wide', 'left', 'center', 'right' ],
 		anchor: true,
 		html: false,
 	},
