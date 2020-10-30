@@ -1,6 +1,6 @@
 # `Starter Block` #
 
-A starter block with a richtext and color settings.
+A starter block with a RichText heading and color options.
 
 ## Attributes ##
 
@@ -39,4 +39,3 @@ Controls the base `background-color` for the current `Starter` block, which can 
 
 ### Mode ###
 *Default: `preview`.* Switch between `preview` (fully-functional carousel) and `edit` (standard block editor). Can also be toggled from `preview` to `edit` mode by double-clicking on the block.
-
