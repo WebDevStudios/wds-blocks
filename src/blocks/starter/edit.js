@@ -32,7 +32,11 @@ import './editor.scss';
  */
 function Edit( props ) {
 	const {
-		attributes: { title, contentStyle, backgroundStyle },
+		attributes: {
+			title,
+			contentStyle,
+			backgroundStyle,
+		},
 		className,
 		setAttributes,
 	} = props;
@@ -119,12 +123,12 @@ function Edit( props ) {
 					togglePreview={ togglePreview }
 				/>
 				{ showPreview ? (
-					<div className={ `${ className } starter` } style={backgroundStyle} isAdmin={ true }>
+					<div className={ `${ className } starter` } style={ backgroundStyle } isAdmin={ true }>
 						<RichText
 							className="block-title"
 							tagName="h2"
-							style={contentStyle}
-							value={title}
+							style={ contentStyle }
+							value={ title }
 						/>
 						<InnerBlocks
 							{ ...INNER_BLOCKS_PROPS }

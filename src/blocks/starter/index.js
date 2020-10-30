@@ -54,16 +54,16 @@ registerBlockType( `${ PREFIX }/starter`, {
 		html: false,
 	},
 	example: {
-		innerBlocks: [
-			{
-				name: 'core/paragraph',
-				attributes: {
-					content: __(
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros eu felis.'
-					),
-				},
+		attributes: {
+			backgroundStyle: {
+				backgroundColor: '#40403F',
 			},
-		],
+			contentStyle: {
+				color: '#F47C48',
+				textAlign: 'center',
+			},
+			title: __( 'Starter Block', 'wdsblocks' ),
+		},
 	},
 	edit,
 	save,
