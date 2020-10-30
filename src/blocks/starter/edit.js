@@ -144,6 +144,7 @@ function Edit( props ) {
 						<RichText
 							className='block-title'
 							tagName='h2'
+							formattingControls={ [ ] }
 							style={ contentStyle }
 							onChange={ onChangeTitle }
 							placeholder={ __( 'Block Title', 'wdsblocks' ) }
