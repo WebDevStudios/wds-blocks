@@ -13,7 +13,6 @@
 	&.is-selected {
 		border: 1px dashed $color-grey;
 	} // &.edit-mode, &.is-selected
-
 	&.preview-mode {
 
 		.block-list-appender {
@@ -21,4 +20,5 @@
 		}
 
 	}
+
 } // [data-type='wdsblocks/starter']

@@ -12,7 +12,8 @@ import {
 	PanelRow,
 } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
-import { Fragment } from '@wordpress/element';
+import { withSelect } from '@wordpress/data';
+import { Fragment, useEffect } from '@wordpress/element';
 import { INNER_BLOCKS_PROPS } from './utils/config';
 import { __ } from '@wordpress/i18n';
 import PreviewToggle from '../../utils/components/preview-toggle';
@@ -36,14 +37,24 @@ function Edit( props ) {
 			title,
 			contentStyle,
 			backgroundStyle,
+			blockCount: blockCountAttr
 		},
 		className,
 		setAttributes,
+		blockCount,
 	} = props;
 	const { showPreview, togglePreview, doubleClick } = usePreviewToggle();
 
+	// Update inner block count attr on prop change.
+	useEffect( () => {
+		setAttributes( { blockCount } );
+	}, [ blockCount ] );
+
+	// Check if this is a new block.
+	const isNewBlock = ! blockCountAttr;
+
 	// If new/empty block, switch to edit mode.
-	if ( showPreview ) {
+	if ( isNewBlock && showPreview ) {
 		togglePreview();
 	}
 
@@ -89,6 +100,10 @@ function Edit( props ) {
 					value={ contentStyle.textAlign }
 					onChange={ onChangeAlignment }
 				/>
+				<PreviewToggle
+					showPreview={ showPreview }
+					togglePreview={ togglePreview }
+				/>
 			</BlockControls>
 			<Fragment>
 				<InspectorControls>
@@ -118,15 +133,12 @@ function Edit( props ) {
 				}` }
 				onDoubleClick={ doubleClick }
 			>
-				<PreviewToggle
-					showPreview={ showPreview }
-					togglePreview={ togglePreview }
-				/>
 				{ showPreview ? (
-					<div className={ `${ className } starter` } style={ backgroundStyle } isAdmin={ true }>
+					<div className={ `${ className } starter` } style={ backgroundStyle } blockCount={ blockCount } isAdmin={ true }>
 						<RichText
 							className="block-title"
 							tagName="h2"
+							formattingControls={ [ ] }
 							style={ contentStyle }
 							value={ title }
 						/>
@@ -160,4 +172,14 @@ function Edit( props ) {
 }
 
 export default compose( [
+	withSelect( ( select, props ) => {
+		const { blockId } = props;
+
+		// Get current child block (innerblocks) blockId values.
+		const blockCount = select( 'core/block-editor' ).getBlockOrder(
+			blockId
+		).length;
+
+		return { blockCount };
+	} ),
 ] )( Edit );
