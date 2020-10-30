@@ -6,19 +6,27 @@
 
 [data-type='wdsblocks/starter'] {
 
-	@include edit-mode;
-	@include preview-mode;
+	margin-bottom: 0;
+	margin-top: 0;
 
-	&.edit-mode,
-	&.is-selected {
-		border: 1px dashed $color-grey;
-	} // &.edit-mode, &.is-selected
-	&.preview-mode {
+	.wp-block-wdsblocks-starter {
 
-		.block-list-appender {
-			display: none;
-		}
+		@include edit-mode;
+		@include preview-mode;
 
-	}
+		&.edit-mode {
+			border: 1px dashed $color-grey;
+		} // &.edit-mode
+
+		&.preview-mode {
+			padding: 0;
+
+			.block-list-appender {
+				display: none;
+			} // .block-list-appender
+
+		} // &.preview-mode
+
+	} // .wp-block-wdsblocks-starter
 
 } // [data-type='wdsblocks/starter']
