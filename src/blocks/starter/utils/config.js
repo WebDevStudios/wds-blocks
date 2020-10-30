@@ -13,7 +13,7 @@ import { PREFIX } from '../../../utils/config';
 export const INNER_BLOCKS_PROPS = applyFilters(
 	`${ PREFIX }.starter.innerBlocksProps`,
 	{
-		allowedBlocks: [ 'core/heading', 'core/paragraph', 'core/buttons' ],
+		allowedBlocks: [ 'core/paragraph', 'core/buttons', 'core/image' ],
 		template: [
 			/** Sample core block template structure
 			[

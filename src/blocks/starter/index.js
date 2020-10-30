@@ -53,6 +53,18 @@ registerBlockType( `${ PREFIX }/starter`, {
 		anchor: true,
 		html: false,
 	},
+	example: {
+		innerBlocks: [
+			{
+				name: 'core/paragraph',
+				attributes: {
+					content: __(
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros eu felis.'
+					),
+				},
+			},
+		],
+	},
 	edit,
 	save,
 } );
