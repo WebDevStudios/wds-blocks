@@ -1,16 +1,5 @@
-import {
-	RichText,
-	BlockControls,
-	InnerBlocks,
-	InspectorControls,
-	ColorPalette,
-	AlignmentToolbar,
-} from '@wordpress/block-editor';
-import {
-	Panel,
-	PanelBody,
-	PanelRow,
-} from '@wordpress/components';
+import { RichText, BlockControls, InnerBlocks, InspectorControls, ColorPalette, AlignmentToolbar } from '@wordpress/block-editor';
+import { Panel, PanelBody, PanelRow } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 import { withSelect } from '@wordpress/data';
 import { Fragment, useEffect } from '@wordpress/element';
