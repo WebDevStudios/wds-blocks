@@ -1,11 +1,12 @@
-### Expected behavior ###
+### Expected behavior
 
-### Actual behavior ###
+### Actual behavior
 
-### Steps to reproduce error ###
+### Steps to reproduce error
 
-### Screenshots of error ###
+### Screenshots of error
 
-### Please include any relevant parts of your configuration ###
-- Browser and version
-- Version of plugin(s)
+### Please include any relevant parts of your configuration
+
+-   Browser and version
+-   Version of plugin(s)

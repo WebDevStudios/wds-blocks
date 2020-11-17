@@ -1,21 +1,24 @@
-# `ColorPaletteControl` #
+# `ColorPaletteControl`
 
 Render a `BaseControl` component containing a `ColorPalette` component to select a theme palette or custom color with corresponding `BaseControl.VisualLabel` and `ColorIndicator` components.
 
-## Properties ##
+## Properties
 
-### `color: String` ###
-*Required.* The hex code representing the selected color.
+### `color: String`
 
-### `setColor( value: String ): Function` ###
-*Required.* Called when `color` is changed, where `value` is the new hex color code.
+_Required._ The hex code representing the selected color.
 
-### `label: String` ###
-*Required.* The label to display for the control.
+### `setColor( value: String ): Function`
 
-## Usage ##
+_Required._ Called when `color` is changed, where `value` is the new hex color code.
 
-*Note: `color`/`setColor` assumes usage of `withColors` higher-order component.*
+### `label: String`
+
+_Required._ The label to display for the control.
+
+## Usage
+
+_Note: `color`/`setColor` assumes usage of `withColors` higher-order component._
 
 ```jsx
 import { InspectorControls } from '@wordpress/block-editor';

@@ -1,5 +1,5 @@
 // Front-end styles.
-@import "../../../sass/variables";
+@import '../../../sass/variables';
 
 .wp-block-wdsblocks {
 
@@ -27,7 +27,7 @@
 
 			&::after,
 			&::before {
-				content: "";
+				content: '';
 				position: absolute;
 				top: 22px;
 				right: 22px;
@@ -60,6 +60,7 @@
 		/* stylelint-enable */
 
 		&.is-expanded {
+
 			/* stylelint-disable */
 			.wp-block-wdsblocks-accordion__title {
 

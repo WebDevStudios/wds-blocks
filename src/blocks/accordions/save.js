@@ -57,7 +57,7 @@ export default function Save( props ) {
 		wrapProps.customBackgroundColor = customBackgroundColor;
 	}
 
-	const AccordionComponent = compose( composeHOCs )( 'div' );
+	const AccordionComponent = compose( composeHOCs )( 'div' ); // eslint-disable-line @wordpress/no-unused-vars-before-return
 
 	return (
 		<AccordionComponent { ...wrapProps }>

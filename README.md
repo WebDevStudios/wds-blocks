@@ -10,14 +10,14 @@ A library of Gutenberg blocks.
 
 ### Available Blocks
 
-- Accordion
-- Carousel
+-   Accordion
+-   Carousel
 
 ---
 
 ## 📝 Requirements
 
--   [Node LTS](https://nodejs.org/en/)
+-   [Node 12](https://nodejs.org/en/)
 -   [Composer](https://getcomposer.org/)
 -   [WordPress 5.0+](https://wordpress.org)
 
@@ -26,6 +26,7 @@ A library of Gutenberg blocks.
 ## 🚀 Installation
 
 Clone the repo with Git:
+
 ```bash
 git clone git@github.com:WebDevStudios/wds-blocks.git
 ```

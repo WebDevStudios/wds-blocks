@@ -29,9 +29,7 @@ function Preview( props ) {
 			);
 
 		default:
-			return (
-				<img className={ className } src={ media?.url } alt={ label } />
-			);
+			return <img className={ className } src={ media?.url } alt={ label } />;
 	}
 }
 
@@ -58,9 +56,7 @@ export default function MediaControl( props ) {
 	return (
 		<>
 			<div className="components-base-control">
-				<span className="components-base-control__label">
-					{ label }
-				</span>
+				<span className="components-base-control__label">{ label }</span>
 				<MediaUploadCheck>
 					<MediaUpload
 						title={ label }
@@ -71,9 +67,9 @@ export default function MediaControl( props ) {
 							<Button
 								onClick={ open }
 								className={
-									! media
-										? 'editor-post-featured-image__toggle'
-										: 'editor-post-featured-image__preview'
+									! media ?
+										'editor-post-featured-image__toggle' :
+										'editor-post-featured-image__preview'
 								}
 							>
 								{ ! media && addLabel }

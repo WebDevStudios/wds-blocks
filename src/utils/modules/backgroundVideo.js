@@ -7,6 +7,7 @@ const videoClass = 'wp-block-cover__video-background';
  * @since  2.0.0
  */
 const wdsBlocksBackgroundVideo = {
+
 	/**
 	 * Initial Background Video setup.
 	 *
@@ -16,6 +17,7 @@ const wdsBlocksBackgroundVideo = {
 	 * @return {?boolean} Return false if no videos found.
 	 */
 	init: () => {
+
 		// Target background video elements.
 		const videos = document.querySelectorAll( `video.${ videoClass }` );
 
@@ -26,6 +28,7 @@ const wdsBlocksBackgroundVideo = {
 
 		// Iterate over videos.
 		videos.forEach( ( video ) => {
+
 			// Mute videos.
 			video.muted = true;
 		} );

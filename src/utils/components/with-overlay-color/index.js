@@ -10,6 +10,7 @@ import withBackgroundColor from '../with-background-color';
  * @return {Function}                   A function that accepts a single param, `props`, to display the wrapped component.
  */
 export default function withOverlayColor( WrappedComponent ) {
+
 	/**
 	 * @author WebDevStudios
 	 * @since  2.0.0
@@ -17,7 +18,7 @@ export default function withOverlayColor( WrappedComponent ) {
 	 * @param  {Object} [props] Properties passed to the component.
 	 * @return {Element}        Element to render.
 	 */
-	return function ( props ) {
+	return function( props ) {
 		const {
 			overlayColor,
 			customOverlayColor,
@@ -37,7 +38,7 @@ export default function withOverlayColor( WrappedComponent ) {
 		classes.push( hasOverlay ? 'has-background-overlay' : null );
 
 		// Use withBackgroundColor component to handle shared styling/classes.
-		const OverlayComponent = withBackgroundColor( WrappedComponent );
+		const OverlayComponent = withBackgroundColor( WrappedComponent ); // eslint-disable-line @wordpress/no-unused-vars-before-return
 
 		return (
 			<OverlayComponent

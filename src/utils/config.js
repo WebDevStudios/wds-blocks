@@ -1,4 +1,5 @@
 import { applyFilters } from '@wordpress/hooks';
+
 // Global block prefix
 export const PREFIX = 'wdsblocks';
 

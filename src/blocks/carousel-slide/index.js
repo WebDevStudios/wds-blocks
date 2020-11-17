@@ -68,6 +68,13 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 		html: false,
 	},
 	parent: [ `${ PREFIX }/carousel` ],
+
+	/**
+	 * Get edit wrapper props.
+	 *
+	 * @since 2.0.0
+	 * @return {string} The slide class.
+	 */
 	getEditWrapperProps() {
 		return {
 			className: 'glide__slide',
