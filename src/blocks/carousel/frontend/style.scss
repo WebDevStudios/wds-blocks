@@ -1,6 +1,6 @@
 // Front-end styles.
-@import "@glidejs/glide/src/assets/sass/glide.core";
-@import "../../../sass/variables";
+@import '@glidejs/glide/src/assets/sass/glide.core';
+@import '../../../sass/variables';
 
 .wp-block-wdsblocks-carousel {
 
@@ -50,7 +50,7 @@
 		position: relative;
 		width: 1rem;
 
-		&[class*="--active"] {
+		&[class*='--active'] {
 			opacity: 1;
 		}
 	}

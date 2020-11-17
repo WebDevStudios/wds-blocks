@@ -62,6 +62,7 @@ export default function Slide( props ) {
 
 	// Determine HOC and extra props according to background type.
 	switch ( backgroundType ) {
+
 		// Display slide with color background.
 		case 'color':
 			composeHOCs.push( withBackgroundColor );
@@ -89,7 +90,7 @@ export default function Slide( props ) {
 		wrapProps.overlayOpacity = overlayOpacity;
 	}
 
-	const SlideComponent = compose( composeHOCs )( 'div' );
+	const SlideComponent = compose( composeHOCs )( 'div' ); // eslint-disable-line @wordpress/no-unused-vars-before-return
 
 	// Display default slide.
 	return (

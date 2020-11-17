@@ -1,67 +1,83 @@
-# `Slide` #
+# `Slide`
 
 A block that contains one or more child blocks and displays a carousel slide.
 
-## Attributes ##
+## Attributes
 
-### `fontColor: string` ###
-*Default: `undefined`.* Tracks color name for `font-color`.
+### `fontColor: string`
 
-### `customFontColor: string` ###
-*Default: `undefined`.* Tracks custom color code for `font-color`.
+_Default: `undefined`._ Tracks color name for `font-color`.
 
-### `backgroundType: string` ###
-*Default: `none`.* Tracks type of background selected for current `Slide`.
+### `customFontColor: string`
 
-### `backgroundColor: string` ###
-*Default: `undefined`.* Tracks color name for `background-color`.
+_Default: `undefined`._ Tracks custom color code for `font-color`.
 
-### `customBackgroundColor: string` ###
-*Default: `undefined`.* Tracks custom color code for `background-color`.
+### `backgroundType: string`
 
-### `backgroundImage: object` ###
-*Default: `undefined`.* Tracks object of image attributes for `background-image`.
+_Default: `none`._ Tracks type of background selected for current `Slide`.
 
-### `backgroundVideo: object` ###
-*Default: `undefined`.* Tracks object of video attributes for `background-video`.
+### `backgroundColor: string`
 
-### `overlayColor: string` ###
-*Default: `undefined`.* Tracks color name for `background-color` as an overlay.
+_Default: `undefined`._ Tracks color name for `background-color`.
 
-### `customOverlayColor: string` ###
-*Default: `undefined`.* Tracks custom color code for `background-color` as an overlay.
+### `customBackgroundColor: string`
 
-### `overlayOpacity: number` ###
-*Default: `undefined`.* Tracks value for `opacity` of overlay.
+_Default: `undefined`._ Tracks custom color code for `background-color`.
 
-## Usage ##
-*Category: WDS Blocks*
+### `backgroundImage: object`
+
+_Default: `undefined`._ Tracks object of image attributes for `background-image`.
+
+### `backgroundVideo: object`
+
+_Default: `undefined`._ Tracks object of video attributes for `background-video`.
+
+### `overlayColor: string`
+
+_Default: `undefined`._ Tracks color name for `background-color` as an overlay.
+
+### `customOverlayColor: string`
+
+_Default: `undefined`._ Tracks custom color code for `background-color` as an overlay.
+
+### `overlayOpacity: number`
+
+_Default: `undefined`._ Tracks value for `opacity` of overlay.
+
+## Usage
+
+_Category: WDS Blocks_
 
 Add `Carousel` block then add any number of `Slide` blocks within. For each `Slide` block, add content and configure settings.
 
-## Settings ##
+## Settings
 
-### Color Settings ###
+### Color Settings
 
-#### Text Color ###
+#### Text Color
+
 Controls the base `font-color` for the current `Slide` block, which can be overwritten on a per-block basis from child blocks. Color palette is derived from the current theme settings. Selection is saved to `fontColor` and `customFontColor` attributes.
 
-### Background Settings ###
+### Background Settings
 
-#### Background Type ####
+#### Background Type
+
 Controls the type of background displayed for the current `Slide` block. Options are `none`, `color`, `image`, or `video`. If an option other than `none` is selected, the appropriate setting is displayed. Selection is saved to `backgroundType` attribute.
 
-#### Background Color ####
-*Only displays when `backgroundType` is set to `color`.* Controls the `background-color` for the current `Slide` block. Color palette is derived from the current theme settings. Selection is saved to `backgroundColor` and `customBackgroundColor` attributes.
+#### Background Color
 
-#### Background Image ####
-*Only displays when `backgroundType` is set to `image`.* Controls the `background-image` for the current `Slide` block via file upload or Media Library. Selection is saved to `backgroundImage` attribute.
+_Only displays when `backgroundType` is set to `color`._ Controls the `background-color` for the current `Slide` block. Color palette is derived from the current theme settings. Selection is saved to `backgroundColor` and `customBackgroundColor` attributes.
 
-#### Background Video ####
-*Only displays when `backgroundType` is set to `video`.* Controls the `background-video` for the current `Slide` block via file upload or Media Library. Selection is saved to `backgroundVideo` attribute.
+#### Background Image
 
-## Screenshots ##
+_Only displays when `backgroundType` is set to `image`._ Controls the `background-image` for the current `Slide` block via file upload or Media Library. Selection is saved to `backgroundImage` attribute.
 
-### Editor: `Slide` with Settings Panel ###
+#### Background Video
+
+_Only displays when `backgroundType` is set to `video`._ Controls the `background-video` for the current `Slide` block via file upload or Media Library. Selection is saved to `backgroundVideo` attribute.
+
+## Screenshots
+
+### Editor: `Slide` with Settings Panel
+
 ![Editor: `Slide` with Settings Panel](../../../assets/carousel-slide/screenshot-1.png)
-

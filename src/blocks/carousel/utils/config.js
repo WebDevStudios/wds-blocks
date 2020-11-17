@@ -9,15 +9,12 @@ import { PREFIX } from '../../../utils/config';
  *
  * @param  {Object} [settings] Carousel settings.
  */
-export const GLIDE_SETTINGS = applyFilters(
-	`${ PREFIX }.carousel.glideSettings`,
-	{
-		autoplay: 5000,
-		focusAt: 'center',
-		gap: 0,
-		type: 'carousel',
-	}
-);
+export const GLIDE_SETTINGS = applyFilters( `${ PREFIX }.carousel.glideSettings`, {
+	autoplay: 5000,
+	focusAt: 'center',
+	gap: 0,
+	type: 'carousel',
+} );
 
 /**
  * Filter props for carousel InnerBlocks.

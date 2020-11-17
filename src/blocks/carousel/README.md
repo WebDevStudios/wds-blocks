@@ -1,32 +1,39 @@
-# `Carousel` #
+# `Carousel`
 
 A block that contains one or more `Slide` blocks and displays a carousel slider with navigation buttons and pagination dots.
 
-## Attributes ##
+## Attributes
 
-### `showPreview: Boolean` ###
-*Default: `true`.* Tracks whether `preview` or `edit` mode is being displayed in the admin editor.
+### `showPreview: Boolean`
 
-### `slideCount: Number` ###
-*Default: `0`.* Tracks number of `Slide` blocks contained in the `Carousel` block.
+_Default: `true`._ Tracks whether `preview` or `edit` mode is being displayed in the admin editor.
 
-## Usage ##
-*Category: WDS Blocks*
+### `slideCount: Number`
+
+_Default: `0`._ Tracks number of `Slide` blocks contained in the `Carousel` block.
+
+## Usage
+
+_Category: WDS Blocks_
 
 Add `Carousel` block then add any number of `Slide` blocks within. For each `Slide` block, add content and configure settings.
 
-## Toolbar Buttons ##
+## Toolbar Buttons
 
-### Alignment ###
-*Default: `wide`.* Switch between `wide` (width of post content ) and `full` (width of full page).
+### Alignment
 
-### Mode ###
-*Default: `preview`.* Switch between `preview` (fully-functional carousel) and `edit` (standard block editor). Can also be toggled from `preview` to `edit` mode by double-clicking on the block.
+_Default: `wide`._ Switch between `wide` (width of post content ) and `full` (width of full page).
 
-## Screenshots ##
+### Mode
 
-### Editor: Edit Mode ###
+_Default: `preview`._ Switch between `preview` (fully-functional carousel) and `edit` (standard block editor). Can also be toggled from `preview` to `edit` mode by double-clicking on the block.
+
+## Screenshots
+
+### Editor: Edit Mode
+
 ![Editor: Edit Mode](../../../assets/carousel/screenshot-1.png)
 
-### Editor: Preview Mode ###
+### Editor: Preview Mode
+
 ![Editor: Preview Mode](../../../assets/carousel/screenshot-2.png)

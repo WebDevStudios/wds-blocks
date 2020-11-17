@@ -1,54 +1,60 @@
-# `BackgroundSettingsPanel` #
+# `BackgroundSettingsPanel`
 
 Render a `PanelBody` component containing inputs to toggle background type and control background display.
 
-## Properties ##
+## Properties
 
-### `backgroundType: String` ###
-*Required.* Type of background to display. Options include `none` and some combination of `color`, `image`, and/or `video`, depending on value of `backgroundOptions`.
+### `backgroundType: String`
 
-### `setBackgroundType( value: String ): Function` ###
-*Required.* Called when `backgroundType` is changed, where `value` is the type of background to display.
+_Required._ Type of background to display. Options include `none` and some combination of `color`, `image`, and/or `video`, depending on value of `backgroundOptions`.
 
-### `backgroundOptions: Array` ###
-*Default: `[ 'color', 'image', 'video' ]`.* The allowed options for `backgroundType`, not including the required `none` option.
+### `setBackgroundType( value: String ): Function`
 
-### `description: String` ###
-*Default: `__( 'Remember: image and video files should be compressed and optimized with tools like ImageOptim (https://imageoptim.com/online) and Handbrake (https://handbrake.fr/) prior to upload. For best results, background media should be at least 1280x720.', 'wdsblocks' )`.* The escaped string representing the panel settings description.
+_Required._ Called when `backgroundType` is changed, where `value` is the type of background to display.
 
-### `backgroundColor: String` ###
-*Optional.* The hex code representing the background color, if selected.
+### `backgroundOptions: Array`
 
-### `setBackgroundColor( value: String ): Function` ###
-*Optional.* Called when `backgroundColor` is changed, where `value` is the new hex color code.
+_Default: `[ 'color', 'image', 'video' ]`._ The allowed options for `backgroundType`, not including the required `none` option.
 
-### `backgroundImage: Object` ###
-*Optional.* The object of attributes representing the background image, if selected.
+### `description: String`
 
-### `setBackgroundImage( value: Object ): Function` ###
-*Optional.* Called when `backgroundImage` is changed, where `value` is the new background image attributes object.
+_Default: `__( 'Remember: image and video files should be compressed and optimized with tools like ImageOptim (https://imageoptim.com/online) and Handbrake (https://handbrake.fr/) prior to upload. For best results, background media should be at least 1280x720.', 'wdsblocks' )`._ The escaped string representing the panel settings description.
 
-### `backgroundVideo: Object` ###
-*Optional.* The object of attributes representing the background video, if selected.
+### `backgroundColor: String`
 
-### `setBackgroundVideo( value: Object ): Function` ###
-*Optional.* Called when `backgroundVideo` is changed, where `value` is the new background video attributes object.
+_Optional._ The hex code representing the background color, if selected.
 
-## Usage ##
+### `setBackgroundColor( value: String ): Function`
 
-*Note: `backgroundColor`/`setBackgroundColor` assumes usage of `withColors` higher-order component.*
+_Optional._ Called when `backgroundColor` is changed, where `value` is the new hex color code.
+
+### `backgroundImage: Object`
+
+_Optional._ The object of attributes representing the background image, if selected.
+
+### `setBackgroundImage( value: Object ): Function`
+
+_Optional._ Called when `backgroundImage` is changed, where `value` is the new background image attributes object.
+
+### `backgroundVideo: Object`
+
+_Optional._ The object of attributes representing the background video, if selected.
+
+### `setBackgroundVideo( value: Object ): Function`
+
+_Optional._ Called when `backgroundVideo` is changed, where `value` is the new background video attributes object.
+
+## Usage
+
+_Note: `backgroundColor`/`setBackgroundColor` assumes usage of `withColors` higher-order component._
 
 ```jsx
 import { InspectorControls, withColors } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
 
-function Edit( props ) {
+function Edit(props) {
 	const {
-		attributes: {
-			backgroundType,
-			backgroundImage,
-			backgroundVideo,
-		},
+		attributes: { backgroundType, backgroundImage, backgroundVideo },
 		backgroundColor,
 		setBackgroundColor,
 		setAttributes,
@@ -57,30 +63,30 @@ function Edit( props ) {
 	return (
 		<InspectorControls>
 			<BackgroundSettingsPanel
-				backgroundType={ backgroundType }
-				setBackgroundType={ ( value ) =>
-					setAttributes( { backgroundType: value } )
+				backgroundType={backgroundType}
+				setBackgroundType={(value) =>
+					setAttributes({ backgroundType: value })
 				}
-				backgroundColor={ backgroundColor }
-				setBackgroundColor={ setBackgroundColor }
-				backgroundImage={ backgroundImage }
-				setBackgroundImage={ ( value ) =>
-					setAttributes( {
+				backgroundColor={backgroundColor}
+				setBackgroundColor={setBackgroundColor}
+				backgroundImage={backgroundImage}
+				setBackgroundImage={(value) =>
+					setAttributes({
 						backgroundImage: value,
-					} )
+					})
 				}
-				backgroundVideo={ backgroundVideo }
-				setBackgroundVideo={ ( value ) =>
-					setAttributes( {
+				backgroundVideo={backgroundVideo}
+				setBackgroundVideo={(value) =>
+					setAttributes({
 						backgroundVideo: value,
-					} )
+					})
 				}
 			/>
 		</InspectorControls>
 	);
 }
 
-export default compose( [
-	withColors( { backgroundColor: 'background-color' } ),
-] )( Edit );
+export default compose([withColors({ backgroundColor: 'background-color' })])(
+	Edit
+);
 ```
