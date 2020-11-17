@@ -1,27 +1,29 @@
-# `PreviewToggle` #
+# `PreviewToggle`
 
 Render a `BlockControls` component containing a `ToolbarGroup` component that displays a `ToolbarButton` component to toggle between `preview` and `edit` mode for a block.
 
-## Properties ##
+## Properties
 
-### `togglePreview(): Function` ###
-*Required.* Called when the toolbar button is clicked and toggles mode state.
+### `togglePreview(): Function`
 
-### `showPreview: Boolean` ###
-*Default: `true`.* The current mode state.
+_Required._ Called when the toolbar button is clicked and toggles mode state.
 
-## Usage ##
+### `showPreview: Boolean`
 
-*Note: `PreviewToggle` is designed to be used alongside `usePreviewToggle` hook.*
+_Default: `true`._ The current mode state.
+
+## Usage
+
+_Note: `PreviewToggle` is designed to be used alongside `usePreviewToggle` hook._
 
 ```jsx
-export default function Edit( props ) {
+export default function Edit(props) {
 	const { showPreview, togglePreview } = usePreviewToggle();
 
 	return (
 		<PreviewToggle
-			showPreview={ showPreview }
-			togglePreview={ togglePreview }
+			showPreview={showPreview}
+			togglePreview={togglePreview}
 		/>
 	);
 }

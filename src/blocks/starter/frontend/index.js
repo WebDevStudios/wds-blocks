@@ -9,6 +9,7 @@ const starterClass = `wp-block-${ PREFIX }-starter`;
  * @since  2.0.0
  */
 const wdsBlocksStarter = {
+
 	/**
 	 * Initial starter block setup.
 	 *
@@ -18,6 +19,7 @@ const wdsBlocksStarter = {
 	 * @return {?boolean} Return false if no the starter block found.
 	 */
 	init: () => {
+
 		// Target starter block elements.
 		const starter = document.querySelectorAll( `.${ starterClass }` );
 
@@ -25,7 +27,6 @@ const wdsBlocksStarter = {
 		if ( ! starter.length ) {
 			return false;
 		}
-
 	},
 };
 

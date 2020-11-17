@@ -33,6 +33,7 @@ function Edit( props ) {
 	const slider = new Glide( `#block-${ clientId }`, GLIDE_SETTINGS );
 
 	useEffect( () => {
+
 		// Mount or unmount glide functionality.
 		if ( showPreview ) {
 			slider.mount();
@@ -98,9 +99,8 @@ export default compose( [
 		const { clientId } = props;
 
 		// Get current child block (slide) clientId values.
-		const slideCount = select( 'core/block-editor' ).getBlockOrder(
-			clientId
-		).length;
+		const slideCount = select( 'core/block-editor' ).getBlockOrder( clientId )
+			.length;
 
 		return { slideCount };
 	} ),

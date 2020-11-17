@@ -1,8 +1,8 @@
-@import "../../sass/mixins";
+@import '../../sass/mixins';
 
 .wp-block-wdsblocks-accordion {
 
-	@include edit-mode( ".edit-mode &" );
+	@include edit-mode('.edit-mode &');
 }
 
 // Edit mode styles for accordion children.

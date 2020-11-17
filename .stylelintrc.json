@@ -1,6 +1,6 @@
 {
 	"extends": "stylelint-config-wordpress/scss",
-	"ignoreFiles": [ "build/**", "vendor/**" ],
+	"ignoreFiles": ["build/**", "vendor/**"],
 	"rules": {
 		"block-no-empty": null,
 		"font-family-no-duplicate-names": null,

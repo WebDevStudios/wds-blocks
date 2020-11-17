@@ -15,7 +15,8 @@ import './frontend/style.scss';
 registerBlockType( `${ PREFIX }/starter`, {
 	title: __( 'Starter Block', 'wdsblocks' ),
 	description: __(
-		'A starter block with a RichText heading and color options.', 'wdsblocks'
+		'A starter block with a RichText heading and color options.',
+		'wdsblocks'
 	),
 	icon: 'admin-network',
 	category: 'wds-blocks',
@@ -27,7 +28,7 @@ registerBlockType( `${ PREFIX }/starter`, {
 		},
 		align: {
 			type: 'string',
-			default: 'full'
+			default: 'full',
 		},
 		title: {
 			type: 'array',
@@ -39,13 +40,13 @@ registerBlockType( `${ PREFIX }/starter`, {
 			default: {
 				color: '#000000',
 				textAlign: 'left',
-			}
+			},
 		},
 		backgroundStyle: {
 			type: 'object',
 			default: {
 				backgroundColor: 'transparent',
-			}
+			},
 		},
 	},
 	supports: {

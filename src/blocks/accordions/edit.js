@@ -81,6 +81,7 @@ function Edit( props ) {
 	const showDesc = desc && desc[ 0 ] !== undefined ? true : false;
 
 	useEffect( () => {
+
 		// Trigger `init` on state update.
 		if ( showPreview ) {
 			wdsBlocksAccordion.init();
@@ -108,11 +109,11 @@ function Edit( props ) {
 					{ 'web' === Platform.OS &&
 						!! fontColor?.color &&
 						!! backgroundColor?.color && (
-							<ContrastChecker
-								backgroundColor={ backgroundColor.color }
-								textColor={ fontColor.color }
-							/>
-						) }
+						<ContrastChecker
+							backgroundColor={ backgroundColor.color }
+							textColor={ fontColor.color }
+						/>
+					) }
 				</PanelColorSettings>
 				<PanelBody title={ __( 'Settings', 'wdsblocks' ) }>
 					<BaseControl
@@ -173,9 +174,7 @@ function Edit( props ) {
 				onDoubleClick={ doubleClick }
 			>
 				<div className={ CONTAINER_CLASS }>
-					<InputLabel
-						label={ __( 'Title (optional)', 'wdsblocks' ) }
-					/>
+					<InputLabel label={ __( 'Title (optional)', 'wdsblocks' ) } />
 					<RichText
 						tagName="h2"
 						type="button"
@@ -193,10 +192,7 @@ function Edit( props ) {
 						allowedFormats={ [ 'core/bold', 'core/italic' ] }
 					/>
 					<InputLabel
-						label={ __(
-							'Short Description (optional)',
-							'wdsblocks'
-						) }
+						label={ __( 'Short Description (optional)', 'wdsblocks' ) }
 					/>
 					<RichText
 						tagName="p"

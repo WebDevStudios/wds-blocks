@@ -1,41 +1,51 @@
-# `Starter Block` #
+# `Starter Block`
 
 A starter block with a RichText heading and color options.
 
-## Attributes ##
+## Attributes
 
-### `title: array` ###
-*Default: `undefined'`.* Richtext block title.
+### `title: array`
 
-### `contentStyle: object` ###
-*Default: `backgroundColor: 'transparent'`.* Tracks background color for block.
+_Default: `undefined'`._ Richtext block title.
 
-### `backgroundStyle: object` ###
-*Default: `color: '#000000', textAlign: 'left'`.* Tracks custom color and alignment for `title`.
+### `contentStyle: object`
 
-### `showPreview: Boolean` ###
-*Default: `true`.* Tracks whether `preview` or `edit` mode is being displayed in the admin editor.
+_Default: `backgroundColor: 'transparent'`._ Tracks background color for block.
 
-## Usage ##
+### `backgroundStyle: object`
+
+_Default: `color: '#000000', textAlign: 'left'`._ Tracks custom color and alignment for `title`.
+
+### `showPreview: Boolean`
+
+_Default: `true`._ Tracks whether `preview` or `edit` mode is being displayed in the admin editor.
+
+## Usage
+
 Use as a starting point when creating new blocks.
 
-## Settings ##
+## Settings
 
-### Color Settings ###
+### Color Settings
 
-#### Text Color ###
+#### Text Color
+
 Controls the base `font-color` for the current `Starter` block, which can be overwritten on a per-block basis from child blocks. Color palette is derived from the current theme settings. Selection is saved to `contentStyle` attribute.
 
-#### Background Color ###
+#### Background Color
+
 Controls the base `background-color` for the current `Starter` block, which can be overwritten on a per-block basis from child blocks. Color palette is derived from the current theme settings. Selection is saved to the `backgroundStyle` attribute.
 
-## Toolbar Buttons ##
+## Toolbar Buttons
 
-### Alignment ###
-*Default: `full`.* Switch between `wide` (width of post content ), `full` (width of full page), `left`, `center`, or `right`.
+### Alignment
 
-### Text Alignment ###
-*Default: `left`.* Switch between `Align text left`, `Align text center`, or `Align text right`.
+_Default: `full`._ Switch between `wide` (width of post content ), `full` (width of full page), `left`, `center`, or `right`.
 
-### Mode ###
-*Default: `preview`.* Switch between `preview` (fully-functional carousel) and `edit` (standard block editor). Can also be toggled from `preview` to `edit` mode by double-clicking on the block.
+### Text Alignment
+
+_Default: `left`._ Switch between `Align text left`, `Align text center`, or `Align text right`.
+
+### Mode
+
+_Default: `preview`._ Switch between `preview` (fully-functional carousel) and `edit` (standard block editor). Can also be toggled from `preview` to `edit` mode by double-clicking on the block.

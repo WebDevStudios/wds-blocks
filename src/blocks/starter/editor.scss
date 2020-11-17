@@ -2,10 +2,9 @@
 // EDITOR STYLES
 // CSS for just the Backend enqueued after style.scss
 //--------------------------------------------------------------
-@import "../../sass/mixins";
+@import '../../sass/mixins';
 
 [data-type='wdsblocks/starter'] {
-
 	margin-bottom: 0;
 	margin-top: 0;
 
@@ -24,9 +23,6 @@
 			.block-list-appender {
 				display: none;
 			} // .block-list-appender
-
 		} // &.preview-mode
-
 	} // .wp-block-wdsblocks-starter
-
 } // [data-type='wdsblocks/starter']

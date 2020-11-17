@@ -5,23 +5,24 @@ const expandedClass = 'is-expanded';
 const collapseClass = 'will-collapse';
 
 const wdsBlocksAccordion = {
-	/**
-	 * Initial Accordion Setup.
-	 */
+
 	init: () => {
+
 		// Get all accordions.
 		const accordions = document.querySelectorAll( `.${ accordionClass }` );
 		if ( ! accordions ) {
 			return false; // Exit.
 		}
+
 		// Loop all accordions.
 		[ ...accordions ].forEach( ( accordion ) => {
 			const button = accordion.querySelector( `.${ buttonClass }` );
 			if ( button ) {
 				button.addEventListener( 'click', wdsBlocksAccordion.click );
-				button.addEventListener( 'keypress', function ( event ) {
+				button.addEventListener( 'keypress', function( event ) {
+
 					// Enter/Return click
-					if ( event.which === 13 || event.keyCode === 13 ) {
+					if ( 13 === event.which || 13 === event.keyCode ) {
 						wdsBlocksAccordion.click( event );
 					}
 				} );
@@ -35,6 +36,7 @@ const wdsBlocksAccordion = {
 		if ( ! accordionGroups ) {
 			return false; // Exit.
 		}
+
 		// Loop all accordion groups.
 		[ ...accordionGroups ].forEach( ( group ) => {
 			wdsBlocksAccordion.setToggles( group );
@@ -42,11 +44,6 @@ const wdsBlocksAccordion = {
 		} );
 	},
 
-	/**
-	 * Accordion click event.
-	 *
-	 * @param {Event} e
-	 */
 	click: ( e ) => {
 		e.preventDefault();
 		const button = e.currentTarget;
@@ -63,6 +60,7 @@ const wdsBlocksAccordion = {
 		) {
 			wdsBlocksAccordion.collapse( props );
 		} else {
+
 			// Close open accordion when `will-collapse` class is active.
 			if ( button.classList.contains( collapseClass ) ) {
 				wdsBlocksAccordion.closeActive( props.container );
@@ -71,12 +69,6 @@ const wdsBlocksAccordion = {
 		}
 	},
 
-	/**
-	 * Expand accordion.
-	 *
-	 * @param {Object} props
-	 * @param {boolean} moveFocus
-	 */
 	expand: ( props, moveFocus = true ) => {
 		props.container.classList.add( expandedClass );
 		props.button.setAttribute( 'aria-expanded', true );
@@ -87,19 +79,15 @@ const wdsBlocksAccordion = {
 
 		// Set height on content div
 		props.content.style.height = child.clientHeight + 'px';
+
 		// Delay and add focus
-		setTimeout( function () {
+		setTimeout( function() {
 			if ( moveFocus ) {
 				props.content.focus();
 			}
 		}, 200 );
 	},
 
-	/**
-	 * Collapse accordion.
-	 *
-	 * @param {Object} props
-	 */
 	collapse: ( props ) => {
 		props.container.classList.remove( expandedClass );
 		props.button.setAttribute( 'aria-expanded', false );
@@ -107,20 +95,15 @@ const wdsBlocksAccordion = {
 		props.content.style.height = '0px';
 	},
 
-	/**
-	 * Expand first accordion is set in block editor.
-	 *
-	 * @param {HTMLElement} group
-	 */
 	openFirst: ( group ) => {
 		if ( ! group ) {
 			return false;
 		}
 
 		// Get data attribute.
-		const openFirst = group.dataset.openFirst
-			? group.dataset.openFirst
-			: false;
+		const openFirst = group.dataset.openFirst ?
+			group.dataset.openFirst :
+			false;
 
 		const firstButton = group.querySelector( `.${ buttonClass }` );
 		if ( ! firstButton ) {
@@ -136,16 +119,12 @@ const wdsBlocksAccordion = {
 		if ( 'true' === openFirst ) {
 			wdsBlocksAccordion.expand( props, false );
 		} else {
+
 			// Used in the Block Editor only.
 			wdsBlocksAccordion.collapse( props, false );
 		}
 	},
 
-	/**
-	 * Set up accordion toggle functionality.
-	 *
-	 * @param {HTMLElement} group
-	 */
 	setToggles: ( group ) => {
 		if ( ! group ) {
 			return false;
@@ -156,6 +135,7 @@ const wdsBlocksAccordion = {
 			return false;
 		}
 		[ ...buttons ].forEach( ( button ) => {
+
 			// Need to conditional if/else here for Block Editor integration.
 			if ( 'true' === toggle ) {
 				button.classList.add( collapseClass );
@@ -165,21 +145,15 @@ const wdsBlocksAccordion = {
 		} );
 	},
 
-	/**
-	 * Close currently active accordion.
-	 *
-	 * @param {HTMLElement} container
-	 */
 	closeActive: ( container ) => {
 		if ( ! container ) {
 			return false;
 		}
+
 		// Get active accordion from container parent or parent parent (Block editor integration).
 		const active =
 			container.parentNode.querySelector( `.${ expandedClass }` ) ||
-			container.parentNode.parentNode.querySelector(
-				`.${ expandedClass }`
-			);
+			container.parentNode.parentNode.querySelector( `.${ expandedClass }` );
 		if ( ! active ) {
 			return false;
 		}

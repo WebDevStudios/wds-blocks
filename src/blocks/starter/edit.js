@@ -1,4 +1,11 @@
-import { RichText, BlockControls, InnerBlocks, InspectorControls, ColorPalette, AlignmentToolbar } from '@wordpress/block-editor';
+import {
+	RichText,
+	BlockControls,
+	InnerBlocks,
+	InspectorControls,
+	ColorPalette,
+	AlignmentToolbar,
+} from '@wordpress/block-editor';
 import { Panel, PanelBody, PanelRow } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 import { withSelect } from '@wordpress/data';
@@ -26,7 +33,7 @@ function Edit( props ) {
 			title,
 			contentStyle,
 			backgroundStyle,
-			blockCount: blockCountAttr
+			blockCount: blockCountAttr,
 		},
 		className,
 		setAttributes,
@@ -47,39 +54,39 @@ function Edit( props ) {
 		togglePreview();
 	}
 
-	const onChangeTitle = (newTitle) => {
-		setAttributes({
+	const onChangeTitle = ( newTitle ) => {
+		setAttributes( {
 			title: newTitle,
-		});
+		} );
 	};
 
-	const onChangeTextColor = (newColor) => {
-		let newColorValue = (newColor === undefined) ? 'none' : newColor;
-		setAttributes({
+	const onChangeTextColor = ( newColor ) => {
+		const newColorValue = newColor === undefined ? 'none' : newColor;
+		setAttributes( {
 			contentStyle: {
 				color: newColorValue,
 				textAlign: contentStyle.textAlign,
-			}
-		});
+			},
+		} );
 	};
 
-	const onChangeBackgroundColor = (newBgcolor) => {
-		let newBgcolorValue = (newBgcolor === undefined) ? 'none' : newBgcolor;
-		setAttributes({
+	const onChangeBackgroundColor = ( newBgcolor ) => {
+		const newBgcolorValue = newBgcolor === undefined ? 'none' : newBgcolor;
+		setAttributes( {
 			backgroundStyle: {
 				backgroundColor: newBgcolorValue,
-			}
-		});
+			},
+		} );
 	};
 
-	const onChangeAlignment = (newAlignment) => {
-		let alignmentValue = (newAlignment === undefined) ? 'none' : newAlignment;
-		setAttributes({
+	const onChangeAlignment = ( newAlignment ) => {
+		const alignmentValue = newAlignment === undefined ? 'none' : newAlignment;
+		setAttributes( {
 			contentStyle: {
 				color: contentStyle.color,
 				textAlign: alignmentValue,
-			}
-		});
+			},
+		} );
 	};
 
 	return (
@@ -101,18 +108,21 @@ function Edit( props ) {
 							title={ __( 'Color Settings', 'wdsblocks' ) }
 							initialOpen={ true }
 						>
-							<PanelRow>{ __('Choose a text color.', 'wdsblocks') }</PanelRow>
+							<PanelRow>
+								{ __( 'Choose a text color.', 'wdsblocks' ) }
+							</PanelRow>
 							<ColorPalette
 								value={ contentStyle.color }
 								onChange={ onChangeTextColor }
 							/>
-							<PanelRow>{ __('Choose a background color.', 'wdsblocks') }</PanelRow>
+							<PanelRow>
+								{ __( 'Choose a background color.', 'wdsblocks' ) }
+							</PanelRow>
 							<ColorPalette
 								value={ backgroundStyle.backgroundColor }
 								onChange={ onChangeBackgroundColor }
 							/>
 						</PanelBody>
-
 					</Panel>
 				</InspectorControls>
 			</Fragment>
@@ -123,11 +133,16 @@ function Edit( props ) {
 				onDoubleClick={ doubleClick }
 			>
 				{ showPreview ? (
-					<div className={ `${ className } starter` } style={ backgroundStyle } blockCount={ blockCount } isAdmin={ true }>
+					<div
+						className={ `${ className } starter` }
+						style={ backgroundStyle }
+						blockCount={ blockCount }
+						isAdmin={ true }
+					>
 						<RichText
 							className="block-title"
 							tagName="h2"
-							formattingControls={ [ ] }
+							formattingControls={ [] }
 							style={ contentStyle }
 							value={ title }
 						/>
@@ -141,11 +156,14 @@ function Edit( props ) {
 						/>
 					</div>
 				) : (
-					<div className={ `${ className } starter` } style={ backgroundStyle }>
+					<div
+						className={ `${ className } starter` }
+						style={ backgroundStyle }
+					>
 						<RichText
-							className='block-title'
-							tagName='h2'
-							formattingControls={ [ ] }
+							className="block-title"
+							tagName="h2"
+							formattingControls={ [] }
 							style={ contentStyle }
 							onChange={ onChangeTitle }
 							placeholder={ __( 'Block Title', 'wdsblocks' ) }
@@ -165,9 +183,8 @@ export default compose( [
 		const { blockId } = props;
 
 		// Get current child block (innerblocks) blockId values.
-		const blockCount = select( 'core/block-editor' ).getBlockOrder(
-			blockId
-		).length;
+		const blockCount = select( 'core/block-editor' ).getBlockOrder( blockId )
+			.length;
 
 		return { blockCount };
 	} ),

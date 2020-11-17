@@ -1,6 +1,7 @@
 import { applyFilters } from '@wordpress/hooks';
-import { __ } from '@wordpress/i18n';
 import { PREFIX } from '../../../utils/config';
+
+// import { __ } from '@wordpress/i18n';
 
 /**
  * Filter props for starter InnerBlocks.
@@ -15,6 +16,7 @@ export const INNER_BLOCKS_PROPS = applyFilters(
 	{
 		allowedBlocks: [ 'core/paragraph', 'core/buttons', 'core/image' ],
 		template: [
+
 			/** Sample core block template structure
 			[
 				'core/heading',

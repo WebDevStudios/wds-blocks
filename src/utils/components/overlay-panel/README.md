@@ -1,34 +1,36 @@
-# `OverlayPanel` #
+# `OverlayPanel`
 
 Render a `PanelBody` component containing inputs to control background overlay.
 
-## Properties ##
+## Properties
 
-### `overlayColor: String` ###
-*Required.* The hex code representing the overlay color, if selected.
+### `overlayColor: String`
 
-### `setOverlayColor( value: String ): Function` ###
-*Required.* Called when `overlayColor` is changed, where `value` is the new hex color code.
+_Required._ The hex code representing the overlay color, if selected.
 
-### `overlayOpacity: Number` ###
-*Required.* The number between 0 and 100 representing the overlay opacity.
+### `setOverlayColor( value: String ): Function`
 
-### `setOverlayOpacity( value: Number ): Function` ###
-*Required.* Called when `overlayOpacity` is changed, where `value` is the new opacity.
+_Required._ Called when `overlayColor` is changed, where `value` is the new hex color code.
 
-## Usage ##
+### `overlayOpacity: Number`
 
-*Note: `overlayColor`/`setOverlayColor` assumes usage of `withColors` higher-order component.*
+_Required._ The number between 0 and 100 representing the overlay opacity.
+
+### `setOverlayOpacity( value: Number ): Function`
+
+_Required._ Called when `overlayOpacity` is changed, where `value` is the new opacity.
+
+## Usage
+
+_Note: `overlayColor`/`setOverlayColor` assumes usage of `withColors` higher-order component._
 
 ```jsx
 import { InspectorControls, withColors } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
 
-function Edit( props ) {
+function Edit(props) {
 	const {
-		attributes: {
-			overlayOpacity,
-		},
+		attributes: { overlayOpacity },
 		overlayColor,
 		setOverlayColor,
 		setAttributes,
@@ -37,18 +39,18 @@ function Edit( props ) {
 	return (
 		<InspectorControls>
 			<OverlayPanel
-				overlayColor={ overlayColor }
-				setOverlayColor={ setOverlayColor }
-				overlayOpacity={ overlayOpacity }
-				setOverlayOpacity={ ( value ) =>
-					setAttributes( { overlayOpacity: value } )
+				overlayColor={overlayColor}
+				setOverlayColor={setOverlayColor}
+				overlayOpacity={overlayOpacity}
+				setOverlayOpacity={(value) =>
+					setAttributes({ overlayOpacity: value })
 				}
 			/>
 		</InspectorControls>
 	);
 }
 
-export default compose( [
-	withColors( { overlayColor: 'background-color' } ),
-] )( Edit );
+export default compose([withColors({ overlayColor: 'background-color' })])(
+	Edit
+);
 ```

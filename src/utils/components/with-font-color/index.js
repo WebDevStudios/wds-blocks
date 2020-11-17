@@ -10,6 +10,7 @@ import { getColorClassName } from '@wordpress/block-editor';
  * @return {Function}                   A function that accepts a single param, `props`, to display the wrapped component.
  */
 export default function withFontColor( WrappedComponent ) {
+
 	/**
 	 * @author WebDevStudios
 	 * @since  2.0.0
@@ -17,7 +18,7 @@ export default function withFontColor( WrappedComponent ) {
 	 * @param  {Object} [props] Properties passed to the component.
 	 * @return {Element}        Element to render.
 	 */
-	return function ( props ) {
+	return function( props ) {
 		const {
 			fontColor,
 			customFontColor,
@@ -32,9 +33,7 @@ export default function withFontColor( WrappedComponent ) {
 
 		// Add color classes.
 		classes.push( fontColor || customFontColor ? 'has-text-color' : null );
-		classes.push(
-			fontColor ? getColorClassName( 'color', fontColor ) : null
-		);
+		classes.push( fontColor ? getColorClassName( 'color', fontColor ) : null );
 
 		// Add custom color style.
 		styles.color = customFontColor ? customFontColor : undefined;
