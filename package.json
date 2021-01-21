@@ -120,16 +120,9 @@
 		}
 	},
 	"lint-staged": {
-		"*.js": "npm run lint:js",
-		"*.jsx": "npm run lint:js",
-		"*.ts": "npm run lint:js",
-		"*.tsx": "npm run lint:js",
-		"*.vue": "npm run lint:js",
-		"*.css": "npm run lint:styles",
-		"*.scss": "npm run lint:styles",
-		"*.php": "npm run lint:php",
-		"*.json": "prettier ./**/*.json --write",
-		"*.md": "prettier ./**/*.md --write",
-		"*.yml": "prettier ./**/*.yml --write"
+		"*.{js,jsx,ts,tsx}": "npx eslint --fix",
+		"*.{css,scss}": "npx stylelint --fix",
+		"*.{md,html,json}": "npx prettier --write",
+		"*.php": "npm run lint:php"
 	}
 }
