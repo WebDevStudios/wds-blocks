@@ -21,8 +21,9 @@
 		"Gutenberg"
 	],
 	"dependencies": {
+		"@glidejs/glide": "^3.4.1",
 		"classnames": "^2.2.6",
-		"@glidejs/glide": "^3.4.1"
+		"eslint": "^7.18.0"
 	},
 	"devDependencies": {
 		"@webdevstudios/css-coding-standards": "^1.0.1",
