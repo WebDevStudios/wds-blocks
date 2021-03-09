@@ -15,15 +15,15 @@ A library of Gutenberg blocks.
 
 ---
 
-## 📝 Requirements
+## Requirements 📝
 
--   [Node 12](https://nodejs.org/en/)
+-   [Node 14](https://nodejs.org/en/)
 -   [Composer](https://getcomposer.org/)
 -   [WordPress 5.0+](https://wordpress.org)
 
 ---
 
-## 🚀 Installation
+## Installation 🚀
 
 Clone the repo with Git:
 
@@ -85,6 +85,6 @@ The optional `webpack.config.js` file includes the `@wordpress/scripts` defaults
 
 ---
 
-## :octocat: Contributing and Support
+## Contributing and Support :octocat:
 
 Your contributions and [support tickets](https://github.com/WebDevStudios/WDS-Blocks/issues) are welcome. Please see our [guidelines](https://github.com/WebDevStudios/WDS-Blocks/blob/master/.github/CONTRIBUTING.md) before submitting a pull request.
