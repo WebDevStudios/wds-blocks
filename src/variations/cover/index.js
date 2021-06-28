@@ -17,7 +17,7 @@ wp.blocks.registerBlockVariation(
 			backgroundType: 'image',
 			className: 'cta-cover',
 			contentAlign: 'center',
-			url: 'https://loremflickr.com/1280/720/dogs',
+			url: 'https://via.placeholder.com/1280x720.png/000/fff',
 		},
 		icon: icons.cta,
 		innerBlocks: [
@@ -43,7 +43,6 @@ wp.blocks.registerBlockVariation(
 				[
 					[ 'core/button',
 						{
-							backgroundColor: 'vivid-cyan-blue',
 							className: 'hero-button is-style-outline',
 							placeholder: __( 'Add Button label', 'wdsblocks' ),
 							textColor: 'white',

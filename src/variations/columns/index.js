@@ -23,16 +23,15 @@ wp.blocks.registerBlockVariation (
 				[
 					[ 'core/group',
 						{
-							backgroundColor: 'black',
 							className: 'service-group',
-							textColor: 'white',
+							textColor: 'black',
 						},
 						[
 							[ 'core/image',
 								{
 									align: 'center',
 									className: 'service-image',
-									url: 'https://www.placecage.com/300/200',
+									url: 'https://via.placeholder.com/300x200.png/09f/fff',
 									height: 200,
 									width: 300,
 								},
@@ -46,7 +45,7 @@ wp.blocks.registerBlockVariation (
 							],
 							[ 'core/paragraph',
 								{
-									align: 'left',
+									align: 'center',
 									className: 'service-content',
 									placeholder: __( 'Add Service Description', 'wdsblocks' ),
 								},
@@ -59,16 +58,16 @@ wp.blocks.registerBlockVariation (
 				[
 					[ 'core/group',
 						{
-							backgroundColor: 'black',
+							backgroundColor: '',
 							className: 'service-group',
-							textColor: 'white',
+							textColor: 'black',
 						},
 						[
 							[ 'core/image',
 								{
 									align: 'center',
 									className: 'service-image',
-									url: 'https://www.placecage.com/gif/300/200',
+									url: 'https://via.placeholder.com/300x200.png/09f/fff',
 									height: 200,
 									width: 300,
 								},
@@ -82,7 +81,7 @@ wp.blocks.registerBlockVariation (
 							],
 							[ 'core/paragraph',
 								{
-									align: 'left',
+									align: 'center',
 									className: 'service-content',
 									placeholder: __( 'Add Service Description', 'wdsblocks' ),
 								},
@@ -95,16 +94,16 @@ wp.blocks.registerBlockVariation (
 				[
 					[ 'core/group',
 						{
-							backgroundColor: 'black',
+							backgroundColor: '',
 							className: 'service-group',
-							textColor: 'white',
+							textColor: 'black',
 						},
 						[
 							[ 'core/image',
 								{
 									align: 'center',
 									className: 'service-image',
-									url: 'https://www.placecage.com/c/300/200',
+									url: 'https://via.placeholder.com/300x200.png/09f/fff',
 									height: 200,
 									width: 300,
 								},
@@ -118,7 +117,7 @@ wp.blocks.registerBlockVariation (
 							],
 							[ 'core/paragraph',
 								{
-									align: 'left',
+									align: 'center',
 									className: 'service-content',
 									placeholder: __( 'Add Service Description', 'wdsblocks' ),
 								},
