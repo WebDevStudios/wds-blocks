@@ -46,7 +46,7 @@ _Default: `undefined`._ Tracks value for `opacity` of overlay.
 
 ## Usage
 
-_Category: WDS Blocks_
+### Category: WDS Blocks
 
 Add `Carousel` block then add any number of `Slide` blocks within. For each `Slide` block, add content and configure settings.
 

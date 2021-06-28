@@ -36,7 +36,10 @@ export default function Edit( props ) {
 
 	return (
 		<div className={ className }>
-			<InputLabel label={ __( 'Section Title ', 'wdsblocks' ) } req="true" />
+			<InputLabel
+				label={ __( 'Section Title ', 'wdsblocks' ) }
+				req="true"
+			/>
 			<RichText
 				tagName="h3"
 				role="button"

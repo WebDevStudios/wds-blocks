@@ -62,7 +62,6 @@ export default function Slide( props ) {
 
 	// Determine HOC and extra props according to background type.
 	switch ( backgroundType ) {
-
 		// Display slide with color background.
 		case 'color':
 			composeHOCs.push( withBackgroundColor );

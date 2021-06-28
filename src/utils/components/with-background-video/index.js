@@ -8,7 +8,6 @@
  * @return {Function}                   A function that accepts a single param, `props`, to display the wrapped component.
  */
 export default function withBackgroundVideo( WrappedComponent ) {
-
 	/**
 	 * @author WebDevStudios
 	 * @since  2.0.0
@@ -16,7 +15,7 @@ export default function withBackgroundVideo( WrappedComponent ) {
 	 * @param  {Object} [props] Properties passed to the component.
 	 * @return {Element}        Element to render.
 	 */
-	return function( props ) {
+	return function ( props ) {
 		const { backgroundVideo, children, ...passthruProps } = props;
 
 		return (

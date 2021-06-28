@@ -4,7 +4,7 @@
 	padding: 3rem 0;
 	position: relative;
 
-	*:not(video) {
+	*:not( video ) {
 		position: relative;
 		z-index: 1;
 	}
