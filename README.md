@@ -13,13 +13,17 @@ A library of Gutenberg blocks.
 
 ---
 
-## Quick Start
+## Quick Start ⏩
 
-You can download a pre-built copy on the [Releases page](https://github.com/WebDevStudios/wds-blocks/releases).
+1. Download a pre-built copy on the [Releases page](https://github.com/WebDevStudios/wds-blocks/releases).
+2. Extract WDS Blocks into your project's `/plugins` directory
+3. Activate the plugin in the WordPress Dashboard
 
 ---
 
 ## Development 🚀
+
+If you're interested in using WDS Blocks to get started building your own blocks, follow the instructions below:
 
 ### Requirements 📝
 
