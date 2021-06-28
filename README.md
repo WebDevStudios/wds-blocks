@@ -1,7 +1,5 @@
 # WDS Blocks
 
-[![buddy pipeline](https://app.buddy.works/webdevstudios/wds-blocks/pipelines/pipeline/145265/badge.svg?token=2471ae60766a1e9a657f772e493188dde748aa18c236d0b1c325e80be13a2ac6 "buddy pipeline")](https://app.buddy.works/webdevstudios/wds-blocks/pipelines/pipeline/145265)
-
 A library of Gutenberg blocks.
 
 [![WebDevStudios. Your Success is Our Mission.](https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png)](https://webdevstudios.com/contact/)
@@ -15,16 +13,22 @@ A library of Gutenberg blocks.
 
 ---
 
-## Requirements 📝
+## Quick Start
+
+You can download a pre-built copy on the [Releases page](https://github.com/WebDevStudios/wds-blocks/releases).
+
+---
+
+## Development 🚀
+
+### Requirements 📝
 
 -   [Node 14](https://nodejs.org/en/)
 -   [NPM 7](https://nodejs.org/en/)
 -   [Composer](https://getcomposer.org/)
 -   [WordPress 5.0+](https://wordpress.org)
 
----
-
-## Installation 🚀
+### Install
 
 Clone the repo with Git:
 
@@ -44,7 +48,7 @@ composer install
 
 ---
 
-## 💻 Development
+## 💻 Scripts
 
 Watch for changes:
 
