@@ -10,7 +10,7 @@ _Default: `true`._ Tracks whether `preview` or `edit` mode is being displayed in
 
 ## Usage
 
-_Category: WDS Blocks_
+### Category: WDS Blocks
 
 Add `Accordions` block then add any number of `Accordion-Item` blocks within. For each `Accordion-Item` block, add content and configure settings.
 

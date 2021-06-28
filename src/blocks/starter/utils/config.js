@@ -16,7 +16,6 @@ export const INNER_BLOCKS_PROPS = applyFilters(
 	{
 		allowedBlocks: [ 'core/paragraph', 'core/buttons', 'core/image' ],
 		template: [
-
 			/** Sample core block template structure
 			[
 				'core/heading',
@@ -38,7 +37,7 @@ export const INNER_BLOCKS_PROPS = applyFilters(
 				{ align: 'center' },
 				[ [ 'core/button', { text: __( 'Read More', 'wdsblocks' ) } ] ],
 			],
-			*/
+			 */
 		],
 	}
 );

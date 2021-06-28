@@ -1,7 +1,7 @@
 @import './variables';
 
 // Admin styling for blocks in edit mode.
-@mixin edit-mode($selector: '&.edit-mode') {
+@mixin edit-mode( $selector: '&.edit-mode' ) {
 	#{$selector} {
 		border: 1px dashed $color-grey;
 		padding: 2rem;
@@ -28,7 +28,6 @@
 		}
 
 		[role='textbox'] {
-
 			+ .input-label {
 				padding-top: 15px;
 			}
@@ -37,7 +36,7 @@
 }
 
 // Admin styling for blocks in preview mode.
-@mixin preview-mode($selector: '&.preview-mode') {
+@mixin preview-mode( $selector: '&.preview-mode' ) {
 	#{$selector} {
 		position: relative;
 

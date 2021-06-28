@@ -5,9 +5,7 @@ const expandedClass = 'is-expanded';
 const collapseClass = 'will-collapse';
 
 const wdsBlocksAccordion = {
-
 	init: () => {
-
 		// Get all accordions.
 		const accordions = document.querySelectorAll( `.${ accordionClass }` );
 		if ( ! accordions ) {
@@ -19,8 +17,7 @@ const wdsBlocksAccordion = {
 			const button = accordion.querySelector( `.${ buttonClass }` );
 			if ( button ) {
 				button.addEventListener( 'click', wdsBlocksAccordion.click );
-				button.addEventListener( 'keypress', function( event ) {
-
+				button.addEventListener( 'keypress', function ( event ) {
 					// Enter/Return click
 					if ( 13 === event.which || 13 === event.keyCode ) {
 						wdsBlocksAccordion.click( event );
@@ -60,7 +57,6 @@ const wdsBlocksAccordion = {
 		) {
 			wdsBlocksAccordion.collapse( props );
 		} else {
-
 			// Close open accordion when `will-collapse` class is active.
 			if ( button.classList.contains( collapseClass ) ) {
 				wdsBlocksAccordion.closeActive( props.container );
@@ -81,7 +77,7 @@ const wdsBlocksAccordion = {
 		props.content.style.height = child.clientHeight + 'px';
 
 		// Delay and add focus
-		setTimeout( function() {
+		setTimeout( function () {
 			if ( moveFocus ) {
 				props.content.focus();
 			}
@@ -101,9 +97,9 @@ const wdsBlocksAccordion = {
 		}
 
 		// Get data attribute.
-		const openFirst = group.dataset.openFirst ?
-			group.dataset.openFirst :
-			false;
+		const openFirst = group.dataset.openFirst
+			? group.dataset.openFirst
+			: false;
 
 		const firstButton = group.querySelector( `.${ buttonClass }` );
 		if ( ! firstButton ) {
@@ -119,7 +115,6 @@ const wdsBlocksAccordion = {
 		if ( 'true' === openFirst ) {
 			wdsBlocksAccordion.expand( props, false );
 		} else {
-
 			// Used in the Block Editor only.
 			wdsBlocksAccordion.collapse( props, false );
 		}
@@ -135,7 +130,6 @@ const wdsBlocksAccordion = {
 			return false;
 		}
 		[ ...buttons ].forEach( ( button ) => {
-
 			// Need to conditional if/else here for Block Editor integration.
 			if ( 'true' === toggle ) {
 				button.classList.add( collapseClass );
@@ -153,7 +147,9 @@ const wdsBlocksAccordion = {
 		// Get active accordion from container parent or parent parent (Block editor integration).
 		const active =
 			container.parentNode.querySelector( `.${ expandedClass }` ) ||
-			container.parentNode.parentNode.querySelector( `.${ expandedClass }` );
+			container.parentNode.parentNode.querySelector(
+				`.${ expandedClass }`
+			);
 		if ( ! active ) {
 			return false;
 		}

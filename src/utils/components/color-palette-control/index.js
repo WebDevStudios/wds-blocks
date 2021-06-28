@@ -27,7 +27,6 @@ export default function ColorPaletteControl( props ) {
 										<ColorIndicator
 											colorValue={ color }
 											aria-label={ sprintf(
-
 												/* translators: current color value name */
 												__( '(Color: %s)' ),
 												color

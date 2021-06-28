@@ -6,8 +6,8 @@
  * Author: WebDevStudios
  * Author URI: https://webdevstudios.com
  * Version:     2.0.0
- * License:     GPLv3
- * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * License:     GPLv2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wdsblocks
  * Domain Path: /languages
  *
@@ -72,16 +72,23 @@ function register_block() {
 	}
 
 	// Register blocks with WordPress.
-	register_block_type( 'wdsblocks/carousel', array(
-		'editor_script' => 'wdsblocks-editor-script',
-		'editor_style'  => 'wdsblocks-editor-style',
-		'style'         => 'wdsblocks-style',
-	) );
-	register_block_type( 'wdsblocks/carousel-slide', array(
-		'editor_script' => 'wdsblocks-editor-script',
-		'editor_style'  => 'wdsblocks-editor-style',
-		'style'         => 'wdsblocks-style',
-	) );
+	register_block_type(
+		'wdsblocks/carousel',
+		[
+			'editor_script' => 'wdsblocks-editor-script',
+			'editor_style'  => 'wdsblocks-editor-style',
+			'style'         => 'wdsblocks-style',
+		]
+	);
+
+	register_block_type(
+		'wdsblocks/carousel-slide',
+		[
+			'editor_script' => 'wdsblocks-editor-script',
+			'editor_style'  => 'wdsblocks-editor-style',
+			'style'         => 'wdsblocks-style',
+		]
+	);
 
 	// Register frontend script.
 	if ( file_exists( plugin_dir_path( __FILE__ ) . $frontend_script ) ) {
@@ -110,12 +117,12 @@ function register_block_category( $categories, $post ) {
 
 	return array_merge(
 		$categories,
-		array(
-			array(
+		[
+			[
 				'slug'  => 'wds-blocks',
 				'title' => esc_html__( 'WDS Blocks', 'wdsblocks' ),
-			),
-		)
+			],
+		]
 	);
 }
 add_filter( 'block_categories', __NAMESPACE__ . '\register_block_category', 10, 2 );

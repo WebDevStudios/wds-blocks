@@ -80,7 +80,8 @@ function Edit( props ) {
 	};
 
 	const onChangeAlignment = ( newAlignment ) => {
-		const alignmentValue = newAlignment === undefined ? 'none' : newAlignment;
+		const alignmentValue =
+			newAlignment === undefined ? 'none' : newAlignment;
 		setAttributes( {
 			contentStyle: {
 				color: contentStyle.color,
@@ -116,7 +117,10 @@ function Edit( props ) {
 								onChange={ onChangeTextColor }
 							/>
 							<PanelRow>
-								{ __( 'Choose a background color.', 'wdsblocks' ) }
+								{ __(
+									'Choose a background color.',
+									'wdsblocks'
+								) }
 							</PanelRow>
 							<ColorPalette
 								value={ backgroundStyle.backgroundColor }
@@ -183,8 +187,9 @@ export default compose( [
 		const { blockId } = props;
 
 		// Get current child block (innerblocks) blockId values.
-		const blockCount = select( 'core/block-editor' ).getBlockOrder( blockId )
-			.length;
+		const blockCount = select( 'core/block-editor' ).getBlockOrder(
+			blockId
+		).length;
 
 		return { blockCount };
 	} ),

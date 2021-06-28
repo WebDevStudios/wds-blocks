@@ -2,7 +2,6 @@
 @import '../../../sass/variables';
 
 .wp-block-wdsblocks {
-
 	&-accordion {
 		border: 1px solid #efefef;
 
@@ -36,14 +35,14 @@
 				border-width: 0 3px 3px 0;
 				display: inline-block;
 				padding: 3px;
-				transform: rotate(45deg);
+				transform: rotate( 45deg );
 			}
 
 			&::before {
 				top: 26px;
 				opacity: 0;
 				visibility: hidden;
-				transform: rotate(-135deg);
+				transform: rotate( -135deg );
 			}
 		}
 
@@ -60,10 +59,8 @@
 		/* stylelint-enable */
 
 		&.is-expanded {
-
 			/* stylelint-disable */
 			.wp-block-wdsblocks-accordion__title {
-
 				&::after {
 					opacity: 0;
 					visibility: hidden;

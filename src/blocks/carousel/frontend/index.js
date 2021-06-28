@@ -11,7 +11,6 @@ const carouselClass = `wp-block-${ PREFIX }-carousel`;
  * @since  2.0.0
  */
 const wdsBlocksCarousel = {
-
 	/**
 	 * Initial Carousel setup.
 	 *
@@ -21,7 +20,6 @@ const wdsBlocksCarousel = {
 	 * @return {?boolean} Return false if no carousels found.
 	 */
 	init: () => {
-
 		// Target carousel elements.
 		const carousels = document.querySelectorAll( `.${ carouselClass }` );
 
@@ -32,7 +30,6 @@ const wdsBlocksCarousel = {
 
 		// Iterate over carousels.
 		carousels.forEach( ( carousel ) =>
-
 			// Init/mount carousel.
 			new Glide( carousel, GLIDE_SETTINGS ).mount()
 		);

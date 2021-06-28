@@ -2,8 +2,7 @@
 @import '../../sass/mixins';
 
 .wp-block-wdsblocks-carousel-slide {
-
-	@include edit-mode('.edit-mode &');
+	@include edit-mode( '.edit-mode &' );
 
 	.wp-block[data-type='core/heading'] {
 		margin-left: auto;
