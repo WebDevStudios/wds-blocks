@@ -15,8 +15,8 @@ A library of Gutenberg blocks.
 
 ## Quick Start ⏩
 
-1. Download a pre-built copy on the [Releases page](https://github.com/WebDevStudios/wds-blocks/releases).
-2. Extract WDS Blocks into your project's `/plugins` directory
+1. Download a pre-built version of the [latest release](https://github.com/WebDevStudios/wds-blocks/releases/download/2.2.0/WDS-Blocks.zip)
+2. Extract `WDS-Blocks.zip` into your project's `/plugins` directory
 3. Activate the plugin in the WordPress Dashboard
 
 ---
