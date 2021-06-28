@@ -18,6 +18,7 @@ A library of Gutenberg blocks.
 ## Requirements 📝
 
 -   [Node 14](https://nodejs.org/en/)
+-   [NPM 7](https://nodejs.org/en/)
 -   [Composer](https://getcomposer.org/)
 -   [WordPress 5.0+](https://wordpress.org)
 
@@ -35,6 +36,10 @@ Install dependencies:
 
 ```bash
 npm i --legacy-peer-deps
+```
+
+```bash
+composer install
 ```
 
 ---
