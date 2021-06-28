@@ -20,6 +20,3 @@ node_modules/
 
 # composer
 vendor/
-
-# assets
-build/
