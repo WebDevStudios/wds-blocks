@@ -2,25 +2,29 @@
 	"name": "webdevstudios/wds-blocks",
 	"description": "WebDevStudios library of Gutenberg blocks.",
 	"type": "wordpress-plugin",
-	"license": "GPL-3.0-or-later",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "WebDevStudios",
 			"email": "contact@webdevstudios.com"
 		}
 	],
-	"require": {
-		"composer/installers": "^1.5"
+	"config": {
+		"platform": {
+			"php": "7.4"
+		}
 	},
-	"scripts": {
-		"lint": "composer run lint:php",
-		"lint:php": "composer run lint:php-compat && composer run lint:phpcs",
-		"lint:php-compat": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs -p . --standard=PHPCompatibility --extensions=php --runtime-set testVersion 7.4 --ignore='.github/*,vendor/*' --warning-severity=8 -d memory_limit=-1",
-		"lint:phpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs -d memory_limit=-1 --standard=./.phpcs.xml.dist --extensions=php -n --colors **/*.php",
-		"debug:phpcs": "which phpcs && phpcs -i"
+	"require": {
+		"composer/installers": "^1.11"
 	},
 	"require-dev": {
-		"phpcompatibility/php-compatibility": "~9.3",
-		"webdevstudios/php-coding-standards": "~1.3.0"
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"wp-cli/wp-cli-bundle": "^2.5",
+		"wp-coding-standards/wpcs": "^2.3"
+	},
+	"scripts": {
+		"format": "./vendor/bin/phpcbf --report=summary,source",
+		"lint": "./vendor/bin/phpcs --report=summary,source"
 	}
 }
