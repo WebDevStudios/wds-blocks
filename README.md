@@ -13,7 +13,7 @@ A library of Gutenberg blocks.
 
 ---
 
-## Quick Start ⏩
+## Quick Start
 
 1. Download a pre-built version of the [latest release](https://github.com/WebDevStudios/wds-blocks/releases/download/2.2.0/WDS-Blocks.zip)
 2. Extract `WDS-Blocks.zip` into your project's `/plugins` directory
@@ -21,11 +21,11 @@ A library of Gutenberg blocks.
 
 ---
 
-## Development 🚀
+## Development
 
 If you're interested in using WDS Blocks to get started building your own blocks, follow the instructions below:
 
-### Requirements 📝
+### Requirements
 
 -   [Node 14](https://nodejs.org/en/)
 -   [NPM 7](https://nodejs.org/en/)
@@ -52,7 +52,7 @@ composer install
 
 ---
 
-## 💻 Scripts
+## Scripts
 
 Watch for changes:
 
