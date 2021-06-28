@@ -14,3 +14,7 @@ import './blocks/accordion-item';
 import './blocks/carousel';
 import './blocks/carousel-slide';
 import './blocks/starter';
+
+// Block Variations
+import './variations/cover';
+import './variations/columns';
