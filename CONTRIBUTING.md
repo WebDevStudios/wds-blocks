@@ -3,7 +3,7 @@
 WebDevStudios welcomes contributions and bug fixes from third-parties. Here are the steps to get started:
 
 -   Create an [Issue](https://github.com/WebDevStudios/wds-blocks/issues) so we can all discuss your idea
--   Create a feature/hotfix branch off [master](https://github.com/WebDevStudios/wds-blocks/tree/master)
+-   Create a feature/hotfix branch off [main](https://github.com/WebDevStudios/wds-blocks/tree/main)
 -   Commit code changes to your feature/hotifx branch
 -   Continue to merge master into your feature/hotifx branch so it stays current
 -   Test across all major browsers
