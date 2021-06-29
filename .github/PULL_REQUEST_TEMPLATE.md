@@ -1,4 +1,4 @@
-Closes #[Link to Github issue]
+Closes #
 
 ### Link
 
@@ -14,10 +14,6 @@ What did you do? Give some context...
 
 ### Steps to verify the solution
 
-How will a stakeholder test this? Please list the steps.
+How will a stakeholder test this? Please list the steps:
 
-### Other
-
--   [ ] Is this issue accessible? (Section 508/WCAG 2.1AA)
--   [ ] Does this pass CrossBrowserTesting.com? (Edge, Safari, Chrome, Firefox)
--   [ ] Will this pull request require [updating the wiki?](https://github.com/WebDevStudios/wds-block-starter/wiki)
+1.
