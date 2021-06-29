@@ -21,5 +21,3 @@ node_modules/
 # composer
 vendor/
 
-# build files
-build/
