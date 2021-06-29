@@ -1,6 +1,6 @@
 {
 	"name": "wds-blocks",
-	"version": "2.2.0",
+	"version": "2.2.1",
 	"private": true,
 	"description": "A block starter for WebDevStudios projects.",
 	"author": "WebDevStudios",
@@ -38,7 +38,7 @@
 	},
 	"devDependencies": {
 		"@arkweid/lefthook": "^0.7.6",
-		"@wordpress/scripts": "^16.1.3",
+		"@wordpress/scripts": "^16.1.4",
 		"eslint": "^7.29.0",
 		"eslint-plugin-eslint-comments": "^3.2.0",
 		"ignore-emit-webpack-plugin": "^2.0.6",
