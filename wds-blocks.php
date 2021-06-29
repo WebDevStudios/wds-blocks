@@ -5,7 +5,7 @@
  * Description: WebDevStudios library of Gutenberg blocks.
  * Author: WebDevStudios
  * Author URI: https://webdevstudios.com
- * Version:     2.2.1
+ * Version:     2.2.2
  * License:     GPLv2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wdsblocks
@@ -125,4 +125,4 @@ function register_block_category( $categories, $post ) {
 		]
 	);
 }
-add_filter( 'block_categories', __NAMESPACE__ . '\register_block_category', 10, 2 );
+add_filter( 'block_categories_all', __NAMESPACE__ . '\register_block_category', 10, 2 );
