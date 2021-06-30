@@ -1,4 +1,6 @@
 import { InnerBlocks, withColors } from '@wordpress/block-editor';
+import { useSelect } from '@wordpress/data';
+import { useEffect } from '@wordpress/element';
 import { compose } from '@wordpress/compose';
 import Settings from './components/Settings';
 import Slide from './components/Slide';
@@ -27,7 +29,18 @@ function Edit( props ) {
 		setBackgroundColor,
 		overlayColor,
 		setOverlayColor,
+		clientId,
 	} = props;
+
+	const { innerBlocksLength } = useSelect( ( select ) => ( {
+		innerBlocksLength: select( 'core/block-editor' ).getBlockCount(
+			clientId
+		),
+	} ) );
+
+	useEffect( () => {
+		setAttributes( { innerBlocksLength } );
+	}, [ innerBlocksLength ] );
 
 	// Define props relating to block background settings.
 	const backgroundProps = {

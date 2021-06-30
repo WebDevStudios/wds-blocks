@@ -17,6 +17,7 @@ import { PREFIX } from '../../utils/config';
  */
 export default function Save( props ) {
 	const { attributes } = props;
+	const { innerBlocksLength } = props.attributes;
 
 	// Define props relating to slide settings.
 	const slideProps = {
@@ -28,9 +29,11 @@ export default function Save( props ) {
 
 	return (
 		<Slide { ...slideProps }>
-			<div className="slide-content">
-				<InnerBlocks.Content />
-			</div>
+			{ innerBlocksLength > 0 && (
+				<div className="slide-content">
+					<InnerBlocks.Content />
+				</div>
+			) }
 		</Slide>
 	);
 }

@@ -22,6 +22,10 @@ registerBlockType( `${ PREFIX }/carousel-slide`, {
 	category: 'wds-blocks',
 	keywords: [ __( 'carousel, slide', 'wdsblocks' ) ],
 	attributes: {
+		innerBlocksLength: {
+			type: 'number',
+			default: 0,
+		},
 		fontColor: {
 			type: 'string',
 			default: undefined,
