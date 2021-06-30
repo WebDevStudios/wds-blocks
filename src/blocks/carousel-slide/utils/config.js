@@ -18,22 +18,33 @@ export const INNER_BLOCKS_PROPS = applyFilters(
 			[
 				'core/heading',
 				{
-					content: __( 'Slide Title', 'wdsblocks' ),
+					placeholder: __( 'Slide Title', 'wdsblocks' ),
 					level: 4,
-					align: 'center',
+					className: 'has-text-align-center',
 				},
 			],
 			[
 				'core/paragraph',
 				{
-					content: __( 'Slide Content', 'wdsblocks' ),
+					placeholder: __( 'Slide Content', 'wdsblocks' ),
 					align: 'center',
 				},
 			],
 			[
 				'core/buttons',
-				{ align: 'center' },
-				[ [ 'core/button', { text: __( 'Read More', 'wdsblocks' ) } ] ],
+				{
+					align: 'center',
+					className: 'is-content-justification-center',
+				},
+				[
+					[
+						'core/button',
+						{
+							placeholder: __( 'Add Button label', 'wdsblocks' ),
+							url: '#',
+						},
+					],
+				],
 			],
 		],
 	}
