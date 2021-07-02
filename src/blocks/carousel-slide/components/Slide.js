@@ -9,7 +9,7 @@ import withFontColor from '../../../utils/components/with-font-color';
 /**
  * The Slide component displays an individual carousel slide.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {Object} [props] Properties passed to the component.
@@ -35,7 +35,7 @@ export default function Slide( props ) {
 	/**
 	 * Display slide child content with wrapping container div.
 	 *
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 *
 	 * @return {WPElement} Element to render.

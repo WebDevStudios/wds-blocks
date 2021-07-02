@@ -3,7 +3,7 @@ import { useState } from 'react';
 /**
  * The usePreviewToggle hook handles state for toggling between "edit" and "preview" modes.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @return {Object} Object consisting of state variable and state toggle function.
@@ -14,7 +14,7 @@ export default function usePreviewToggle() {
 	/**
 	 * Toggle between "edit" and "preview" modes by setting `showPreview` to the boolean inverse of its current value.
 	 *
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 */
 	const togglePreview = () => {
@@ -24,7 +24,7 @@ export default function usePreviewToggle() {
 	/**
 	 * Toggle block to "edit" mode on double click.
 	 *
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 */
 	const doubleClick = () => {

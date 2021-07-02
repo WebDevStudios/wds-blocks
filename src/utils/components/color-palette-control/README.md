@@ -37,7 +37,7 @@ function Edit( props ) {
 				<ColorPaletteControl
 					color={ fontColor }
 					setColor={ setFontColor }
-					label={ __( 'Font Color', 'wdsblocks' ) }
+					label={ __( 'Font Color', 'vigor' ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

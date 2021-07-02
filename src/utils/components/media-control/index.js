@@ -4,7 +4,7 @@ import { Button, ResponsiveWrapper } from '@wordpress/components';
 /**
  * Display media preview according to type.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.1.0
  *
  * @param  {Object} [props] Properties passed to the component.

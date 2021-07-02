@@ -1,5 +1,5 @@
 /**
- * WDS Blocks
+ * Vigor Blocks
  *
  * All blocks related JavaScript files should be imported here.
  * You can create a new block folder in this dir and include code
@@ -9,11 +9,8 @@
  * Webpack is compiling as the input file.
  */
 
-import './blocks/accordions';
-import './blocks/accordion-item';
 import './blocks/carousel';
 import './blocks/carousel-slide';
-import './blocks/starter';
 
 // Block Variations
 import './variations/cover';

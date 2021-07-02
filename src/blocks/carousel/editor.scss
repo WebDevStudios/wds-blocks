@@ -1,16 +1,16 @@
 // WordPress editor styles.
 @import '../../sass/mixins';
 
-.wp-block-wdsblocks-carousel {
+.wp-block-vigor-carousel {
 	@include edit-mode;
 	@include preview-mode;
 
-	.wp-block[data-type='wdsblocks/carousel-slide'] {
+	.wp-block[data-type='vigor/carousel-slide'] {
 		max-width: none;
 	}
 
 	&.edit-mode {
-		.wp-block[data-type='wdsblocks/carousel-slide'] {
+		.wp-block[data-type='vigor/carousel-slide'] {
 			&:first-of-type {
 				margin-top: 0;
 			}
@@ -22,7 +22,7 @@
 			display: none;
 		}
 
-		.wp-block[data-type='wdsblocks/carousel-slide'] {
+		.wp-block[data-type='vigor/carousel-slide'] {
 			margin-bottom: 0;
 			margin-top: 0;
 			max-width: none;

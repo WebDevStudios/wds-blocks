@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name: WDS Blocks
+ * Plugin Name: Vigor Custom Blocks
  * Plugin URI:  https://github.com/WebDevStudios/WDS-Blocks/
- * Description: WebDevStudios library of Gutenberg blocks.
- * Author: WebDevStudios
- * Author URI: https://webdevstudios.com
- * Version:     2.2.2
+ * Description: Vigor library of Gutenberg blocks.
+ * Author: Alfredo Navas
+ * Author URI: https://elpuas.com
+ * Version:     1.0.0
  * License:     GPLv2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: wdsblocks
+ * Text Domain: vigor
  * Domain Path: /languages
  *
  * @package WebDevStudios\Blocks
- * @since 2.0.0
+ * @since 1.0.0
  */
 
 namespace WebDevStudios\Blocks;
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Register the block with WordPress.
  *
- * @author WebDevStudios
+ * @author ElPuas
  * @since 2.0.0
  */
 function register_block() {
@@ -36,7 +36,7 @@ function register_block() {
 
 	// Verify we have an editor script.
 	if ( ! file_exists( plugin_dir_path( __FILE__ ) . $editor_script ) ) {
-		wp_die( esc_html__( 'Whoops! You need to run `npm run build` for the WDS Block Starter first.', 'wdsblocks' ) );
+		wp_die( esc_html__( 'Whoops! You need to run `npm run build` for the WDS Block Starter first.', 'vigor' ) );
 	}
 
 	// Autoload dependencies and version.
@@ -44,7 +44,7 @@ function register_block() {
 
 	// Register editor script.
 	wp_register_script(
-		'wdsblocks-editor-script',
+		'vigor-editor-script',
 		plugins_url( $editor_script, __FILE__ ),
 		$asset_file['dependencies'],
 		$asset_file['version'],
@@ -54,7 +54,7 @@ function register_block() {
 	// Register editor style.
 	if ( file_exists( plugin_dir_path( __FILE__ ) . $editor_style ) ) {
 		wp_register_style(
-			'wdsblocks-editor-style',
+			'vigor-editor-style',
 			plugins_url( $editor_style, __FILE__ ),
 			[ 'wp-edit-blocks' ],
 			filemtime( plugin_dir_path( __FILE__ ) . $editor_style )
@@ -64,7 +64,7 @@ function register_block() {
 	// Register frontend style.
 	if ( file_exists( plugin_dir_path( __FILE__ ) . $frontend_style ) ) {
 		wp_register_style(
-			'wdsblocks-style',
+			'vigor-style',
 			plugins_url( $frontend_style, __FILE__ ),
 			[],
 			filemtime( plugin_dir_path( __FILE__ ) . $frontend_style )
@@ -73,27 +73,27 @@ function register_block() {
 
 	// Register blocks with WordPress.
 	register_block_type(
-		'wdsblocks/carousel',
+		'vigor/carousel',
 		[
-			'editor_script' => 'wdsblocks-editor-script',
-			'editor_style'  => 'wdsblocks-editor-style',
-			'style'         => 'wdsblocks-style',
+			'editor_script' => 'vigor-editor-script',
+			'editor_style'  => 'vigor-editor-style',
+			'style'         => 'vigor-style',
 		]
 	);
 
 	register_block_type(
-		'wdsblocks/carousel-slide',
+		'vigor/carousel-slide',
 		[
-			'editor_script' => 'wdsblocks-editor-script',
-			'editor_style'  => 'wdsblocks-editor-style',
-			'style'         => 'wdsblocks-style',
+			'editor_script' => 'vigor-editor-script',
+			'editor_style'  => 'vigor-editor-style',
+			'style'         => 'vigor-style',
 		]
 	);
 
 	// Register frontend script.
 	if ( file_exists( plugin_dir_path( __FILE__ ) . $frontend_script ) ) {
 		wp_enqueue_script(
-			'wdsblocks-frontend-script',
+			'vigor-frontend-script',
 			plugins_url( $frontend_script, __FILE__ ),
 			$asset_file['dependencies'],
 			$asset_file['version'],
@@ -106,7 +106,7 @@ add_action( 'init', __NAMESPACE__ . '\register_block' );
 /**
  * Adds a WDS Block category to the Gutenberg category list.
  *
- * @author WebDevStudios
+ * @author ElPuas
  * @since 2.0.0
  *
  * @param array  $categories The existing categories.
@@ -120,7 +120,7 @@ function register_block_category( $categories, $post ) {
 		[
 			[
 				'slug'  => 'wds-blocks',
-				'title' => esc_html__( 'WDS Blocks', 'wdsblocks' ),
+				'title' => esc_html__( 'WDS Blocks', 'vigor' ),
 			],
 		]
 	);

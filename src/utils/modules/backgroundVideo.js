@@ -3,14 +3,14 @@ const videoClass = 'wp-block-cover__video-background';
 /**
  * Handle functionality related to background videos.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  */
-const wdsBlocksBackgroundVideo = {
+const vigorBlocksBackgroundVideo = {
 	/**
 	 * Initial Background Video setup.
 	 *
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 *
 	 * @return {?boolean} Return false if no videos found.
@@ -32,4 +32,4 @@ const wdsBlocksBackgroundVideo = {
 	},
 };
 
-export default wdsBlocksBackgroundVideo;
+export default vigorBlocksBackgroundVideo;

@@ -5,7 +5,7 @@ import { withSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import Slider from './components/Slider';
 import { GLIDE_SETTINGS, INNER_BLOCKS_PROPS } from './utils/config';
-import wdsBlocksBackgroundVideo from '../../utils/modules/backgroundVideo';
+import vigorBlocksBackgroundVideo from '../../utils/modules/backgroundVideo';
 import PreviewToggle from '../../utils/components/preview-toggle';
 import usePreviewToggle from '../../utils/hooks/use-preview-toggle';
 import './editor.scss';
@@ -14,7 +14,7 @@ import './editor.scss';
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
- * @author WebDevStudios
+ * @author ElPuas
  * @since  2.0.0
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
  *
@@ -41,7 +41,7 @@ function Edit( props ) {
 		}
 
 		// Mute all background videos.
-		wdsBlocksBackgroundVideo.init();
+		vigorBlocksBackgroundVideo.init();
 
 		// Update showPreview attribute on state change.
 		setAttributes( {

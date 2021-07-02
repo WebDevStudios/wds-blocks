@@ -5,7 +5,7 @@ import { PREFIX } from '../../../utils/config';
 /**
  * The Slider component displays a carousel slider wrapper.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {Object} [props] Properties passed to the component.
@@ -29,27 +29,27 @@ export default function Slider( props ) {
 	/**
 	 * Filter previous slide button text.
 	 *
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 *
 	 * @param  {Array} [buttonText] Previous slide button text.
 	 */
 	const previousButtonText = applyFilters(
 		`${ PREFIX }.carousel.previousSlideButtonText`,
-		__( 'Previous', 'wdsblocks' )
+		__( 'Previous', 'vigor' )
 	);
 
 	/**
 	 * Filter next slide button text.
 	 *
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 *
 	 * @param  {Array} [buttonText] Next slide button text.
 	 */
 	const nextButtonText = applyFilters(
 		`${ PREFIX }.carousel.nextSlideButtonText`,
-		__( 'Next', 'wdsblocks' )
+		__( 'Next', 'vigor' )
 	);
 
 	return (

@@ -9,8 +9,8 @@ import icons from '../utils/icons';
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 wp.blocks.registerBlockVariation( 'core/cover', {
-	name: __( 'cta-cover', 'wdsblocks' ),
-	title: __( 'CTA Cover', 'wdsblocks' ),
+	name: __( 'cta-cover', 'vigor' ),
+	title: __( 'CTA Cover', 'vigor' ),
 	attributes: {
 		align: 'full',
 		backgroundType: 'image',
@@ -24,7 +24,7 @@ wp.blocks.registerBlockVariation( 'core/cover', {
 			'core/heading',
 			{
 				className: 'hero-title has-text-align-center',
-				placeholder: __( 'Add CTA Heading', 'wdsblocks' ),
+				placeholder: __( 'Add CTA Heading', 'vigor' ),
 				level: 1,
 			},
 		],
@@ -33,7 +33,7 @@ wp.blocks.registerBlockVariation( 'core/cover', {
 			{
 				align: 'center',
 				className: 'hero-content',
-				placeholder: __( 'Add Optional Content', 'wdsblocks' ),
+				placeholder: __( 'Add Optional Content', 'vigor' ),
 			},
 		],
 		[
@@ -47,7 +47,7 @@ wp.blocks.registerBlockVariation( 'core/cover', {
 					'core/button',
 					{
 						className: 'hero-button is-style-outline',
-						placeholder: __( 'Add Button label', 'wdsblocks' ),
+						placeholder: __( 'Add Button label', 'vigor' ),
 						textColor: 'white',
 						url: '#',
 						width: 75,

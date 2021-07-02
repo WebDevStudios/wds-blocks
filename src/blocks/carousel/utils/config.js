@@ -4,7 +4,7 @@ import { PREFIX } from '../../../utils/config';
 /**
  * Filter (GlideJS) carousel settings.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {Object} [settings] Carousel settings.
@@ -22,7 +22,7 @@ export const GLIDE_SETTINGS = applyFilters(
 /**
  * Filter props for carousel InnerBlocks.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {Object} [props] InnerBlocks props.

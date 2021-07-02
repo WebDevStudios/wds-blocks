@@ -8,19 +8,19 @@ import './frontend/style.scss';
 /**
  * Register block type definition.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 registerBlockType( `${ PREFIX }/carousel-slide`, {
-	title: __( 'Slide', 'wdsblocks' ),
+	title: __( 'Slide', 'vigor' ),
 	description: __(
 		'An individual carousel slide with optional title, content, and CTA button(s).',
-		'wdsblocks'
+		'vigor'
 	),
 	icon: 'cover-image',
 	category: 'wds-blocks',
-	keywords: [ __( 'carousel, slide', 'wdsblocks' ) ],
+	keywords: [ __( 'carousel, slide', 'vigorBlocks' ) ],
 	attributes: {
 		fontColor: {
 			type: 'string',

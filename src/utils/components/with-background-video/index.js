@@ -1,7 +1,7 @@
 /**
  * A HOC for displaying a component with a background video.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {WPElement} WrappedComponent The wrapped component to display.
@@ -9,7 +9,7 @@
  */
 export default function withBackgroundVideo( WrappedComponent ) {
 	/**
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 *
 	 * @param  {Object} [props] Properties passed to the component.

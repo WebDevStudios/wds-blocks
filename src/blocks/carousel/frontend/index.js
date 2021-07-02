@@ -7,14 +7,14 @@ const carouselClass = `wp-block-${ PREFIX }-carousel`;
 /**
  * Handle functionality related to carousel block.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  */
-const wdsBlocksCarousel = {
+const vigorBlocksCarousel = {
 	/**
 	 * Initial Carousel setup.
 	 *
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 *
 	 * @return {?boolean} Return false if no carousels found.
@@ -36,4 +36,4 @@ const wdsBlocksCarousel = {
 	},
 };
 
-export default wdsBlocksCarousel;
+export default vigorBlocksCarousel;

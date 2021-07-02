@@ -3,7 +3,7 @@ import { getColorClassName } from '@wordpress/block-editor';
 /**
  * A HOC for displaying a component with font color.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {WPElement} WrappedComponent The wrapped component to display.
@@ -11,7 +11,7 @@ import { getColorClassName } from '@wordpress/block-editor';
  */
 export default function withFontColor( WrappedComponent ) {
 	/**
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 *
 	 * @param  {Object} [props] Properties passed to the component.

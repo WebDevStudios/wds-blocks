@@ -9,8 +9,8 @@ import icons from '../utils/icons';
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 wp.blocks.registerBlockVariation( 'core/columns', {
-	name: __( 'services', 'wdsblocks' ),
-	title: __( 'Services', 'wdsblocks' ),
+	name: __( 'services', 'vigor' ),
+	title: __( 'Services', 'vigor' ),
 	attributes: {
 		align: 'wide',
 		className: 'services-column',
@@ -46,7 +46,7 @@ wp.blocks.registerBlockVariation( 'core/columns', {
 								className:
 									'service-title has-text-align-center',
 								level: 3,
-								placeholder: __( 'Service Name', 'wdsblocks' ),
+								placeholder: __( 'Service Name', 'vigor' ),
 							},
 						],
 						[
@@ -56,7 +56,7 @@ wp.blocks.registerBlockVariation( 'core/columns', {
 								className: 'service-content',
 								placeholder: __(
 									'Add Service Description',
-									'wdsblocks'
+									'vigor'
 								),
 							},
 						],
@@ -93,7 +93,7 @@ wp.blocks.registerBlockVariation( 'core/columns', {
 								className:
 									'service-title has-text-align-center',
 								level: 3,
-								placeholder: __( 'Service Name', 'wdsblocks' ),
+								placeholder: __( 'Service Name', 'vigor' ),
 							},
 						],
 						[
@@ -103,7 +103,7 @@ wp.blocks.registerBlockVariation( 'core/columns', {
 								className: 'service-content',
 								placeholder: __(
 									'Add Service Description',
-									'wdsblocks'
+									'vigor'
 								),
 							},
 						],
@@ -140,7 +140,7 @@ wp.blocks.registerBlockVariation( 'core/columns', {
 								className:
 									'service-title has-text-align-center',
 								level: 3,
-								placeholder: __( 'Service Name', 'wdsblocks' ),
+								placeholder: __( 'Service Name', 'vigor' ),
 							},
 						],
 						[
@@ -150,7 +150,7 @@ wp.blocks.registerBlockVariation( 'core/columns', {
 								className: 'service-content',
 								placeholder: __(
 									'Add Service Description',
-									'wdsblocks'
+									'vigor'
 								),
 							},
 						],

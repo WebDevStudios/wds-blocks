@@ -1,7 +1,7 @@
 // WordPress editor styles.
 @import '../../sass/mixins';
 
-.wp-block-wdsblocks-carousel-slide {
+.wp-block-vigor-carousel-slide {
 	@include edit-mode( '.edit-mode &' );
 
 	.wp-block[data-type='core/heading'] {

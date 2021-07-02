@@ -4,7 +4,7 @@ import { ToolbarGroup, ToolbarButton } from '@wordpress/components';
 /**
  * The PreviewToggle component displays a toolbar button to toggle between "edit" and "preview" block modes.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {Object} [props] Properties passed to the component.

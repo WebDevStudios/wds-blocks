@@ -5,7 +5,7 @@ import { PREFIX } from '../../../utils/config';
 /**
  * Filter props for slide InnerBlocks.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {Object} [props] InnerBlocks props.
@@ -18,7 +18,7 @@ export const INNER_BLOCKS_PROPS = applyFilters(
 			[
 				'core/heading',
 				{
-					content: __( 'Slide Title', 'wdsblocks' ),
+					content: __( 'Slide Title', 'vigor' ),
 					level: 4,
 					align: 'center',
 				},
@@ -26,14 +26,14 @@ export const INNER_BLOCKS_PROPS = applyFilters(
 			[
 				'core/paragraph',
 				{
-					content: __( 'Slide Content', 'wdsblocks' ),
+					content: __( 'Slide Content', 'vigor' ),
 					align: 'center',
 				},
 			],
 			[
 				'core/buttons',
 				{ align: 'center' },
-				[ [ 'core/button', { text: __( 'Read More', 'wdsblocks' ) } ] ],
+				[ [ 'core/button', { text: __( 'Read More', 'vigor' ) } ] ],
 			],
 		],
 	}

@@ -18,7 +18,7 @@ _Default: `[ 'color', 'image', 'video' ]`._ The allowed options for `backgroundT
 
 ### `description: String`
 
-_Default: `__( 'Remember: image and video files should be compressed and optimized with tools like ImageOptim (https://imageoptim.com/online) and Handbrake (https://handbrake.fr/) prior to upload. For best results, background media should be at least 1280x720.', 'wdsblocks' )`._ The escaped string representing the panel settings description.
+_Default: `__( 'Remember: image and video files should be compressed and optimized with tools like ImageOptim (https://imageoptim.com/online) and Handbrake (https://handbrake.fr/) prior to upload. For best results, background media should be at least 1280x720.', 'vigor' )`._ The escaped string representing the panel settings description.
 
 ### `backgroundColor: String`
 

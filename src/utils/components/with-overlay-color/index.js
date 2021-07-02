@@ -3,7 +3,7 @@ import withBackgroundColor from '../with-background-color';
 /**
  * A HOC for displaying a component with a background overlay color.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.1.0
  *
  * @param  {WPElement} WrappedComponent The wrapped component to display.
@@ -11,7 +11,7 @@ import withBackgroundColor from '../with-background-color';
  */
 export default function withOverlayColor( WrappedComponent ) {
 	/**
-	 * @author WebDevStudios
+	 * @author El Puas
 	 * @since  2.0.0
 	 *
 	 * @param  {Object} [props] Properties passed to the component.

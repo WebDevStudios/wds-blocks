@@ -8,7 +8,7 @@ import { PREFIX } from '../../utils/config';
  * be combined into the final markup, which is then serialized by the block
  * editor into `post_content`.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
  *

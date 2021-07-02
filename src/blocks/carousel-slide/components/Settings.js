@@ -11,7 +11,7 @@ import OverlayPanel from '../../../utils/components/overlay-panel';
 /**
  * The Settings component displays settings for the Slide block via Inspector Controls.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.0.0
  *
  * @param  {Object} [props] Properties passed to the component.
@@ -38,12 +38,12 @@ export default function Settings( props ) {
 	return (
 		<InspectorControls>
 			<PanelColorSettings
-				title={ __( 'Color settings', 'wdsblocks' ) }
+				title={ __( 'Color settings', 'vigor' ) }
 				colorSettings={ [
 					{
 						value: fontColor,
 						onChange: setFontColor,
-						label: __( 'Text Color', 'wdsblocks' ),
+						label: __( 'Text Color', 'vigor' ),
 					},
 				] }
 			>

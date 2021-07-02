@@ -57,9 +57,9 @@ export default function Edit(props) {
 					media={video}
 					setMedia={setVideo}
 					type="video"
-					label={__('Video', 'wdsblocks')}
-					addLabel={__('Add video', 'wdsblocks')}
-					removeLabel={__('Remove video', 'wdsblocks')}
+					label={__('Video', 'vigor')}
+					addLabel={__('Add video', 'vigor')}
+					removeLabel={__('Remove video', 'vigor')}
 				/>
 			</PanelBody>
 		</InspectorControls>

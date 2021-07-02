@@ -5,7 +5,7 @@ import ColorPaletteControl from '../color-palette-control';
 /**
  * The OverlayPanel component displays a panel of controls for background overlay.
  *
- * @author WebDevStudios
+ * @author El Puas
  * @since  2.1.0
  *
  * @param  {Object} [props] Properties passed to the component.
@@ -21,16 +21,16 @@ export default function OverlayPanel( props ) {
 
 	return (
 		<PanelBody
-			title={ __( 'Overlay settings', 'wdsblocks' ) }
+			title={ __( 'Overlay settings', 'vigor' ) }
 			className="block-editor-panel-color-gradient-settings"
 		>
 			<ColorPaletteControl
 				color={ overlayColor }
 				setColor={ setOverlayColor }
-				label={ __( 'Color', 'wdsblocks' ) }
+				label={ __( 'Color', 'vigor' ) }
 			/>
 			<RangeControl
-				label={ __( 'Opacity', 'wdsblocks' ) }
+				label={ __( 'Opacity', 'vigor' ) }
 				value={ overlayOpacity }
 				onChange={ ( value ) => setOverlayOpacity( value ) }
 				min={ 0 }
