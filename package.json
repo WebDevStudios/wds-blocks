@@ -28,7 +28,7 @@
 		"@wordpress/components": "^15.0.0",
 		"@wordpress/compose": "^5.0.0",
 		"@wordpress/data": "^6.0.0",
-		"@wordpress/element": "^3.1.1",
+		"@wordpress/element": "^4.0.0",
 		"@wordpress/hooks": "^3.1.1",
 		"@wordpress/i18n": "^4.1.1",
 		"classnames": "^2.3.1",
