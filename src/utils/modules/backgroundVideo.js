@@ -12,7 +12,6 @@ const wdsBlocksBackgroundVideo = {
 	 *
 	 * @author WebDevStudios
 	 * @since  2.0.0
-	 *
 	 * @return {?boolean} Return false if no videos found.
 	 */
 	init: () => {

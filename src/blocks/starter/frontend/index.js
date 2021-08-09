@@ -14,7 +14,6 @@ const wdsBlocksStarter = {
 	 *
 	 * @author WebDevStudios
 	 * @since  2.0.0
-	 *
 	 * @return {?boolean} Return false if no the starter block found.
 	 */
 	init: () => {

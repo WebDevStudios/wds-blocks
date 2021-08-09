@@ -11,8 +11,7 @@ import { PREFIX } from '../../utils/config';
  * @author WebDevStudios
  * @since  2.0.0
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
- *
- * @param  {Object} [props] Properties passed from the editor.
+ * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement}      Element to render.
  */
 export default function Save( props ) {

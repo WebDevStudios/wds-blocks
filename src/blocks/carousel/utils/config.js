@@ -6,8 +6,7 @@ import { PREFIX } from '../../../utils/config';
  *
  * @author WebDevStudios
  * @since  2.0.0
- *
- * @param  {Object} [settings] Carousel settings.
+ * @param {Object} [settings] Carousel settings.
  */
 export const GLIDE_SETTINGS = applyFilters(
 	`${ PREFIX }.carousel.glideSettings`,
@@ -24,8 +23,7 @@ export const GLIDE_SETTINGS = applyFilters(
  *
  * @author WebDevStudios
  * @since  2.0.0
- *
- * @param  {Object} [props] InnerBlocks props.
+ * @param {Object} [props] InnerBlocks props.
  */
 export const INNER_BLOCKS_PROPS = applyFilters(
 	`${ PREFIX }.carousel.innerBlocksProps`,

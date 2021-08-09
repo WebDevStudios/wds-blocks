@@ -5,7 +5,6 @@ import { useState } from 'react';
  *
  * @author WebDevStudios
  * @since  2.0.0
- *
  * @return {Object} Object consisting of state variable and state toggle function.
  */
 export default function usePreviewToggle() {

@@ -7,8 +7,7 @@ import { PREFIX } from '../../../utils/config';
  *
  * @author WebDevStudios
  * @since  2.0.0
- *
- * @param  {Object} [props] InnerBlocks props.
+ * @param {Object} [props] InnerBlocks props.
  */
 export const INNER_BLOCKS_PROPS = applyFilters(
 	`${ PREFIX }.carouselSlide.innerBlocksProps`,

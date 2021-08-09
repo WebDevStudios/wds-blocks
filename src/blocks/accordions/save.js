@@ -13,7 +13,6 @@ import withFontColor from '../../utils/components/with-font-color';
  * @author WebDevStudios
  * @since 2.0.0
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
- *
  * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement} Element to render.
  */

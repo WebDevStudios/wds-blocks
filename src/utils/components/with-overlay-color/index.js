@@ -5,16 +5,14 @@ import withBackgroundColor from '../with-background-color';
  *
  * @author WebDevStudios
  * @since  2.1.0
- *
- * @param  {WPElement} WrappedComponent The wrapped component to display.
+ * @param {WPElement} WrappedComponent The wrapped component to display.
  * @return {Function}                   A function that accepts a single param, `props`, to display the wrapped component.
  */
 export default function withOverlayColor( WrappedComponent ) {
 	/**
 	 * @author WebDevStudios
 	 * @since  2.0.0
-	 *
-	 * @param  {Object} [props] Properties passed to the component.
+	 * @param {Object} [props] Properties passed to the component.
 	 * @return {Element}        Element to render.
 	 */
 	return function ( props ) {

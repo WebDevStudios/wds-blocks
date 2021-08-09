@@ -7,8 +7,7 @@ import { __, sprintf } from '@wordpress/i18n';
  *
  * @author WebDevStudios
  * @since  2.1.0
- *
- * @param  {Object} [props] Properties passed to the component.
+ * @param {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
  */
 export default function ColorPaletteControl( props ) {

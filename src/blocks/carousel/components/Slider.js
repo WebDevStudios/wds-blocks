@@ -7,8 +7,7 @@ import { PREFIX } from '../../../utils/config';
  *
  * @author WebDevStudios
  * @since  2.0.0
- *
- * @param  {Object} [props] Properties passed to the component.
+ * @param {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
  */
 export default function Slider( props ) {
@@ -31,8 +30,7 @@ export default function Slider( props ) {
 	 *
 	 * @author WebDevStudios
 	 * @since  2.0.0
-	 *
-	 * @param  {Array} [buttonText] Previous slide button text.
+	 * @param {Array} [buttonText] Previous slide button text.
 	 */
 	const previousButtonText = applyFilters(
 		`${ PREFIX }.carousel.previousSlideButtonText`,
@@ -44,8 +42,7 @@ export default function Slider( props ) {
 	 *
 	 * @author WebDevStudios
 	 * @since  2.0.0
-	 *
-	 * @param  {Array} [buttonText] Next slide button text.
+	 * @param {Array} [buttonText] Next slide button text.
 	 */
 	const nextButtonText = applyFilters(
 		`${ PREFIX }.carousel.nextSlideButtonText`,

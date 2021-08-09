@@ -12,8 +12,7 @@ import './editor.scss';
  * @author WebDevStudios
  * @since  2.0.0
  * @see    https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
- *
- * @param  {Object} [props] Properties passed from the editor.
+ * @param {Object} [props] Properties passed from the editor.
  * @return {WPElement}      Element to render.
  */
 function Edit( props ) {
