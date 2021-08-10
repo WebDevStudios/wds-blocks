@@ -6,8 +6,7 @@ import { ToolbarGroup, ToolbarButton } from '@wordpress/components';
  *
  * @author WebDevStudios
  * @since  2.0.0
- *
- * @param  {Object} [props] Properties passed to the component.
+ * @param {Object} [props] Properties passed to the component.
  * @return {WPElement}      Element to render.
  */
 export default function PreviewToggle( props ) {

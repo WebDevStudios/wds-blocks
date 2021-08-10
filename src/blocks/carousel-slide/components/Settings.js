@@ -13,8 +13,7 @@ import OverlayPanel from '../../../utils/components/overlay-panel';
  *
  * @author WebDevStudios
  * @since  2.0.0
- *
- * @param  {Object} [props] Properties passed to the component.
+ * @param {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
  */
 export default function Settings( props ) {

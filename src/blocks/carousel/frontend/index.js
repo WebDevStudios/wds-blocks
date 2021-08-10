@@ -16,7 +16,6 @@ const wdsBlocksCarousel = {
 	 *
 	 * @author WebDevStudios
 	 * @since  2.0.0
-	 *
 	 * @return {?boolean} Return false if no carousels found.
 	 */
 	init: () => {

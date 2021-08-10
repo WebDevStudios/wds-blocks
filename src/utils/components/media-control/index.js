@@ -6,8 +6,7 @@ import { Button, ResponsiveWrapper } from '@wordpress/components';
  *
  * @author WebDevStudios
  * @since  2.1.0
- *
- * @param  {Object} [props] Properties passed to the component.
+ * @param {Object} [props] Properties passed to the component.
  * @return {Element} Media preview.
  */
 function Preview( props ) {
@@ -40,8 +39,7 @@ function Preview( props ) {
  *
  * @author WebDevStudios
  * @since  2.1.0
- *
- * @param  {Object} [props] Properties passed to the component.
+ * @param {Object} [props] Properties passed to the component.
  * @return {Element}        Element to render.
  */
 export default function MediaControl( props ) {
