@@ -25,7 +25,7 @@
 		"@glidejs/glide": "^3.4.1",
 		"@wordpress/block-editor": "^7.0.0",
 		"@wordpress/blocks": "^11.0.0",
-		"@wordpress/components": "^15.0.0",
+		"@wordpress/components": "^16.0.0",
 		"@wordpress/compose": "^5.0.0",
 		"@wordpress/data": "^6.0.0",
 		"@wordpress/element": "^4.0.0",
