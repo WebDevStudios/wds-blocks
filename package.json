@@ -24,7 +24,7 @@
 	"dependencies": {
 		"@glidejs/glide": "^3.4.1",
 		"@wordpress/block-editor": "^7.0.2",
-		"@wordpress/blocks": "^11.1.0",
+		"@wordpress/blocks": "^11.1.1",
 		"@wordpress/components": "^17.0.0",
 		"@wordpress/compose": "^5.0.2",
 		"@wordpress/data": "^6.1.0",
