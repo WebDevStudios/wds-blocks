@@ -5,6 +5,10 @@ module.exports = {
 	],
 	parserOptions: {
 		ecmaVersion: 2021,
+		requireConfigFile: false,
+		babelOptions: {
+			presets: [ require.resolve( '@wordpress/babel-preset-default' ) ],
+		},
 	},
 	root: true,
 	env: {

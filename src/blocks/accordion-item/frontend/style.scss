@@ -1,7 +1,9 @@
 // Front-end styles.
+@use "sass:math";
 @import '../../../sass/variables';
 
 .wp-block-wdsblocks {
+
 	&-accordion {
 		border: 1px solid #efefef;
 
@@ -30,7 +32,7 @@
 				position: absolute;
 				top: 22px;
 				right: 22px;
-				transition: all $speed/2 ease;
+				transition: all math.div( $speed, 2 ) ease;
 				border: solid $color-dark;
 				border-width: 0 3px 3px 0;
 				display: inline-block;

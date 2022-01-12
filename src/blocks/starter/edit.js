@@ -139,8 +139,7 @@ function Edit( props ) {
 					<div
 						className={ `${ className } starter` }
 						style={ backgroundStyle }
-						blockCount={ blockCount }
-						isAdmin={ true }
+						blockcount={ blockCount }
 					>
 						<RichText
 							className="block-title"
@@ -170,7 +169,6 @@ function Edit( props ) {
 							style={ contentStyle }
 							onChange={ onChangeTitle }
 							placeholder={ __( 'Block Title', 'wdsblocks' ) }
-							keepPlaceholderOnFocus={ true }
 							value={ title }
 						/>
 						<InnerBlocks { ...INNER_BLOCKS_PROPS } />

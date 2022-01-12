@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from '@wordpress/element';
 
 /**
  * The usePreviewToggle hook handles state for toggling between "edit" and "preview" modes.
