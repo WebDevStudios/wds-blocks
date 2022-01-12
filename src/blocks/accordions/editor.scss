@@ -2,6 +2,7 @@
 @import '../../sass/mixins';
 
 .editor-styles-wrapper {
+
 	.wp-block-wdsblocks-accordions {
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
@@ -37,6 +38,7 @@
 
 		// Custom `preview-mode` styles.
 		&.preview-mode {
+
 			.wp-block-wdsblocks-accordion {
 				position: relative;
 				z-index: 2;
@@ -50,6 +52,7 @@
 
 			// Open first item
 			&[data-open-first='true'] {
+
 				.wp-block:first-of-type {
 					// get first .wp-block (InnerBlocks)
 					/* stylelint-disable */

@@ -6,7 +6,9 @@
 
 // Edit mode styles for accordion children.
 .wp-block-wdsblocks-accordions {
+
 	&.edit-mode {
+
 		.wp-block-wdsblocks-accordion {
 			padding: 1.5rem;
 
@@ -34,7 +36,9 @@
 }
 
 .editor-styles-wrapper {
+
 	.wp-block-wdsblocks-accordion {
+
 		&__title {
 			position: relative;
 			width: 100%;
