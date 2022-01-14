@@ -11,6 +11,7 @@
 
 import './blocks/accordions';
 import './blocks/accordion-item';
+import './blocks/call-to-action';
 import './blocks/carousel';
 import './blocks/carousel-slide';
 import './blocks/starter';
