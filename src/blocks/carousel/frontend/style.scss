@@ -1,8 +1,11 @@
 // Front-end styles.
-@import '@glidejs/glide/src/assets/sass/glide.core';
-@import '../../../sass/variables';
+
+// stylelint-disable-next-line scss/at-import-partial-extension
+@import "@glidejs/glide/src/assets/sass/glide.core";
+@import "../../../sass/variables";
 
 .wp-block-wdsblocks-carousel {
+
 	.slider-arrows,
 	.slider-dots {
 		position: absolute;
@@ -39,7 +42,7 @@
 		background-color: $color-white;
 		border: none;
 		border-radius: 50%;
-		box-shadow: 0 0 0.5em 0 rgba( 0, 0, 0, 0.25 );
+		box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.25);
 		cursor: pointer;
 		display: inline-block;
 		height: 1rem;
@@ -49,7 +52,7 @@
 		position: relative;
 		width: 1rem;
 
-		&[class*='--active'] {
+		&[class*="--active"] {
 			opacity: 1;
 		}
 	}
